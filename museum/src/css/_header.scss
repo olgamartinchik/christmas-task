@@ -9,35 +9,51 @@
   color: $white-color;
 }
 .logo_container {
-    display: flex;
-    justify-content: space-between;
-    width: 189px;
-  .logo {
-    background-image: url("./../assets/svg/Logo.svg");
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  width: 199px;
+  &:hover {
+    opacity: 0.6;
+  }
+  &.logo {
+    // background-image: url("assets/svg/Logo.svg");
     height: 26px;
     width: 49px;
   }
+
   .logo_title {
     font-size: 28px;
     font-family: $font-family-forum;
-    font-weight: 400;
-    text-transform: uppercase;
     color: $white-color;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 31px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
   }
 }
-
 .nav_menu {
   width: 100%;
-  max-width: 775px;
+  max-width: 720px;
   ul {
     display: flex;
     justify-content: space-between;
-  }
-
-  ul li a {
-    font-size: $font-family-Roboto;
-    font-weight: 200;
-    font-size: 22px;
-    color: $white-color;
+    align-items: center;
+    li a {
+      padding: 3px;
+      font-family: $font-family-Roboto;
+      font-weight: 200;
+      font-style: normal;
+      font-size: 22px;
+      color: $white-color;
+      line-height: 26px;
+      letter-spacing: 2px;
+    }
+    li:hover {
+      opacity: 0.6;
+      text-decoration: underline;
+    }
   }
 }

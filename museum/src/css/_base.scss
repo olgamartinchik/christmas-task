@@ -18,6 +18,12 @@ $black_color: #000000;
 a {
   text-decoration: none;
 }
-*{
-    box-sizing: border-box;
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+.title_dark, .subtitle_dark{
+    color: $white-color;
 }
