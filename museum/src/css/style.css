@@ -1,0 +1,61 @@
+.container {
+  margin: 0 auto;
+  max-width: 1470px;
+  padding: 0 15px;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.header {
+  background-color: #030303;
+}
+
+.header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 150px;
+  color: #ffffff;
+}
+
+.logo_container {
+  display: flex;
+  justify-content: space-between;
+  width: 189px;
+}
+.logo_container .logo {
+  background-image: url("./../assets/svg/Logo.svg");
+  height: 26px;
+  width: 49px;
+}
+.logo_container .logo_title {
+  font-size: 28px;
+  font-family: "Forum", cursive;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.nav_menu {
+  width: 100%;
+  max-width: 775px;
+}
+.nav_menu ul {
+  display: flex;
+  justify-content: space-between;
+}
+.nav_menu ul li a {
+  font-size: "Roboto Mono", monospace;
+  font-weight: 200;
+  font-size: 22px;
+  color: #ffffff;
+}
+
+/*# sourceMappingURL=style.css.map */

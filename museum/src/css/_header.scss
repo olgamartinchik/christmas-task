@@ -1,0 +1,43 @@
+.header {
+  background-color: $dark-color;
+}
+.header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 150px;
+  color: $white-color;
+}
+.logo_container {
+    display: flex;
+    justify-content: space-between;
+    width: 189px;
+  .logo {
+    background-image: url("./../assets/svg/Logo.svg");
+    height: 26px;
+    width: 49px;
+  }
+  .logo_title {
+    font-size: 28px;
+    font-family: $font-family-forum;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: $white-color;
+  }
+}
+
+.nav_menu {
+  width: 100%;
+  max-width: 775px;
+  ul {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  ul li a {
+    font-size: $font-family-Roboto;
+    font-weight: 200;
+    font-size: 22px;
+    color: $white-color;
+  }
+}

@@ -1,0 +1,23 @@
+$font-family-forum: "Forum", cursive;
+$font-family-Roboto: "Roboto Mono", monospace;
+
+$brown-color: #710707;
+$dark-color: #030303;
+$white-color: #ffffff;
+$light-brown-color: #d2b183;
+$gold-color: #9d8665;
+$light-gold-color: #caaa7d;
+$black_color: #000000;
+
+.container {
+  margin: 0 auto;
+  max-width: 1470px;
+  padding: 0 15px;
+  width: 100%;
+}
+a {
+  text-decoration: none;
+}
+*{
+    box-sizing: border-box;
+}
