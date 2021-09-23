@@ -24,6 +24,23 @@ a {
 html {
   scroll-behavior: smooth;
 }
+.title{
+  font-family:$font-family-forum ;
+}
 .title_dark, .subtitle_dark{
     color: $white-color;
+}
+
+.title_light{
+  color: $gold-color;
+}
+.subtitle{
+  font-family: $font-family-Roboto;
+}
+.subtitle_light{
+  color: $black_color;
+}
+.underline{
+  color: $brown-color;
+  margin-top: 25px;
 }

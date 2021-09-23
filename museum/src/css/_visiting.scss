@@ -1,0 +1,58 @@
+.visiting_section {
+  background-color: $white-color;
+  width: 100%;
+}
+.visiting_section .container {
+  height: 1266px;
+  padding: 75px 0;
+  .visiting_title {
+    font-family: $font-family-forum;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 80px;
+    line-height: 90px;
+    color: $gold-color;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+  }
+  .title_underline {
+    border-bottom: 3px solid;
+  }
+}
+.virtual_gallery {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+
+  .virtual_card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 440px;
+    height: 424px;
+    margin-top: 75px;
+
+    .subtitle_royal_place {
+      font-style: normal;
+      font-weight: normal;
+      font-size: 32px;
+      line-height: 35px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+    }
+    .underline_card {
+      margin-top: 10px;
+      width: 300px;
+      border-top: 2px solid;
+    }
+    p {
+      margin-top: 10px;
+      font-style: normal;
+      font-weight: 200;
+      font-size: 22px;
+      line-height: 26px;
+    }
+  }
+}

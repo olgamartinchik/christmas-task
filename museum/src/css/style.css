@@ -17,8 +17,29 @@ html {
   scroll-behavior: smooth;
 }
 
+.title {
+  font-family: "Forum", cursive;
+}
+
 .title_dark, .subtitle_dark {
   color: #ffffff;
+}
+
+.title_light {
+  color: #9d8665;
+}
+
+.subtitle {
+  font-family: "Roboto Mono", monospace;
+}
+
+.subtitle_light {
+  color: #000000;
+}
+
+.underline {
+  color: #710707;
+  margin-top: 25px;
 }
 
 .header {
@@ -92,8 +113,10 @@ html {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 32px;
-  background-image: url("../assets/img/madonna.jpg");
+  background-image: url("/src/assets/img/mona-lisa1.jpg");
+  background-repeat: no-repeat;
+  background-position: 100% 0%;
+  height: 810px;
 }
 .welcome_section .container .title_container {
   position: relative;
@@ -107,7 +130,6 @@ html {
 .welcome_section .container .title_container .welcome_title {
   max-width: 598px;
   width: 100%;
-  font-family: "Forum", cursive;
   font-style: normal;
   font-weight: normal;
   font-size: 80px;
@@ -149,6 +171,65 @@ html {
   width: 600px;
   height: 120px;
   z-index: 3;
+}
+
+.visiting_section {
+  background-color: #ffffff;
+  width: 100%;
+}
+
+.visiting_section .container {
+  height: 1266px;
+  padding: 75px 0;
+}
+.visiting_section .container .visiting_title {
+  font-family: "Forum", cursive;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 80px;
+  line-height: 90px;
+  color: #9d8665;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+.visiting_section .container .title_underline {
+  border-bottom: 3px solid;
+}
+
+.virtual_gallery {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.virtual_gallery .virtual_card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 440px;
+  height: 424px;
+  margin-top: 75px;
+}
+.virtual_gallery .virtual_card .subtitle_royal_place {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 32px;
+  line-height: 35px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+.virtual_gallery .virtual_card .underline_card {
+  margin-top: 10px;
+  width: 300px;
+  border-top: 2px solid;
+}
+.virtual_gallery .virtual_card p {
+  margin-top: 10px;
+  font-style: normal;
+  font-weight: 200;
+  font-size: 22px;
+  line-height: 26px;
 }
 
 /*# sourceMappingURL=style.css.map */

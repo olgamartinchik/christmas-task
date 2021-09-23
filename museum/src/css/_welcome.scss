@@ -3,75 +3,74 @@
   width: 100%;
 }
 .welcome_section .container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background-image: url("/src/assets/img/mona-lisa1.jpg");
+  background-repeat: no-repeat;
+  background-position: 100% 0%;
+  height: 810px;
+
+  .title_container {
     position: relative;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     justify-content: space-between;
-    padding-top: 32px;
-    // height: 810px;
-    background-image: url("../assets/img/madonna.jpg");
-    // z-index: 1;
+    height: 388px;
+    width: 598px;
 
-    .title_container {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: space-between;
-      height: 388px;
-      width: 598px;
-      
     //   z-index: 3;
-      .welcome_title {
-        max-width: 598px;
-        width: 100%;
-        font-family: $font-family-forum;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 80px;
-        line-height: 90px;
-        letter-spacing: 5px;
-        text-transform: uppercase;
-      }
-      .welcome_subtitle {
-        font-family: $font-family-Roboto;
-        font-style: normal;
-        font-weight: 300;
-        font-size: 28px;
-        line-height: 33px;
-        letter-spacing: 2px;
-      }
-      .welcome_btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: $brown-color;
-        width: 360px;
-        height: 75px;
-        border-radius: 5px;
-        color: $white-color;
-        font-family: $font-family-Roboto;
-        font-weight: 300;
-        font-size: 22px;
-        line-height: 26px;
-        display: flex;
-        align-items: center;
-        text-align: center;
-        letter-spacing: 2px;
-      }
+    .welcome_title {
+      max-width: 598px;
+      width: 100%;    
+      font-style: normal;
+      font-weight: normal;
+      font-size: 80px;
+      line-height: 90px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
     }
-    // .madonna_img {
-    //   position: relative;
-    //   z-index: 2;
-    // }
-    .welcome_pagination {
-      position: absolute;
-      bottom: 0;
-      right: 15px;
-      background-color: $dark-color;
-      width: 600px;
-      height: 120px;
-      z-index: 3;
+    .welcome_subtitle {
+      font-family: $font-family-Roboto;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 28px;
+      line-height: 33px;
+      letter-spacing: 2px;
+    }
+    .welcome_btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $brown-color;
+      width: 360px;
+      height: 75px;
+      border-radius: 5px;
+      color: $white-color;
+      font-family: $font-family-Roboto;
+      font-weight: 300;
+      font-size: 22px;
+      line-height: 26px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      letter-spacing: 2px;
     }
   }
-
+  // .madonna_img {
+  //   position: relative;
+  //   z-index: 2;
+  // }
+  .welcome_pagination {
+    position: absolute;
+    bottom: 0;
+    right: 15px;
+    background-color: $dark-color;
+    width: 600px;
+    height: 120px;
+    z-index: 3;
+  }
+}
