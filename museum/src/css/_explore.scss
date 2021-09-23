@@ -1,0 +1,35 @@
+.explore_section {
+  .container {
+    align-items: flex-start;
+    justify-content: center;
+    //   flex-wrap: wrap;
+    height: 865px;
+    height: 100%;
+    padding-bottom: 75px;
+    padding-top: 75px;
+    .content_explore {
+      max-width: 660px;
+      margin-right: 60px;
+    }
+    .mark {
+      color: $light-gold-color;
+      background: none;
+    }
+    p:first-of-type {
+      margin-top: 103px;
+    }
+    p {
+      padding-top: 25px;
+    }
+    .images_explore {
+      //   max-width: 720px;
+      //   height: 700px;
+      img {
+        width: 720px;
+        // width: 100%;
+        margin-top: 15px;
+        // max-height: 700px;
+      }
+    }
+  }
+}

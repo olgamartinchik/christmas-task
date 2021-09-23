@@ -10,6 +10,7 @@ $light-gold-color: #caaa7d;
 $black_color: #000000;
 
 .container {
+  display: flex;
   margin: 0 auto;
   max-width: 1470px;
   padding: 0 15px;
@@ -24,23 +25,49 @@ a {
 html {
   scroll-behavior: smooth;
 }
-.title{
-  font-family:$font-family-forum ;
+.title {
+  font-family: $font-family-forum;
+  font-size: 80px;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 90px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
 }
-.title_dark, .subtitle_dark{
-    color: $white-color;
+.title_dark,
+.subtitle_dark {
+  color: $white-color;
 }
 
-.title_light{
+.title_light {
   color: $gold-color;
 }
-.subtitle{
+.subtitle {
   font-family: $font-family-Roboto;
 }
-.subtitle_light{
+.subtitle_light {
   color: $black_color;
 }
-.underline{
-  color: $brown-color;
-  margin-top: 25px;
+.description {
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 26px;
+}
+.section_dark {
+  background-color: $dark-color;
+}
+.section_light {
+  background-color: $white-color;
+}
+.title_underline {
+  position: relative;
+}
+.title_underline::after {
+  content: "";
+  position: absolute;
+  bottom: -25px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: $brown-color;
 }

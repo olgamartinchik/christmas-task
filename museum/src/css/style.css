@@ -1,4 +1,5 @@
 .container {
+  display: flex;
   margin: 0 auto;
   max-width: 1470px;
   padding: 0 15px;
@@ -19,9 +20,16 @@ html {
 
 .title {
   font-family: "Forum", cursive;
+  font-size: 80px;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 90px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
 }
 
-.title_dark, .subtitle_dark {
+.title_dark,
+.subtitle_dark {
   color: #ffffff;
 }
 
@@ -37,9 +45,32 @@ html {
   color: #000000;
 }
 
-.underline {
-  color: #710707;
-  margin-top: 25px;
+.description {
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 26px;
+}
+
+.section_dark {
+  background-color: #030303;
+}
+
+.section_light {
+  background-color: #ffffff;
+}
+
+.title_underline {
+  position: relative;
+}
+
+.title_underline::after {
+  content: "";
+  position: absolute;
+  bottom: -25px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: #710707;
 }
 
 .header {
@@ -55,18 +86,18 @@ html {
 }
 
 .logo_container {
+  background-image: url("/src/assets/svg/Logo.svg");
+  background-repeat: no-repeat;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
   cursor: pointer;
   width: 199px;
+  height: 33px;
+  margin-right: 25px;
 }
 .logo_container:hover {
   opacity: 0.6;
-}
-.logo_container.logo {
-  height: 26px;
-  width: 49px;
 }
 .logo_container .logo_title {
   font-size: 28px;
@@ -74,9 +105,10 @@ html {
   color: #ffffff;
   font-style: normal;
   font-weight: normal;
-  line-height: 31px;
+  line-height: 35px;
   letter-spacing: 5px;
   text-transform: uppercase;
+  margin-left: 74px;
 }
 
 .nav_menu {
@@ -104,7 +136,6 @@ html {
 }
 
 .welcome_section {
-  background-color: #030303;
   width: 100%;
 }
 
@@ -117,6 +148,7 @@ html {
   background-repeat: no-repeat;
   background-position: 100% 0%;
   height: 810px;
+  padding-top: 32px;
 }
 .welcome_section .container .title_container {
   position: relative;
@@ -130,12 +162,6 @@ html {
 .welcome_section .container .title_container .welcome_title {
   max-width: 598px;
   width: 100%;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 80px;
-  line-height: 90px;
-  letter-spacing: 5px;
-  text-transform: uppercase;
 }
 .welcome_section .container .title_container .welcome_subtitle {
   font-family: "Roboto Mono", monospace;
@@ -163,6 +189,13 @@ html {
   text-align: center;
   letter-spacing: 2px;
 }
+.welcome_section .container .title_container .welcome_btn:hover {
+  opacity: 0.9;
+}
+.welcome_section .container .welcome_btn:hover {
+  opacity: 0.6;
+  color: #9d8665;
+}
 .welcome_section .container .welcome_pagination {
   position: absolute;
   bottom: 0;
@@ -174,33 +207,26 @@ html {
 }
 
 .visiting_section {
-  background-color: #ffffff;
   width: 100%;
 }
 
 .visiting_section .container {
-  height: 1266px;
-  padding: 75px 0;
+  flex-direction: column;
+  min-height: 1266px;
+  height: 100%;
+  padding-top: 75px;
+  padding-bottom: 75px;
 }
 .visiting_section .container .visiting_title {
   font-family: "Forum", cursive;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 80px;
-  line-height: 90px;
-  color: #9d8665;
-  letter-spacing: 5px;
-  text-transform: uppercase;
-}
-.visiting_section .container .title_underline {
-  border-bottom: 3px solid;
 }
 
 .virtual_gallery {
-  display: flex;
+  display: inline-flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  gap: 15px;
 }
 .virtual_gallery .virtual_card {
   display: flex;
@@ -220,9 +246,16 @@ html {
   text-transform: uppercase;
 }
 .virtual_gallery .virtual_card .underline_card {
-  margin-top: 10px;
-  width: 300px;
-  border-top: 2px solid;
+  position: relative;
+}
+.virtual_gallery .virtual_card .underline_card::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  right: 10px;
+  height: 2px;
+  background-color: #710707;
 }
 .virtual_gallery .virtual_card p {
   margin-top: 10px;
@@ -230,6 +263,39 @@ html {
   font-weight: 200;
   font-size: 22px;
   line-height: 26px;
+}
+
+@media (max-width: 1300px) {
+  .virtual_card {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.explore_section .container {
+  align-items: flex-start;
+  justify-content: center;
+  height: 865px;
+  height: 100%;
+  padding-bottom: 75px;
+  padding-top: 75px;
+}
+.explore_section .container .content_explore {
+  max-width: 660px;
+  margin-right: 60px;
+}
+.explore_section .container .mark {
+  color: #caaa7d;
+  background: none;
+}
+.explore_section .container p:first-of-type {
+  margin-top: 103px;
+}
+.explore_section .container p {
+  padding-top: 25px;
+}
+.explore_section .container .images_explore img {
+  width: 720px;
+  margin-top: 15px;
 }
 
 /*# sourceMappingURL=style.css.map */

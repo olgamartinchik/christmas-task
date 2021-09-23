@@ -9,18 +9,17 @@
   color: $white-color;
 }
 .logo_container {
+  background-image: url("/src/assets/svg/Logo.svg");
+  background-repeat: no-repeat;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
   cursor: pointer;
   width: 199px;
+  height: 33px;
+  margin-right: 25px;
   &:hover {
     opacity: 0.6;
-  }
-  &.logo {
-    // background-image: url("assets/svg/Logo.svg");
-    height: 26px;
-    width: 49px;
   }
 
   .logo_title {
@@ -29,9 +28,10 @@
     color: $white-color;
     font-style: normal;
     font-weight: normal;
-    line-height: 31px;
+    line-height: 35px;
     letter-spacing: 5px;
     text-transform: uppercase;
+    margin-left: 74px;
   }
 }
 .nav_menu {
