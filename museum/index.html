@@ -21,6 +21,7 @@
       href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,200;0,300;0,400;0,700;1,500&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- <link rel="stylesheet" href="./src/css/style.css" /> -->
     <link rel="stylesheet" href="./dist/style.css" />
     <title>Museum</title>
@@ -317,70 +318,107 @@
           </h2>
           <div class="tickets_container">
             <img src="/src/assets/img/tickets-img.jpg" alt="tickets image" />
-           
-              <form class="tickets_form">
-                <div class="radio_btn_container">
-                  <h3 class="title_form">Ticket Type</h3>
-                  <div>
-                    <input
-                      type="radio"
-                      name="a"
-                      value="Permanent exhibition"
-                      checked
-                    />
-                    <p class="text_form">Permanent exhibition</p>
-                  </div>
-                  <div>
-                    <input type="radio" name="a" value="Temporary exhibition" />
-                    <p class="text_form">Temporary exhibition</p>
-                  </div>
-                  <div>
-                    <input type="radio" name="a" value="Combined Admission" />
-                    <p class="text_form">Combined Admission</p>
-                  </div>
+
+            <form class="tickets_form">
+              <div class="radio_btn_container">
+                <h3 class="title_form">Ticket Type</h3>
+                <div>
+                  <input
+                    type="radio"
+                    name="a"
+                    value="Permanent exhibition"
+                    checked
+                  />
+                  <p class="text_form">Permanent exhibition</p>
                 </div>
-                <div class="select_box">
-                  <h3 class="title_form">Amount</h3>
-                  <div>
-                    <p class="text_form">Basic 18+</p>
-                    <input type="number" />
-                  </div>
-                  <div>
-                    <p class="text_form">Senior 65+</p>
-                    <input type="number" />
-                  </div>
-                  <h3 class="title_form title_form_price">
-                    Total € <span class="price_tiket">200</span>
-                  </h3>
-                  <span class="form_btn">Buy Now</span>
-                  <!-- <button class="form_btn">Buy Now</button> -->
+                <div>
+                  <input type="radio" name="a" value="Temporary exhibition" />
+                  <p class="text_form">Temporary exhibition</p>
                 </div>
-              </form>
-           
+                <div>
+                  <input type="radio" name="a" value="Combined Admission" />
+                  <p class="text_form">Combined Admission</p>
+                </div>
+              </div>
+              <div class="select_box">
+                <h3 class="title_form">Amount</h3>
+                <div>
+                  <p class="text_form">Basic 18+</p>
+                  <input type="number" />
+                </div>
+                <div>
+                  <p class="text_form">Senior 65+</p>
+                  <input type="number" />
+                </div>
+                <h3 class="title_form title_form_price">
+                  Total € <span class="price_tiket">200</span>
+                </h3>
+                <span class="form_btn">Buy Now</span>
+                <!-- <button class="form_btn">Buy Now</button> -->
+              </div>
+            </form>
           </div>
         </div>
       </section>
       <section class="parallax">
-      <div class="container">
-      </div>
-
+        <div class="container"></div>
       </section>
       <section class="section section_light contacts_section" id="contacts">
         <div class="container">
-          <h2 class="title title_light video_title title_underline">Contacts</h2>
-        <div class="contacts_container">
-          <div class="contacts">
-
+          <h2 class="title title_light video_title title_underline">
+            Contacts
+          </h2>
+          <div class="contacts_container">
+            <div class="contacts">
+              <h3 class="title_contacts">Palais Royal Musee du Louvre</h3>
+              <address class="address">address: 75001 Paris, France</address>
+              <p>
+                Phone: <a href="”tel:+33(0)140205050”">+33(0) 1 40 20 50 50</a>
+              </p>
+              <p>mail: <a href="mailto:info@louvre.fr">info@louvre.fr</a></p>
+            </div>
+            <div id="map">
+              <img src="/src/assets/img/map-img.jpg" alt="map" />
+            </div>
           </div>
-          <div id="map">
-            <img src="" alt="map">
-          </div>
-        </div>
         </div>
       </section>
     </main>
-    <footer>
-      <div class="container"></div>
+    <footer class="footer section_dark">
+      <div class="container">
+        <div class="footer_menu">
+          <div class="footer_menu_container">
+             <div class="logo_container">
+                <p class="logo_title">Louvre</p>
+              </div>
+              <div class="footer_nav_menu">
+                  <ul>                
+                    <li><a href="#visiting">Visiting</a></li>
+                    <li><a href="#explore">Explore</a></li>
+                    <li><a href="#video">Video</a></li>           
+                  </ul>
+                  <ul>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#tickets">Tickets</a></li>
+                    <li><a href="#contacts">Contacts</a></li>
+                  </ul>
+              </div>
+          </div>         
+          <div class="social_container">
+            <a class="social_icon" href="#"><i class="fab fa-youtube"></i></a>
+            <a class="social_icon" href="#"><i class="fab fa-instagram"></i></a>
+            <a class="social_icon" href="#"><i class="fab fa-facebook-f"></i></a>
+            <a class="social_icon" href="#"><i class="fab fa-twitter"></i></a>
+            <a class="social_icon" href="#"><i class="fab fa-pinterest"></i></a>           
+          </div>
+        </div>
+        <div class="footer_underline"></div>
+        <div class="footer_contacts">
+          <p>&#169 2021</p>
+          <a href="https://rs.school/">The Rolling Scopes School</a>
+          <a href="https://github.com/olgamartinchik">@olgamartinchik</a>
+        </div>
+      </div>
     </footer>
     <!-- <script src="./src/index.js"></script> -->
     <script src="./dist/script.js"></script>

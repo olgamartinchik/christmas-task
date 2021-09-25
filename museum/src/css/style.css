@@ -73,6 +73,15 @@ html {
   background-color: #710707;
 }
 
+h3 {
+  font-family: "Roboto Mono", monospace;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 33px;
+  color: #000000;
+}
+
 .header {
   background-color: #030303;
 }
@@ -396,7 +405,7 @@ html {
   opacity: 0.7;
 }
 .video_section .container .video_container .control_panel .progress {
-  background: linear-gradient(to right, #710707 0%, #710707 40%, #C4C4C4 40%, #C4C4C4 100%);
+  background: linear-gradient(to right, #710707 0%, #710707 40%, #c4c4c4 40%, #c4c4c4 100%);
   border-radius: 8px;
   height: 8px;
   width: 400px;
@@ -501,8 +510,6 @@ html {
   display: flex;
   flex-direction: column;
   font-style: normal;
-  font-family: "Roboto Mono", monospace;
-  color: #000000;
   margin-right: 15px;
   width: 270px;
   width: 100%;
@@ -520,11 +527,6 @@ html {
   font-weight: 300;
   font-size: 22px;
   line-height: 26px;
-}
-.tickets_section .container .title_form {
-  font-weight: bold;
-  font-size: 28px;
-  line-height: 33px;
 }
 .tickets_section .container .select_box {
   display: flex;
@@ -586,6 +588,131 @@ html {
   flex-direction: column;
   padding-top: 75px;
   padding-bottom: 42px;
+}
+.contacts_section .container .title_contacts {
+  font-weight: 500;
+}
+.contacts_section .container .contacts_container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 103px;
+}
+.contacts_section .container .contacts_container .contacts {
+  width: 282px;
+  margin-right: 20px;
+}
+.contacts_section .container .contacts_container .contacts .title_contacts {
+  margin-bottom: 50px;
+}
+.contacts_section .container .contacts_container .contacts .address,
+.contacts_section .container .contacts_container .contacts p,
+.contacts_section .container .contacts_container .contacts a {
+  font-family: "Roboto Mono", monospace;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 26px;
+  color: #000000;
+  margin-bottom: 25px;
+}
+.contacts_section .container .contacts_container .contacts a:hover {
+  opacity: 0.7;
+  text-decoration: underline;
+}
+
+.footer .container {
+  flex-direction: column;
+}
+.footer .container .footer_menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 86px;
+  padding-bottom: 50px;
+}
+.footer .container .footer_menu .footer_menu_container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 703px;
+  width: 100%;
+}
+.footer .container .footer_menu .footer_menu_container .footer_nav_menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  max-width: 363px;
+  width: 100%;
+}
+.footer .container .footer_menu .footer_menu_container .footer_nav_menu ul {
+  margin-left: 15px;
+}
+.footer .container .footer_menu .footer_menu_container .footer_nav_menu ul li {
+  margin-bottom: 25px;
+}
+.footer .container .footer_menu .footer_menu_container .footer_nav_menu a {
+  font-family: "Roboto Mono", monospace;
+  font-style: normal;
+  font-weight: 200;
+  font-size: 22px;
+  line-height: 26px;
+  letter-spacing: 2px;
+  color: #ffffff;
+}
+.footer .container .footer_menu .footer_menu_container .footer_nav_menu a:hover {
+  opacity: 0.7;
+  text-decoration: underline;
+}
+.footer .container .footer_menu .footer_menu_container .social_container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  max-width: 340px;
+  margin-left: 10px;
+}
+.footer .container .footer_menu .footer_menu_container .social_container .social_icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid #666666;
+  border-radius: 50%;
+  margin-left: 25px;
+  color: #ffffff;
+}
+.footer .container .footer_menu .footer_menu_container .social_container .social_icon .fab {
+  color: #ffffff;
+}
+.footer .container .footer_menu .footer_menu_container .social_container .social_icon:hover {
+  opacity: 0.7;
+}
+.footer .container .footer_contacts {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 50px;
+  padding-bottom: 52px;
+}
+.footer .container .footer_contacts p,
+.footer .container .footer_contacts a {
+  font-family: "Roboto Mono", monospace;
+  font-style: normal;
+  font-weight: 200;
+  font-size: 22px;
+  line-height: 22px;
+  letter-spacing: 2px;
+  color: #ffffff;
+}
+.footer .container .footer_contacts a:hover {
+  opacity: 0.7;
+}
+.footer .container .footer_underline {
+  border-top: 3px solid #666666;
 }
 
 /*# sourceMappingURL=style.css.map */
