@@ -27,11 +27,11 @@
     <title>Museum</title>
   </head>
   <body>
-    <header class="header">
+    <header class="header" id='header'>
       <div class="container">
-        <div class="logo_container">
+        <a class="logo_container" id="logo" href="#header">
           <p class="logo_title">Louvre</p>
-        </div>
+        </a>
         <nav class="nav_menu">
           <ul>
             <li><a href="#visiting">Visiting</a></li>
@@ -46,8 +46,8 @@
     </header>
     <main>
       <section class="section section_dark welcome_section" id="welcome">
-        <div class="container">
-          <div class="title_container">
+        <div class="container">        
+            <div class="title_container">
             <h1 class="title title_dark welcome_title">
               Welcome<br />
               to the Louvre
@@ -59,7 +59,27 @@
               >Discover the Louvre</a
             >
           </div>
-          <div class="welcome_pagination"></div>
+          <div class="welcome_pagination">
+            <div class="num_box">
+              <p><span>0</span><span class="img_number">1</span>|<span>0</span><span class="all_img">5</span></p>
+            </div>
+            <div class="pagination_box" >
+              <div class="pagination_img active"></div>
+              <div class="pagination_img"></div>
+              <div class="pagination_img"></div>
+              <div class="pagination_img"></div>
+              <div class="pagination_img"></div>
+             
+             
+            </div>
+            <div class="arrow_box">
+              <span class="left_arrow">&#x2190</span>
+              <span class="right_arrow">&#x2192</span>
+                          
+            </div>
+          </div>
+          </div>
+          
         </div>
       </section>
       <section class="section section_light visiting_section" id="visiting">
@@ -68,7 +88,7 @@
             Virtual tour
           </h2>
           <div class="virtual_gallery">
-            <a href="#">
+            <a href="https://clck.ru/XnygF"  target="_blank">
               <div class="card virtual_card">
                 <img
                   src="./src/assets/img/royal-place.jpg"
@@ -90,7 +110,7 @@
                 </div>
               </div>
             </a>
-            <a href="#">
+            <a href="https://clck.ru/Xnyha"  target="_blank">
               <div class="card virtual_card">
                 <img
                   src="./src/assets/img/demon-wing.jpg"
@@ -105,7 +125,7 @@
                   >
                     royal place
                   </h3>
-                  <!-- <div class="underline underline_card"></div> -->
+                  
                   <p class="subtitle subtitle_light">360° Virtual Tour</p>
                   <p class="subtitle subtitle_light">
                     Google Street Panorama View
@@ -113,7 +133,7 @@
                 </div>
               </div>
             </a>
-            <a href="#">
+            <a href="https://clck.ru/XnyjJ"  target="_blank">
               <div class="card virtual_card">
                 <img
                   src="./src/assets/img/colonnade-perrault.jpg"
@@ -128,7 +148,7 @@
                   >
                     royal place
                   </h3>
-                  <!-- <div class="underline underline_card"></div> -->
+                  
                   <p class="subtitle subtitle_light">360° Virtual Tour</p>
                   <p class="subtitle subtitle_light">
                     Google Street Panorama View
@@ -136,7 +156,7 @@
                 </div>
               </div>
             </a>
-            <a href="#">
+            <a href="https://clck.ru/Xnyq8"  target="_blank">
               <div class="card virtual_card">
                 <img
                   src="./src/assets/img/greek-hall.jpg"
@@ -151,7 +171,7 @@
                   >
                     royal place
                   </h3>
-                  <!-- <div class="underline underline_card"></div> -->
+                  
                   <p class="subtitle subtitle_light">360° Virtual Tour</p>
                   <p class="subtitle subtitle_light">
                     Google Street Panorama View
@@ -159,7 +179,7 @@
                 </div>
               </div>
             </a>
-            <a href="#">
+            <a href="https://clck.ru/Xnyqc"  target="_blank">
               <div class="card virtual_card">
                 <img
                   src="./src/assets/img/mona-lisa.jpg"
@@ -181,7 +201,7 @@
                 </div>
               </div>
             </a>
-            <a href="#">
+            <a href="https://clck.ru/Xnyqx"  target="_blank">
               <div class="card virtual_card">
                 <img
                   src="./src/assets/img/night-palace.jpg"
@@ -253,6 +273,7 @@
           <div class="video_container">
             <div class="video_wrapper">
               <!-- <video src="assets/video/video.mp4" poster="assets/video/poster.jpg" controls></video> -->
+              
               <img
                 class="video video_great"
                 src="/src/assets/img/video-img.jpg"
@@ -299,7 +320,14 @@
               />
             </div>
           </div>
-          <div class="video_slider"></div>
+          <div class="video_slider">
+            <iframe class="video small_video" src="https://www.youtube.com/embed/Vi5D6FKhRmo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe class="video small_video"  src="https://www.youtube.com/embed/NOhDysLnTvY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe class="video small_video"src="https://www.youtube.com/embed/aWmJ5DgyWPI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="dots_arrow">
+            <span></span><span></span><span></span>
+          </div>
         </div>
       </section>
       <section class="section section_dark gallery_section" id="gallery">
@@ -322,41 +350,57 @@
             <form class="tickets_form">
               <div class="radio_btn_container">
                 <h3 class="title_form">Ticket Type</h3>
-                <div>
-                  <input
+                <label class="container_input_radio">                
+                      <input class="input_radio"
                     type="radio"
-                    name="a"
+                    name="radio"
                     value="Permanent exhibition"
-                    checked
-                  />
+                    checked="checked"
+                  />     
+                  <span class="checkmark"></span>             
                   <p class="text_form">Permanent exhibition</p>
-                </div>
-                <div>
-                  <input type="radio" name="a" value="Temporary exhibition" />
-                  <p class="text_form">Temporary exhibition</p>
-                </div>
-                <div>
-                  <input type="radio" name="a" value="Combined Admission" />
-                  <p class="text_form">Combined Admission</p>
-                </div>
+                                
+                </label>
+                <label class="container_input_radio">                 
+                    <input class="input_radio" type="radio" name="radio" value="Temporary exhibition" />
+                    <span class="checkmark"></span>
+                    <p class="text_form">Temporary exhibition</p>                 
+                </label>
+                <label class="container_input_radio">
+                     <input class="input_radio" type="radio" name="radio" value="Combined Admission" />                  
+                     <span class="checkmark"></span>
+                        <p class="text_form">Combined Admission</p>
+                </label>
               </div>
               <div class="select_box">
                 <h3 class="title_form">Amount</h3>
-                <div>
+                <div class="input_number_container">
                   <p class="text_form">Basic 18+</p>
-                  <input type="number" />
+                  <div class="box_input_btn">
+                    <span class="plus_btn plus_btn_basic">+</span>
+                    <span class="minus_btn minus_btn_basic">-</span>
+                     <input class="input_number input_number_basic" type="number" min="0" max="100" value="0" readonly />
+                  </div>
+                 
                 </div>
-                <div>
+                <div class="input_number_container">
                   <p class="text_form">Senior 65+</p>
-                  <input type="number" />
+                  <div class="box_input_btn box_input_btn_senir">
+                    <span class="plus_btn plus_btn_senior">+</span>
+                    <span class="minus_btn minus_btn_senior">-</span>
+                    <input class="input_number input_number_senior" type="number" min="0" max="20" value="0" readonly />
+                  </div>                  
                 </div>
                 <h3 class="title_form title_form_price">
                   Total € <span class="price_tiket">200</span>
                 </h3>
                 <span class="form_btn">Buy Now</span>
-                <!-- <button class="form_btn">Buy Now</button> -->
+               
               </div>
             </form>
+            <div class="popup">
+              
+            </div>
           </div>
         </div>
       </section>
@@ -388,9 +432,9 @@
       <div class="container">
         <div class="footer_menu">
           <div class="footer_menu_container">
-             <div class="logo_container">
+             <a class="logo_container" href="#header">
                 <p class="logo_title">Louvre</p>
-              </div>
+              </a>
               <div class="footer_nav_menu">
                   <ul>                
                     <li><a href="#visiting">Visiting</a></li>
@@ -405,18 +449,18 @@
               </div>
           </div>         
           <div class="social_container">
-            <a class="social_icon" href="#"><i class="fab fa-youtube"></i></a>
-            <a class="social_icon" href="#"><i class="fab fa-instagram"></i></a>
-            <a class="social_icon" href="#"><i class="fab fa-facebook-f"></i></a>
-            <a class="social_icon" href="#"><i class="fab fa-twitter"></i></a>
-            <a class="social_icon" href="#"><i class="fab fa-pinterest"></i></a>           
+            <a class="social_icon" href="https://www.youtube.com/user/louvre"  target="_blank"><i class="fab fa-youtube"></i></a>
+            <a class="social_icon" href="https://www.instagram.com/museelouvre/"  target="_blank"><i class="fab fa-instagram"></i></a>
+            <a class="social_icon" href="https://www.facebook.com/museedulouvre"  target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a class="social_icon" href="http://twitter.com/museelouvre"  target="_blank"><i class="fab fa-twitter"></i></a>
+            <a class="social_icon" href="https://www.pinterest.fr/museedulouvre/"  target="_blank"><i class="fab fa-pinterest"></i></a>           
           </div>
         </div>
         <div class="footer_underline"></div>
         <div class="footer_contacts">
           <p>&#169 2021</p>
-          <a href="https://rs.school/">The Rolling Scopes School</a>
-          <a href="https://github.com/olgamartinchik">@olgamartinchik</a>
+          <a href="https://rs.school/"  target="_blank">The Rolling Scopes School</a>
+          <a href="https://github.com/olgamartinchik"  target="_blank">@olgamartinchik</a>
         </div>
       </div>
     </footer>

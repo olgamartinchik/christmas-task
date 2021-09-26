@@ -11,6 +11,7 @@
       img {
         max-width: 550px;
         width: 100%;
+        margin-right: 15px;
       }
     }
     .tickets_form {
@@ -25,18 +26,61 @@
       display: flex;
       flex-direction: column;
       font-style: normal;
-      
+
       margin-right: 15px;
       width: 270px;
       width: 100%;
       .title_form {
         margin-bottom: 50px;
       }
-
-      div {
-        display: flex;
-        align-items: center;
+      // radio input
+      .container_input_radio {
+        // display: flex;// align-items: center;
+        display: block;
+        position: relative;
         margin-bottom: 25px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        cursor: pointer;
+      }
+      .container_input_radio .input_radio {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+      }
+      .checkmark {
+        position: absolute;
+        top: 5px;
+        left: 2px;
+        height: 17px;
+        width: 17px;
+        border-radius: 50%;
+        background-color: $white-color;
+        border: 2px solid $black_color;
+      }
+      .container_input_radio:hover .input_radio ~ .checkmark {
+        background-color: #eeeaea;
+      }
+      .container_input_radio .input_radio:checked ~ .checkmark {
+        background-color: $white-color;
+      }
+      .checkmark::after {
+        content: "";
+        position: absolute;
+        display: none;
+      }
+      .container_input_radio .input_radio:checked ~ .checkmark::after {
+        display: block;
+      }
+      .container_input_radio .checkmark::after {
+        top: 3px;
+        left: 3px;
+        height: 7px;
+        width: 7px;
+        border-radius: 50%;
+        background: $black_color;
       }
     }
     .text_form {
@@ -45,7 +89,7 @@
       font-size: 22px;
       line-height: 26px;
     }
-   
+    //number input
     .select_box {
       display: flex;
       flex-direction: column;
@@ -56,44 +100,81 @@
       .title_form {
         margin-bottom: 25px;
       }
-      div {
+      .input_number_container {
         display: flex;
+        position: relative;
         flex-direction: column;
         align-items: flex-start;
         margin-top: 10px;
+
         .text_form {
           margin-left: 0;
           margin-bottom: 15px;
+        }
+        .box_input_btn {
+          position: relative;
+          .plus_btn,
+          .minus_btn {
+            position: absolute;
+
+            font-family: $font-family-Roboto;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 32px;
+            line-height: 37px;
+            text-align: center;
+            color: $black_color;
+            outline: none;
+            &:hover{
+              cursor: pointer;
+              opacity: .5;
+            }
+          }
+          .plus_btn{
+            left: 14px;
+            top: 6px;
+          }
+          .minus_btn{
+            right: 14px;
+            top: 6px;
+          }
+          .input_number {
+
+            width: 150px;
+            height: 50px;
+            border: 3px solid $black_color;
+            box-sizing: border-box;
+            text-align: center;
+          }
         }
       }
       .title_form_price {
         margin: 50px 0 60px;
       }
-   
-    .form_btn {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 175px;
-      height: 50px;
-      border-radius: 3px;
-      background-color: $black_color;
-      font-family: $font-family-forum;
-      font-style: normal;
-      font-weight: 300;
-      font-size: 22px;
-      line-height: 26px;
-      display: flex;
-      align-items: center;
-      text-align: center;
-      letter-spacing: 2px;
 
-      color: $white-color;
-      &:hover {
-        cursor: pointer;
-        opacity: 0.8;
+      .form_btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 175px;
+        height: 50px;
+        border-radius: 3px;
+        background-color: $black_color;
+        font-family: $font-family-forum;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 22px;
+        line-height: 26px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        letter-spacing: 2px;
+        color: $white-color;
+        &:hover {
+          cursor: pointer;
+          opacity: 0.8;
+        }
       }
     }
-}
   }
 }

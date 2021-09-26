@@ -153,11 +153,22 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-image: url("/src/assets/img/mona-lisa1.jpg");
+  background-image: url("/src/assets/img/welcome-slider/1.jpg");
   background-repeat: no-repeat;
-  background-position: 100% 0%;
+  background-position: calc(100% - 15px) calc(0% + 33px);
   height: 810px;
   padding-top: 32px;
+  cursor: pointer;
+  transition: 1s ease;
+}
+.welcome_section .container::after {
+  content: "";
+  position: absolute;
+  background: linear-gradient(90deg, #000000 0%, rgba(0, 0, 0, 0.5) 16.19%, rgba(0, 0, 0, 0) 30.73%);
+  background-position: calc(100% - 1031px) 0%;
+  top: 0;
+  bottom: 0;
+  width: 100%;
 }
 .welcome_section .container .title_container {
   position: relative;
@@ -167,6 +178,8 @@ h3 {
   justify-content: space-between;
   height: 388px;
   width: 598px;
+  z-index: 1;
+  cursor: default;
 }
 .welcome_section .container .title_container .welcome_title {
   max-width: 598px;
@@ -199,20 +212,81 @@ h3 {
   letter-spacing: 2px;
 }
 .welcome_section .container .title_container .welcome_btn:hover {
+  cursor: pointer;
   opacity: 0.9;
 }
 .welcome_section .container .welcome_btn:hover {
+  cursor: pointer;
   opacity: 0.6;
   color: #9d8665;
 }
 .welcome_section .container .welcome_pagination {
   position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   bottom: 0;
-  right: 15px;
+  right: 0;
   background-color: #030303;
   width: 600px;
   height: 120px;
   z-index: 3;
+  color: #ffffff;
+  padding: 0 75px;
+  cursor: default;
+}
+.welcome_section .container .welcome_pagination p {
+  font-family: "Roboto Mono", monospace;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 40px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+.welcome_section .container .welcome_pagination .pagination_box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 180px;
+  width: 180%;
+  margin-left: 55px;
+}
+.welcome_section .container .welcome_pagination .arrow_box {
+  width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 60px;
+}
+.welcome_section .container .welcome_pagination .pagination_img {
+  width: 16px;
+  height: 16px;
+  background-color: #ffffff;
+  margin-left: 25px;
+  transition: background-color 0.4s ease;
+}
+.welcome_section .container .welcome_pagination .pagination_img:hover {
+  cursor: pointer;
+  background-color: #d2b183;
+}
+.welcome_section .container .welcome_pagination .pagination_img.active {
+  background-color: #d2b183;
+}
+.welcome_section .container .welcome_pagination .right_arrow,
+.welcome_section .container .welcome_pagination .left_arrow {
+  transition: 0.4s ease;
+}
+.welcome_section .container .welcome_pagination .right_arrow {
+  margin-left: 20px;
+}
+.welcome_section .container .welcome_pagination .right_arrow:hover {
+  cursor: pointer;
+  color: #d2b183;
+}
+.welcome_section .container .welcome_pagination .left_arrow:hover {
+  cursor: pointer;
+  color: #d2b183;
 }
 
 .visiting_section {
@@ -441,6 +515,17 @@ h3 {
   cursor: pointer;
   opacity: 0.7;
 }
+.video_section .container .video_slider {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+.video_section .container .video_slider .small_video {
+  max-width: 452px;
+  width: 100%;
+  height: 254px;
+}
 
 .gallery_section .container {
   flex-direction: column;
@@ -498,6 +583,7 @@ h3 {
 .tickets_section .container .tickets_container img {
   max-width: 550px;
   width: 100%;
+  margin-right: 15px;
 }
 .tickets_section .container .tickets_form {
   display: flex;
@@ -517,10 +603,52 @@ h3 {
 .tickets_section .container .radio_btn_container .title_form {
   margin-bottom: 50px;
 }
-.tickets_section .container .radio_btn_container div {
-  display: flex;
-  align-items: center;
+.tickets_section .container .radio_btn_container .container_input_radio {
+  display: block;
+  position: relative;
   margin-bottom: 25px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+}
+.tickets_section .container .radio_btn_container .container_input_radio .input_radio {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+.tickets_section .container .radio_btn_container .checkmark {
+  position: absolute;
+  top: 5px;
+  left: 2px;
+  height: 17px;
+  width: 17px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 2px solid #000000;
+}
+.tickets_section .container .radio_btn_container .container_input_radio:hover .input_radio ~ .checkmark {
+  background-color: #eeeaea;
+}
+.tickets_section .container .radio_btn_container .container_input_radio .input_radio:checked ~ .checkmark {
+  background-color: #ffffff;
+}
+.tickets_section .container .radio_btn_container .checkmark::after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.tickets_section .container .radio_btn_container .container_input_radio .input_radio:checked ~ .checkmark::after {
+  display: block;
+}
+.tickets_section .container .radio_btn_container .container_input_radio .checkmark::after {
+  top: 3px;
+  left: 3px;
+  height: 7px;
+  width: 7px;
+  border-radius: 50%;
+  background: #000000;
 }
 .tickets_section .container .text_form {
   margin-left: 23px;
@@ -539,15 +667,51 @@ h3 {
 .tickets_section .container .select_box .title_form {
   margin-bottom: 25px;
 }
-.tickets_section .container .select_box div {
+.tickets_section .container .select_box .input_number_container {
   display: flex;
+  position: relative;
   flex-direction: column;
   align-items: flex-start;
   margin-top: 10px;
 }
-.tickets_section .container .select_box div .text_form {
+.tickets_section .container .select_box .input_number_container .text_form {
   margin-left: 0;
   margin-bottom: 15px;
+}
+.tickets_section .container .select_box .input_number_container .box_input_btn {
+  position: relative;
+}
+.tickets_section .container .select_box .input_number_container .box_input_btn .plus_btn,
+.tickets_section .container .select_box .input_number_container .box_input_btn .minus_btn {
+  position: absolute;
+  font-family: "Roboto Mono", monospace;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 32px;
+  line-height: 37px;
+  text-align: center;
+  color: #000000;
+  outline: none;
+}
+.tickets_section .container .select_box .input_number_container .box_input_btn .plus_btn:hover,
+.tickets_section .container .select_box .input_number_container .box_input_btn .minus_btn:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+.tickets_section .container .select_box .input_number_container .box_input_btn .plus_btn {
+  left: 14px;
+  top: 6px;
+}
+.tickets_section .container .select_box .input_number_container .box_input_btn .minus_btn {
+  right: 14px;
+  top: 6px;
+}
+.tickets_section .container .select_box .input_number_container .box_input_btn .input_number {
+  width: 150px;
+  height: 50px;
+  border: 3px solid #000000;
+  box-sizing: border-box;
+  text-align: center;
 }
 .tickets_section .container .select_box .title_form_price {
   margin: 50px 0 60px;
@@ -621,13 +785,16 @@ h3 {
   opacity: 0.7;
   text-decoration: underline;
 }
+.contacts_section .container .contacts_container #map img {
+  width: 100%;
+}
 
 .footer .container {
   flex-direction: column;
 }
 .footer .container .footer_menu {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
   padding-top: 86px;
   padding-bottom: 50px;
@@ -667,14 +834,14 @@ h3 {
   opacity: 0.7;
   text-decoration: underline;
 }
-.footer .container .footer_menu .footer_menu_container .social_container {
+.footer .container .footer_menu .social_container {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  max-width: 340px;
+  max-width: 465px;
   margin-left: 10px;
 }
-.footer .container .footer_menu .footer_menu_container .social_container .social_icon {
+.footer .container .footer_menu .social_icon {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -685,11 +852,12 @@ h3 {
   margin-left: 25px;
   color: #ffffff;
 }
-.footer .container .footer_menu .footer_menu_container .social_container .social_icon .fab {
-  color: #ffffff;
+.footer .container .footer_menu .social_icon:hover {
+  opacity: 0.5;
 }
-.footer .container .footer_menu .footer_menu_container .social_container .social_icon:hover {
-  opacity: 0.7;
+.footer .container .footer_menu .fab {
+  color: #ffffff;
+  font-size: 20px;
 }
 .footer .container .footer_contacts {
   display: flex;
