@@ -125,21 +125,20 @@
             text-align: center;
             color: $black_color;
             outline: none;
-            &:hover{
+            &:hover {
               cursor: pointer;
-              opacity: .5;
+              opacity: 0.5;
             }
           }
-          .plus_btn{
+          .plus_btn {
             left: 14px;
             top: 6px;
           }
-          .minus_btn{
+          .minus_btn {
             right: 14px;
             top: 6px;
           }
           .input_number {
-
             width: 150px;
             height: 50px;
             border: 3px solid $black_color;
@@ -174,6 +173,169 @@
           cursor: pointer;
           opacity: 0.8;
         }
+      }
+    }
+    .modal_wrapper {
+      position: relative;
+      height: 100%;
+    }
+    .popup {
+      display: block;
+      position: fixed;
+      left: 0;
+      top: 0;
+      padding: 10px;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.5);
+      overflow-y: scroll;
+      transition: all 0.4s ease-in-out;
+      z-index: 3;
+      .popup_container {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        top: 5%;
+        left: 50%;
+        transform: translate(-50%, 0);
+        max-width: 1440px;
+        height: 845px;
+        height: auto;
+        // max-width: 100%;
+        padding: 91px 235px;
+        overflow: hidden;
+        // width: 100%;
+        background-color: $white-color;
+        animation: animatePopup 1s;
+        animation-direction: alternate;
+
+        transition: 2s ease;
+        // transition: all 0.4s ease-in-out;
+        &::before {
+          transform: translateX(0);
+          animation: animatePopupEnd 1s;
+          animation-direction: alternate;
+
+          transition: 2s ease;
+        }
+        &::after {
+          transform: translateX(0);
+          animation: animatePopupEnd 1s;
+          animation-direction: alternate;
+          transition: 2s ease;
+          transform: translateX(0);
+        }
+        .close_btn {
+          position: absolute;
+          top: 30px;
+          right: 30px;
+          font-size: 30px;
+          outline: none;
+          &:hover {
+            cursor: pointer;
+            opacity: 0.6;
+          }
+        }
+        @keyframes animatePopup {
+          from {
+            left: -250px;
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+      }
+
+      @keyframes animatePopupEnd {
+        from {
+          opacity: 1;
+        }
+        to {
+          left: -250px;
+          opacity: 0;
+        }
+      }
+      .user_container {
+        width: 400px;
+        // width: 100%;
+        .logo_ticket {
+          width: 85px;
+        }
+        .title_ticket_popup {
+          font-style: normal;
+          font-weight: normal;
+          width: 386px;
+          font-size: 50px;
+          line-height: 55px;
+          text-transform: uppercase;
+        }
+        .subtitle_popup {
+          margin-top: 15px;
+          font-family: $font-family-Roboto;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 18px;
+          line-height: 21px;
+          color: $brown-color;
+        }
+        .title_underline::after {
+          content: "";
+          position: absolute;
+          bottom: -10px;
+          left: 0;
+          right: 0;
+          height: 3px;
+          width: 400px;
+          background-color: #710707;
+        }
+        .user_contacts {
+          margin-top: 50px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+        .date_time {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 400px;
+        }
+        .input_popup {
+          height: 45px;
+          border: 1px solid $dark-color;
+          margin-top: 20px;
+          margin-left: 0;
+          padding-left: 0;
+        }
+        .input_popup_data,
+        .input_popup_time {
+          width: 190px;
+        }
+        .input_popup_name,
+        .input_popup_email,
+        .input_popup_phone,
+        .select_ticket {
+          width: 400px;
+        }
+        .icon_position {
+          position: relative;
+        }
+        .data_icon,
+        .time_icon,
+        .name_icon {
+          position: absolute;
+          bottom: 15px;
+          left: 15px;
+          height: 15px;
+          z-index: 2;
+        }
+      }
+      .ticket_price_container {
+        width: 530px;
+        width: 100%;
       }
     }
   }

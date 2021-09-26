@@ -3,6 +3,7 @@ import "./js/videoControl.js";
 import "./js/addRandomGallery.js";
 import './js/countTickets.js';
 import './js/slideShow';
+import './js/popup'
 
 
 
