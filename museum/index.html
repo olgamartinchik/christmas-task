@@ -22,7 +22,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- <link rel="stylesheet" href="./src/css/style.css" /> -->
+    <link rel="stylesheet" href="./src/css/style.css" />
     <link rel="stylesheet" href="./dist/style.css" />
     <title>Museum</title>
   </head>
@@ -399,47 +399,46 @@
               </div>
             </form>
             <div class="modal_wrapper">
-              <div class="popup">
-              <div class="popup_container">                
-                <div class="close_btn">&times;</div>
-                <div class="user_container">
-                  <img class='logo_ticket' src="/src/assets/svg/logo-tiket.svg" alt="logo">                 
-                  <h2 class='title title_light title_ticket_popup'>Booking tickets</h2>
-                  <p class="subtitle_popup title_underline">Tour to Louvre</p>
-                  <div class="user_contacts">
-                    <div class="date_time">
-                      <div class="icon_position">
-                        <img class='data_icon' src="/src/assets/svg/date.svg" alt="data">
-                        <input class="input_popup input_popup_data" type="data">
+              <!-- <div class="modal_background">               -->
+                <div class="popup">
+                  <div class="popup_container">
+                    <!-- <div>                 -->
+                    <div class="close_btn">&times;</div>
+                    <div class="user_container">
+                      <img class='logo_ticket' src="/src/assets/svg/logo-tiket.svg" alt="logo">                 
+                      <h2 class='title title_light title_ticket_popup'>Booking tickets</h2>
+                      <p class="subtitle_popup title_underline">Tour to Louvre</p>
+                      <div class="user_contacts">
+                        <div class="date_time">
+                          <div class="icon_position">
+                            <img class='data_icon' src="/src/assets/svg/date.svg" alt="data">
+                            <input class="input_popup input_popup_data" type="data">
+                          </div>
+                          <div >
+                            <img class="time_icon" src="/src/assets/svg/time.svg" alt="time">
+                            <input class="input_popup input_popup_time" type="time">
+                          </div>                     
+                        </div>
+                        <label class="icon_positin">
+                          <img class="name_icon" src="/src/assets/svg/name.svg" alt="name">
+                          <input class="input_popup input_popup_name" type="name">
+                        </label>
+                        <label class="icon_positin">
+                          <input class="input_popup input_popup_email" type="email">
+                        </label>
+                        <label ><input class="input_popup input_popup_phone" type="phone"></label>
+                        <label class="icon_positin">
+                          <select class="input_popup select_ticket">
+                          <option selected >Ticket Type</option>
+                          <option>Пункт 2</option>
+                        </select>
+                        </label>
                       </div>
-                      <div >
-                        <img class="time_icon" src="/src/assets/svg/time.svg" alt="time">
-                        <input class="input_popup input_popup_time" type="time">
-                      </div>                     
                     </div>
-                    <label class="icon_positin">
-                      <img class="name_icon" src="/src/assets/svg/name.svg" alt="name">
-                      <input class="input_popup input_popup_name" type="name">
-                    </label>
-                    <label class="icon_positin">
-                      <input class="input_popup input_popup_email" type="email">
-                    </label>
-                    <label ><input class="input_popup input_popup_phone" type="phone"></label>
-                    <label class="icon_positin">
-                      <select class="input_popup select_ticket">
-                      <option selected >Ticket Type</option>
-                      <option>Пункт 2</option>
-                    </select>
-                    </label>
-                    
-
-                    
-
-                  </div>
+                    <div class="ticket_price_container"></div>
+                  <!-- </div> -->
                 </div>
-                <div class="ticket_price_container"></div>
-              </div>
-
+              <!-- </div> -->
             </div>
             </div>
             
@@ -509,7 +508,7 @@
         </div>
       </div>
     </footer>
-    <!-- <script src="./src/index.js"></script> -->
+    <script src="./src/index.js"></script>
     <script src="./dist/script.js"></script>
   </body>
 </html>

@@ -5,22 +5,24 @@ let popupContainer = document.querySelector(".popup_container");
 
 btnTicket.addEventListener("click", (e) => {
   popup.style.display = "block";
-//   if ((popup.style.display = "block")) {
-//     popupContainer.classList.remove("close");
-//   }
+  if (getComputedStyle(popup).display === "block") {
+    popupContainer.classList.remove("close");
+  }else{
+    popupContainer.classList.add("close");
+  }
 });
 popupBtn.addEventListener("click", (e) => {
  
   popup.style.display = "none";
-//   if( popup.style.display = "none"){
-//     popupContainer.classList.add("close");
-//   }
+  // if(getComputedStyle(popup).display ==="none"){
+  //   popupContainer.classList.add("close");
+  // }
 });
 window.addEventListener("click", (e) => {
   if (e.target === popup) {
    
-    popup.style.display = "none";
-    // if( popup.style.display = "none"){
+    popup.display = "none";
+    // if( getComputedStyle(popup).display ==="none"){
     //     popupContainer.classList.add("close");
     //   }
   }
