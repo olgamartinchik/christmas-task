@@ -1,0 +1,361 @@
+.tickets_section {
+  .container {
+    flex-direction: column;
+    padding-top: 75px;
+    padding-bottom: 75px;
+    .tickets_container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-top: 103px;
+      img {
+        max-width: 550px;
+        width: 100%;
+        margin-right: 15px;
+      }
+    }
+    .tickets_form {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      //   flex-wrap: wrap;
+      max-width: 660px;
+      width: 100%;
+    }
+    .radio_btn_container {
+      display: flex;
+      flex-direction: column;
+      font-style: normal;
+
+      margin-right: 15px;
+      width: 270px;
+      width: 100%;
+      .title_form {
+        margin-bottom: 50px;
+      }
+      // radio input
+      .container_input_radio {
+        // display: flex;// align-items: center;
+        display: block;
+        position: relative;
+        margin-bottom: 25px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        cursor: pointer;
+      }
+      .container_input_radio .input_radio {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+      }
+      .checkmark {
+        position: absolute;
+        top: 5px;
+        left: 2px;
+        height: 17px;
+        width: 17px;
+        border-radius: 50%;
+        background-color: $white-color;
+        border: 2px solid $black_color;
+      }
+      .container_input_radio:hover .input_radio ~ .checkmark {
+        background-color: #eeeaea;
+      }
+      .container_input_radio .input_radio:checked ~ .checkmark {
+        background-color: $white-color;
+      }
+      .checkmark::after {
+        content: "";
+        position: absolute;
+        display: none;
+      }
+      .container_input_radio .input_radio:checked ~ .checkmark::after {
+        display: block;
+      }
+      .container_input_radio .checkmark::after {
+        top: 3px;
+        left: 3px;
+        height: 7px;
+        width: 7px;
+        border-radius: 50%;
+        background: $black_color;
+      }
+    }
+    .text_form {
+      margin-left: 23px;
+      font-weight: 300;
+      font-size: 22px;
+      line-height: 26px;
+    }
+    //number input
+    .select_box {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: right;
+      width: 175px;
+      width: 100%;
+      .title_form {
+        margin-bottom: 25px;
+      }
+      .input_number_container {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 10px;
+
+        .text_form {
+          margin-left: 0;
+          margin-bottom: 15px;
+        }
+        .box_input_btn {
+          position: relative;
+          .plus_btn,
+          .minus_btn {
+            position: absolute;
+
+            font-family: $font-family-Roboto;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 32px;
+            line-height: 37px;
+            text-align: center;
+            color: $black_color;
+            outline: none;
+            &:hover {
+              cursor: pointer;
+              opacity: 0.5;
+            }
+          }
+          .plus_btn {
+            left: 14px;
+            top: 6px;
+          }
+          .minus_btn {
+            right: 14px;
+            top: 6px;
+          }
+          .input_number {
+            width: 150px;
+            height: 50px;
+            border: 3px solid $black_color;
+            box-sizing: border-box;
+            text-align: center;
+          }
+        }
+      }
+      .title_form_price {
+        margin: 50px 0 60px;
+      }
+
+      .form_btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 175px;
+        height: 50px;
+        border-radius: 3px;
+        background-color: $black_color;
+        font-family: $font-family-forum;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 22px;
+        line-height: 26px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        letter-spacing: 2px;
+        color: $white-color;
+        &:hover {
+          cursor: pointer;
+          opacity: 0.8;
+        }
+      }
+    }
+    .modal_wrapper {
+      position: relative;
+      // height: 100%;
+    }
+    // .modal_background {
+    //   z-index: 10;
+    //   position: absolute;
+    //   top: 0;
+    //   left: 0;
+    //   bottom: 0;
+    //   right: 0;
+    //   background-color: rgba(0, 0, 0, 0.55);
+    // }
+    .popup {
+      display: block;
+      position: fixed;
+      left: 0;
+      top: 0;
+      padding: 10px;
+      width: 100%;
+      height: 100%;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.5);
+      overflow: auto;
+      transition: all 0.4s ease;
+      z-index: 3;
+      // animation: animatePopup 1s;
+      // animation-direction: alternate;
+      // transition: 2s ease;
+
+      .popup_container {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 auto;
+        margin-top: 50px;
+        top: 5%;
+        left: 50%;
+        transform: translate(-50%, 0);
+        max-width: 1440px;
+        height: 845px;
+        height: auto;
+        padding: 91px 235px;
+        overflow: hidden;
+        background-color: $white-color;
+        animation: animatePopup 1s;
+        animation-direction: alternate;
+        transition: 2s ease;
+
+        // &::before {
+        //   transform: translateX(0);
+        //   animation: animatePopupEnd 1s;
+        //   animation-direction: alternate;
+        //   transition: 2s ease;
+        // }
+        // &::after {
+        //   transform: translateX(0);
+        //   animation: animatePopupEnd 1s;
+        //   animation-direction: alternate;
+        //   transition: 2s ease;
+        //   transform: translateX(0);
+        // }
+
+        .close_btn {
+          position: absolute;
+          top: 30px;
+          right: 30px;
+          font-size: 30px;
+          outline: none;
+          &:hover {
+            cursor: pointer;
+            opacity: 0.6;
+          }
+        }
+       
+      }
+      @keyframes animatePopup {
+        from {
+          left: -250px;
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      .popup_container.close {
+        animation: animatePopup 1s;
+        animation-direction: alternate;
+        transition: 2s ease;
+      }
+      @keyframes animatePopupEnd {
+        from {
+          opacity: 1;
+        }
+        to {
+          left: -250px;
+          opacity: 0;
+        }
+      }
+      .user_container {
+        width: 400px;
+        // width: 100%;
+        .logo_ticket {
+          width: 85px;
+        }
+        .title_ticket_popup {
+          font-style: normal;
+          font-weight: normal;
+          width: 386px;
+          font-size: 50px;
+          line-height: 55px;
+          text-transform: uppercase;
+        }
+        .subtitle_popup {
+          margin-top: 15px;
+          font-family: $font-family-Roboto;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 18px;
+          line-height: 21px;
+          color: $brown-color;
+        }
+        .title_underline::after {
+          content: "";
+          position: absolute;
+          bottom: -10px;
+          left: 0;
+          right: 0;
+          height: 3px;
+          width: 400px;
+          background-color: #710707;
+        }
+        .user_contacts {
+          margin-top: 50px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+        .date_time {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 400px;
+        }
+        .input_popup {
+          height: 45px;
+          border: 1px solid $dark-color;
+          margin-top: 20px;
+          margin-left: 0;
+          padding-left: 0;
+        }
+        .input_popup_data,
+        .input_popup_time {
+          width: 190px;
+        }
+        .input_popup_name,
+        .input_popup_email,
+        .input_popup_phone,
+        .select_ticket {
+          width: 400px;
+        }
+        .icon_position {
+          position: relative;
+        }
+        .data_icon,
+        .time_icon,
+        .name_icon {
+          position: absolute;
+          bottom: 15px;
+          left: 15px;
+          height: 15px;
+          z-index: 2;
+        }
+      }
+      .ticket_price_container {
+        width: 530px;
+        width: 100%;
+      }
+    }
+  }
+}

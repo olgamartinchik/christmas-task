@@ -1,0 +1,46 @@
+.contacts_section {
+  .container {
+    flex-direction: column;
+    padding-top: 75px;
+    padding-bottom: 42px;
+    .title_contacts {
+      font-weight: 500;
+    }
+    .contacts_container {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      width: 100%;
+      margin-top: 103px;
+      .contacts {
+        width: 282px;
+        margin-right: 20px;
+
+        .title_contacts {
+          margin-bottom: 50px;
+        }
+        .address,
+        p,
+        a {
+          font-family: $font-family-Roboto;
+          font-style: normal;
+          font-weight: 300;
+          font-size: 22px;
+          line-height: 26px;
+          color: $black_color;
+          margin-bottom: 25px;
+        }
+        a:hover{
+            opacity: .7;
+            text-decoration: underline;
+        }
+       
+      }
+      #map{
+        img{
+          width: 100%;
+        }
+      }
+    }
+  }
+}
