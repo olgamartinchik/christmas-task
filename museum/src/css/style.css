@@ -82,6 +82,11 @@ h3 {
   color: #000000;
 }
 
+button {
+  border: none;
+  background: none;
+}
+
 .header {
   background-color: #030303;
 }
@@ -275,7 +280,10 @@ h3 {
 }
 .welcome_section .container .welcome_pagination .right_arrow,
 .welcome_section .container .welcome_pagination .left_arrow {
+  width: 30px;
+  color: #ffffff;
   transition: 0.4s ease;
+  font-size: 30px;
 }
 .welcome_section .container .welcome_pagination .right_arrow {
   margin-left: 20px;
@@ -515,6 +523,9 @@ h3 {
   cursor: pointer;
   opacity: 0.7;
 }
+.video_section .container .video {
+  border: none;
+}
 .video_section .container .video_slider {
   display: flex;
   align-items: center;
@@ -525,6 +536,35 @@ h3 {
   max-width: 452px;
   width: 100%;
   height: 254px;
+}
+.video_section .container .dots_arrow {
+  padding-top: 40px;
+  width: 200px;
+  height: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+.video_section .container .arrow_video {
+  display: flex;
+}
+.video_section .container .arrow_video:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+.video_section .container .video_carusel_dots {
+  background-color: #999999;
+  width: 12px;
+  height: 12px;
+  border-radius: 50px;
+}
+.video_section .container .video_carusel_dots:hover {
+  cursor: pointer;
+  background-color: #333333;
+}
+.video_section .container .video_carusel_dots.active {
+  background-color: #333333;
 }
 
 .gallery_section .container {
@@ -739,17 +779,12 @@ h3 {
   cursor: pointer;
   opacity: 0.8;
 }
-.tickets_section .container .modal_wrapper {
-  position: relative;
-}
 .tickets_section .container .popup {
-  display: block;
+  display: none;
   position: fixed;
   left: 0;
   top: 0;
   padding: 10px;
-  width: 100%;
-  height: 100%;
   width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.5);
@@ -781,7 +816,7 @@ h3 {
   position: absolute;
   top: 30px;
   right: 30px;
-  font-size: 30px;
+  font-size: 70px;
   outline: none;
 }
 .tickets_section .container .popup .popup_container .close_btn:hover {
@@ -798,8 +833,7 @@ h3 {
   }
 }
 .tickets_section .container .popup .popup_container.close {
-  animation: animatePopup 1s;
-  animation-direction: alternate;
+  animation: animatePopupEnd 1s;
   transition: 2s ease;
 }
 @keyframes animatePopupEnd {
@@ -820,10 +854,10 @@ h3 {
 .tickets_section .container .popup .user_container .title_ticket_popup {
   font-style: normal;
   font-weight: normal;
-  width: 386px;
   font-size: 50px;
   line-height: 55px;
   text-transform: uppercase;
+  letter-spacing: inherit;
 }
 .tickets_section .container .popup .user_container .subtitle_popup {
   margin-top: 15px;
@@ -877,18 +911,379 @@ h3 {
 .tickets_section .container .popup .user_container .icon_position {
   position: relative;
 }
+.tickets_section .container .popup .user_container .icon_position span {
+  position: absolute;
+  left: 45px;
+  top: 35px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+  display: flex;
+  align-items: center;
+  color: #030303;
+}
 .tickets_section .container .popup .user_container .data_icon,
-.tickets_section .container .popup .user_container .time_icon,
+.tickets_section .container .popup .user_container .time_icon {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  height: 15px;
+  width: 15px;
+  z-index: 2;
+}
 .tickets_section .container .popup .user_container .name_icon {
   position: absolute;
   bottom: 15px;
   left: 15px;
   height: 15px;
+  width: 15px;
   z-index: 2;
 }
-.tickets_section .container .popup .ticket_price_container {
-  width: 530px;
+.tickets_section .container .popup .user_container .entry_ticket {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  height: 135px;
+  max-width: 400px;
   width: 100%;
+  border: 1px solid #030303;
+}
+.tickets_section .container .popup .user_container .entry_ticket .title_entry_ticket {
+  font-family: "Forum", cursive;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 20px;
+  text-transform: capitalize;
+  color: #9d8665;
+  margin: 10px 15px 0 15px;
+}
+.tickets_section .container .popup .user_container .entry_ticket .title_underline::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: #710707;
+  width: 100%;
+}
+.tickets_section .container .popup .user_container .entry_ticket .input_number_container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 22px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.tickets_section .container .popup .user_container .entry_ticket .input_number_container .box_input_btn {
+  position: relative;
+  display: flex;
+  font-family: "Roboto Mono", monospace;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+}
+.tickets_section .container .popup .user_container .entry_ticket .input_number_container .input_number {
+  width: 105px;
+  height: 25px;
+  text-align: center;
+  color: #030303;
+}
+.tickets_section .container .popup .user_container .entry_ticket .input_number_container .plus_btn,
+.tickets_section .container .popup .user_container .entry_ticket .input_number_container .minus_btn {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  width: 35px;
+  height: 25px;
+  color: #ffffff;
+  background-color: #030303;
+  cursor: pointer;
+}
+.tickets_section .container .popup .user_container .entry_ticket .input_number_container .plus_btn:hover,
+.tickets_section .container .popup .user_container .entry_ticket .input_number_container .minus_btn:hover {
+  opacity: 0.6;
+}
+.tickets_section .container .popup .user_container .entry_ticket .input_number_container .plus_btn {
+  top: 0;
+  left: 0;
+}
+.tickets_section .container .popup .user_container .entry_ticket .input_number_container .minus_btn {
+  top: 0;
+  right: 0;
+}
+.tickets_section .container .popup .user_container .entry_ticket .input_number_container p {
+  margin-left: 0;
+}
+.tickets_section .container .popup .ticket_price_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 530px;
+  padding: 25px 30px 26px 30px;
+  height: 663px;
+  border: 1px solid #030303;
+  margin-left: 40px;
+}
+.tickets_section .container .popup .ticket_price_container .overview_content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.tickets_section .container .popup .ticket_price_container .overview_ticket {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.tickets_section .container .popup .ticket_price_container .overview_container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+}
+.tickets_section .container .popup .ticket_price_container .overview_container div {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 5px;
+}
+.tickets_section .container .popup .ticket_price_container .overview_container div img {
+  margin-right: 15px;
+  width: 15px;
+}
+.tickets_section .container .popup .ticket_price_container .title_overview {
+  font-family: "Roboto Mono", monospace;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 37px;
+  color: #272727;
+}
+.tickets_section .container .popup .ticket_price_container .subtitle_overview {
+  font-family: "Roboto Mono", monospace;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 26px;
+  color: #740C11;
+  opacity: 0.9;
+}
+.tickets_section .container .popup .ticket_price_container .total_ticket {
+  margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-family: "Roboto Mono", monospace;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 26px;
+  color: #030303;
+}
+.tickets_section .container .popup .ticket_price_container .total_ticket .price_all {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.tickets_section .container .popup .ticket_price_container .total_ticket .price_all div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tickets_section .container .popup .ticket_price_container .total_ticket .price_all div .count_ticket {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  width: 32px;
+  height: 20px;
+  border-radius: 5px;
+  background-color: #030303;
+  color: #a4a4a3;
+}
+.tickets_section .container .popup .ticket_price_container .total_ticket .title_underline::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: #710707;
+}
+.tickets_section .container .popup .ticket_price_container .total_content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 21px;
+  width: 100%;
+}
+.tickets_section .container .popup .ticket_price_container .total_content h3 {
+  font-family: "Roboto Mono", monospace;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 37px;
+  color: #030303;
+}
+.tickets_section .container .popup .ticket_price_container .card_container {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 241px;
+}
+.tickets_section .container .popup .ticket_price_container .card_container .card_style {
+  position: absolute;
+  width: 360px;
+  height: 211px;
+  border-radius: 4px;
+}
+.tickets_section .container .popup .ticket_price_container .card_container .front_card {
+  position: relative;
+  background-color: #bcbcbc;
+  top: 10px;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 15px 20px;
+}
+.tickets_section .container .popup .ticket_price_container .card_container .front_card .img_box_card {
+  position: absolute;
+  top: 34px;
+  right: 20px;
+  width: 55px;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.tickets_section .container .popup .ticket_price_container .card_container .front_card .data_card_font {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 215px;
+  height: 54px;
+}
+.tickets_section .container .popup .ticket_price_container .card_container .front_card .data_card_font p {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  color: #161615;
+}
+.tickets_section .container .popup .ticket_price_container .card_container .front_card .data_card_font .num_card_front {
+  height: 35px;
+  width: 215px;
+}
+.tickets_section .container .popup .ticket_price_container .card_container .front_card .data_card_font .card_date {
+  width: 215px;
+  height: 54px;
+}
+.tickets_section .container .popup .ticket_price_container .card_container .front_card .data_card_font .date_box_front {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.tickets_section .container .popup .ticket_price_container .card_container .front_card .data_card_font .date_box_front input {
+  width: 100px;
+  height: 35px;
+}
+.tickets_section .container .popup .ticket_price_container .card_container .front_card .data_card_font .card_name {
+  width: 320px;
+  height: 53px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.tickets_section .container .popup .ticket_price_container .card_container .front_card .data_card_font .input_name_card {
+  width: 320px;
+  height: 35px;
+}
+.tickets_section .container .popup .ticket_price_container .card_container .back_card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  background-color: #939393;
+  right: 0;
+  top: 40px;
+  z-index: 1;
+}
+.tickets_section .container .popup .ticket_price_container .card_container .card_black_line {
+  margin-top: 25px;
+  height: 45px;
+  width: 100%;
+  background-color: #161615;
+}
+.tickets_section .container .popup .ticket_price_container .card_container .card_sicret {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 75px;
+  height: 111px;
+  margin-top: 15px;
+  margin-right: 20px;
+}
+.tickets_section .container .popup .ticket_price_container .card_container .card_sicret .cvc_card {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  color: #161615;
+}
+.tickets_section .container .popup .ticket_price_container .card_container .card_sicret span {
+  width: 75px;
+  height: 35px;
+  background-color: #ffffff;
+}
+.tickets_section .container .popup .ticket_price_container .card_container .card_sicret p {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+  color: #161615;
+}
+.tickets_section .container .popup .ticket_price_container .btn_container_ticket {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+.tickets_section .container .popup .ticket_price_container .btn_container_ticket .bye_btn {
+  background: #710707;
+  opacity: 0.9;
+  width: 220px;
+  height: 45px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 26px;
+  color: #ffffff;
+}
+.tickets_section .container .popup .ticket_price_container .btn_container_ticket .bye_btn:hover {
+  cursor: pointer;
+  opacity: 0.6;
 }
 
 .parallax .container {

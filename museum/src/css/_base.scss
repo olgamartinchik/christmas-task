@@ -2,6 +2,7 @@ $font-family-forum: "Forum", cursive;
 $font-family-Roboto: "Roboto Mono", monospace;
 
 $brown-color: #710707;
+$brown_light: #740C11;
 $dark-color: #030303;
 $white-color: #ffffff;
 $light-brown-color: #d2b183;
@@ -11,6 +12,7 @@ $black_color: #000000;
 $gray_color: #c4c4c4;
 $dark_gray_color: #666666;
 // $white-color: #eeeaea
+$black_lite_color:#272727;
 
 
 
@@ -86,3 +88,7 @@ h3 {
 }
 
 
+button{
+  border: none;
+  background: none;
+}
