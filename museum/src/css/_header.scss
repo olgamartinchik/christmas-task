@@ -36,20 +36,25 @@
 }
 .nav_menu {
   width: 100%;
-  max-width: 720px;
+  max-width: 776px;
   ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
     li a {
-      padding: 3px;
+      // padding-right: 3px;
+      padding-left: 2px;
       font-family: $font-family-Roboto;
       font-weight: 200;
       font-style: normal;
       font-size: 22px;
       color: $white-color;
       line-height: 26px;
-      letter-spacing: 2px;
+      letter-spacing: 1.8px;
+      // margin-left: -56px;
+    }
+    .last_position {
+      padding-right: 0;
     }
     li:hover {
       opacity: 0.6;

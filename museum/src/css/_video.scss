@@ -1,14 +1,14 @@
 .video_section {
   .container {
     flex-direction: column;
-    padding-top: 60px;
-    padding-bottom: 60px;
+    padding-top: 75px;
+    padding-bottom: 81px;
     .title_container {
       display: flex;
       justify-content: space-between;
       align-items: center;
       .video_title {
-        margin-left: 25px;
+        // margin-left: 25px;
       }
       .description {
         max-width: 720px;
@@ -22,6 +22,7 @@
       .video_wrapper {
         position: relative;
         display: flex;
+        margin-top: 34px;
 
         .btn_play {
           position: absolute;
@@ -52,7 +53,7 @@
         background-color: $black_color;
         gap: 0 15px;
         .panel_play {
-          margin-left: 30px;
+          margin-left: 15px;
           &:hover {
             cursor: pointer;
             opacity: 0.7;
@@ -100,7 +101,7 @@
           }
         }
         .fullscreen {
-          margin-right: 25px;
+          margin-right: 13px;
           &:hover {
             cursor: pointer;
             opacity: 0.7;
@@ -123,7 +124,7 @@
       }
     }
     .dots_arrow {
-      padding-top: 40px;
+      padding-top: 47px;
       width: 200px;
       height: 12px;
       display: flex;
@@ -133,9 +134,9 @@
     }
     .arrow_video {
       display: flex;
-      &:hover{
+      &:hover {
         cursor: pointer;
-        opacity: .6;
+        opacity: 0.6;
       }
     }
     .video_carusel_dots {
@@ -143,7 +144,7 @@
       width: 12px;
       height: 12px;
       border-radius: 50px;
-      &:hover{
+      &:hover {
         cursor: pointer;
         background-color: #333333;
       }

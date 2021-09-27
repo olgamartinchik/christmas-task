@@ -5,10 +5,9 @@
     //   flex-wrap: wrap;
     height: 865px;
     height: 100%;
-    padding-bottom: 75px;
+    padding-bottom: 72px;
     padding-top: 75px;
     .content_explore {
-     
       margin-right: 60px;
     }
     .mark {
@@ -16,10 +15,10 @@
       background: none;
     }
     p:first-of-type {
-      margin-top: 103px;
+      margin-top: 74px;
     }
     p {
-      padding-top: 25px;
+      padding-top: 30px;
     }
     .images_explore {
       position: relative;
@@ -73,11 +72,11 @@
   }
 }
 @media (max-width: 1024px) {
-  .explore_section .container{
+  .explore_section .container {
     flex-direction: column;
     width: 100%;
     margin: 0 auto;
-    .content_explore {     
+    .content_explore {
       width: 100%;
       margin-right: 0;
     }

@@ -3,7 +3,7 @@ let shuffle = (array) => {
 };
 
 export let addRandomGallery = () => {
-  console.log("hello");
+  // console.log("hello");
   let dataImagesGallery = [
     "galery1.jpg",
     "galery2.jpg",
@@ -25,9 +25,9 @@ export let addRandomGallery = () => {
   shuffle(dataImagesGallery);
 
   let galeryContainer = document.querySelector(".gallery_inner_container");
-  console.log(galeryContainer);
+  // console.log(galeryContainer);
   dataImagesGallery.map((img) => {
-    console.log(typeof img);
+    // console.log(typeof img);
     let image = document.createElement("img");
     image.classList.add("gallery_img");
     image.src = `src/assets/img/galery/${img}`;

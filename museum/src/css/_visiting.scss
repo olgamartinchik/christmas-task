@@ -18,7 +18,7 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 0 15px;
-
+  margin-top: 27px;
   // a {
   //   margin-top: 75px;
   // }
@@ -29,35 +29,41 @@
     justify-content: space-between;
     width: 440px;
     height: 424px;
-    margin-top: 75px;
-
+    margin-top: 76px;
+    .card_container {
+      margin-top: 10px;
+    }
     .subtitle_royal_place {
       font-style: normal;
       font-weight: normal;
       font-size: 32px;
       line-height: 35px;
-      letter-spacing: 5px;
+      letter-spacing: 3.1px;
       text-transform: uppercase;
+      word-spacing: 4.5px;
     }
     .underline_card {
       position: relative;
+      margin-bottom: 22px;
     }
     .underline_card::after {
       content: "";
       position: absolute;
-      bottom: -10px;
+      bottom: -11px;
 
       left: 0;
       right: 10px;
       height: 2px;
       background-color: $brown-color;
+      width: 300px;
     }
     p {
-      margin-top: 10px;
+      margin-top: 9px;
       font-style: normal;
       font-weight: 200;
       font-size: 22px;
       line-height: 26px;
+      margin-bottom: -2px;
     }
   }
 }

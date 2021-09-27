@@ -38,7 +38,7 @@ html {
 }
 
 .subtitle {
-  font-family: "Roboto Mono", monospace;
+  font-family: "Roboto", sans-serif;
 }
 
 .subtitle_light {
@@ -48,7 +48,7 @@ html {
 .description {
   font-weight: 300;
   font-size: 22px;
-  line-height: 26px;
+  line-height: 36px;
 }
 
 .section_dark {
@@ -66,7 +66,7 @@ html {
 .title_underline::after {
   content: "";
   position: absolute;
-  bottom: -25px;
+  bottom: -27px;
   left: 0;
   right: 0;
   height: 3px;
@@ -74,7 +74,7 @@ html {
 }
 
 h3 {
-  font-family: "Roboto Mono", monospace;
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 28px;
@@ -85,6 +85,7 @@ h3 {
 button {
   border: none;
   background: none;
+  padding: 0;
 }
 
 .header {
@@ -127,7 +128,7 @@ button {
 
 .nav_menu {
   width: 100%;
-  max-width: 720px;
+  max-width: 776px;
 }
 .nav_menu ul {
   display: flex;
@@ -135,14 +136,17 @@ button {
   align-items: center;
 }
 .nav_menu ul li a {
-  padding: 3px;
-  font-family: "Roboto Mono", monospace;
+  padding-left: 2px;
+  font-family: "Roboto", sans-serif;
   font-weight: 200;
   font-style: normal;
   font-size: 22px;
   color: #ffffff;
   line-height: 26px;
-  letter-spacing: 2px;
+  letter-spacing: 1.8px;
+}
+.nav_menu ul .last_position {
+  padding-right: 0;
 }
 .nav_menu ul li:hover {
   opacity: 0.6;
@@ -160,9 +164,8 @@ button {
   justify-content: space-between;
   background-image: url("/src/assets/img/welcome-slider/1.jpg");
   background-repeat: no-repeat;
-  background-position: calc(100% - 15px) calc(0% + 33px);
+  background-position: calc(100% - 15px) calc(0% - 0px);
   height: 810px;
-  padding-top: 32px;
   cursor: pointer;
   transition: 1s ease;
 }
@@ -185,18 +188,20 @@ button {
   width: 598px;
   z-index: 1;
   cursor: default;
+  margin-bottom: 119px;
 }
 .welcome_section .container .title_container .welcome_title {
   max-width: 598px;
   width: 100%;
 }
 .welcome_section .container .title_container .welcome_subtitle {
-  font-family: "Roboto Mono", monospace;
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: 300;
   font-size: 28px;
   line-height: 33px;
   letter-spacing: 2px;
+  margin-bottom: 52px;
 }
 .welcome_section .container .title_container .welcome_btn {
   display: flex;
@@ -205,9 +210,9 @@ button {
   background-color: #710707;
   width: 360px;
   height: 75px;
-  border-radius: 5px;
+  border-radius: 10px;
   color: #ffffff;
-  font-family: "Roboto Mono", monospace;
+  font-family: "Roboto", sans-serif;
   font-weight: 300;
   font-size: 22px;
   line-height: 26px;
@@ -231,7 +236,7 @@ button {
   align-items: center;
   justify-content: center;
   bottom: 0;
-  right: 0;
+  right: 15px;
   background-color: #030303;
   width: 600px;
   height: 120px;
@@ -241,7 +246,7 @@ button {
   cursor: default;
 }
 .welcome_section .container .welcome_pagination p {
-  font-family: "Roboto Mono", monospace;
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 22px;
@@ -249,20 +254,32 @@ button {
   text-transform: uppercase;
   color: #ffffff;
 }
+.welcome_section .container .welcome_pagination .img_number {
+  margin-left: -2px;
+}
+.welcome_section .container .welcome_pagination .line_slider {
+  margin-left: 9px;
+  margin-right: 9px;
+}
+.welcome_section .container .welcome_pagination .zero_slider {
+  margin-left: 2px;
+}
 .welcome_section .container .welcome_pagination .pagination_box {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 180px;
   width: 180%;
-  margin-left: 55px;
+  margin-left: 33px;
+  margin-right: 6px;
 }
 .welcome_section .container .welcome_pagination .arrow_box {
   width: 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-left: 60px;
+  margin-left: 51px;
+  margin-right: 3px;
 }
 .welcome_section .container .welcome_pagination .pagination_img {
   width: 16px;
@@ -281,6 +298,7 @@ button {
 .welcome_section .container .welcome_pagination .right_arrow,
 .welcome_section .container .welcome_pagination .left_arrow {
   width: 30px;
+  margin-bottom: 4px;
   color: #ffffff;
   transition: 0.4s ease;
   font-size: 30px;
@@ -318,6 +336,7 @@ button {
   align-items: center;
   flex-wrap: wrap;
   gap: 0 15px;
+  margin-top: 27px;
 }
 .virtual_gallery .virtual_card {
   display: flex;
@@ -326,34 +345,41 @@ button {
   justify-content: space-between;
   width: 440px;
   height: 424px;
-  margin-top: 75px;
+  margin-top: 76px;
+}
+.virtual_gallery .virtual_card .card_container {
+  margin-top: 10px;
 }
 .virtual_gallery .virtual_card .subtitle_royal_place {
   font-style: normal;
   font-weight: normal;
   font-size: 32px;
   line-height: 35px;
-  letter-spacing: 5px;
+  letter-spacing: 3.1px;
   text-transform: uppercase;
+  word-spacing: 4.5px;
 }
 .virtual_gallery .virtual_card .underline_card {
   position: relative;
+  margin-bottom: 22px;
 }
 .virtual_gallery .virtual_card .underline_card::after {
   content: "";
   position: absolute;
-  bottom: -10px;
+  bottom: -11px;
   left: 0;
   right: 10px;
   height: 2px;
   background-color: #710707;
+  width: 300px;
 }
 .virtual_gallery .virtual_card p {
-  margin-top: 10px;
+  margin-top: 9px;
   font-style: normal;
   font-weight: 200;
   font-size: 22px;
   line-height: 26px;
+  margin-bottom: -2px;
 }
 
 @media (max-width: 1300px) {
@@ -367,7 +393,7 @@ button {
   justify-content: center;
   height: 865px;
   height: 100%;
-  padding-bottom: 75px;
+  padding-bottom: 72px;
   padding-top: 75px;
 }
 .explore_section .container .content_explore {
@@ -378,10 +404,10 @@ button {
   background: none;
 }
 .explore_section .container p:first-of-type {
-  margin-top: 103px;
+  margin-top: 74px;
 }
 .explore_section .container p {
-  padding-top: 25px;
+  padding-top: 30px;
 }
 .explore_section .container .images_explore {
   position: relative;
@@ -428,16 +454,13 @@ button {
 }
 .video_section .container {
   flex-direction: column;
-  padding-top: 60px;
-  padding-bottom: 60px;
+  padding-top: 75px;
+  padding-bottom: 81px;
 }
 .video_section .container .title_container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-.video_section .container .title_container .video_title {
-  margin-left: 25px;
 }
 .video_section .container .title_container .description {
   max-width: 720px;
@@ -451,6 +474,7 @@ button {
 .video_section .container .video_container .video_wrapper {
   position: relative;
   display: flex;
+  margin-top: 34px;
 }
 .video_section .container .video_container .video_wrapper .btn_play {
   position: absolute;
@@ -480,7 +504,7 @@ button {
   gap: 0 15px;
 }
 .video_section .container .video_container .control_panel .panel_play {
-  margin-left: 30px;
+  margin-left: 15px;
 }
 .video_section .container .video_container .control_panel .panel_play:hover {
   cursor: pointer;
@@ -517,7 +541,7 @@ button {
   opacity: 0.7;
 }
 .video_section .container .video_container .control_panel .fullscreen {
-  margin-right: 25px;
+  margin-right: 13px;
 }
 .video_section .container .video_container .control_panel .fullscreen:hover {
   cursor: pointer;
@@ -538,7 +562,7 @@ button {
   height: 254px;
 }
 .video_section .container .dots_arrow {
-  padding-top: 40px;
+  padding-top: 47px;
   width: 200px;
   height: 12px;
   display: flex;
@@ -611,8 +635,8 @@ button {
 
 .tickets_section .container {
   flex-direction: column;
-  padding-top: 75px;
-  padding-bottom: 75px;
+  padding-top: 76px;
+  padding-bottom: 74px;
 }
 .tickets_section .container .tickets_container {
   display: flex;
@@ -621,9 +645,7 @@ button {
   margin-top: 103px;
 }
 .tickets_section .container .tickets_container img {
-  max-width: 550px;
-  width: 100%;
-  margin-right: 15px;
+  width: 151px;
 }
 .tickets_section .container .tickets_form {
   display: flex;
@@ -691,10 +713,14 @@ button {
   background: #000000;
 }
 .tickets_section .container .text_form {
-  margin-left: 23px;
+  margin-left: 39px;
   font-weight: 300;
   font-size: 22px;
   line-height: 26px;
+  letter-spacing: -1.1px;
+}
+.tickets_section .container .text_form_semior {
+  margin-top: 10px;
 }
 .tickets_section .container .select_box {
   display: flex;
@@ -712,7 +738,6 @@ button {
   position: relative;
   flex-direction: column;
   align-items: flex-start;
-  margin-top: 10px;
 }
 .tickets_section .container .select_box .input_number_container .text_form {
   margin-left: 0;
@@ -724,7 +749,7 @@ button {
 .tickets_section .container .select_box .input_number_container .box_input_btn .plus_btn,
 .tickets_section .container .select_box .input_number_container .box_input_btn .minus_btn {
   position: absolute;
-  font-family: "Roboto Mono", monospace;
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 32px;
@@ -755,6 +780,7 @@ button {
 }
 .tickets_section .container .select_box .title_form_price {
   margin: 50px 0 60px;
+  letter-spacing: 1px;
 }
 .tickets_section .container .select_box .form_btn {
   display: flex;
@@ -814,8 +840,8 @@ button {
 }
 .tickets_section .container .popup .popup_container .close_btn {
   position: absolute;
-  top: 30px;
-  right: 30px;
+  top: 10px;
+  right: 23px;
   font-size: 70px;
   outline: none;
 }
@@ -860,8 +886,8 @@ button {
   letter-spacing: inherit;
 }
 .tickets_section .container .popup .user_container .subtitle_popup {
-  margin-top: 15px;
-  font-family: "Roboto Mono", monospace;
+  margin-top: 11px;
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -871,15 +897,17 @@ button {
 .tickets_section .container .popup .user_container .title_underline::after {
   content: "";
   position: absolute;
-  bottom: -10px;
+  bottom: -13px;
   left: 0;
   right: 0;
   height: 3px;
   width: 400px;
   background-color: #710707;
+  letter-spacing: -1px;
+  word-spacing: -13px;
 }
 .tickets_section .container .popup .user_container .user_contacts {
-  margin-top: 50px;
+  margin-top: 54px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -963,7 +991,7 @@ button {
 .tickets_section .container .popup .user_container .entry_ticket .title_underline::after {
   content: "";
   position: absolute;
-  bottom: -10px;
+  bottom: -8px;
   left: 0;
   right: 0;
   height: 3px;
@@ -975,14 +1003,14 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 22px;
+  margin-top: 19px;
   margin-left: 15px;
   margin-right: 15px;
 }
 .tickets_section .container .popup .user_container .entry_ticket .input_number_container .box_input_btn {
   position: relative;
   display: flex;
-  font-family: "Roboto Mono", monospace;
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -1037,6 +1065,7 @@ button {
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  margin-top: 2px;
 }
 .tickets_section .container .popup .ticket_price_container .overview_ticket {
   display: flex;
@@ -1053,14 +1082,14 @@ button {
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  margin-top: 5px;
+  margin-top: 11px;
 }
 .tickets_section .container .popup .ticket_price_container .overview_container div img {
   margin-right: 15px;
   width: 15px;
 }
 .tickets_section .container .popup .ticket_price_container .title_overview {
-  font-family: "Roboto Mono", monospace;
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 32px;
@@ -1068,22 +1097,22 @@ button {
   color: #272727;
 }
 .tickets_section .container .popup .ticket_price_container .subtitle_overview {
-  font-family: "Roboto Mono", monospace;
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 22px;
   line-height: 26px;
-  color: #740C11;
+  color: #740c11;
   opacity: 0.9;
 }
 .tickets_section .container .popup .ticket_price_container .total_ticket {
-  margin-top: 22px;
+  margin-top: 26px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  font-family: "Roboto Mono", monospace;
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 22px;
@@ -1100,6 +1129,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 3px;
 }
 .tickets_section .container .popup .ticket_price_container .total_ticket .price_all div .count_ticket {
   display: flex;
@@ -1129,7 +1159,7 @@ button {
   width: 100%;
 }
 .tickets_section .container .popup .ticket_price_container .total_content h3 {
-  font-family: "Roboto Mono", monospace;
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 32px;
@@ -1170,6 +1200,9 @@ button {
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
+}
+.tickets_section .container .popup .ticket_price_container .card_container .front_card .overview_img {
+  margin-bottom: 18px;
 }
 .tickets_section .container .popup .ticket_price_container .card_container .front_card .data_card_font {
   display: flex;
@@ -1279,11 +1312,18 @@ button {
   font-weight: normal;
   font-size: 22px;
   line-height: 26px;
+  margin-bottom: -2px;
   color: #ffffff;
 }
 .tickets_section .container .popup .ticket_price_container .btn_container_ticket .bye_btn:hover {
   cursor: pointer;
   opacity: 0.6;
+}
+.tickets_section .container .user_selected {
+  letter-spacing: 1.2px;
+}
+.tickets_section .container .overview_img {
+  margin-top: -26px;
 }
 
 .parallax .container {
@@ -1297,7 +1337,7 @@ button {
 .contacts_section .container {
   flex-direction: column;
   padding-top: 75px;
-  padding-bottom: 42px;
+  padding-bottom: 70px;
 }
 .contacts_section .container .title_contacts {
   font-weight: 500;
@@ -1319,7 +1359,7 @@ button {
 .contacts_section .container .contacts_container .contacts .address,
 .contacts_section .container .contacts_container .contacts p,
 .contacts_section .container .contacts_container .contacts a {
-  font-family: "Roboto Mono", monospace;
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: 300;
   font-size: 22px;
@@ -1343,7 +1383,7 @@ button {
   align-items: flex-end;
   justify-content: space-between;
   padding-top: 86px;
-  padding-bottom: 50px;
+  padding-bottom: 25px;
 }
 .footer .container .footer_menu .footer_menu_container {
   display: flex;
@@ -1358,8 +1398,9 @@ button {
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
-  max-width: 363px;
+  max-width: 367px;
   width: 100%;
+  margin-top: 3px;
 }
 .footer .container .footer_menu .footer_menu_container .footer_nav_menu ul {
   margin-left: 15px;
@@ -1368,7 +1409,7 @@ button {
   margin-bottom: 25px;
 }
 .footer .container .footer_menu .footer_menu_container .footer_nav_menu a {
-  font-family: "Roboto Mono", monospace;
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: 200;
   font-size: 22px;
@@ -1379,6 +1420,12 @@ button {
 .footer .container .footer_menu .footer_menu_container .footer_nav_menu a:hover {
   opacity: 0.7;
   text-decoration: underline;
+}
+.footer .container .footer_menu .footer_menu_container .footer_nav_menu .second_nav {
+  margin-right: 4px;
+}
+.footer .container .footer_menu .social_container {
+  margin-bottom: 31px;
 }
 .footer .container .footer_menu .social_container ul {
   display: flex;
@@ -1414,7 +1461,7 @@ button {
 }
 .footer .container .footer_contacts p,
 .footer .container .footer_contacts a {
-  font-family: "Roboto Mono", monospace;
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: 200;
   font-size: 22px;
@@ -1424,6 +1471,9 @@ button {
 }
 .footer .container .footer_contacts a:hover {
   opacity: 0.7;
+}
+.footer .container .rs_linck {
+  margin-left: 110px;
 }
 .footer .container .footer_underline {
   border-top: 3px solid #666666;
