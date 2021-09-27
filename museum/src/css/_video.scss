@@ -108,6 +108,9 @@
         }
       }
     }
+    .video {
+      border: none;
+    }
     .video_slider {
       display: flex;
       align-items: center;
@@ -118,6 +121,35 @@
         width: 100%;
         height: 254px;
       }
+    }
+    .dots_arrow {
+      padding-top: 40px;
+      width: 200px;
+      height: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0 auto;
+    }
+    .arrow_video {
+      display: flex;
+      &:hover{
+        cursor: pointer;
+        opacity: .6;
+      }
+    }
+    .video_carusel_dots {
+      background-color: #999999;
+      width: 12px;
+      height: 12px;
+      border-radius: 50px;
+      &:hover{
+        cursor: pointer;
+        background-color: #333333;
+      }
+    }
+    .video_carusel_dots.active {
+      background-color: #333333;
     }
   }
 }

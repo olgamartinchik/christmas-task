@@ -22,7 +22,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./src/css/style.css" />
+    <!-- <link rel="stylesheet" href="./src/css/style.css" /> -->
     <link rel="stylesheet" href="./dist/style.css" />
     <title>Museum</title>
   </head>
@@ -48,38 +48,33 @@
       <section class="section section_dark welcome_section" id="welcome">
         <div class="container">        
             <div class="title_container">
-            <h1 class="title title_dark welcome_title">
-              Welcome<br />
-              to the Louvre
-            </h1>
-            <p class="subtitle subtitle_dark welcome_subtitle">
-              From the castle to the museum
-            </p>
-            <a class="welcome_btn" href="https://clck.ru/WYXgs" target="_blank"
-              >Discover the Louvre</a
-            >
-          </div>
+              <h1 class="title title_dark welcome_title">
+                Welcome<br />
+                to the Louvre
+              </h1>
+              <p class="subtitle subtitle_dark welcome_subtitle">
+                From the castle to the museum
+              </p>
+              <a class="welcome_btn" href="https://clck.ru/WYXgs" target="_blank"
+                >Discover the Louvre</a
+              >
+             </div>
           <div class="welcome_pagination">
             <div class="num_box">
               <p><span>0</span><span class="img_number">1</span>|<span>0</span><span class="all_img">5</span></p>
             </div>
             <div class="pagination_box" >
-              <div class="pagination_img active"></div>
-              <div class="pagination_img"></div>
-              <div class="pagination_img"></div>
-              <div class="pagination_img"></div>
-              <div class="pagination_img"></div>
-             
-             
+              <button class="pagination_img active"></button>
+              <button class="pagination_img"></button>
+              <button class="pagination_img"></button>
+              <button class="pagination_img"></button>
+              <button class="pagination_img"></button>
             </div>
             <div class="arrow_box">
-              <span class="left_arrow">&#x2190</span>
-              <span class="right_arrow">&#x2192</span>
-                          
+              <button class="left_arrow">&#x2190;</button>
+              <button class="right_arrow">&#x2192;</button>
             </div>
           </div>
-          </div>
-          
         </div>
       </section>
       <section class="section section_light visiting_section" id="visiting">
@@ -248,16 +243,8 @@
           </div>
           <div class="images_explore">
             <img src="/src/assets/img/explore-slider/after.jpg" alt="explore" />
-            <img
-              class="gradient_explore"
-              src="/src/assets/img/explore-slider/explore_img1.jpg"
-              alt="explore"
-            />
-            <img
-              class="explore_slider"
-              src="/src/assets/svg/explore slider.svg"
-              alt="explore slider"
-            />
+            <img class="gradient_explore" src="/src/assets/img/explore-slider/explore_img1.jpg" alt="explore"/>
+            <img class="explore_slider" src="/src/assets/svg/explore-slider.svg" alt="explore slider"/>
           </div>
         </div>
       </section>
@@ -321,12 +308,18 @@
             </div>
           </div>
           <div class="video_slider">
-            <iframe class="video small_video" src="https://www.youtube.com/embed/Vi5D6FKhRmo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <iframe class="video small_video"  src="https://www.youtube.com/embed/NOhDysLnTvY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <iframe class="video small_video"src="https://www.youtube.com/embed/aWmJ5DgyWPI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe class="video small_video" src="https://www.youtube.com/embed/Vi5D6FKhRmo" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe class="video small_video"  src="https://www.youtube.com/embed/NOhDysLnTvY" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe class="video small_video" src="https://www.youtube.com/embed/aWmJ5DgyWPI" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
           <div class="dots_arrow">
-            <span></span><span></span><span></span>
+           <button class="arrow_video"><img src="/src/assets/svg/left-arrows.svg" alt="left_arrow"></button> 
+            <button class="video_carusel_dots active"></button>
+            <button class="video_carusel_dots"></button>
+            <button class="video_carusel_dots"></button>
+            <button class="video_carusel_dots"></button>
+            <button class="video_carusel_dots"></button>
+            <button class="arrow_video"><img src="/src/assets/svg/right-arrous.svg" alt="right_arrow"></button>
           </div>
         </div>
       </section>
@@ -358,18 +351,18 @@
                     checked="checked"
                   />     
                   <span class="checkmark"></span>             
-                  <p class="text_form">Permanent exhibition</p>
+                  <span class="text_form">Permanent exhibition</span>
                                 
                 </label>
                 <label class="container_input_radio">                 
                     <input class="input_radio" type="radio" name="radio" value="Temporary exhibition" />
                     <span class="checkmark"></span>
-                    <p class="text_form">Temporary exhibition</p>                 
+                    <span class="text_form">Temporary exhibition</span>                 
                 </label>
                 <label class="container_input_radio">
                      <input class="input_radio" type="radio" name="radio" value="Combined Admission" />                  
                      <span class="checkmark"></span>
-                        <p class="text_form">Combined Admission</p>
+                        <span class="text_form">Combined Admission</span>
                 </label>
               </div>
               <div class="select_box">
@@ -398,11 +391,9 @@
                
               </div>
             </form>
-            <div class="modal_wrapper">
-              <!-- <div class="modal_background">               -->
+         
                 <div class="popup">
                   <div class="popup_container">
-                    <!-- <div>                 -->
                     <div class="close_btn">&times;</div>
                     <div class="user_container">
                       <img class='logo_ticket' src="/src/assets/svg/logo-tiket.svg" alt="logo">                 
@@ -412,42 +403,160 @@
                         <div class="date_time">
                           <div class="icon_position">
                             <img class='data_icon' src="/src/assets/svg/date.svg" alt="data">
-                            <input class="input_popup input_popup_data" type="data">
+                            <p>Date</p>
+                            <input class="input_popup input_popup_data" type="date" >
                           </div>
-                          <div >
+                          <div class="icon_position">
                             <img class="time_icon" src="/src/assets/svg/time.svg" alt="time">
-                            <input class="input_popup input_popup_time" type="time">
+                            <p>Time</p>
+                            <input class="input_popup input_popup_time" type="time" >
                           </div>                     
                         </div>
-                        <label class="icon_positin">
+                        <label class="icon_position">
                           <img class="name_icon" src="/src/assets/svg/name.svg" alt="name">
-                          <input class="input_popup input_popup_name" type="name">
+                          <span>Name</span>
+                          <input  class="input_popup input_popup_name" type="text">
                         </label>
-                        <label class="icon_positin">
-                          <input class="input_popup input_popup_email" type="email">
+                        <label class="icon_position">
+                          <img class="name_icon" src="/src/assets/svg/email.svg" alt="name_icon">
+                          <span> E-mail</span>
+                          <input  class="input_popup input_popup_email" type="email" >
                         </label>
-                        <label ><input class="input_popup input_popup_phone" type="phone"></label>
-                        <label class="icon_positin">
+                        <label class="icon_position">
+                          <img class="name_icon" src="/src/assets/svg/tel.svg" alt="name_icon">
+                          <span>Phone</span>
+                          <input  class="input_popup input_popup_phone" type="tel" >
+                        </label>
+                        <label class="icon_position">
+                          <img class="name_icon" src="/src/assets/svg/ballot.svg" alt="name_icon">
+                          <span>Ticket Type</span>
                           <select class="input_popup select_ticket">
-                          <option selected >Ticket Type</option>
-                          <option>Пункт 2</option>
+                          <option>Ticket Type</option>
+                          <option>1111111111111</option>
+                          <option>1111111111111</option>
                         </select>
                         </label>
+                        <div class="entry_ticket">
+                          <h3 class="title_entry_ticket title_underline">Entry ticket</h3>
+                          
+                          <div class="input_number_container">
+                            <p class="text_form">Basic 18+ <span>(20 €)</span></p>
+                            <div class="box_input_btn">
+                              <span class="plus_btn plus_btn_basic">+</span>
+                              <span class="minus_btn minus_btn_basic">-</span>
+                               <input class="input_number input_number_basic" type="number" min="0" max="100" value="0" readonly />
+                            </div>                           
+                          </div>
+                          <div class="input_number_container">
+                            <p class="text_form">Senior 65+ <span>(10 €)</span> </p>
+                            <div class="box_input_btn box_input_btn_senir">
+                              <span class="plus_btn plus_btn_senior">+</span>
+                              <span class="minus_btn minus_btn_senior">-</span>
+                              <input class="input_number input_number_senior" type="number" min="0" max="20" value="0" readonly />
+                            </div>                  
+                          </div>
+                        </div>
                       </div>
                     </div>
-                    <div class="ticket_price_container"></div>
-                  <!-- </div> -->
+                    <div class="ticket_price_container">
+                      <div class="overview_content">
+                        <div class="overview_ticket">
+                          <div class="overview_container">
+                              <h2 class="title_overview">Overview</h2>
+                              <h3 class="subtitle_overview">Tour to Louvre</h3>
+                              <div>
+                                <img src="/src/assets/svg/date.svg" alt="date">
+                                <p class="selected_data">Friday, August 19</p>
+                              </div>
+                              <div>
+                                <img src="/src/assets/svg/time.svg" alt="time">
+                                <p class="selected_time">16 : 30</p>
+                              </div>
+                              <div>
+                                <img src="/src/assets/svg/check_circle_outline.svg" alt="circle">
+                                <p class="selected_time">Temporary exhibition</p>
+                              </div>
+                          </div>
+                        </div>
+                          <div class="overview_img">
+                            <img src="/src/assets/img/overview_img.jpg" alt="overview">
+                          </div>
+                      </div>
+                      <!-- </div> -->
+                      
+                      <div class="total_ticket">
+                            <div class="price_all price_basic">
+                              <div>
+                                <span class="count_ticket">2</span>
+                                <p>Basic <span>(20 €)</span></p>
+                              </div>
+                              <p>40 €</p>
+                            </div>
+                            <div class="price_all price_senior title_underline">
+                              <div>
+                                <span class="count_ticket">2</span>
+                                <p>Senior <span>(10 €)</span></p>
+                              </div>
+                              <p >20 €</p>
+                            </div>
+                        <!-- </div> -->
+                      </div>
+                      <div class="total_content">
+                        <h3>Total:</h3>
+                        <h3>60 €</h3>
+                      </div>
+                      <div class="card_container">
+                        <div class="card_style front_card">
+                          <div class="img_box_card">
+                            <img src="/src/assets/svg/Visa.svg" alt="visa">
+                            <img src="/src/assets/svg/Mastercard.svg" alt="Mastercard">
+                          </div>
+                          <div class="data_card_font card_number">
+                            <p>Card number</p>
+                            <input class="num_card_front" type="text">
+                          </div>
+                          <div class="data_card_font card_date">
+                            <p>Expiration date</p>
+                            <div class="date_box_front">
+                              <input value="01" min="01" max="31"  type="number">
+                               <input value="2021" min="2021" max="2025" type="number">
+                            </div>
+                            
+                          </div>
+                          <div class="data_card_font card_name">
+                            <p>Cardholder name</p>                            
+                              <input class="input_name_card"   type="text">       
+                          </div>
+                        </div>
+                        <div class="card_style back_card">
+                          <div class="card_black_line">                            
+                          </div>
+                          <div class="card_sicret">
+                            <p class="cvc_card">CVC/CVV</p> 
+                            <span></span>
+                            <p>The last 
+                              3 or 4 digits
+                              on back
+                              of the card</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="btn_container_ticket">
+                        <button class="bye_btn">Book</button>
+                      </div>
+                      
+                    </div>
+                
                 </div>
-              <!-- </div> -->
-            </div>
-            </div>
+              </div>
+         
             
           </div>
         </div>
       </section>
-      <section class="parallax">
+      <div class="parallax">
         <div class="container"></div>
-      </section>
+      </div>
       <section class="section section_light contacts_section" id="contacts">
         <div class="container">
           <h2 class="title title_light video_title title_underline">
@@ -502,13 +611,13 @@
         </div>
         <div class="footer_underline"></div>
         <div class="footer_contacts">
-          <p>&#169 2021</p>
+          <p><span>&#169;</span> 2021</p>
           <a href="https://rs.school/"  target="_blank">The Rolling Scopes School</a>
           <a href="https://github.com/olgamartinchik"  target="_blank">@olgamartinchik</a>
         </div>
       </div>
     </footer>
-    <script src="./src/index.js"></script>
+    <!-- <script type="module" src="./src/index.js"></script> -->
     <script src="./dist/script.js"></script>
   </body>
 </html>

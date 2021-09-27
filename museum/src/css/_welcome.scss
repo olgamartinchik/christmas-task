@@ -155,7 +155,11 @@
     }
     .right_arrow,
     .left_arrow {
+      width: 30px;
+    
+      color: $white-color;
       transition: 0.4s ease;
+      font-size: 30px;
     }
     .right_arrow {
       margin-left: 20px;
