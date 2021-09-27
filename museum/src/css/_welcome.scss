@@ -10,9 +10,10 @@
   background-image: url("/src/assets/img/welcome-slider/1.jpg");
 
   background-repeat: no-repeat;
-  background-position: calc(100% - 15px) calc(0% - -33px);
+  background-position: calc(100% - 15px) calc(0% - 0px);
+  // background-position: calc(100% - 15px) calc(0% - -33px);
   height: 810px;
-  padding-top: 32px;
+  // padding-top: 32px;
   cursor: pointer;
   transition: 1s ease;
   &::after {
@@ -56,10 +57,12 @@
     width: 598px;
     z-index: 1;
     cursor: default;
-
+    margin-bottom: 119px;
     .welcome_title {
       max-width: 598px;
       width: 100%;
+      button {
+      }
     }
     .welcome_subtitle {
       font-family: $font-family-Roboto;
@@ -68,6 +71,7 @@
       font-size: 28px;
       line-height: 33px;
       letter-spacing: 2px;
+      margin-bottom: 52px;
     }
     .welcome_btn {
       display: flex;
@@ -76,7 +80,7 @@
       background-color: $brown-color;
       width: 360px;
       height: 75px;
-      border-radius: 5px;
+      border-radius: 10px;
       color: $white-color;
       font-family: $font-family-Roboto;
       font-weight: 300;
@@ -103,7 +107,7 @@
     align-items: center;
     justify-content: center;
     bottom: 0;
-    right: 0;
+    right: 15px;
     background-color: $dark-color;
     width: 600px;
     height: 120px;
@@ -121,7 +125,15 @@
       color: $white-color;
     }
     .img_number {
+      margin-left: -2px;
       // margin: 0 10px;
+    }
+    .line_slider {
+      margin-left: 9px;
+      margin-right: 9px;
+    }
+    .zero_slider {
+      margin-left: 2px;
     }
     .pagination_box {
       display: flex;
@@ -129,7 +141,8 @@
       justify-content: space-between;
       width: 180px;
       width: 180%;
-      margin-left: 55px;
+      margin-left: 33px;
+      margin-right: 6px;
       // margin: 0 60px 0 55px;
     }
     .arrow_box {
@@ -137,7 +150,8 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-left: 60px;
+      margin-left: 51px;
+      margin-right: 3px;
     }
     .pagination_img {
       width: 16px;
@@ -156,7 +170,7 @@
     .right_arrow,
     .left_arrow {
       width: 30px;
-    
+      margin-bottom: 4px;
       color: $white-color;
       transition: 0.4s ease;
       font-size: 30px;
