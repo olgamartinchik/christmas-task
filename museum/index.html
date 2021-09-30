@@ -28,6 +28,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="icon" href="/src/assets/favicon.ico" />
     <!-- <link rel="stylesheet" href="./src/css/style.css" /> -->
     <link rel="stylesheet" href="./dist/style.css" />
     <title>Museum</title>
@@ -62,11 +63,12 @@
               From the castle to the museum
             </p>
 
-            <!-- <a class="welcome_btn" href="https://clck.ru/WYXgs" target="_blank" -->
-            >
+            <iframe
+              id="fullscreen"
+              src="https://clck.ru/WYXgs"
+              allowfullscreen
+            ></iframe>
             <button class="welcome_btn">Discover the Louvre</button>
-            <!-- </a -->
-            >
           </div>
           <div class="welcome_pagination">
             <div class="num_box">
@@ -383,7 +385,11 @@
             BUY TICKETS
           </h2>
           <div class="tickets_container">
-            <img src="/src/assets/img/tickets-img.jpg" alt="tickets image" />
+            <img
+              class="tickets_container_img"
+              src="/src/assets/img/tickets-img.jpg"
+              alt="tickets image"
+            />
 
             <form class="tickets_form">
               <div class="radio_btn_container">
@@ -681,9 +687,7 @@
           </div>
         </div>
       </section>
-      <div class="parallax">
-        <div class="container"></div>
-      </div>
+      <div class="parallax"></div>
       <section class="section section_light contacts_section" id="contacts">
         <div class="container">
           <h2 class="title title_light video_title title_underline">

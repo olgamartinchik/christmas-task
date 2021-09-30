@@ -8,8 +8,8 @@
       justify-content: space-between;
       align-items: flex-start;
       margin-top: 103px;
-      img {
-        width: 151px;
+      .tickets_container_img {
+        max-width: 720px;
         // width: 100%;
         // margin-right: 15px;
       }

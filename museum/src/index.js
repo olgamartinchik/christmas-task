@@ -2,8 +2,9 @@
 import "./js/videoControl.js";
 import "./js/addRandomGallery.js";
 import "./js/countTickets.js";
-import "./js/slideShow";
+import "./js/slideShow.js";
 import "./js/popup";
+import "./js/fullscreen";
 
 let arrayLinkVisiting = [
   "https://clck.ru/XnygF",
