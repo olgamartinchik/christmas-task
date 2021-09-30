@@ -368,16 +368,7 @@ button {
 .virtual_gallery .virtual_card .underline_card {
   position: relative;
   margin-bottom: 22px;
-}
-.virtual_gallery .virtual_card .underline_card::after {
-  content: "";
-  position: absolute;
-  bottom: -11px;
-  left: 0;
-  right: 10px;
-  height: 2px;
-  background-color: #710707;
-  width: 300px;
+  transition: all 1s ease-out;
 }
 .virtual_gallery .virtual_card p {
   margin-top: 9px;
@@ -394,6 +385,27 @@ button {
     margin-right: auto;
   }
 }
+.card {
+  position: relative;
+  transition: all 1s ease-out;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  bottom: 68px;
+  left: 0;
+  right: 10px;
+  height: 2px;
+  background-color: #710707;
+  width: 300px;
+  transition: all 1s ease-out;
+}
+
+.card:hover::after {
+  width: 100%;
+}
+
 .explore_section .container {
   align-items: flex-start;
   justify-content: center;
