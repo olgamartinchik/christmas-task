@@ -13,9 +13,22 @@ $light-gold-color: #caaa7d;
 $black_color: #000000;
 $gray_color: #c4c4c4;
 $dark_gray_color: #666666;
-// $white-color: #eeeaea
 $black_lite_color: #272727;
+:root {
+  --font1: 80px;
+  --font2: 32px;
+  --font3: 28px;
+  --font4: 22px;
+  --font5: 18px;
+  --font6: 33px;
+  --font_footer: 22px;
+  --font_bye_now: 22px;
+  --font_arrow: 30px;
+}
 
+body.hidden {
+  overflow: hidden;
+}
 .container {
   display: flex;
   margin: 0 auto;
@@ -23,6 +36,7 @@ $black_lite_color: #272727;
   padding: 0 15px;
   width: 100%;
 }
+
 a {
   text-decoration: none;
 }
@@ -34,7 +48,7 @@ html {
 }
 .title {
   font-family: $font-family-forum;
-  font-size: 80px;
+  font-size: var(--font1);
   font-style: normal;
   font-weight: normal;
   line-height: 90px;
@@ -57,7 +71,7 @@ html {
 }
 .description {
   font-weight: 300;
-  font-size: 22px;
+  font-size: var(--font4);
   line-height: 36px;
 }
 .section_dark {
@@ -82,7 +96,7 @@ h3 {
   font-family: $font-family-Roboto;
   font-style: normal;
   font-weight: bold;
-  font-size: 28px;
+  font-size: var(--font3);
   line-height: 33px;
   color: $black_color;
 }
@@ -91,4 +105,40 @@ button {
   border: none;
   background: none;
   padding: 0;
+}
+@media (max-width: 1024px) {
+  :root {
+    --font1: 50px;
+    --font2: 28px;
+    --font3: 24px;
+    --font4: 20px;
+    --font5: 16px;
+    --font6: 28px;
+    --font_footer: 22px;
+    --font_bye_now: 22px;
+    --font_arrow: 30px;
+  }
+  .container {
+    max-width: 1024px;
+    padding: 0 20px;
+    background-size: 69% !important;
+  }
+}
+@media (max-width: 768px) {
+  :root {
+    --font1: 80px;
+    --font2: 32px;
+    --font3: 28px;
+    --font4: 22px;
+    --font_arrow: 30px;
+  }
+}
+@media (max-width: 420px) {
+  :root {
+    --font1: 80px;
+    --font2: 32px;
+    --font3: 28px;
+    --font4: 22px;
+    --font_arrow: 30px;
+  }
 }

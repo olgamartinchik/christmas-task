@@ -134,11 +134,11 @@
               opacity: 0.5;
             }
           }
-          .plus_btn {
+          .minus_btn {
             left: 14px;
             top: 6px;
           }
-          .minus_btn {
+          .plus_btn {
             right: 14px;
             top: 6px;
           }
@@ -198,7 +198,12 @@
       // animation: animatePopup 1s;
       // animation-direction: alternate;
       // transition: 2s ease;
-
+      &:target {
+        display: block;
+      }
+      // &:target .popup_container {
+      //   transform: translate(0px, 0px);
+      // }
       .popup_container {
         position: absolute;
         display: flex;
@@ -208,6 +213,7 @@
         margin-top: 50px;
         top: 5%;
         left: 50%;
+        // transform: translate(-100%, 0);
         transform: translate(-50%, 0);
         max-width: 1440px;
         height: 845px;
@@ -429,11 +435,11 @@
                 opacity: 0.6;
               }
             }
-            .plus_btn {
+            .minus_btn {
               top: 0;
               left: 0;
             }
-            .minus_btn {
+            .plus_btn {
               top: 0;
               right: 0;
             }
@@ -678,7 +684,9 @@
 
               color: #161615;
             }
-            span {
+            input {
+              outline: none;
+              border: none;
               width: 75px;
               height: 35px;
               background-color: $white-color;

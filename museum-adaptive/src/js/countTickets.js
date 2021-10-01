@@ -12,6 +12,7 @@ export let countTickets = () => {
     inputValueBasic = count;
 
     document.querySelector(".input_number_basic").value = inputValueBasic;
+    e.preventDefault();
   });
   minusBtnBasic.addEventListener("click", (e) => {
     // console.log('click',inputValueBasic)
@@ -23,11 +24,13 @@ export let countTickets = () => {
       count = 0;
       document.querySelector(".input_number_basic").value = 0;
     }
+    e.preventDefault();
   });
   plusBtnSenior.addEventListener("click", (e) => {
     count++;
     inputValueSenior = count;
     document.querySelector(".input_number_senior").value = inputValueSenior;
+    e.preventDefault();
   });
   minusBtnSenior.addEventListener("click", (e) => {
     count--;
@@ -37,6 +40,7 @@ export let countTickets = () => {
       count = 0;
       document.querySelector(".input_number_senior").value = 0;
     }
+    e.preventDefault();
   });
 };
 

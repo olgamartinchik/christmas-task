@@ -2,7 +2,7 @@
   .container {
     flex-direction: column;
     padding-top: 75px;
-    padding-bottom: 70px;
+    padding-bottom: 72px;
     .title_contacts {
       font-weight: 500;
     }
@@ -25,7 +25,7 @@
           font-family: $font-family-Roboto;
           font-style: normal;
           font-weight: 300;
-          font-size: 22px;
+          font-size: var(--font4);
           line-height: 26px;
           color: $black_color;
           margin-bottom: 25px;

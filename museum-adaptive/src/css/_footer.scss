@@ -1,4 +1,5 @@
 .footer {
+  position: relative;
   .container {
     flex-direction: column;
 
@@ -6,7 +7,7 @@
       display: flex;
       align-items: flex-end;
       justify-content: space-between;
-      padding-top: 86px;
+      padding-top: 83px;
       padding-bottom: 25px;
 
       .footer_menu_container {
@@ -35,7 +36,7 @@
             font-family: $font-family-Roboto;
             font-style: normal;
             font-weight: 200;
-            font-size: 22px;
+            font-size: var(--font_footer);
             line-height: 26px;
             letter-spacing: 2px;
             color: $white-color;
@@ -61,23 +62,20 @@
       }
       .social_icon {
         display: flex;
-
         align-items: center;
         justify-content: center;
         width: 48px;
         height: 48px;
-        border: 1px solid $dark_gray_color;
+        border: 2px solid $dark_gray_color;
         border-radius: 50%;
         margin-left: 25px;
-        color: $white-color;
-
+        transition: all 0.1s ease;
         &:hover {
-          opacity: 0.5;
+          border: 2px solid $light-gold-color;
+          box-shadow: 0 0 4px $light-gold-color;
+          filter: invert(55%) sepia(32%) saturate(355%) hue-rotate(356deg)
+            brightness(92%) contrast(90%);
         }
-      }
-      .fab {
-        color: $white-color;
-        font-size: 20px;
       }
     }
     ///
@@ -85,14 +83,15 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-top: 50px;
+      padding-top: 54px;
+
       padding-bottom: 52px;
       p,
       a {
         font-family: $font-family-Roboto;
         font-style: normal;
         font-weight: 200;
-        font-size: 22px;
+        font-size: var(--font_footer);
         line-height: 22px;
         letter-spacing: 2px;
         color: $white-color;
@@ -106,10 +105,11 @@
       margin-left: 110px;
     }
     .footer_underline {
-      //   width: 100vw;
-      // margin-left: calc(-50vw + 50%);
-      // width: 100vw;
-      // width: 100%;
+      position: absolute;
+      left: 0;
+      right: 0;
+
+      top: 264px;
       border-top: 3px solid $dark_gray_color;
     }
   }

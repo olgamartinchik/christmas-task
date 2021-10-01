@@ -39,14 +39,17 @@
         <a class="logo_container" id="logo" href="#header">
           <p class="logo_title">Louvre</p>
         </a>
+        <div class="menu_burger">
+          <span></span>
+        </div>
         <nav class="nav_menu">
           <ul>
-            <li><a href="#visiting">Visiting</a></li>
-            <li><a href="#explore">Explore</a></li>
-            <li><a href="#video">Video</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#tickets">Tickets</a></li>
-            <li><a class="last_position" href="#contacts">Contacts</a></li>
+            <li><a href="#visiting">Visiting</a><span class="nav_arrow"><i class="fas fa-chevron-right"></i></span></li>
+            <li><a href="#explore">Explore</a><span class="nav_arrow"><i class="fas fa-chevron-right"></i></span></li>
+            <li><a href="#video">Video</a><span class="nav_arrow"><i class="fas fa-chevron-right"></i></span></li>
+            <li><a href="#gallery">Gallery</a><span class="nav_arrow"><i class="fas fa-chevron-right"></i></span></li>
+            <li><a href="#tickets">Tickets</a><span class="nav_arrow"><i class="fas fa-chevron-right"></i></span></li>
+            <li><a class="last_position" href="#contacts">Contacts</a><span class="nav_arrow"><i class="fas fa-chevron-right"></i></span></li>
           </ul>
         </nav>
       </div>
@@ -431,8 +434,8 @@
                 <div class="input_number_container">
                   <p class="text_form">Basic 18+</p>
                   <div class="box_input_btn">
-                    <span class="plus_btn plus_btn_basic">+</span>
-                    <span class="minus_btn minus_btn_basic">-</span>
+                    <button class="minus_btn minus_btn_basic">-</button>
+                    <button class="plus_btn plus_btn_basic">+</button>
                     <input
                       class="input_number input_number_basic"
                       type="number"
@@ -446,8 +449,8 @@
                 <div class="input_number_container">
                   <p class="text_form text_form_semior">Senior 65+</p>
                   <div class="box_input_btn box_input_btn_senir">
-                    <span class="plus_btn plus_btn_senior">+</span>
-                    <span class="minus_btn minus_btn_senior">-</span>
+                    <button class="minus_btn minus_btn_senior">-</button>
+                    <button class="plus_btn plus_btn_senior">+</button>
                     <input
                       class="input_number input_number_senior"
                       type="number"
@@ -673,7 +676,7 @@
                       <div class="card_black_line"></div>
                       <div class="card_sicret">
                         <p class="cvc_card">CVC/CVV</p>
-                        <span></span>
+                        <input type="text"></input>
                         <p>The last 3 or 4 digits on back of the card</p>
                       </div>
                     </div>
@@ -739,46 +742,42 @@
                   class="social_icon"
                   href="https://www.youtube.com/user/louvre"
                   target="_blank"
-                  ><i class="fab fa-youtube"></i
-                ></a>
+                  ><img src="/src/assets/svg/youtube.svg" alt="youtube"></a>
               </li>
               <li>
                 <a
                   class="social_icon"
                   href="https://www.instagram.com/museelouvre/"
                   target="_blank"
-                  ><i class="fab fa-instagram"></i
-                ></a>
+                  ><img src="/src/assets/svg/instagram.svg" alt="instagram"></a>
               </li>
               <li>
                 <a
                   class="social_icon"
                   href="https://www.facebook.com/museedulouvre"
                   target="_blank"
-                  ><i class="fab fa-facebook-f"></i
-                ></a>
+                  ><img src="/src/assets/svg/facebook.svg" alt="facebook"></a>
               </li>
               <li>
                 <a
                   class="social_icon"
                   href="http://twitter.com/museelouvre"
                   target="_blank"
-                  ><i class="fab fa-twitter"></i
-                ></a>
+                  ><img src="/src/assets/svg/twitter.svg" alt="twitter"></a>
               </li>
               <li>
                 <a
                   class="social_icon"
                   href="https://www.pinterest.fr/museedulouvre/"
                   target="_blank"
-                  ><i class="fab fa-pinterest"></i
-                ></a>
+                  ><img src="/src/assets/svg/pinterest.svg" alt="pinterest"></a>
               </li>
             </ul>
           </div>
         </div>
 
         <div class="footer_underline"></div>
+        
         <div class="footer_contacts">
           <p><span>&#169;</span> 2021</p>
           <a class="rs_linck" href="https://rs.school/" target="_blank"

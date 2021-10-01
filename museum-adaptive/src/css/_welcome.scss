@@ -15,7 +15,8 @@
   height: 810px;
   // padding-top: 32px;
   cursor: pointer;
-  transition: 0.5s ease;
+  transition: 0.5s;
+  background-size: 68%;
   &::after {
     content: "";
     position: absolute;
@@ -25,10 +26,13 @@
       rgba(0, 0, 0, 0.5) 16.19%,
       rgba(0, 0, 0, 0) 30.73%
     );
-    background-position: calc(100% - 1031px) 0%;
+    background-position: calc(100% - 51px) calc(0% - 0px);
+    // background-position: calc(100% - 32%) 0%;
+    background-size: 68%;
     top: 0;
     bottom: 0;
     width: 100%;
+    background-repeat: no-repeat;
   }
 
   .background_container {
@@ -61,14 +65,15 @@
     .welcome_title {
       max-width: 598px;
       width: 100%;
-      button {
-      }
+      // button {
+      // }
     }
     .welcome_subtitle {
       font-family: $font-family-Roboto;
       font-style: normal;
       font-weight: 300;
-      font-size: 28px;
+
+      font-size: var(--font3);
       line-height: 33px;
       letter-spacing: 2px;
       margin-bottom: 52px;
@@ -84,7 +89,7 @@
       color: $white-color;
       font-family: $font-family-Roboto;
       font-weight: 300;
-      font-size: 22px;
+      font-size: var(--font4);
       line-height: 26px;
       display: flex;
       align-items: center;
@@ -119,7 +124,7 @@
       font-family: $font-family-Roboto;
       font-style: normal;
       font-weight: normal;
-      font-size: 22px;
+      font-size: var(--font4);
       line-height: 40px;
       text-transform: uppercase;
       color: $white-color;
@@ -173,7 +178,7 @@
       margin-bottom: 4px;
       color: $white-color;
       transition: 0.4s ease;
-      font-size: 30px;
+      font-size: var(--font_arrow);
     }
     .right_arrow {
       margin-left: 20px;
@@ -195,5 +200,10 @@
     position: absolute;
     left: -1000px;
     // position: absolute;
+  }
+}
+@media all and (max-width: 1024px) {
+  .welcome_section .container {
+    background-position: calc(100% - 20px) calc(0% - 0px);
   }
 }
