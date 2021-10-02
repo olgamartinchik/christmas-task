@@ -4,7 +4,9 @@ let arrayWelcomeImages = ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg"];
 // shuffle(arrayWelcomeImages);
 
 let link = "/src/assets/img/welcome-slider/";
-let containerWithBackgroundImg = document.querySelector("#welcome > div");
+let containerWithBackgroundImg = document.querySelector(
+  ".background_container"
+);
 let imgNum = document.querySelector(".img_number");
 let allImgNum = document.querySelector(".all_img");
 let dots = document.querySelectorAll(".pagination_img");

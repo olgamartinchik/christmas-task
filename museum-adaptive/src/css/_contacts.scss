@@ -43,3 +43,29 @@
     }
   }
 }
+@media (max-width: 1024px) {
+  .contacts_section .container {
+    padding-top: 54px;
+    padding-bottom: 66px;
+    .contacts_container {
+      margin-top: 71px;
+
+      .contacts .title_contacts {
+        line-height: 1.3;
+        margin-bottom: 30px;
+      }
+      .contacts {
+        .address,
+        p {
+          margin-bottom: 13px;
+        }
+      }
+    }
+    #map {
+      img {
+        max-width: 726px;
+        margin-top: 3px;
+      }
+    }
+  }
+}

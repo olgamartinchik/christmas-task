@@ -42,3 +42,32 @@
     }
   }
 }
+@media (max-width: 1490px) {
+  .gallery_section .container {
+    // padding-top: 53px;
+    max-height: 1461px;
+    .gallery_container {
+      .gallery_img {
+        max-width: 304px;
+      }
+      .gallery_inner_container {
+        max-height: 1900px;
+      }
+    }
+  }
+}
+@media (max-width: 1024px) {
+  .gallery_section .container {
+    padding-top: 53px;
+    max-height: 1461px;
+    .gallery_container {
+      margin-top: 60px;
+      .gallery_img {
+        max-width: 304px;
+      }
+      .gallery_inner_container {
+        max-height: 1900px;
+      }
+    }
+  }
+}

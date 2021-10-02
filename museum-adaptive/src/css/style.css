@@ -8,6 +8,7 @@
   --font_footer: 22px;
   --font_bye_now: 22px;
   --font_arrow: 30px;
+  --font_close_btn: 70px;
 }
 
 body.hidden {
@@ -20,6 +21,7 @@ body.hidden {
   max-width: 1470px;
   padding: 0 15px;
   width: 100%;
+  transition: 1s ease;
 }
 
 a {
@@ -35,7 +37,7 @@ html {
 }
 
 .title {
-  font-family: "Forum", cursive;
+  font-family: "Forum";
   font-size: var(--font1);
   font-style: normal;
   font-weight: normal;
@@ -90,6 +92,23 @@ html {
 }
 
 h3 {
+  font-family: "Forum";
+  font-style: normal;
+  font-weight: bold;
+  font-size: var(--font3);
+  line-height: 33px;
+  color: #000000;
+}
+
+h4 {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 33px;
+}
+
+h5 {
   font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: bold;
@@ -115,12 +134,16 @@ button {
     --font_footer: 22px;
     --font_bye_now: 22px;
     --font_arrow: 30px;
+    --font_close_btn: 70px;
   }
 
   .container {
     max-width: 1024px;
     padding: 0 20px;
-    background-size: 69% !important;
+  }
+
+  .title_underline::after {
+    bottom: -14px;
   }
 }
 @media (max-width: 768px) {
@@ -129,7 +152,12 @@ button {
     --font2: 32px;
     --font3: 28px;
     --font4: 22px;
+    --font5: 18px;
+    --font6: 33px;
+    --font_footer: 22px;
+    --font_bye_now: 22px;
     --font_arrow: 30px;
+    --font_close_btn: 70px;
   }
 }
 @media (max-width: 420px) {
@@ -164,13 +192,14 @@ button {
   width: 199px;
   height: 33px;
   margin-right: 25px;
+  transition: 0.5 ease;
 }
 .logo_container:hover {
   opacity: 0.6;
 }
 .logo_container .logo_title {
-  font-size: 28px;
-  font-family: "Forum", cursive;
+  font-size: var(--font3);
+  font-family: "Forum";
   color: #ffffff;
   font-style: normal;
   font-weight: normal;
@@ -178,6 +207,7 @@ button {
   letter-spacing: 5px;
   text-transform: uppercase;
   margin-left: 74px;
+  transition: 0.5 ease;
 }
 
 .menu_burger {
@@ -198,14 +228,14 @@ button {
   align-items: center;
 }
 .nav_menu ul li {
-  transition: 0.5s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 .nav_menu ul li a {
   padding-left: 2px;
   font-family: "Roboto", sans-serif;
   font-weight: 200;
   font-style: normal;
-  font-size: 22px;
+  font-size: var(--font4);
   color: #ffffff;
   line-height: 26px;
   letter-spacing: 1.8px;
@@ -215,12 +245,15 @@ button {
 }
 .nav_menu ul li:hover {
   opacity: 0.6;
-  text-decoration: underline;
 }
 
 @media all and (max-width: 1024px) {
   .header .container {
     height: 130px;
+  }
+
+  .logo_container .logo_title {
+    letter-spacing: 8px;
   }
 
   .menu_burger {
@@ -281,11 +314,11 @@ button {
     position: fixed;
     left: -200%;
     background-color: transparent;
-    bottom: 0;
+    top: 130px;
     right: 0;
     max-width: 1200px;
     width: 100%;
-    height: 585px;
+    height: 74.4vh;
     z-index: 5;
     cursor: pointer;
     transition: 1s ease-in-out;
@@ -331,24 +364,31 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 52.8vw;
+  transition: 0.5s;
+}
+.welcome_section .container .background_container {
+  position: absolute;
   background-image: url("/src/assets/img/welcome-slider/1.jpg");
   background-repeat: no-repeat;
-  background-position: calc(100% - 15px) calc(0% - 0px);
-  height: 810px;
-  cursor: pointer;
-  transition: 0.5s;
+  background-position: calc(100% - 16px) calc(0% - 0px);
+  width: 100%;
+  height: 100%;
   background-size: 68%;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+  transition: 0.5s ease;
 }
-.welcome_section .container::after {
+.welcome_section .container .background_container::after {
   content: "";
   position: absolute;
   background: linear-gradient(90deg, #000000 0%, rgba(0, 0, 0, 0.5) 16.19%, rgba(0, 0, 0, 0) 30.73%);
-  background-position: calc(100% - 51px) calc(0% - 0px);
-  background-size: 68%;
   top: 0;
   bottom: 0;
-  width: 100%;
   background-repeat: no-repeat;
+  left: 30%;
+  right: 0;
 }
 .welcome_section .container .title_container {
   position: relative;
@@ -392,6 +432,7 @@ button {
   align-items: center;
   text-align: center;
   letter-spacing: 2px;
+  transition: 0.5s ease;
 }
 .welcome_section .container .title_container .welcome_btn:hover {
   cursor: pointer;
@@ -495,7 +536,43 @@ button {
 
 @media all and (max-width: 1024px) {
   .welcome_section .container {
+    height: 585px;
+  }
+  .welcome_section .container .background_container {
+    height: 57vw;
     background-position: calc(100% - 20px) calc(0% - 0px);
+  }
+  .welcome_section .container .title_container {
+    margin-bottom: 95px;
+  }
+  .welcome_section .container .title_container .welcome_subtitle {
+    margin-bottom: 26px;
+  }
+  .welcome_section .container .title_container .welcome_btn {
+    width: 300px;
+    height: 60px;
+    margin-bottom: 45px;
+  }
+  .welcome_section .container .welcome_pagination {
+    max-width: 700px;
+    width: 100%;
+    padding: 40px 70px 40px 224px;
+    right: 20px;
+  }
+  .welcome_section .container .welcome_pagination .pagination_img {
+    width: 12px;
+    height: 12px;
+  }
+  .welcome_section .container .welcome_pagination .num_box {
+    margin-left: 17px;
+  }
+  .welcome_section .container .welcome_pagination .pagination_box {
+    margin-left: 20px;
+    margin-right: 5px;
+  }
+  .welcome_section .container .welcome_pagination .arrow_box {
+    margin-left: 42px;
+    margin-right: 20px;
   }
 }
 .visiting_section {
@@ -510,7 +587,7 @@ button {
   padding-bottom: 75px;
 }
 .visiting_section .container .visiting_title {
-  font-family: "Forum", cursive;
+  font-family: "Forum";
 }
 
 .virtual_gallery {
@@ -530,17 +607,19 @@ button {
   height: 424px;
   margin-top: 76px;
 }
+.virtual_gallery .virtual_card img {
+  width: 100%;
+}
 .virtual_gallery .virtual_card .card_container {
   margin-top: 10px;
 }
 .virtual_gallery .virtual_card .subtitle_royal_place {
   font-style: normal;
   font-weight: normal;
-  font-size: 32px;
+  font-size: var(--font2);
   line-height: 35px;
-  letter-spacing: 3.1px;
+  letter-spacing: 5px;
   text-transform: uppercase;
-  word-spacing: 4.5px;
 }
 .virtual_gallery .virtual_card .underline_card {
   position: relative;
@@ -551,17 +630,16 @@ button {
   margin-top: 9px;
   font-style: normal;
   font-weight: 200;
-  font-size: 22px;
   line-height: 26px;
   margin-bottom: -2px;
 }
-
-@media (max-width: 1300px) {
-  .virtual_card {
-    margin-left: auto;
-    margin-right: auto;
-  }
+.virtual_gallery .virtual_card p:first-of-type {
+  font-size: var(--font4);
 }
+.virtual_gallery .virtual_card p:last-of-type {
+  font-size: var(--font5);
+}
+
 .card {
   position: relative;
   transition: all 1s ease-out;
@@ -583,16 +661,68 @@ button {
   width: 100%;
 }
 
+@media (max-width: 1300px) {
+  .virtual_card {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media (max-width: 1380px) {
+  .virtual_gallery {
+    justify-content: space-evenly;
+  }
+  .virtual_gallery .virtual_card {
+    width: 330px;
+    height: 345px;
+  }
+}
+@media (max-width: 1024px) {
+  .visiting_section .container {
+    padding-top: 54px;
+    padding-bottom: 60px;
+  }
+
+  .virtual_gallery {
+    justify-content: space-evenly;
+    margin-top: 14px;
+    gap: 0;
+  }
+  .virtual_gallery .virtual_card {
+    width: 330px;
+    height: 345px;
+    margin-top: 60px;
+  }
+  .virtual_gallery .virtual_card .underline_card {
+    margin-bottom: 15px;
+  }
+  .virtual_gallery .virtual_card p {
+    margin-top: 7px;
+  }
+  .virtual_gallery .virtual_card .subtitle_royal_place {
+    letter-spacing: 3px;
+  }
+
+  .card::after {
+    content: "";
+    position: absolute;
+    bottom: 61px;
+    width: 149px;
+  }
+}
 .explore_section .container {
   align-items: flex-start;
-  justify-content: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
   height: 865px;
   height: 100%;
   padding-bottom: 72px;
   padding-top: 75px;
+  transition: 0.5s ease;
 }
 .explore_section .container .content_explore {
-  margin-right: 60px;
+  margin-right: 15px;
+  max-width: 660px;
+  width: 100%;
 }
 .explore_section .container .mark {
   color: #caaa7d;
@@ -606,6 +736,8 @@ button {
 }
 .explore_section .container .images_explore {
   position: relative;
+  max-width: 720px;
+  width: 100%;
 }
 .explore_section .container .images_explore .gradient_explore {
   position: absolute;
@@ -636,15 +768,52 @@ button {
   height: 700px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1430px) {
   .explore_section .container {
-    flex-direction: column;
-    width: 100%;
-    margin: 0 auto;
+    justify-content: center;
   }
   .explore_section .container .content_explore {
+    max-width: 984px;
     width: 100%;
     margin-right: 0;
+  }
+  .explore_section .container .content_explore br {
+    display: none;
+  }
+  .explore_section .container p:first-of-type {
+    margin-top: 77px;
+  }
+  .explore_section .container p {
+    padding-top: 0;
+  }
+  .explore_section .container .images_explore {
+    margin-top: 46px;
+  }
+}
+@media (max-width: 1024px) {
+  .explore_section .container {
+    padding-top: 53px;
+    padding-bottom: 60px;
+  }
+  .explore_section .container .content_explore {
+    max-width: 984px;
+    width: 100%;
+    margin-right: 0;
+  }
+  .explore_section .container .content_explore br {
+    display: none;
+  }
+  .explore_section .container p:first-of-type {
+    margin-top: 77px;
+  }
+  .explore_section .container p {
+    padding-top: 0;
+  }
+  .explore_section .container p:last-of-type {
+    display: none;
+  }
+  .explore_section .container .images_explore {
+    margin-top: 46px;
   }
 }
 .video_section .container {
@@ -707,13 +876,11 @@ button {
 }
 .video_section .container .video_container .control_panel .progress {
   background: linear-gradient(to right, #710707 0%, #710707 40%, #c4c4c4 40%, #c4c4c4 100%);
-  border-radius: 8px;
   height: 8px;
   width: 400px;
   outline: none;
   transition: background 450ms ease-in;
   -webkit-appearance: none;
-  max-width: 929px;
 }
 .video_section .container .video_container .control_panel .progress::-webkit-slider-thumb {
   width: 15px;
@@ -750,6 +917,7 @@ button {
   align-items: center;
   justify-content: space-between;
   margin-top: 40px;
+  gap: 0 42px;
 }
 .video_section .container .video_slider .small_video {
   max-width: 452px;
@@ -786,6 +954,46 @@ button {
   background-color: #333333;
 }
 
+@media (max-width: 1024px) {
+  .video_section .container {
+    padding-top: 51px;
+    padding-bottom: 64px;
+  }
+  .video_section .container .title_container p {
+    display: none;
+  }
+  .video_section .container .video_container {
+    margin-top: -3px;
+  }
+  .video_section .container .video_container .video_wrapper .btn_play {
+    max-width: 153px;
+  }
+  .video_section .container .video_container .control_panel {
+    height: 61px;
+  }
+  .video_section .container .video_container .control_panel img {
+    width: 26px;
+  }
+  .video_section .container .video_container .control_panel .progress_video {
+    max-width: 564px;
+    width: 100%;
+  }
+  .video_section .container .video_container .control_panel .progress_audio {
+    max-width: 143px;
+    width: 100%;
+  }
+  .video_section .container .video_container .control_panel .panel_play {
+    margin-left: 33px;
+  }
+  .video_section .container .video_container .control_panel .fullscreen {
+    margin-right: 31px;
+  }
+  .video_section .container .video_slider .small_video {
+    max-width: 452px;
+    width: 100%;
+    height: 171px;
+  }
+}
 .gallery_section .container {
   flex-direction: column;
   padding-top: 75px;
@@ -828,6 +1036,32 @@ button {
   margin-bottom: 24px;
 }
 
+@media (max-width: 1490px) {
+  .gallery_section .container {
+    max-height: 1461px;
+  }
+  .gallery_section .container .gallery_container .gallery_img {
+    max-width: 304px;
+  }
+  .gallery_section .container .gallery_container .gallery_inner_container {
+    max-height: 1900px;
+  }
+}
+@media (max-width: 1024px) {
+  .gallery_section .container {
+    padding-top: 53px;
+    max-height: 1461px;
+  }
+  .gallery_section .container .gallery_container {
+    margin-top: 60px;
+  }
+  .gallery_section .container .gallery_container .gallery_img {
+    max-width: 304px;
+  }
+  .gallery_section .container .gallery_container .gallery_inner_container {
+    max-height: 1900px;
+  }
+}
 .tickets_section .container {
   flex-direction: column;
   padding-top: 76px;
@@ -912,7 +1146,7 @@ button {
   font-weight: 300;
   font-size: 22px;
   line-height: 26px;
-  letter-spacing: -1.1px;
+  letter-spacing: 1px;
 }
 .tickets_section .container .text_form_semior {
   margin-top: 10px;
@@ -947,7 +1181,7 @@ button {
   font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: normal;
-  font-size: 32px;
+  font-size: 38px;
   line-height: 37px;
   text-align: center;
   color: #000000;
@@ -972,6 +1206,7 @@ button {
   border: 3px solid #000000;
   box-sizing: border-box;
   text-align: center;
+  font-size: var(--font4);
 }
 .tickets_section .container .select_box .title_form_price {
   margin: 50px 0 60px;
@@ -985,7 +1220,7 @@ button {
   height: 50px;
   border-radius: 3px;
   background-color: #000000;
-  font-family: "Forum", cursive;
+  font-family: "Forum";
   font-style: normal;
   font-weight: 300;
   font-size: 22px;
@@ -993,7 +1228,7 @@ button {
   display: flex;
   align-items: center;
   text-align: center;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   color: #ffffff;
 }
 .tickets_section .container .select_box .form_btn:hover {
@@ -1003,18 +1238,14 @@ button {
 .tickets_section .container .popup {
   display: none;
   position: fixed;
-  left: 0;
+  left: -200%;
   top: 0;
-  padding: 10px;
   width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.5);
   overflow: auto;
-  transition: all 0.4s ease;
+  transition: all 0.6s ease 0s;
   z-index: 3;
-}
-.tickets_section .container .popup:target {
-  display: block;
 }
 .tickets_section .container .popup .popup_container {
   position: absolute;
@@ -1022,7 +1253,6 @@ button {
   align-items: center;
   justify-content: space-between;
   margin: 0 auto;
-  margin-top: 50px;
   top: 5%;
   left: 50%;
   transform: translate(-50%, 0);
@@ -1033,14 +1263,15 @@ button {
   overflow: hidden;
   background-color: #ffffff;
   animation: animatePopup 1s;
+  animation: animatePopupEnd 1s;
   animation-direction: alternate;
-  transition: 2s ease;
+  transition: all 0.6s ease 0s;
 }
 .tickets_section .container .popup .popup_container .close_btn {
   position: absolute;
   top: 10px;
   right: 23px;
-  font-size: 70px;
+  font-size: var(--font_close_btn);
   outline: none;
 }
 .tickets_section .container .popup .popup_container .close_btn:hover {
@@ -1054,19 +1285,6 @@ button {
   }
   to {
     opacity: 1;
-  }
-}
-.tickets_section .container .popup .popup_container.close {
-  animation: animatePopupEnd 1s;
-  transition: 2s ease;
-}
-@keyframes animatePopupEnd {
-  from {
-    opacity: 1;
-  }
-  to {
-    left: -250px;
-    opacity: 0;
   }
 }
 .tickets_section .container .popup .user_container {
@@ -1128,27 +1346,62 @@ button {
 .tickets_section .container .popup .user_container .input_popup_time {
   width: 190px;
 }
+.tickets_section .container .popup .user_container input[type=date]:not(.has-value):before {
+  padding-left: 43px;
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  content: attr(placeholder);
+}
+.tickets_section .container .popup .user_container input[type=time]:not(.has-value):before {
+  padding-left: 43px;
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  content: attr(placeholder);
+}
+.tickets_section .container .popup .user_container input[type=time]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  padding-right: 15px;
+  z-index: 5;
+  cursor: pointer;
+}
+.tickets_section .container .popup .user_container input[type=date]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  padding-right: 15px;
+  z-index: 5;
+  cursor: pointer;
+}
+.tickets_section .container .popup .user_container input::placeholder {
+  color: #030303;
+}
+.tickets_section .container .popup .user_container select::-webkit-appearance {
+  padding-right: 15px;
+  z-index: 5;
+  cursor: pointer;
+}
+.tickets_section .container .popup .user_container select {
+  cursor: pointer;
+  appearance: none;
+  background: url("/src/assets/svg/input_arrow.svg") no-repeat right;
+  background-position-x: calc(100% - 15px);
+}
+.tickets_section .container .popup .user_container select:focus {
+  outline: none;
+}
 .tickets_section .container .popup .user_container .input_popup_name,
 .tickets_section .container .popup .user_container .input_popup_email,
 .tickets_section .container .popup .user_container .input_popup_phone,
 .tickets_section .container .popup .user_container .select_ticket {
   width: 400px;
+  padding-left: 43px;
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  color: #030303;
+}
+.tickets_section .container .popup .user_container .select_ticket {
+  padding-left: 40px;
 }
 .tickets_section .container .popup .user_container .icon_position {
   position: relative;
-}
-.tickets_section .container .popup .user_container .icon_position span {
-  position: absolute;
-  left: 45px;
-  top: 35px;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 21px;
-  display: flex;
-  align-items: center;
-  color: #030303;
 }
 .tickets_section .container .popup .user_container .data_icon,
 .tickets_section .container .popup .user_container .time_icon {
@@ -1158,6 +1411,18 @@ button {
   height: 15px;
   width: 15px;
   z-index: 2;
+}
+.tickets_section .container .popup .user_container .input_arrow {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  height: 17px;
+  width: 17px;
+  z-index: 2;
+  transition: 0.5 ease;
+}
+.tickets_section .container .popup .user_container .input_arrow:hover {
+  opacity: 0.6;
 }
 .tickets_section .container .popup .user_container .name_icon {
   position: absolute;
@@ -1177,19 +1442,19 @@ button {
   border: 1px solid #030303;
 }
 .tickets_section .container .popup .user_container .entry_ticket .title_entry_ticket {
-  font-family: "Forum", cursive;
+  font-family: "Forum";
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
   line-height: 20px;
   text-transform: capitalize;
   color: #9d8665;
-  margin: 10px 15px 0 15px;
+  margin: 9px 15px 0 15px;
 }
 .tickets_section .container .popup .user_container .entry_ticket .title_underline::after {
   content: "";
   position: absolute;
-  bottom: -8px;
+  bottom: -6px;
   left: 0;
   right: 0;
   height: 3px;
@@ -1201,7 +1466,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 19px;
+  margin-top: 20px;
   margin-left: 15px;
   margin-right: 15px;
 }
@@ -1211,7 +1476,7 @@ button {
   font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: normal;
-  font-size: 18px;
+  font-size: 28px;
   line-height: 21px;
 }
 .tickets_section .container .popup .user_container .entry_ticket .input_number_container .input_number {
@@ -1219,6 +1484,8 @@ button {
   height: 25px;
   text-align: center;
   color: #030303;
+  font-size: 22px;
+  padding-left: 5px;
 }
 .tickets_section .container .popup .user_container .entry_ticket .input_number_container .plus_btn,
 .tickets_section .container .popup .user_container .entry_ticket .input_number_container .minus_btn {
@@ -1247,13 +1514,20 @@ button {
 }
 .tickets_section .container .popup .user_container .entry_ticket .input_number_container p {
   margin-left: 0;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+  letter-spacing: 0;
+  margin-top: 3px;
 }
 .tickets_section .container .popup .ticket_price_container {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 530px;
-  padding: 25px 30px 26px 30px;
+  padding: 24px 30px 26px 30px;
   height: 663px;
   border: 1px solid #030303;
   margin-left: 40px;
@@ -1286,6 +1560,15 @@ button {
   margin-right: 15px;
   width: 15px;
 }
+.tickets_section .container .popup .ticket_price_container .overview_container div:first-of-type {
+  margin-top: 12px;
+}
+.tickets_section .container .popup .ticket_price_container .overview_container div:nth-child(even) {
+  margin-top: 8px;
+}
+.tickets_section .container .popup .ticket_price_container .overview_container div:last-of-type {
+  margin-top: 4px;
+}
 .tickets_section .container .popup .ticket_price_container .title_overview {
   font-family: "Roboto", sans-serif;
   font-style: normal;
@@ -1304,7 +1587,7 @@ button {
   opacity: 0.9;
 }
 .tickets_section .container .popup .ticket_price_container .total_ticket {
-  margin-top: 26px;
+  margin-top: 21px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1340,10 +1623,13 @@ button {
   background-color: #030303;
   color: #a4a4a3;
 }
+.tickets_section .container .popup .ticket_price_container .total_ticket .price_senior {
+  margin-top: 2px;
+}
 .tickets_section .container .popup .ticket_price_container .total_ticket .title_underline::after {
   content: "";
   position: absolute;
-  bottom: -10px;
+  bottom: -11px;
   left: 0;
   right: 0;
   height: 3px;
@@ -1379,21 +1665,21 @@ button {
 .tickets_section .container .popup .ticket_price_container .card_container .front_card {
   position: relative;
   background-color: #bcbcbc;
-  top: 10px;
-  left: 0;
+  top: 9px;
+  left: -2px;
   z-index: 2;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   flex-direction: column;
-  padding: 15px 20px;
+  padding: 16px 21px 12px;
 }
 .tickets_section .container .popup .ticket_price_container .card_container .front_card .img_box_card {
   position: absolute;
   top: 34px;
   right: 20px;
-  width: 55px;
-  height: 68px;
+  width: 52px;
+  height: 65px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1435,6 +1721,7 @@ button {
 .tickets_section .container .popup .ticket_price_container .card_container .front_card .data_card_font .date_box_front input {
   width: 100px;
   height: 35px;
+  padding-left: 8px;
 }
 .tickets_section .container .popup .ticket_price_container .card_container .front_card .data_card_font .card_name {
   width: 320px;
@@ -1468,7 +1755,7 @@ button {
   align-items: center;
   justify-content: space-between;
   width: 75px;
-  height: 111px;
+  height: 109px;
   margin-top: 15px;
   margin-right: 20px;
 }
@@ -1519,13 +1806,86 @@ button {
   cursor: pointer;
   opacity: 0.6;
 }
+.tickets_section .container .popup.active {
+  display: block;
+  left: 0;
+  transition: all 0.6s ease 0s;
+}
+.tickets_section .container .popup_container.active {
+  transition: all 0.6s ease 0s;
+}
+@keyframes animatePopupEnd {
+  from {
+    opacity: 1;
+  }
+  to {
+    left: -250px;
+    opacity: 0;
+  }
+}
 .tickets_section .container .user_selected {
-  letter-spacing: 1.2px;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 21px;
 }
 .tickets_section .container .overview_img {
-  margin-top: -26px;
+  margin-top: -33px;
 }
 
+@media (max-width: 1024px) {
+  .tickets_section .container {
+    padding-top: 54px;
+    padding-bottom: 60px;
+  }
+  .tickets_section .container .tickets_container {
+    margin-top: 73px;
+  }
+  .tickets_section .container .tickets_container .tickets_wr_img {
+    min-width: 700px;
+    margin: 0;
+    width: 100%;
+    height: 441px;
+    margin: 0;
+    overflow: hidden;
+  }
+  .tickets_section .container .tickets_container .tickets_wr_img .tickets_container_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .tickets_section .container .radio_btn_container {
+    display: none;
+  }
+  .tickets_section .container .select_box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    margin-left: 81px;
+  }
+  .tickets_section .container .select_box .input_number_container:first-of-type {
+    margin-top: 6px;
+  }
+  .tickets_section .container .select_box .input_number_container:last-of-type {
+    margin-top: 19px;
+  }
+  .tickets_section .container .select_box .input_number_container .text_form {
+    margin-bottom: 10px;
+  }
+  .tickets_section .container .select_box .title_form_price {
+    margin: 27px 0 67px;
+    letter-spacing: 2px;
+  }
+  .tickets_section .container .select_box .input_number_container .box_input_btn .input_number {
+    width: 174px;
+  }
+  .tickets_section .container .popup .popup_container {
+    padding: 75px 27px 30px;
+  }
+}
 .parallax {
   width: 100%;
   height: 400px;
@@ -1575,11 +1935,33 @@ button {
   width: 100%;
 }
 
+@media (max-width: 1024px) {
+  .contacts_section .container {
+    padding-top: 54px;
+    padding-bottom: 66px;
+  }
+  .contacts_section .container .contacts_container {
+    margin-top: 71px;
+  }
+  .contacts_section .container .contacts_container .contacts .title_contacts {
+    line-height: 1.3;
+    margin-bottom: 30px;
+  }
+  .contacts_section .container .contacts_container .contacts .address,
+.contacts_section .container .contacts_container .contacts p {
+    margin-bottom: 13px;
+  }
+  .contacts_section .container #map img {
+    max-width: 726px;
+    margin-top: 3px;
+  }
+}
 .footer {
   position: relative;
 }
 .footer .container {
   flex-direction: column;
+  transition: 0.5s ease;
 }
 .footer .container .footer_menu {
   display: flex;
@@ -1682,6 +2064,29 @@ button {
   right: 0;
   top: 264px;
   border-top: 3px solid #666666;
+}
+
+@media (max-width: 1024px) {
+  .footer .container .footer_menu {
+    padding-top: 59px;
+    padding-bottom: 28px;
+  }
+  .footer .container .footer_menu .footer_menu_container {
+    justify-content: flex-start;
+  }
+  .footer .container .footer_menu .footer_menu_container .footer_nav_menu {
+    margin-top: 7px;
+    max-width: 328px;
+  }
+  .footer .container .footer_menu .social_container {
+    margin-bottom: 25px;
+  }
+  .footer .container .footer_underline {
+    top: 244px;
+  }
+  .footer .container .footer_contacts {
+    padding-top: 51px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

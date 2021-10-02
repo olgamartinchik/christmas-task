@@ -29,24 +29,27 @@
   // }
   .virtual_card {
     display: flex;
+
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
     width: 440px;
     height: 424px;
     margin-top: 76px;
-
+    img {
+      width: 100%;
+    }
     .card_container {
       margin-top: 10px;
     }
     .subtitle_royal_place {
       font-style: normal;
       font-weight: normal;
-      font-size: 32px;
+      font-size: var(--font2);
       line-height: 35px;
-      letter-spacing: 3.1px;
+      letter-spacing: 5px;
       text-transform: uppercase;
-      word-spacing: 4.5px;
+      // word-spacing: 4.5px;
     }
     .underline_card {
       position: relative;
@@ -69,18 +72,18 @@
       margin-top: 9px;
       font-style: normal;
       font-weight: 200;
-      font-size: 22px;
       line-height: 26px;
       margin-bottom: -2px;
     }
+    p:first-of-type {
+      font-size: var(--font4);
+    }
+    p:last-of-type {
+      font-size: var(--font5);
+    }
   }
 }
-@media (max-width: 1300px) {
-  .virtual_card {
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
+
 .card {
   position: relative;
   transition: all 1s ease-out;
@@ -100,4 +103,59 @@
 
 .card:hover::after {
   width: 100%;
+}
+@media (max-width: 1300px) {
+  .virtual_card {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media (max-width: 1380px) {
+  .virtual_gallery {
+    justify-content: space-evenly;
+
+    .virtual_card {
+      // justify-content: space-evenly;
+      width: 330px;
+      height: 345px;
+    }
+  }
+}
+@media (max-width: 1024px) {
+  .visiting_section .container {
+    padding-top: 54px;
+    padding-bottom: 60px;
+  }
+  // .title_underline::after {
+
+  //   bottom: -14px;
+
+  // }
+  .virtual_gallery {
+    justify-content: space-evenly;
+    margin-top: 14px;
+    gap: 0;
+
+    .virtual_card {
+      // justify-content: space-evenly;
+      width: 330px;
+      height: 345px;
+      margin-top: 60px;
+      .underline_card {
+        margin-bottom: 15px;
+      }
+      p {
+        margin-top: 7px;
+      }
+      .subtitle_royal_place {
+        letter-spacing: 3px;
+      }
+    }
+  }
+  .card::after {
+    content: "";
+    position: absolute;
+    bottom: 61px;
+    width: 149px;
+  }
 }

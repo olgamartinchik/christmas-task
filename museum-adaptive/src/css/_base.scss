@@ -1,6 +1,6 @@
 // $font-family-forum: "Forum", cursive;
 // $font-family-Roboto: "Roboto Mono", monospace;
-$font-family-forum: "Forum", cursive;
+$font-family-forum: "Forum";
 $font-family-Roboto: "Roboto", sans-serif;
 
 $brown-color: #710707;
@@ -24,6 +24,7 @@ $black_lite_color: #272727;
   --font_footer: 22px;
   --font_bye_now: 22px;
   --font_arrow: 30px;
+  --font_close_btn: 70px;
 }
 
 body.hidden {
@@ -35,6 +36,7 @@ body.hidden {
   max-width: 1470px;
   padding: 0 15px;
   width: 100%;
+  transition: 1s ease;
 }
 
 a {
@@ -93,6 +95,21 @@ html {
   background-color: $brown-color;
 }
 h3 {
+  font-family: $font-family-forum;
+  font-style: normal;
+  font-weight: bold;
+  font-size: var(--font3);
+  line-height: 33px;
+  color: $black_color;
+}
+h4 {
+  font-family: $font-family-Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 33px;
+}
+h5 {
   font-family: $font-family-Roboto;
   font-style: normal;
   font-weight: bold;
@@ -100,7 +117,6 @@ h3 {
   line-height: 33px;
   color: $black_color;
 }
-
 button {
   border: none;
   background: none;
@@ -117,11 +133,14 @@ button {
     --font_footer: 22px;
     --font_bye_now: 22px;
     --font_arrow: 30px;
+    --font_close_btn: 70px;
   }
   .container {
     max-width: 1024px;
     padding: 0 20px;
-    background-size: 69% !important;
+  }
+  .title_underline::after {
+    bottom: -14px;
   }
 }
 @media (max-width: 768px) {
@@ -130,7 +149,12 @@ button {
     --font2: 32px;
     --font3: 28px;
     --font4: 22px;
+    --font5: 18px;
+    --font6: 33px;
+    --font_footer: 22px;
+    --font_bye_now: 22px;
     --font_arrow: 30px;
+    --font_close_btn: 70px;
   }
 }
 @media (max-width: 420px) {

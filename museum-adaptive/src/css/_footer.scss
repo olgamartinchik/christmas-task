@@ -2,6 +2,7 @@
   position: relative;
   .container {
     flex-direction: column;
+    transition: 0.5s ease;
 
     .footer_menu {
       display: flex;
@@ -111,6 +112,33 @@
 
       top: 264px;
       border-top: 3px solid $dark_gray_color;
+    }
+  }
+}
+@media (max-width: 1024px) {
+  .footer {
+    .container {
+      .footer_menu {
+        padding-top: 59px;
+        padding-bottom: 28px;
+        .footer_menu_container {
+          justify-content: flex-start;
+
+          .footer_nav_menu {
+            margin-top: 7px;
+            max-width: 328px;
+          }
+        }
+        .social_container {
+          margin-bottom: 25px;
+        }
+      }
+      .footer_underline {
+        top: 244px;
+      }
+      .footer_contacts {
+        padding-top: 51px;
+      }
     }
   }
 }
