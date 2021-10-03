@@ -178,7 +178,7 @@
         color: $white-color;
         &:hover {
           cursor: pointer;
-          opacity: 0.8;
+          background-color: $gold-color;
         }
       }
     }
@@ -192,17 +192,9 @@
       height: 100vh;
       background: rgba(0, 0, 0, 0.5);
       overflow: auto;
-      transition: all 0.6s ease 0s;
+      opacity: 1;
       z-index: 3;
-      // animation: animatePopup 1s;
-      // animation-direction: alternate;
-      // transition: 2s ease;
-      // &:target {
-      //   display: block;
-      // }
-      // &:target .popup_container {
-      //   transform: translate(0px, 0px);
-      // }
+      transition: all 1s ease 0s;
       .popup_container {
         position: absolute;
         display: flex;
@@ -218,10 +210,10 @@
         padding: 91px 235px;
         overflow: hidden;
         background-color: $white-color;
-        animation: animatePopup 1s;
-        animation: animatePopupEnd 1s;
-        animation-direction: alternate;
-        transition: all 0.6s ease 0s;
+        // animation: animatePopup 1s;
+        // animation: animatePopupEnd 1s;
+        // animation-direction: alternate;
+        // transition: all 0.6s ease 0s;
 
         .close_btn {
           position: absolute;
@@ -241,19 +233,16 @@
       // .popup_container.active {
       //   left: 0;
       // }
-      @keyframes animatePopup {
-        from {
-          left: -250px;
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
-      }
-      // .popup_container.close {
-      //   animation: animatePopupEnd 1s;
-      //   transition: 2s ease;
+      // @keyframes animatePopup {
+      //   from {
+      //     left: -250px;
+      //     opacity: 0;
+      //   }
+      //   to {
+      //     opacity: 1;
+      //   }
       // }
+
       // @keyframes animatePopupEnd {
       //   from {
       //     opacity: 1;
@@ -322,6 +311,7 @@
         .input_popup_data,
         .input_popup_time {
           width: 190px;
+          background-color: $white-color;
         }
         input[type="date"]:not(.has-value):before {
           padding-left: 43px;
@@ -439,7 +429,7 @@
           // justify-content: space-evenly;
           margin-top: 20px;
           height: 135px;
-          max-width: 400px;
+          width: 400px;
           width: 100%;
 
           border: 1px solid $dark-color;
@@ -646,7 +636,7 @@
           display: flex;
           align-items: center;
           justify-content: space-between;
-          margin-top: 21px;
+          margin-top: 20px;
           width: 100%;
           h3 {
             font-family: $font-family-Roboto;
@@ -821,26 +811,19 @@
         }
       }
     }
-    .popup.active {
-      display: block;
-      left: 0;
-      transition: all 0.6s ease 0s;
-    }
+    // .popup.active {
+    //   display: block;
+    //   left: 0;
+    //   opacity: 1;
+    //   transition: all 1s ease 0s;
+    // }
     .popup_container.active {
       // left: 50%;
       // animation: animatePopupEnd 1s;
       // transition: 2s ease;
-      transition: all 0.6s ease 0s;
+      // transition: all 0.6s ease 0s;
     }
-    @keyframes animatePopupEnd {
-      from {
-        opacity: 1;
-      }
-      to {
-        left: -250px;
-        opacity: 0;
-      }
-    }
+
     .user_selected {
       font-family: $font-family-Roboto;
       font-style: normal;
@@ -852,8 +835,15 @@
     .overview_img {
       margin-top: -33px;
     }
+    .popup.active {
+      display: block;
+      left: 0;
+      opacity: 1;
+      transition: all 3s ease 0s;
+    }
   }
 }
+
 @media (max-width: 1024px) {
   .tickets_section .container {
     padding-top: 54px;
@@ -908,6 +898,91 @@
     }
     .popup .popup_container {
       padding: 75px 27px 30px;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .tickets_section .container {
+    padding-top: 25px;
+    padding-bottom: 40px;
+    .title_underline::after {
+      bottom: -8px;
+    }
+    .tickets_container {
+      margin-top: 49px;
+      .tickets_wr_img {
+        min-width: 445px;
+
+        height: 339px;
+      }
+    }
+    .select_box {
+      margin-left: 60px;
+      .input_number_container:first-of-type {
+        margin-top: 12px;
+      }
+      .input_number_container:last-of-type {
+        margin-top: 16px;
+      }
+      .title_form_price {
+        margin: 40px 0 39px;
+        letter-spacing: 2px;
+      }
+    }
+    .popup .popup_container {
+      flex-direction: column;
+      width: 590px;
+      .close_btn {
+        top: 21px;
+      }
+      .user_container {
+        width: 530px;
+        .logo_ticket {
+          margin-top: 18px;
+        }
+        .title_underline::after {
+          width: 100%;
+        }
+        .subtitle_popup {
+          margin-top: 14px;
+        }
+        .user_contacts {
+          margin-top: 33px;
+        }
+        label,
+        .entry_ticket,
+        .date_time,
+        .icon_position {
+          width: 100%;
+          input,
+          select {
+            width: 100%;
+          }
+          .icon_position_data,
+          .icon_position_time,
+          .input_popup_data,
+          .input_popup_time {
+            width: 251px;
+          }
+        }
+
+        .input_popup_time {
+          // margin-left: 28px;
+        }
+      }
+      .ticket_price_container {
+        margin-top: 50px;
+        margin-left: 0;
+        padding: 24px 15px 26px 14px;
+        .card_container {
+          .front_card {
+            top: 14px;
+          }
+          .back_card {
+            top: 44px;
+          }
+        }
+      }
     }
   }
 }

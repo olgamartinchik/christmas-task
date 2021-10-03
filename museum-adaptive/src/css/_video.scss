@@ -145,7 +145,8 @@
       border-radius: 50px;
       &:hover {
         cursor: pointer;
-        background-color: #333333;
+        background-color: $brown-color;
+        // background-color: #333333;
       }
     }
     .video_carusel_dots.active {
@@ -173,12 +174,15 @@
         img {
           width: 26px;
         }
+        .progress {
+          height: 5px;
+        }
         .progress_video {
-          max-width: 564px;
+          width: 564px;
           width: 100%;
         }
         .progress_audio {
-          max-width: 143px;
+          width: 143px;
           width: 100%;
         }
         .panel_play {
@@ -193,6 +197,57 @@
       max-width: 452px;
       width: 100%;
       height: 171px;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .video_section .container {
+    padding-top: 25px;
+    padding-bottom: 86px;
+    overflow: hidden;
+    .video_container {
+      margin-top: -28px;
+      .video_wrapper .btn_play {
+        max-width: 79px;
+      }
+      .control_panel {
+        position: relative;
+        justify-content: space-between;
+        height: 55px;
+        .progress_video {
+          position: absolute;
+          top: -4px;
+          width: 100%;
+        }
+        .progress_audio {
+          max-width: 486px;
+          width: 100%;
+        }
+        img {
+          width: 24px;
+        }
+      }
+    }
+    .video_slider {
+      margin-top: 22px;
+      gap: 0 21px;
+      width: 100%;
+      .small_video {
+        max-width: 354px;
+        width: 100%;
+        height: 199px;
+      }
+      .small_video:last-of-type {
+        display: none;
+      }
+    }
+    .dots_arrow {
+      padding-top: 25px;
+      width: 192px;
+    }
+    .video_carusel_dots {
+      width: 10px;
+      height: 10px;
     }
   }
 }

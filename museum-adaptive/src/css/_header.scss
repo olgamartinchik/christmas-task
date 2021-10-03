@@ -25,7 +25,7 @@
   }
 
   .logo_title {
-    font-size: var(--font3);
+    font-size: 28px;
     font-family: $font-family-forum;
     color: $white-color;
     font-style: normal;
@@ -69,14 +69,18 @@
     .last_position {
       padding-right: 0;
     }
-    li:hover {
-      opacity: 0.6;
+    li a:hover {
+      // opacity: 0.6;
+      color: $gold-color;
+    }
+    li a:active {
+      color: #7e6c51;
     }
   }
 }
 @media all and (max-width: 1024px) {
   .header .container {
-    height: 130px;
+    max-height: 130px;
   }
   .logo_container .logo_title {
     letter-spacing: 8px;
@@ -169,5 +173,33 @@
   }
   .nav_menu.active {
     left: 0;
+  }
+}
+@media all and (max-width: 768px) {
+  .header .container {
+    max-height: 110px;
+  }
+  .logo_container .logo_title {
+    letter-spacing: 5px;
+  }
+  .menu_burger {
+    margin-top: -10px;
+  }
+}
+@media all and (max-width: 420px) {
+  .header .container {
+    max-height: 90px;
+    .logo_container {
+      height: 20px;
+      background-size: 15%;
+      background-position: calc(0% - -3px) 100%;
+      .logo_title {
+        font-size: 16px;
+        margin-left: 55px;
+      }
+    }
+    .menu_burger {
+      margin-top: 9px;
+    }
   }
 }

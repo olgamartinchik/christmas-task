@@ -3,7 +3,7 @@
 }
 .visiting_section .container {
   flex-direction: column;
-  min-height: 1266px;
+  max-height: 1266px;
   height: 100%;
   padding-top: 75px;
   padding-bottom: 75px;
@@ -157,5 +157,22 @@
     position: absolute;
     bottom: 61px;
     width: 149px;
+  }
+}
+@media (max-width: 768px) {
+  .visiting_section .container {
+    padding-top: 25px;
+    padding-bottom: 78px;
+    .title_underline::after {
+      bottom: -9px;
+    }
+    .virtual_gallery .virtual_card {
+      width: 280px;
+      height: 305px;
+      margin-top: 35px;
+    }
+    .card::after {
+      bottom: 63px;
+    }
   }
 }

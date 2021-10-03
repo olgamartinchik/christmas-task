@@ -9,6 +9,7 @@ $dark-color: #030303;
 $white-color: #ffffff;
 $light-brown-color: #d2b183;
 $gold-color: #9d8665;
+$gold-active: #7e6c51;
 $light-gold-color: #caaa7d;
 $black_color: #000000;
 $gray_color: #c4c4c4;
@@ -22,6 +23,7 @@ $black_lite_color: #272727;
   --font5: 18px;
   --font6: 33px;
   --font_footer: 22px;
+  --font_footer_bottom: 22px;
   --font_bye_now: 22px;
   --font_arrow: 30px;
   --font_close_btn: 70px;
@@ -131,6 +133,7 @@ button {
     --font5: 16px;
     --font6: 28px;
     --font_footer: 22px;
+    --font_footer_bottom: 22px;
     --font_bye_now: 22px;
     --font_arrow: 30px;
     --font_close_btn: 70px;
@@ -145,13 +148,14 @@ button {
 }
 @media (max-width: 768px) {
   :root {
-    --font1: 80px;
-    --font2: 32px;
-    --font3: 28px;
-    --font4: 22px;
-    --font5: 18px;
+    --font1: 40px;
+    --font2: 22px;
+    --font3: 20px;
+    --font4: 18px;
+    --font5: 16px;
     --font6: 33px;
-    --font_footer: 22px;
+    --font_footer: 18px;
+    --font_footer_bottom: 22px;
     --font_bye_now: 22px;
     --font_arrow: 30px;
     --font_close_btn: 70px;
@@ -159,10 +163,13 @@ button {
 }
 @media (max-width: 420px) {
   :root {
-    --font1: 80px;
-    --font2: 32px;
-    --font3: 28px;
-    --font4: 22px;
+    --font1: 28px;
+    --font2: 16px;
+    --font3: 16px;
+    --font4: 16px;
+    --font5: 16px;
     --font_arrow: 30px;
+    --font_footer: 16px;
+    --font_footer_bottom: 16px;
   }
 }

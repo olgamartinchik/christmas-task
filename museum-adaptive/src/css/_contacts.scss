@@ -69,3 +69,30 @@
     }
   }
 }
+@media (max-width: 768px) {
+  .contacts_section .container {
+    padding-top: 25px;
+    padding-bottom: 70px;
+    .title_underline::after {
+      bottom: -8px;
+    }
+    .contacts_container {
+      margin-top: 44px;
+      flex-direction: column;
+      .contacts {
+        margin-right: 20px;
+        .title_contacts {
+          line-height: 1.3;
+          margin-bottom: 39px;
+        }
+        .address,
+        p {
+          line-height: 20px;
+        }
+      }
+    }
+    #map {
+      margin-top: 20px;
+    }
+  }
+}

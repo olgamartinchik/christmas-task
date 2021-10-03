@@ -6,6 +6,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 810px;
   height: 52.8vw;
   // max-height: 842px;
   // min-height: 100%;
@@ -93,8 +94,8 @@
   }
   .welcome_btn:hover {
     cursor: pointer;
-    opacity: 0.6;
-    color: $gold-color;
+    // opacity: 0.6;
+    background-color: $gold-color;
   }
   .welcome_pagination {
     position: absolute;
@@ -201,6 +202,7 @@
       height: 57vw;
       background-position: calc(100% - 20px) calc(0% - 0px);
     }
+
     .title_container {
       margin-bottom: 95px;
       .welcome_subtitle {
@@ -213,7 +215,7 @@
       }
     }
     .welcome_pagination {
-      max-width: 700px;
+      width: 700px;
       width: 100%;
       padding: 40px 70px 40px 224px;
       right: 20px;
@@ -231,6 +233,56 @@
       .arrow_box {
         margin-left: 42px;
         margin-right: 20px;
+      }
+    }
+  }
+}
+@media all and (max-width: 768px) {
+  .welcome_section .container {
+    height: 855px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    .title_container {
+      justify-content: flex-start;
+      align-items: center;
+      margin-bottom: 0;
+      height: 294px;
+      .welcome_title {
+        text-align: center;
+        line-height: 61px;
+        margin-top: -6px;
+      }
+      .welcome_subtitle {
+        margin-top: 18px;
+        margin-bottom: 0;
+      }
+      .welcome_btn {
+        display: none;
+      }
+    }
+    .background_container {
+      width: 100%;
+      height: 100%;
+      background-position: 50% calc(100% - 97px);
+      background-size: 95%;
+    }
+    .background_container::after {
+      content: "";
+      position: absolute;
+      background: linear-gradient(0);
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+    .welcome_pagination {
+      width: 100%;
+      padding: 0 142px 0 147px;
+      width: calc(100% - 40px);
+      height: 101px;
+      .line_slider {
+        margin-left: 15px;
       }
     }
   }

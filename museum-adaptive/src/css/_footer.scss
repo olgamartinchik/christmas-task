@@ -16,7 +16,7 @@
         align-items: flex-start;
         justify-content: space-between;
         flex-wrap: wrap;
-        max-width: 703px;
+        width: 703px;
         width: 100%;
 
         .footer_nav_menu {
@@ -92,7 +92,7 @@
         font-family: $font-family-Roboto;
         font-style: normal;
         font-weight: 200;
-        font-size: var(--font_footer);
+        font-size: var(--font_footer_bottom);
         line-height: 22px;
         letter-spacing: 2px;
         color: $white-color;
@@ -139,6 +139,37 @@
       .footer_contacts {
         padding-top: 51px;
       }
+    }
+  }
+}
+@media (max-width: 768px) {
+  .footer .container {
+    .footer_menu {
+      padding-top: 48px;
+      padding-bottom: 28px;
+      flex-direction: column;
+      .footer_menu_container {
+        width: 100%;
+        .footer_nav_menu {
+          // margin-top: 7px;
+          max-width: 419px;
+          ul {
+            margin-left: 74px;
+          }
+          ul li {
+            margin-bottom: 21px;
+          }
+        }
+      }
+      .social_container {
+        /* width: 100%; */
+        margin-right: 89px;
+        margin-top: 26px;
+        margin-bottom: 3px;
+      }
+    }
+    .footer_underline {
+      top: 309px;
     }
   }
 }

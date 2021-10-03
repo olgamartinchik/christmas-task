@@ -126,3 +126,34 @@
     }
   }
 }
+@media (max-width: 768px) {
+  .explore_section .container {
+    padding-top: 26px;
+    padding-bottom: 36px;
+    .title_underline::after {
+      bottom: -7px;
+    }
+    p {
+      display: none;
+    }
+    .images_explore {
+      margin-top: 34px;
+      max-width: 725px;
+      overflow: hidden;
+      img {
+        width: 725px;
+      }
+      .gradient_explore {
+        width: 443px;
+      }
+      .explore_slider {
+        position: absolute;
+        top: 0px;
+        right: 266px;
+        width: 39px;
+        max-height: 704px;
+        bottom: 0;
+      }
+    }
+  }
+}
