@@ -3,8 +3,8 @@
 }
 .visiting_section .container {
   flex-direction: column;
-  max-height: 1266px;
-  height: 100%;
+  height: 1266px;
+  // height: 100%;
   padding-top: 75px;
   padding-bottom: 75px;
 
@@ -173,6 +173,27 @@
     }
     .card::after {
       bottom: 63px;
+    }
+  }
+}
+@media (max-width: 420px) {
+  .visiting_section .container {
+    padding-top: 19px;
+    padding-bottom: 78px;
+    height: 2156px;
+    .title_underline::after {
+      bottom: 3px;
+    }
+    .virtual_gallery {
+      margin-top: 1px;
+      .virtual_card {
+        width: 280px;
+        height: 295px;
+        margin-top: 40px;
+        .subtitle_royal_place {
+          letter-spacing: 5px;
+        }
+      }
     }
   }
 }

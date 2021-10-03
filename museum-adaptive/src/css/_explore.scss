@@ -157,3 +157,29 @@
     }
   }
 }
+@media (max-width: 420px) {
+  .explore_section .container {
+    padding-top: 17px;
+    padding-bottom: 38px;
+    .title_underline::after {
+      bottom: 3px;
+    }
+    .images_explore {
+      margin-top: 20px;
+      max-width: 380px;
+      img {
+        width: 380px;
+      }
+      .gradient_explore {
+        width: 230px;
+      }
+      .explore_slider {
+        top: 0px;
+        right: 130px;
+        width: 39px;
+        max-height: 368px;
+        bottom: 0;
+      }
+    }
+  }
+}

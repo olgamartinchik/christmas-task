@@ -89,3 +89,21 @@
     }
   }
 }
+@media (max-width: 420px) {
+  .gallery_section .container {
+    padding-top: 15px;
+    padding-bottom: 40px;
+    .gallery_container {
+      margin-top: 0px;
+      height: 613px;
+      .gallery_inner_container {
+        columns: 2;
+        height: 1100px;
+        gap: 0 24px;
+        .gallery_img {
+          width: 178px;
+        }
+      }
+    }
+  }
+}

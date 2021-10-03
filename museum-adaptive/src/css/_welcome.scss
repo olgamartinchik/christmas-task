@@ -270,7 +270,7 @@
     .background_container::after {
       content: "";
       position: absolute;
-      background: linear-gradient(0);
+      background: none;
       top: 0;
       bottom: 0;
       left: 0;
@@ -283,6 +283,48 @@
       height: 101px;
       .line_slider {
         margin-left: 15px;
+      }
+    }
+  }
+}
+@media all and (max-width: 420px) {
+  .welcome_section .container {
+    height: 549px;
+    .title_container .welcome_title {
+      line-height: 41px;
+      margin-top: 9px;
+    }
+    .background_container {
+      background-position: 50% calc(100% - 78px);
+      background-size: 91%;
+    }
+    .welcome_pagination {
+      width: 100%;
+      padding: 0 142px 0 147px;
+      width: calc(100% - 40px);
+      height: 78px;
+      .num_box {
+        margin-left: -22px;
+      }
+      .zero_slider {
+        margin-left: 4px;
+      }
+      .img_number {
+        margin-left: 0px;
+      }
+      .line_slider {
+        margin-left: 2px;
+      }
+      .pagination_img {
+        width: 7px;
+        height: 7px;
+
+        margin-left: 14px;
+        margin-right: 0;
+      }
+      .arrow_box {
+        margin-left: 23px;
+        margin-right: 0px;
       }
     }
   }

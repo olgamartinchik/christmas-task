@@ -251,3 +251,52 @@
     }
   }
 }
+@media (max-width: 420px) {
+  .video_section .container {
+    padding-top: 11px;
+    padding-bottom: 44px;
+    .video_container {
+      margin-top: -38px;
+      .video_wrapper .btn_play {
+        max-width: 50px;
+      }
+      .control_panel {
+        img {
+          width: 16px;
+        }
+        .fullscreen {
+          margin-right: 20px;
+          margin-left: 14px;
+        }
+        .panel_play {
+          margin-left: 21px;
+          margin-right: 12px;
+        }
+        .progress::-webkit-slider-thumb {
+          width: 10px;
+          height: 10px;
+        }
+        .progress_audio {
+          max-width: 200px;
+          width: 100%;
+          margin-left: 16px;
+        }
+      }
+    }
+    .video_slider {
+      .small_video {
+        max-width: 180px;
+        width: 100%;
+        height: 115px;
+      }
+    }
+    .dots_arrow {
+      padding-top: 45px;
+      width: 176px;
+    }
+    .video_carusel_dots {
+      width: 8px;
+      height: 8px;
+    }
+  }
+}

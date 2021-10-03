@@ -85,11 +85,14 @@
       }
     }
     .text_form {
+      font-family: $font-family-Roboto;
+      font-style: normal;
+
       margin-left: 39px;
       font-weight: 300;
       font-size: 22px;
       line-height: 26px;
-      letter-spacing: 1px;
+      letter-spacing: 0;
     }
     .text_form_semior {
       margin-top: 10px;
@@ -981,6 +984,45 @@
           .back_card {
             top: 44px;
           }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 420px) {
+  .tickets_section .container {
+    padding-top: 16px;
+    padding-bottom: 40px;
+    .title_underline::after {
+      bottom: 3px;
+    }
+    .tickets_container {
+      margin-top: 36px;
+      flex-direction: column;
+      .tickets_wr_img {
+        min-width: 380px;
+        height: 161px;
+      }
+      .select_box {
+        margin-left: 0;
+        justify-content: center;
+        align-items: center;
+        margin-top: 33px;
+        .input_number_container:first-of-type {
+          margin-top: -16px;
+        }
+        .input_number_container:last-of-type {
+          margin-top: 8px;
+        }
+        .input_number_container .text_form {
+          margin-bottom: 11px;
+        }
+        .title_form_price {
+          margin: 35px 0 32px;
+          letter-spacing: 0px;
+        }
+        .text_form {
+          font-size: 16px;
         }
       }
     }
