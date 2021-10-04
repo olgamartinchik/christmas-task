@@ -432,6 +432,9 @@ button {
     max-width: 319px;
     width: 100%;
   }
+  .nav_menu .bottom_nav_menu .first_nav_menu .bottom_img img:last-of-type {
+    margin-left: 5px;
+  }
   .nav_menu .bottom_nav_menu .underline_nav_menu {
     border-bottom: 1px solid rgba(255, 255, 255, 0.5);
     margin-top: 35px;
@@ -480,7 +483,7 @@ button {
     margin-top: 9px;
   }
   .header .container .nav_menu {
-    top: 107px;
+    top: 102px;
   }
   .header .container .nav_menu .link_nav_menu {
     height: 629px;
@@ -515,6 +518,66 @@ button {
   }
   .header .container .dublicate_nav_menu .bottom_img img {
     max-width: 95px;
+    width: 100%;
+  }
+  .header .container .dublicate_nav_menu .bottom_img img:last-of-type {
+    margin-left: 5px;
+  }
+  .header .container .dublicate_nav_menu .bottom_img img:first-of-type {
+    margin-right: 5px;
+  }
+}
+@media all and (max-width: 754px) {
+  .header .container .bottom_nav_menu .first_nav_menu .large_img {
+    max-width: 590px;
+    width: 100%;
+  }
+  .header .container .bottom_nav_menu .first_nav_menu .large_img img {
+    max-width: 590px;
+    width: 100%;
+  }
+  .header .container .bottom_nav_menu .first_nav_menu .bottom_img {
+    max-width: 590px;
+    width: 100%;
+  }
+  .header .container .bottom_nav_menu .first_nav_menu .bottom_img img {
+    max-width: 293px;
+    width: 100%;
+  }
+}
+@media all and (max-width: 662px) {
+  .header .container .bottom_nav_menu .first_nav_menu .large_img {
+    max-width: 490px;
+    width: 100%;
+  }
+  .header .container .bottom_nav_menu .first_nav_menu .large_img img {
+    max-width: 490px;
+    width: 100%;
+  }
+  .header .container .bottom_nav_menu .first_nav_menu .bottom_img {
+    max-width: 490px;
+    width: 100%;
+  }
+  .header .container .bottom_nav_menu .first_nav_menu .bottom_img img {
+    max-width: 243px;
+    width: 100%;
+  }
+}
+@media all and (max-width: 564px) {
+  .header .container .bottom_nav_menu .first_nav_menu .large_img {
+    max-width: 390px;
+    width: 100%;
+  }
+  .header .container .bottom_nav_menu .first_nav_menu .large_img img {
+    max-width: 390px;
+    width: 100%;
+  }
+  .header .container .bottom_nav_menu .first_nav_menu .bottom_img {
+    max-width: 390px;
+    width: 100%;
+  }
+  .header .container .bottom_nav_menu .first_nav_menu .bottom_img img {
+    max-width: 191px;
     width: 100%;
   }
 }
@@ -2948,6 +3011,9 @@ button {
     height: 100%;
     max-width: 360px;
     width: 100%;
+  }
+  .tickets_section .container .popup .popup_container .ticket_price_container .total_ticket {
+    margin-top: 2px;
   }
   .tickets_section .container .popup .popup_container .ticket_price_container .overview_container .overview_img {
     max-width: 120px;
