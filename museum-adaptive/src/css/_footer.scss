@@ -14,7 +14,7 @@
       .footer_menu_container {
         display: flex;
         align-items: flex-start;
-        justify-content: space-between;
+        justify-content: flex-start;
         flex-wrap: wrap;
         width: 703px;
         width: 100%;
@@ -27,6 +27,7 @@
           max-width: 367px;
           width: 100%;
           margin-top: 3px;
+          margin-left: 112px;
           .first_menu {
             display: flex;
             justify-content: space-between;
@@ -132,10 +133,11 @@
         padding-bottom: 28px;
         .footer_menu_container {
           justify-content: flex-start;
-
+          flex-wrap: nowrap;
           .footer_nav_menu {
             margin-top: 7px;
             max-width: 328px;
+            margin-left: 0px;
           }
         }
         .social_container {
@@ -211,6 +213,7 @@
         justify-content: center;
         padding-top: 36px;
         .footer_menu_container {
+          flex-direction: column;
           .footer_nav_menu {
             align-items: center;
             height: 68px;

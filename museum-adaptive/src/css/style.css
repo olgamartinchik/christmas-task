@@ -193,6 +193,7 @@ button {
   justify-content: space-between;
   height: 150px;
   color: #ffffff;
+  background-color: #030303;
 }
 
 .logo_container {
@@ -236,6 +237,9 @@ button {
   max-width: 776px;
 }
 .nav_menu .bottom_nav_menu {
+  display: none;
+}
+.nav_menu .dublicate_nav_menu {
   display: none;
 }
 .nav_menu .link_nav_menu {
@@ -349,7 +353,7 @@ button {
     height: 100%;
     max-width: 297px;
     background-color: #030303;
-    padding-top: 35px;
+    padding-top: 9px;
     cursor: default;
   }
   .nav_menu .link_nav_menu .nav_arrow {
@@ -361,7 +365,7 @@ button {
     align-items: center;
     width: 122px;
     margin-left: 55px;
-    margin-top: 25px;
+    margin-top: 23px;
   }
   .nav_menu .link_nav_menu li:hover {
     cursor: pointer;
@@ -388,12 +392,13 @@ button {
   }
 
   .nav_menu {
+    overflow: scroll;
     top: 112px;
   }
   .nav_menu .link_nav_menu {
     max-width: 768px;
     width: 100%;
-    height: 861px;
+    height: 1035px;
     padding-top: 0px;
   }
   .nav_menu .bottom_nav_menu {
@@ -403,15 +408,19 @@ button {
     left: 54px;
     top: 325px;
   }
-  .nav_menu .bottom_nav_menu .img_nav_menu {
+  .nav_menu .bottom_nav_menu .first_nav_menu {
     display: flex;
     flex-direction: column;
   }
-  .nav_menu .bottom_nav_menu .img_nav_menu .large_img {
+  .nav_menu .bottom_nav_menu .first_nav_menu .large_img {
     max-width: 658px;
     width: 100%;
   }
-  .nav_menu .bottom_nav_menu .img_nav_menu .bottom_img {
+  .nav_menu .bottom_nav_menu .first_nav_menu .large_img img {
+    max-width: 658px;
+    width: 100%;
+  }
+  .nav_menu .bottom_nav_menu .first_nav_menu .bottom_img {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -419,12 +428,12 @@ button {
     width: 100%;
     margin-top: 20px;
   }
-  .nav_menu .bottom_nav_menu .img_nav_menu .bottom_img img {
+  .nav_menu .bottom_nav_menu .first_nav_menu .bottom_img img {
     max-width: 319px;
     width: 100%;
   }
   .nav_menu .bottom_nav_menu .underline_nav_menu {
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
     margin-top: 35px;
   }
   .nav_menu .bottom_nav_menu .social_nav_menu {
@@ -444,7 +453,8 @@ button {
     height: 48px;
     border: 2px solid #666666;
     border-radius: 50%;
-    margin-left: 25px;
+    margin-right: 10px;
+    margin-left: 15px;
     transition: all 0.1s ease;
   }
   .nav_menu .bottom_nav_menu .social_nav_menu .social_container .social_icon:hover {
@@ -468,6 +478,44 @@ button {
   }
   .header .container .menu_burger {
     margin-top: 9px;
+  }
+  .header .container .nav_menu {
+    top: 107px;
+  }
+  .header .container .nav_menu .link_nav_menu {
+    height: 629px;
+  }
+  .header .container .first_nav_menu {
+    display: none;
+  }
+  .header .container .bottom_nav_menu {
+    max-width: 310px;
+    width: 100%;
+  }
+  .header .container .bottom_nav_menu .underline_nav_menu {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    margin-top: 18px;
+  }
+  .header .container .bottom_nav_menu .social_nav_menu {
+    margin-top: 24px;
+  }
+  .header .container .bottom_nav_menu .social_nav_menu .social_container .social_icon {
+    margin-left: 5px;
+  }
+  .header .container .dublicate_nav_menu {
+    display: flex;
+    margin-top: -4px;
+  }
+  .header .container .dublicate_nav_menu .bottom_img {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 310px;
+    width: 100%;
+  }
+  .header .container .dublicate_nav_menu .bottom_img img {
+    max-width: 95px;
+    width: 100%;
   }
 }
 .welcome_section {
@@ -984,7 +1032,7 @@ button {
     gap: 0;
   }
   .virtual_gallery .virtual_card {
-    width: 330px;
+    width: 330px !important;
     height: 345px;
     margin-top: 60px;
   }
@@ -1014,7 +1062,7 @@ button {
     bottom: -9px;
   }
   .visiting_section .container .virtual_gallery .virtual_card {
-    width: 280px;
+    width: 280px !important;
     height: 305px;
     margin-top: 35px;
   }
@@ -1391,6 +1439,11 @@ button {
     padding-top: 51px;
     padding-bottom: 64px;
   }
+  .video_section .container .video_slider {
+    margin-top: 40px !important;
+    gap: 0 40px !important;
+    width: 100%;
+  }
   .video_section .container .title_container p {
     display: none;
   }
@@ -1424,9 +1477,12 @@ button {
     margin-right: 31px;
   }
   .video_section .container .video_slider .small_video {
-    max-width: 452px;
-    width: 100%;
-    height: 171px;
+    max-width: 452px !important;
+    width: 100% !important;
+    height: 171px !important;
+  }
+  .video_section .container .small_video:last-of-type {
+    display: block !important;
   }
 }
 @media (max-width: 1111px) {
@@ -1474,17 +1530,17 @@ button {
     width: 24px;
   }
   .video_section .container .video_slider {
-    margin-top: 22px;
-    gap: 0 21px;
+    margin-top: 22px !important;
+    gap: 0 21px !important;
     width: 100%;
   }
   .video_section .container .video_slider .small_video {
-    max-width: 354px;
+    max-width: 354px !important;
     width: 100%;
-    height: 199px;
+    height: 199px !important;
   }
   .video_section .container .video_slider .small_video:last-of-type {
-    display: none;
+    display: none !important;
   }
   .video_section .container .dots_arrow {
     padding-top: 25px;
@@ -1534,9 +1590,9 @@ button {
     margin-left: 16px;
   }
   .video_section .container .video_slider .small_video {
-    max-width: 180px;
+    max-width: 180px !important;
     width: 100%;
-    height: 115px;
+    height: 115px !important;
   }
   .video_section .container .dots_arrow {
     padding-top: 45px;
@@ -2602,7 +2658,7 @@ button {
     align-items: flex-start;
     justify-content: center;
     width: 100%;
-    margin-left: 81px;
+    margin-left: 70px;
   }
   .tickets_section .container .select_box .input_number_container:first-of-type {
     margin-top: 6px;
@@ -2656,6 +2712,9 @@ button {
   .tickets_section .container .tickets_container .tickets_wr_img {
     min-width: 445px;
     height: 339px;
+  }
+  .tickets_section .container .tickets_container .tickets_form {
+    margin-left: 0;
   }
   .tickets_section .container .select_box {
     margin-left: 60px;
@@ -3078,7 +3137,7 @@ button {
 .footer .container .footer_menu .footer_menu_container {
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
   width: 703px;
   width: 100%;
@@ -3091,6 +3150,7 @@ button {
   max-width: 367px;
   width: 100%;
   margin-top: 3px;
+  margin-left: 112px;
 }
 .footer .container .footer_menu .footer_menu_container .footer_nav_menu .first_menu {
   display: flex;
@@ -3186,10 +3246,12 @@ button {
   }
   .footer .container .footer_menu .footer_menu_container {
     justify-content: flex-start;
+    flex-wrap: nowrap;
   }
   .footer .container .footer_menu .footer_menu_container .footer_nav_menu {
     margin-top: 7px;
     max-width: 328px;
+    margin-left: 0px;
   }
   .footer .container .footer_menu .social_container {
     margin-bottom: 25px;
@@ -3248,6 +3310,9 @@ button {
     align-items: center;
     justify-content: center;
     padding-top: 36px;
+  }
+  .footer .container .footer_menu .footer_menu_container {
+    flex-direction: column;
   }
   .footer .container .footer_menu .footer_menu_container .footer_nav_menu {
     align-items: center;

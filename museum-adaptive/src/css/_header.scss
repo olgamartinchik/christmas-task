@@ -8,6 +8,7 @@
   justify-content: space-between;
   height: 150px;
   color: $white-color;
+  background-color: $dark-color;
 }
 .logo_container {
   background-image: url("/src/assets/svg/Logo.svg");
@@ -47,6 +48,9 @@
   width: 100%;
   max-width: 776px;
   .bottom_nav_menu {
+    display: none;
+  }
+  .dublicate_nav_menu {
     display: none;
   }
   .link_nav_menu {
@@ -154,7 +158,7 @@
       max-width: 297px;
 
       background-color: $dark-color;
-      padding-top: 35px;
+      padding-top: 9px;
       cursor: default;
       .nav_arrow {
         display: block;
@@ -165,7 +169,7 @@
         align-items: center;
         width: 122px;
         margin-left: 55px;
-        margin-top: 25px;
+        margin-top: 23px;
         &:hover {
           cursor: pointer;
           opacity: 0.6;
@@ -190,11 +194,12 @@
     margin-top: -10px;
   }
   .nav_menu {
+    overflow: scroll;
     top: 112px;
     .link_nav_menu {
       max-width: 768px;
       width: 100%;
-      height: 861px;
+      height: 1035px;
       padding-top: 0px;
       // max-height: 861px;
       // height: 100%;
@@ -206,12 +211,17 @@
       position: absolute;
       left: 54px;
       top: 325px;
-      .img_nav_menu {
+      // margin-left: 10px;
+      .first_nav_menu {
         display: flex;
         flex-direction: column;
         .large_img {
           max-width: 658px;
           width: 100%;
+          img {
+            max-width: 658px;
+            width: 100%;
+          }
         }
         .bottom_img {
           display: flex;
@@ -227,7 +237,7 @@
         }
       }
       .underline_nav_menu {
-        border: 1px solid rgba(255, 255, 255, 0.5);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
         margin-top: 35px;
       }
       .social_nav_menu {
@@ -245,7 +255,8 @@
             height: 48px;
             border: 2px solid $dark_gray_color;
             border-radius: 50%;
-            margin-left: 25px;
+            margin-right: 10px;
+            margin-left: 15px;
             transition: all 0.1s ease;
             &:hover {
               border: 2px solid $light-gold-color;
@@ -273,6 +284,45 @@
     }
     .menu_burger {
       margin-top: 9px;
+    }
+    .nav_menu {
+      top: 107px;
+      .link_nav_menu {
+        height: 629px;
+      }
+    }
+    .first_nav_menu {
+      display: none;
+    }
+    .bottom_nav_menu {
+      max-width: 310px;
+      width: 100%;
+      .underline_nav_menu {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        margin-top: 18px;
+      }
+      .social_nav_menu {
+        margin-top: 24px;
+        .social_container .social_icon {
+          margin-left: 5px;
+        }
+      }
+    }
+    .dublicate_nav_menu {
+      display: flex;
+      margin-top: -4px;
+
+      .bottom_img {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 310px;
+        width: 100%;
+        img {
+          max-width: 95px;
+          width: 100%;
+        }
+      }
     }
   }
 }

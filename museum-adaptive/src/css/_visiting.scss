@@ -183,7 +183,7 @@
 
     .virtual_card {
       // justify-content: space-evenly;
-      width: 330px;
+      width: 330px !important;
       height: 345px;
       margin-top: 60px;
       .underline_card {
@@ -213,7 +213,7 @@
       bottom: -9px;
     }
     .virtual_gallery .virtual_card {
-      width: 280px;
+      width: 280px !important;
       height: 305px;
       margin-top: 35px;
     }

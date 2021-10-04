@@ -964,7 +964,7 @@
       justify-content: center;
       // width: 175px;
       width: 100%;
-      margin-left: 81px;
+      margin-left: 70px;
 
       .input_number_container:first-of-type {
         margin-top: 6px;
@@ -1023,6 +1023,9 @@
         min-width: 445px;
 
         height: 339px;
+      }
+      .tickets_form {
+        margin-left: 0;
       }
     }
     .select_box {
