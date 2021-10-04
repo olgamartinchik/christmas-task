@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: space-between;
   height: 810px;
-  height: 52.8vw;
+  // height: 52.8vw;
   // max-height: 842px;
   // min-height: 100%;
   // height: 811px;
@@ -16,7 +16,7 @@
   transition: 0.5s;
   .background_container {
     position: absolute;
-    background-image: url("/src/assets/img/welcome-slider/1.jpg");
+    background-image: url("/src/assets/img/welcome-slider/1.jpeg");
     background-repeat: no-repeat;
     background-position: calc(100% - 16px) calc(0% - 0px);
     width: 100%;
@@ -40,6 +40,7 @@
       background-repeat: no-repeat;
       left: calc(100% - 70%);
       right: 0;
+      background-size: 100%;
     }
   }
 
@@ -193,16 +194,40 @@
     // position: absolute;
   }
 }
+
+@media all and (max-width: 1360px) {
+  .welcome_section .container {
+    height: 760px;
+  }
+}
+@media all and (max-width: 1360px) {
+  .welcome_section .container {
+    height: 744px;
+  }
+}
+@media all and (max-width: 1229px) {
+  .welcome_section .container {
+    height: 679px;
+  }
+}
+@media all and (max-width: 1069px) {
+  .welcome_section .container {
+    height: 639px;
+  }
+}
+
 @media all and (max-width: 1024px) {
   .welcome_section .container {
     // padding-top: 50px;
     // padding-bottom: 51px;
     height: 585px;
     .background_container {
-      height: 57vw;
+      // height: 57vw;
       background-position: calc(100% - 20px) calc(0% - 0px);
     }
-
+    .background_container::after {
+      left: calc(100% - 71%);
+    }
     .title_container {
       margin-bottom: 95px;
       .welcome_subtitle {
@@ -215,7 +240,7 @@
       }
     }
     .welcome_pagination {
-      width: 700px;
+      max-width: 700px;
       width: 100%;
       padding: 40px 70px 40px 224px;
       right: 20px;
@@ -237,6 +262,29 @@
     }
   }
 }
+@media all and (max-width: 1020px) {
+  .welcome_section .container {
+    height: 603px;
+    .background_container::after {
+      background-size: 100% 88%;
+    }
+  }
+}
+@media all and (max-width: 1009px) {
+  .welcome_section .container {
+    height: 580px;
+  }
+}
+@media all and (max-width: 840px) {
+  .welcome_section .container {
+    height: 542px;
+  }
+}
+// @media all and (max-width: 1010px) {
+//   .welcome_section .container {
+//     height: 509px;
+//   }
+// }
 @media all and (max-width: 768px) {
   .welcome_section .container {
     height: 855px;
@@ -278,7 +326,7 @@
     }
     .welcome_pagination {
       width: 100%;
-      padding: 0 142px 0 147px;
+      padding: 0 142px 0 119px;
       width: calc(100% - 40px);
       height: 101px;
       .line_slider {
@@ -287,12 +335,51 @@
     }
   }
 }
+@media all and (max-width: 688px) {
+  .welcome_section .container {
+    height: 778px;
+  }
+}
+@media all and (max-width: 667px) {
+  .welcome_section .container {
+    .title_container {
+      max-width: 500px;
+      width: 100%;
+    }
+  }
+}
+@media all and (max-width: 587px) {
+  .welcome_section .container {
+    height: 708px;
+  }
+}
+@media all and (max-width: 514px) {
+  .welcome_section .container {
+    height: 696px;
+  }
+}
+@media all and (max-width: 446px) {
+  .welcome_section .container {
+    height: 596px;
+  }
+}
+@media all and (max-width: 439px) {
+  .welcome_section .container {
+    height: 631px;
+  }
+}
 @media all and (max-width: 420px) {
   .welcome_section .container {
     height: 549px;
-    .title_container .welcome_title {
-      line-height: 41px;
-      margin-top: 9px;
+    .title_container {
+      max-width: 279px;
+      width: 100%;
+      .welcome_title {
+        line-height: 41px;
+        margin-top: 9px;
+        max-width: 253px;
+        width: 100%;
+      }
     }
     .background_container {
       background-position: 50% calc(100% - 78px);
@@ -304,7 +391,7 @@
       width: calc(100% - 40px);
       height: 78px;
       .num_box {
-        margin-left: -22px;
+        margin-left: -1px;
       }
       .zero_slider {
         margin-left: 4px;
@@ -315,17 +402,36 @@
       .line_slider {
         margin-left: 2px;
       }
+      .pagination_box {
+        margin-left: 12px;
+        margin-right: 9px;
+      }
       .pagination_img {
         width: 7px;
         height: 7px;
 
-        margin-left: 14px;
+        margin-left: 10px;
         margin-right: 0;
       }
       .arrow_box {
-        margin-left: 23px;
+        margin-left: 14px;
         margin-right: 0px;
+        .right_arrow {
+          margin-left: 3px;
+        }
       }
     }
+  }
+}
+@media all and (max-width: 375px) {
+  .welcome_section .container {
+    .welcome_pagination {
+      padding: 0 100px 0 100px;
+    }
+  }
+}
+@media all and (max-width: 346px) {
+  .welcome_section .container {
+    height: 488px;
   }
 }

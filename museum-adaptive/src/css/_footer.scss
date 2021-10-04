@@ -27,6 +27,11 @@
           max-width: 367px;
           width: 100%;
           margin-top: 3px;
+          .first_menu {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+          }
           ul {
             margin-left: 15px;
             li {
@@ -48,6 +53,10 @@
           }
           .second_nav {
             margin-right: 4px;
+          }
+
+          .second_menu {
+            display: none;
           }
         }
       }
@@ -170,6 +179,91 @@
     }
     .footer_underline {
       top: 309px;
+    }
+  }
+}
+@media all and (max-width: 580px) {
+  .footer {
+    .container {
+      .footer_contacts {
+        .rs_linck {
+          display: none;
+        }
+      }
+    }
+  }
+}
+@media all and (max-width: 420px) {
+  .footer {
+    // position: relative;
+    .container {
+      .logo_container {
+        height: 20px;
+        background-size: 15%;
+        background-position: calc(0% - -3px) 100%;
+        .logo_title {
+          font-size: 16px;
+          margin-left: 50px;
+        }
+      }
+      .footer_menu {
+        align-items: center;
+        justify-content: center;
+        padding-top: 36px;
+        .footer_menu_container {
+          .footer_nav_menu {
+            align-items: center;
+            height: 68px;
+            margin-top: 43px;
+            width: 100%;
+            .first_menu {
+              display: none;
+            }
+            .second_menu {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              width: 100%;
+            }
+            ul {
+              // display: flex;
+              // flex-direction: column;
+              margin-left: 0px;
+            }
+            ul:nth-child(even) {
+              margin-left: 14px;
+            }
+          }
+        }
+        .social_container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          max-width: 260px;
+          margin-top: 43px;
+          width: 100%;
+          margin-right: 0;
+          ul {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-left: 0;
+            max-width: 260px;
+            width: 100%;
+          }
+        }
+        .social_icon {
+          margin-left: 0;
+        }
+      }
+      .footer_underline {
+        top: 298px;
+      }
+      .footer_contacts {
+        .rs_linck {
+          display: none;
+        }
+      }
     }
   }
 }

@@ -104,27 +104,72 @@
 .card:hover::after {
   width: 100%;
 }
-@media (max-width: 1300px) {
-  .virtual_card {
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
 @media (max-width: 1380px) {
-  .virtual_gallery {
-    justify-content: space-evenly;
-
-    .virtual_card {
-      // justify-content: space-evenly;
-      width: 330px;
-      height: 345px;
+  .visiting_section {
+    .container {
+      .virtual_gallery {
+        // width: 379px;
+        .virtual_card {
+          width: 368px;
+        }
+      }
     }
   }
 }
+@media (max-width: 1170px) {
+  .visiting_section {
+    .container {
+      .virtual_gallery {
+        // width: 379px;
+        .virtual_card {
+          width: 311px;
+        }
+      }
+    }
+  }
+}
+// @media (max-width: 1300px) {
+//   .virtual_card {
+//     margin-left: auto;
+//     margin-right: auto;
+//   }
+// }
+// @media (max-width: 1380px) {
+//   .virtual_gallery {
+//     justify-content: space-evenly;
+
+//     .virtual_card {
+
+//       width: 330px;
+//       height: 345px;
+//     }
+//   }
+// }
+// @media (max-width: 1480px) {
+//   .visiting_section .container {
+//     .virtual_card {
+//       width: 400px;
+//       height: 424px;
+//     }
+//   }
+// }
+// @media (max-width: 1259px) {
+//   .visiting_section .container {
+
+//     .virtual_gallery {
+//       .virtual_card {
+
+//         height: 345px;
+//       }
+//     }
+//   }
+// }
 @media (max-width: 1024px) {
   .visiting_section .container {
     padding-top: 54px;
     padding-bottom: 60px;
+    max-height: 1433px;
+    height: 100%;
   }
   // .title_underline::after {
 
@@ -159,6 +204,7 @@
     width: 149px;
   }
 }
+
 @media (max-width: 768px) {
   .visiting_section .container {
     padding-top: 25px;
@@ -176,16 +222,47 @@
     }
   }
 }
+@media (max-width: 612px) {
+  .visiting_section .container {
+    .virtual_gallery .virtual_card {
+      width: 240px;
+      height: 300px;
+    }
+  }
+}
+@media (max-width: 525px) {
+  .visiting_section .container {
+    .virtual_gallery .virtual_card {
+      width: 212px;
+      height: 300px;
+    }
+  }
+}
+@media (max-width: 479px) {
+  .visiting_section .container {
+    max-height: 2153px;
+    height: 100%;
+    .virtual_gallery {
+      margin-top: 0px;
+      .virtual_card {
+        width: 280px;
+        height: 295px;
+        margin-top: 40px;
+      }
+    }
+  }
+}
 @media (max-width: 420px) {
   .visiting_section .container {
-    padding-top: 19px;
+    padding-top: 16px;
     padding-bottom: 78px;
-    height: 2156px;
+    max-height: 2153px;
+    height: 100%;
     .title_underline::after {
       bottom: 3px;
     }
     .virtual_gallery {
-      margin-top: 1px;
+      margin-top: 0px;
       .virtual_card {
         width: 280px;
         height: 295px;

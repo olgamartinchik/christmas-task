@@ -22,6 +22,7 @@
       //   flex-wrap: wrap;
       max-width: 660px;
       width: 100%;
+      margin-left: 10px;
     }
     .radio_btn_container {
       display: flex;
@@ -190,6 +191,7 @@
       display: none;
       position: fixed;
       left: -200%;
+      // left: 0;
       top: 0;
       width: 100vw;
       height: 100vh;
@@ -208,6 +210,7 @@
         left: 50%;
         transform: translate(-50%, 0);
         max-width: 1440px;
+        width: 100%;
         height: 845px;
         height: auto;
         padding: 91px 235px;
@@ -256,7 +259,8 @@
       //   }
       // }
       .user_container {
-        width: 400px;
+        max-width: 400px;
+        width: 100%;
         // width: 100%;
         .logo_ticket {
           width: 85px;
@@ -525,10 +529,12 @@
         flex-direction: column;
         align-items: center;
         // justify-content: space-between;
-        width: 530px;
+        max-width: 530px;
+        width: 100%;
         padding: 24px 30px 26px 30px;
         // width: 100%;
         height: 663px;
+        // height: 100%;
         border: 1px solid $dark-color;
         margin-left: 40px;
         .overview_content {
@@ -657,7 +663,8 @@
           height: 241px;
           .card_style {
             position: absolute;
-            width: 360px;
+            max-width: 360px;
+            width: 100%;
             height: 211px;
             border-radius: 4px;
           }
@@ -687,12 +694,14 @@
             .overview_img {
               margin-bottom: 18px;
             }
+
             .data_card_font {
               display: flex;
               align-items: flex-start;
               justify-content: space-between;
               flex-direction: column;
-              width: 215px;
+              max-width: 215px;
+              width: 100%;
               height: 54px;
               p {
                 font-family: Roboto;
@@ -704,10 +713,12 @@
               }
               .num_card_front {
                 height: 35px;
-                width: 215px;
+                max-width: 215px;
+                width: 100%;
               }
               .card_date {
-                width: 215px;
+                max-width: 215px;
+                width: 100%;
                 height: 54px;
               }
               .date_box_front {
@@ -729,9 +740,16 @@
                 justify-content: space-between;
               }
               .input_name_card {
-                width: 320px;
+                max-width: 320px;
+                width: 100%;
+                // max-width: 320px;
+                // width: 100%;
                 height: 35px;
               }
+            }
+            .card_name {
+              max-width: 290px;
+              width: 100%;
             }
           }
           .back_card {
@@ -846,7 +864,73 @@
     }
   }
 }
+@media (max-width: 1524px) {
+  .tickets_section .container {
+    .popup .popup_container {
+      padding: 83px 189px;
+    }
+  }
+}
+@media (max-width: 1328px) {
+  .tickets_section .container {
+    .popup .popup_container {
+      padding: 83px 140px;
+    }
+  }
+}
+@media (max-width: 1225px) {
+  .tickets_section .container {
+    .popup .popup_container {
+      padding: 83px 90px;
+    }
+  }
+}
+@media (max-width: 1127px) {
+  .tickets_section .container {
+    .popup .popup_container {
+      padding: 83px 37px;
+    }
+  }
+}
+@media (max-width: 1100px) {
+  .tickets_section .container {
+    .radio_btn_container {
+      display: none;
+    }
+  }
+}
+@media (max-width: 989px) {
+  .tickets_section .container {
+    .tickets_container {
+      margin-top: 73px;
 
+      .tickets_wr_img {
+        min-width: 620px;
+        // height: 400px;
+        margin: 0;
+        width: 100%;
+        height: 441px;
+        margin: 0;
+        overflow: hidden;
+
+        .tickets_container_img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+    .select_box {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      // width: 175px;
+      width: 100%;
+      margin-left: 81px;
+    }
+  }
+}
 @media (max-width: 1024px) {
   .tickets_section .container {
     padding-top: 54px;
@@ -904,6 +988,28 @@
     }
   }
 }
+@media (max-width: 1010px) {
+  .tickets_section .container {
+    .tickets_container {
+      margin-top: 49px;
+      .tickets_wr_img {
+        min-width: 470px;
+
+        // height: 339px;
+      }
+    }
+    .popup .popup_container {
+      .ticket_price_container {
+        margin-top: 40px;
+      }
+      flex-direction: column;
+      .user_container {
+        max-width: 400px;
+        width: 100%;
+      }
+    }
+  }
+}
 @media (max-width: 768px) {
   .tickets_section .container {
     padding-top: 25px;
@@ -934,12 +1040,14 @@
     }
     .popup .popup_container {
       flex-direction: column;
-      width: 590px;
+      max-width: 590px;
+      width: 100%;
       .close_btn {
         top: 21px;
       }
       .user_container {
-        width: 530px;
+        max-width: 530px;
+        width: 100%;
         .logo_ticket {
           margin-top: 18px;
         }
@@ -965,7 +1073,8 @@
           .icon_position_time,
           .input_popup_data,
           .input_popup_time {
-            width: 251px;
+            max-width: 251px;
+            width: 100%;
           }
         }
 
@@ -977,12 +1086,92 @@
         margin-top: 50px;
         margin-left: 0;
         padding: 24px 15px 26px 14px;
+        height: 663px;
         .card_container {
           .front_card {
             top: 14px;
           }
           .back_card {
             top: 44px;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 725px) {
+  .tickets_section .container {
+    .tickets_container .tickets_wr_img {
+      min-width: 381px;
+      height: 339px;
+    }
+  }
+}
+@media (max-width: 664px) {
+  .tickets_section .container {
+    .tickets_container {
+      margin-top: 36px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      .tickets_wr_img {
+        min-width: 380px;
+        height: 161px;
+      }
+    }
+    .tickets_form {
+      justify-content: center;
+      align-items: center;
+      .select_box {
+        margin-left: 0;
+        align-items: center;
+      }
+    }
+  }
+}
+@media (max-width: 540px) {
+  .tickets_section .container {
+    .popup .popup_container {
+      .user_container {
+        .date_time {
+          flex-direction: column;
+          .icon_position_data,
+          .icon_position_time {
+            max-width: 500px;
+            width: 100%;
+            .input_popup_data,
+            .input_popup_time {
+              max-width: 500px;
+              width: 100%;
+            }
+          }
+        }
+      }
+      .ticket_price_container {
+        max-height: 885px;
+        height: 100%;
+        max-width: 500px;
+        width: 100%;
+
+        .overview_container {
+          .overview_img {
+            max-width: 120px;
+            width: 100%;
+            margin-top: -54px;
+            img {
+              max-width: 120px;
+              width: 100%;
+            }
+          }
+        }
+        .card_container {
+          height: 499px;
+          // height: 100%;
+          .front_card {
+            left: 0;
+          }
+          .back_card {
+            top: 251px;
           }
         }
       }
@@ -1023,6 +1212,119 @@
         }
         .text_form {
           font-size: 16px;
+        }
+        .form_btn {
+          letter-spacing: 0;
+        }
+      }
+    }
+    .popup .popup_container {
+      max-width: 420px;
+      width: 100%;
+      .user_container {
+        max-width: 360px;
+        width: 100%;
+        .title_ticket_popup {
+          font-size: 32px;
+          margin-top: -11px;
+        }
+        .subtitle_popup {
+          margin-top: 5px;
+        }
+        .user_contacts {
+          .icon_position {
+            .input_popup {
+              max-width: 360px;
+              width: 100%;
+            }
+          }
+        }
+
+        .date_time {
+          flex-direction: column;
+          .icon_position_data,
+          .icon_position_time {
+            max-width: 360px;
+            width: 100%;
+            .input_popup_data,
+            .input_popup_time {
+              max-width: 360px;
+              width: 100%;
+            }
+          }
+        }
+      }
+      .ticket_price_container {
+        max-height: 885px;
+        height: 100%;
+        max-width: 360px;
+        width: 100%;
+        .overview_container {
+          .overview_img {
+            max-width: 120px;
+            width: 100%;
+            margin-top: -54px;
+            img {
+              max-width: 120px;
+              width: 100%;
+            }
+          }
+        }
+        .card_container {
+          height: 499px;
+          // height: 100%;
+          .front_card {
+            left: 0;
+          }
+          .back_card {
+            top: 251px;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 406px) {
+  .tickets_section .container {
+    .tickets_container {
+      .tickets_wr_img {
+        max-width: 300px;
+        min-width: 280px;
+        width: 100%;
+      }
+    }
+    .popup {
+      .user_container {
+        .entry_ticket .input_number_container p {
+          font-size: 16px;
+        }
+      }
+      .popup_container {
+        .ticket_price_container {
+          max-height: 925px;
+          .card_container {
+            .front_card {
+              .data_card_font {
+                max-width: 135px;
+                width: 100%;
+              }
+              .card_name {
+                max-width: 320px;
+                width: 100%;
+              }
+            }
+          }
+          .overview_content {
+            .overview_img {
+              max-width: 100px;
+              width: 100%;
+
+              img {
+                max-width: 100px;
+                width: 100%;
+              }
+            }
+          }
         }
       }
     }
