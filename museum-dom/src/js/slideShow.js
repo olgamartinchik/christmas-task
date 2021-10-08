@@ -67,18 +67,24 @@ let slideShow = () => {
   let x1 = null;
   let y1 = null;
 
-  containerWithBackgroundImg.addEventListener("touchstart", (e) => {
-    const firstTouch = e.touches[0];
-    x1 = firstTouch.clientX;
-    y1 = firstTouch.clientY;
+  containerWithBackgroundImg.addEventListener("mousedown", (e) => {
+    console.log("mousedown", e);
+    // const firstTouch = e.touches[0];
+    x1 = e.clientX;
+    y1 = e.pageY;
+    e.preventDefault();
   });
 
-  containerWithBackgroundImg.addEventListener("touchmove", (e) => {
+  containerWithBackgroundImg.addEventListener("mousemove", (e) => {
+    // console.log("mousemove", e);
     if (!x1 || !y1) {
       return false;
     }
-    let x2 = e.touches[0].clientX;
-    let y2 = e.touches[0].clientY;
+    // let x2 = e.touches[0].clientX;
+    // let y2 = e.touches[0].clientY;
+
+    let x2 = e.clientX;
+    let y2 = e.clientY;
     let xDiff = x2 - x1;
     let yDiff = y2 - y1;
 
@@ -86,17 +92,48 @@ let slideShow = () => {
       if (xDiff > 0) {
         console.log("right");
         for (let i = 0; i < dots.length; i++) {
+          console.log(i);
+
           if (dots[i].classList.contains("active")) {
-            console.log(dots[i]);
             dots[i].classList.remove("active");
-            dots[i + 1].classList.add("active");
-            containerWithBackgroundImg.style.backgroundImage = `url(${link}${
-              arrayWelcomeImages[i + 1]
-            })`;
+            if (i === dots.length - 1) {
+              console.log("end");
+              dots[0].classList.add("active");
+              containerWithBackgroundImg.style.backgroundImage = `url(${link}${arrayWelcomeImages[0]})`;
+              imgNum.innerHTML = 1;
+            } else {
+              dots[i + 1].classList.add("active");
+              containerWithBackgroundImg.style.backgroundImage = `url(${link}${
+                arrayWelcomeImages[i + 1]
+              })`;
+              imgNum.innerHTML = i + 2;
+            }
+            i++;
           }
         }
       } else {
         console.log("left");
+        for (let i = dots.length - 1; i >= 0; i--) {
+          console.log(dots[i], i);
+          if (dots[i].classList.contains("active")) {
+            dots[i].classList.remove("active");
+            if (i === dots.length - 5) {
+              dots[dots.length - 1].classList.add("active");
+              containerWithBackgroundImg.style.backgroundImage = `url(${link}${
+                arrayWelcomeImages[dots.length - 1]
+              })`;
+              imgNum.innerHTML = dots.length;
+            } else {
+              console.log("i", i);
+              dots[i - 1].classList.add("active");
+              containerWithBackgroundImg.style.backgroundImage = `url(${link}${
+                arrayWelcomeImages[i - 1]
+              })`;
+              imgNum.innerHTML = i;
+            }
+            i--;
+          }
+        }
       }
     } else {
       if (yDiff > 0) {
