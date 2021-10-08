@@ -29,6 +29,10 @@
       referrerpolicy="no-referrer"
     />
     <link rel="icon" href="/src/assets/favicon.ico" />
+    
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.css' rel='stylesheet' />
+
     <!-- <link rel="stylesheet" href="./src/css/style.css" /> -->
     <link rel="stylesheet" href="./dist/style.css" />
     <title>Museum</title>
@@ -326,17 +330,23 @@
             </p>
           </div>
           <div class="images_explore">
-            <img src="/src/assets/img/explore-slider/after.jpeg" alt="explore" />
-            <img
-              class="gradient_explore"
-              src="/src/assets/img/explore-slider/explore_img1.jpeg"
-              alt="explore"
-            />
-            <img
+            <!-- <img class="slide_img_explore" src="/src/assets/img/explore-slider/after.jpeg" alt="explore" /> -->
+            <div class="explore_before">
+              <div class="explore_after">
+              </div>
+                <!-- <img
+                class="slide_img_explore"
+                src="/src/assets/img/explore-slider/before.jpeg"
+                alt="explore"
+              /> -->
+            
+            </div>
+           <input type="range" min="0" max='720' step='10' id=explore_range>
+            <!-- <img
               class="explore_slider"
               src="/src/assets/svg/explore-slider.svg"
               alt="explore slider"
-            />
+            /> -->
           </div>
         </div>
       </section>
@@ -782,8 +792,9 @@
               </p>
               <p>mail: <a href="mailto:info@louvre.fr">info@louvre.fr</a></p>
             </div>
-            <div id="map">
-              <img src="/src/assets/img/map-img.jpeg" alt="map" />
+            <div class="map_container">
+              <!-- <img src="/src/assets/img/map-img.jpeg" alt="map" /> -->
+              <div id='map' ></div>
             </div>
           </div>
         </div>

@@ -6,7 +6,8 @@ import "./js/slideShow.js";
 import "./js/popup.js";
 import "./js/fullscreen.js";
 import "./js/getNavMenu.js";
-
+import "./js/slideExplore.js";
+import "./js/map";
 let arrayLinkVisiting = [
   "https://clck.ru/XnygF",
   "https://clck.ru/Xnyha",
