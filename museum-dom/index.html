@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css" integrity="sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
@@ -356,9 +356,8 @@
               enjoy masterpieces such as Mona Lisa or Hammurabi's Code
             </p>
           </div>
-          <div class="video_container">
-            <div class="video_wrapper">
-              <!-- <video src="assets/video/video.mp4" poster="assets/video/poster.jpeg" controls></video> -->
+          <!-- <div class="video_container"> -->
+            <!-- <div class="video_wrapper">           
 
               <img
                 class="video video_great"
@@ -370,9 +369,99 @@
                 src="/src/assets/svg/btn-play.svg"
                 alt="button"
               />
-            </div>
+            </div> -->
 
-            <div class="control_panel">
+            <!-- <div class="control_panel">
+              <img
+                class="panel_play"
+                src="/src/assets/svg/play.png"
+                alt="play controller"
+              />
+              <input
+                type="range"
+                value="40"
+                min="0"
+                max="100"
+                step="1"
+                class="progress progress_video"
+              />
+              <img
+                class="volume_btn"
+                src="/src/assets/svg/volume.png"
+                alt="volume"
+              />
+              <input
+                type="range"
+                value="40"
+                min="0"
+                max="100"
+                step="1"
+                class="progress progress_audio"
+              />
+              <img
+                class="fullscreen"
+                src="/src/assets/svg/fullscreen.png"
+                alt="fullscreen"
+              />
+            </div> -->
+          <!-- </div> -->
+          <div class="video_slider slider-for">     
+            <div class="video_block">
+              <video
+              class="video video_great"
+              src="/src/assets/video/1.mp4"  
+              poster="/src/assets/video/1.jpg"
+             ></video>
+             <div class="control_panel">
+               <div class="btn_play">
+                  <img
+                class="panel_play"
+                src="/src/assets/svg/play.png"
+                alt="play controller"
+              />
+               </div>
+             
+              <input
+                type="range"
+                value="40"
+                min="0"
+                max="100"
+                step="1"
+                class="progress progress_video"
+              />
+              <div class="btn_volume">
+                 <img
+                class="volume_btn"
+                src="/src/assets/svg/volume.png"
+                alt="volume"
+              />
+              </div>
+             
+              <input
+                type="range"
+                value="40"
+                min="0"
+                max="100"
+                step="1"
+                class="progress progress_audio"
+              />
+              <div class="btn_fullscreen">
+                 <img
+                class="fullscreen"
+                src="/src/assets/svg/fullscreen.png"
+                alt="fullscreen"
+              />
+              </div>
+             
+            </div>
+            </div>
+            <div class="video_block">
+              <video
+                class="video video_great"
+                src="/src/assets/video/2.mp4" 
+                poster="/src/assets/video/2.jpg"
+             ></video>
+             <div class="control_panel">
               <img
                 class="panel_play"
                 src="/src/assets/svg/play.png"
@@ -405,51 +494,170 @@
                 alt="fullscreen"
               />
             </div>
+            </div>
+            <div class="video_block">
+              <video
+                class="video video_great"
+                src="/src/assets/video/3.mp4"  
+                poster="/src/assets/video/3.jpg"
+              ></video>
+              <div class="control_panel">
+                <img
+                  class="panel_play"
+                  src="/src/assets/svg/play.png"
+                  alt="play controller"
+                />
+                <input
+                  type="range"
+                  value="40"
+                  min="0"
+                  max="100"
+                  step="1"
+                  class="progress progress_video"
+                />
+                <img
+                  class="volume_btn"
+                  src="/src/assets/svg/volume.png"
+                  alt="volume"
+                />
+                <input
+                  type="range"
+                  value="40"
+                  min="0"
+                  max="100"
+                  step="1"
+                  class="progress progress_audio"
+                />
+                <img
+                  class="fullscreen"
+                  src="/src/assets/svg/fullscreen.png"
+                  alt="fullscreen"
+                />
+              </div>
+            </div>
+            <div class="video_block">
+              <video
+              class="video video_great"
+              src="/src/assets/video/4.mp4"  
+              poster="/src/assets/video/4.jpg"
+             ></video>
+             <div class="control_panel">
+              <img
+                class="panel_play"
+                src="/src/assets/svg/play.png"
+                alt="play controller"
+              />
+              <input
+                type="range"
+                value="40"
+                min="0"
+                max="100"
+                step="1"
+                class="progress progress_video"
+              />
+              <img
+                class="volume_btn"
+                src="/src/assets/svg/volume.png"
+                alt="volume"
+              />
+              <input
+                type="range"
+                value="40"
+                min="0"
+                max="100"
+                step="1"
+                class="progress progress_audio"
+              />
+              <img
+                class="fullscreen"
+                src="/src/assets/svg/fullscreen.png"
+                alt="fullscreen"
+              />
+            </div>
+            </div>
+            <div class="video_block">
+              <video
+              class="video video_great"
+              src="/src/assets/video/5.mp4"  
+              poster="/src/assets/video/5.jpg"
+             ></video>
+             <div class="control_panel">
+              <img
+                class="panel_play"
+                src="/src/assets/svg/play.png"
+                alt="play controller"
+              />
+              <input
+                type="range"
+                value="40"
+                min="0"
+                max="100"
+                step="1"
+                class="progress progress_video"
+              />
+              <img
+                class="volume_btn"
+                src="/src/assets/svg/volume.png"
+                alt="volume"
+              />
+              <input
+                type="range"
+                value="40"
+                min="0"
+                max="100"
+                step="1"
+                class="progress progress_audio"
+              />
+              <img
+                class="fullscreen"
+                src="/src/assets/svg/fullscreen.png"
+                alt="fullscreen"
+              />
+            </div>
+            </div>       
           </div>
-          <div class="video_slider">
-            
-            <iframe
-            class="video small_video"
-            src="https://www.youtube.com/embed/aWmJ5DgyWPI"
-            title="YouTube video player"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-            <iframe
+          <div class="video_slider slider-nav">     
+            <div class="video_block">
+              <video
               class="video small_video"
-              src="https://www.youtube.com/embed/Vi5D6FKhRmo"
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
-            <iframe
+              src="/src/assets/video/1.mp4"  
+              poster="/src/assets/video/1.jpg"
+             ></video>
+            </div>
+            <div class="video_block">
+              <video
+                class="video small_video"
+                src="/src/assets/video/2.mp4" 
+                poster="/src/assets/video/2.jpg"
+             ></video>
+            </div>
+            <div class="video_block">
+              <video
+                class="video small_video"
+                src="/src/assets/video/3.mp4"  
+                poster="/src/assets/video/3.jpg"
+              ></video>
+            </div>
+            <div class="video_block">
+              <video
               class="video small_video"
-              src="https://www.youtube.com/embed/NOhDysLnTvY"
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
-            <iframe
-            class="video small_video"
-            src="https://youtu.be/zp1BXPX8jcU"
-            title="YouTube video player"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-          <iframe
-          class="video small_video"
-          src="https://youtu.be/2OR0OCr6uRE"
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
-        
+              src="/src/assets/video/4.mp4"  
+              poster="/src/assets/video/4.jpg"
+             ></video>
+            </div>
+            <div class="video_block">
+              <video
+              class="video small_video"
+              src="/src/assets/video/5.mp4"  
+              poster="/src/assets/video/5.jpg"                                  
+             ></video>
+            </div>       
           </div>
           <div class="dots_arrow">
             <button class="arrow_video">
               <img src="/src/assets/svg/left-arrows.svg" alt="left_arrow" />
             </button>
-            <button class="video_carusel_dots active"></button>
+            <button class="video_carusel_dots "></button>
             <button class="video_carusel_dots"></button>
             <button class="video_carusel_dots"></button>
             <button class="video_carusel_dots"></button>
@@ -907,7 +1115,9 @@
         </div>
       </div>
     </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js
+    "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>   
     <!-- <script type="module" src="./src/index.js"></script> -->
     <script src="./dist/script.js"></script>
   </body>

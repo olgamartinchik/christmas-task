@@ -9,6 +9,7 @@ import "./js/getNavMenu.js";
 import "./js/slideExplore.js";
 import "./js/map.js";
 import "./js/videoSlider.js";
+// import "./js/slick.min.js";
 
 let arrayLinkVisiting = [
   "https://clck.ru/XnygF",
