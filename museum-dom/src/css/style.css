@@ -731,7 +731,7 @@ button {
   height: 16px;
   background-color: #ffffff;
   margin-left: 25px;
-  transition: background-color 0.4s ease;
+  transition: background-color 0.5s ease-in-out;
 }
 .welcome_section .container .welcome_pagination .pagination_img:hover {
   cursor: pointer;
@@ -1082,9 +1082,14 @@ button {
     width: 368px;
   }
 }
-@media (max-width: 1170px) {
+@media (max-width: 1190px) {
   .visiting_section .container .virtual_gallery .virtual_card {
     width: 311px;
+  }
+}
+@media (max-width: 1170px) {
+  .visiting_section .container .virtual_gallery .virtual_card {
+    width: 300px;
   }
 }
 @media (max-width: 1024px) {
@@ -1214,7 +1219,6 @@ button {
 }
 .explore_section .container .images_explore {
   position: relative;
-  display: flex;
   max-width: 720px;
   width: 100%;
   height: 700px;
@@ -1222,7 +1226,6 @@ button {
   min-height: 100%;
   margin-top: 15px;
   overflow: hidden;
-  z-index: 1;
 }
 .explore_section .container .images_explore .explore_before {
   background-image: url("/src/assets/img/explore-slider/after.jpeg");
@@ -1240,6 +1243,12 @@ button {
   background-image: url("/src/assets/img/explore-slider/before.jpeg");
   z-index: 2;
 }
+.explore_section .container .images_explore .explore_slider {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  right: -16px;
+}
 .explore_section .container .images_explore #explore_range {
   position: absolute;
   top: 0;
@@ -1254,29 +1263,14 @@ button {
   position: relative;
   -webkit-appearance: none;
   display: block;
-  width: 5px;
+  width: 15px;
   height: 700px;
   max-height: 100%;
   min-height: 100%;
-  background-color: #fff;
-  cursor: pointer;
-}
-.explore_section .container .images_explore #explore_range::-webkit-slider-thumb {
-  content: "";
-  -webkit-appearance: none;
-  position: absolute;
-  top: 47%;
-  left: 47.4%;
-  width: 27px;
-  background-color: rgba(0, 0, 0, 0.959);
-  height: 27px;
-  border-radius: 50%;
-  border: 5px solid #fff;
-  z-index: 3;
+  background-color: transparent;
   cursor: pointer;
 }
 .explore_section .container .images_explore #explore_range::-webkit-slider-thumb:active {
-  background-color: #9d8665;
   transition: all 0.3s ease-in-out;
 }
 
@@ -1762,11 +1756,19 @@ button {
   align-items: flex-end;
   justify-content: center;
   flex-basis: 100%;
+  overflow: hidden;
 }
 .gallery_section .container .gallery_container .gallery_img {
   max-width: 456px;
   width: 100%;
   margin-bottom: 24px;
+  transform: translate(0px, 20%);
+  opacity: 0;
+  transition: all 0.8s ease 0s;
+}
+.gallery_section .container .gallery_container .animate_img.active {
+  transform: translate(0px, 0px);
+  opacity: 1;
 }
 
 @media (max-width: 1490px) {
@@ -3157,7 +3159,7 @@ button {
 .contacts_section .container .contacts_container .map_container {
   position: relative;
   width: 100%;
-  max-width: 694px;
+  max-width: 960px;
 }
 .contacts_section .container .contacts_container .map_container #map {
   max-width: 694px;
@@ -3167,12 +3169,15 @@ button {
   max-width: 100%;
 }
 .contacts_section .container .marker {
-  background-image: url("/src/assets/svg/marker.svg");
+  background-image: url("/src/assets/svg/pin.svg");
   background-size: cover;
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
   cursor: pointer;
+}
+.contacts_section .container .marker:hover {
+  filter: invert(32%) sepia(0%) saturate(1348%) hue-rotate(190deg) brightness(88%) contrast(88%);
 }
 
 @media (max-width: 1024px) {

@@ -29,7 +29,7 @@ let slideShow = () => {
   leftArrow.addEventListener("click", (e) => {
     let getActiveDot = document.querySelector(".pagination_img.active");
 
-    for (let i = 0; i < dots.length; i++) {
+    for (let i = dots.length; i >= 0; i--) {
       if (dots[i] === getActiveDot) {
         for (let j = 0; j < dots.length; j++) {
           dots[j].classList.remove("active");
@@ -38,10 +38,18 @@ let slideShow = () => {
         if (i === 0) {
           dots[dots.length - 1].classList.add("active");
           imgNum.innerHTML = dots.length;
+          containerWithBackgroundImg.style.backgroundImage = `url(${link}${
+            arrayWelcomeImages[dots.length - 1]
+          })`;
         } else {
           dots[i - 1].classList.add("active");
+          containerWithBackgroundImg.style.backgroundImage = `url(${link}${
+            arrayWelcomeImages[i - 1]
+          })`;
         }
-        containerWithBackgroundImg.style.backgroundImage = `url(${link}${arrayWelcomeImages[i]})`;
+        console.log(i);
+        // containerWithBackgroundImg.style.backgroundImage = `url(${link}${arrayWelcomeImages[i]})`;
+        i--;
       }
     }
   });
@@ -56,10 +64,13 @@ let slideShow = () => {
         if (i === 4) {
           dots[0].classList.add("active");
           imgNum.innerHTML = 1;
+          containerWithBackgroundImg.style.backgroundImage = `url(${link}${arrayWelcomeImages[0]})`;
         } else {
           dots[i + 1].classList.add("active");
+          containerWithBackgroundImg.style.backgroundImage = `url(${link}${
+            arrayWelcomeImages[i + 1]
+          })`;
         }
-        containerWithBackgroundImg.style.backgroundImage = `url(${link}${arrayWelcomeImages[i]})`;
       }
     }
   });
@@ -71,7 +82,7 @@ let slideShow = () => {
     console.log("mousedown", e);
     // const firstTouch = e.touches[0];
     x1 = e.clientX;
-    y1 = e.pageY;
+    y1 = e.clientY;
     e.preventDefault();
   });
 

@@ -116,7 +116,7 @@
     }
   }
 }
-@media (max-width: 1170px) {
+@media (max-width: 1190px) {
   .visiting_section {
     .container {
       .virtual_gallery {
@@ -128,12 +128,18 @@
     }
   }
 }
-// @media (max-width: 1300px) {
-//   .virtual_card {
-//     margin-left: auto;
-//     margin-right: auto;
-//   }
-// }
+@media (max-width: 1170px) {
+  .visiting_section {
+    .container {
+      .virtual_gallery {
+        // width: 379px;
+        .virtual_card {
+          width: 300px;
+        }
+      }
+    }
+  }
+}
 // @media (max-width: 1380px) {
 //   .virtual_gallery {
 //     justify-content: space-evenly;
