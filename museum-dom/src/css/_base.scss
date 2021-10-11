@@ -1,0 +1,181 @@
+// $font-family-forum: "Forum", cursive;
+// $font-family-Roboto: "Roboto Mono", monospace;
+$font-family-forum: "Forum";
+$font-family-Roboto: "Roboto", sans-serif;
+
+$brown-color: #710707;
+$brown_light: #740c11;
+$dark-color: #030303;
+$white-color: #ffffff;
+$light-brown-color: #d2b183;
+$gold-color: #9d8665;
+$gold-active: #7e6c51;
+$light-gold-color: #caaa7d;
+$black_color: #000000;
+$gray_color: #c4c4c4;
+$dark_gray_color: #666666;
+$black_lite_color: #272727;
+:root {
+  --font1: 80px;
+  --font2: 32px;
+  --font3: 28px;
+  --font4: 22px;
+  --font5: 18px;
+  --font6: 33px;
+  --font_footer: 22px;
+  --font_footer_bottom: 22px;
+  --font_bye_now: 22px;
+  --font_arrow: 30px;
+  --font_close_btn: 70px;
+  --font_nav_menu: 20px;
+}
+
+body.hidden {
+  overflow: hidden;
+}
+.container {
+  display: flex;
+  margin: 0 auto;
+  max-width: 1470px;
+  padding: 0 15px;
+  width: 100%;
+  transition: 1s ease;
+}
+
+a {
+  text-decoration: none;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+.title {
+  font-family: $font-family-forum;
+  font-size: var(--font1);
+  font-style: normal;
+  font-weight: normal;
+  line-height: 90px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+.title_dark,
+.subtitle_dark {
+  color: $white-color;
+}
+
+.title_light {
+  color: $gold-color;
+}
+.subtitle {
+  font-family: $font-family-Roboto;
+}
+.subtitle_light {
+  color: $black_color;
+}
+.description {
+  font-weight: 300;
+  font-size: var(--font4);
+  line-height: 36px;
+}
+.section_dark {
+  background-color: $dark-color;
+}
+.section_light {
+  background-color: $white-color;
+}
+.title_underline {
+  position: relative;
+}
+.title_underline::after {
+  content: "";
+  position: absolute;
+  bottom: -27px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: $brown-color;
+}
+h3 {
+  font-family: $font-family-forum;
+  font-style: normal;
+  font-weight: bold;
+  font-size: var(--font3);
+  line-height: 33px;
+  color: $black_color;
+}
+h4 {
+  font-family: $font-family-Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 33px;
+}
+h5 {
+  font-family: $font-family-Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: var(--font3);
+  line-height: 33px;
+  color: $black_color;
+}
+button {
+  border: none;
+  background: none;
+  padding: 0;
+}
+@media (max-width: 1024px) {
+  :root {
+    --font1: 50px;
+    --font2: 28px;
+    --font3: 24px;
+    --font4: 20px;
+    --font5: 16px;
+    --font6: 28px;
+    --font_footer: 22px;
+    --font_footer_bottom: 22px;
+    --font_bye_now: 22px;
+    --font_arrow: 30px;
+    --font_close_btn: 70px;
+  }
+  .container {
+    max-width: 1024px;
+    padding: 0 20px;
+  }
+  .title_underline::after {
+    bottom: -14px;
+  }
+}
+@media (max-width: 768px) {
+  :root {
+    --font1: 40px;
+    --font2: 22px;
+    --font3: 20px;
+    --font4: 18px;
+    --font5: 16px;
+    --font6: 33px;
+    --font_footer: 18px;
+    --font_footer_bottom: 22px;
+    --font_bye_now: 22px;
+    --font_arrow: 30px;
+    --font_close_btn: 70px;
+  }
+}
+@media (max-width: 420px) {
+  :root {
+    --font1: 28px;
+    --font2: 18px;
+    --font3: 16px;
+    --font4: 16px;
+    --font5: 16px;
+    --font_arrow: 30px;
+    --font_footer: 16px;
+    --font_footer_bottom: 16px;
+    --font_bye_now: 16px;
+    --font_arrow: 20px;
+  }
+  h4 {
+    font-size: 16px;
+  }
+}
