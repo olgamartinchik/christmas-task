@@ -355,58 +355,18 @@
               Enter and visit one of the most famous museums in the world and
               enjoy masterpieces such as Mona Lisa or Hammurabi's Code
             </p>
-          </div>
-          <!-- <div class="video_container"> -->
-            <!-- <div class="video_wrapper">           
-
-              <img
-                class="video video_great"
-                src="/src/assets/img/video-img.jpeg"
-                alt="video"
-              />
-              <img
-                class="btn_play"
-                src="/src/assets/svg/btn-play.svg"
-                alt="button"
-              />
-            </div> -->
-
-            <!-- <div class="control_panel">
-              <img
-                class="panel_play"
-                src="/src/assets/svg/play.png"
-                alt="play controller"
-              />
-              <input
-                type="range"
-                value="40"
-                min="0"
-                max="100"
-                step="1"
-                class="progress progress_video"
-              />
-              <img
-                class="volume_btn"
-                src="/src/assets/svg/volume.png"
-                alt="volume"
-              />
-              <input
-                type="range"
-                value="40"
-                min="0"
-                max="100"
-                step="1"
-                class="progress progress_audio"
-              />
-              <img
-                class="fullscreen"
-                src="/src/assets/svg/fullscreen.png"
-                alt="fullscreen"
-              />
-            </div> -->
-          <!-- </div> -->
+          </div>        
+         
           <div class="video_slider slider-for">     
             <div class="video_block">
+              <!-- <div class="play_paused">
+                  <img
+                    class="btn_play"
+                    src="/src/assets/svg/btn-play.svg"
+                    alt="button"
+                 />
+              </div> -->
+            
               <video
               class="video video_great"
               src="/src/assets/video/1.mp4"  
@@ -702,6 +662,7 @@
                     name="radio"
                     value="Permanent exhibition"
                     checked="checked"
+                    data="20"
                   />
                   <span class="checkmark"></span>
                   <span class="text_form">Permanent exhibition</span>
@@ -712,6 +673,7 @@
                     type="radio"
                     name="radio"
                     value="Temporary exhibition"
+                    data="25"
                   />
                   <span class="checkmark"></span>
                   <span class="text_form">Temporary exhibition</span>
@@ -722,6 +684,7 @@
                     type="radio"
                     name="radio"
                     value="Combined Admission"
+                    data="40"
                   />
                   <span class="checkmark"></span>
                   <span class="text_form">Combined Admission</span>
@@ -760,7 +723,7 @@
                   </div>
                 </div>
                 <h4 class="title_form title_form_price">
-                  Total € <span class="price_tiket">220</span>
+                  Total € <span class="price_tiket">0</span>
                 </h4>
                 <span class="form_btn">Buy Now</span>
               </div>
@@ -791,8 +754,10 @@
                         <input
                           class="input_popup input_popup_data"
                           type="date"
+                          value="Date"
                           placeholder="Date" 
                         />
+                        <span class="errorDate"></span>
                       </div>
                       <div class="icon_position icon_position_time">
                         <img
@@ -806,6 +771,7 @@
                           type="time"
                           placeholder="Time" 
                         />
+                        <span class="errorTime"></span>
                       </div>
                     </div>
                     <label class="icon_position">
@@ -816,6 +782,7 @@
                       />
                       
                       <input class="input_popup input_popup_name" type="text" placeholder="Name"  />
+                      <span class="errorName"></span>
                     </label>
                     <label class="icon_position">
                       <img
@@ -829,6 +796,7 @@
                         type="email"
                         placeholder="E-mail"
                       />
+                      <span class="errorEmail"></span>
                     </label>
                     <label class="icon_position">
                       <img
@@ -838,6 +806,7 @@
                       />
                    
                       <input class="input_popup input_popup_phone" type="tel"  placeholder="Phone" />
+                      <span class="errorPhon"></span>
                     </label>
                     <label class="icon_position">
                       <img
@@ -848,9 +817,10 @@
                      <label class="icon_position">
                       <!-- <img class="input_arrow" src="/src/assets/svg/input_arrow.svg" alt="input arrow"> -->
                         <select class="input_popup select_ticket" placeholder='Ticket Type'>
-                        <option >Ticket Type</option>
-                        <option>1111111111111</option>
-                        <option>1111111111111</option>
+                        <option data="0" value='Ticket Type' >Ticket Type</option>
+                        <option data='20' value="Permanent exhibition">Permanent exhibition</option>
+                        <option data='25' value="Temporary exhibition">Temporary exhibition</option>
+                        <option data='40' value="Combined Admission">Combined Admission</option>
                       </select>
                      </label>
                      
@@ -861,7 +831,7 @@
                       </h3>
 
                       <div class="input_number_container">
-                        <p class="text_form">Basic 18+ <span>(20 €)</span></p>
+                        <p class="text_form">Basic 18+ (<span>20 </span> €)</p>
                         <div class="box_input_btn">
                           <span class="plus_btn plus_btn_basic">&#43;</span>
                           <span class="minus_btn minus_btn_basic">	&#8722;</span>
@@ -876,7 +846,7 @@
                         </div>
                       </div>
                       <div class="input_number_container">
-                        <p class="text_form">Senior 65+ <span>(10 €)</span></p>
+                        <p class="text_form">Senior 65+ (<span>10 </span> €)</p>
                         <div class="box_input_btn box_input_btn_senir">
                           <span class="plus_btn plus_btn_senior">&#43;</span>
                           <span class="minus_btn minus_btn_senior">	&#8722;</span>
@@ -901,11 +871,11 @@
                         <h3 class="subtitle_overview">Tour to Louvre</h3>
                         <div>
                           <img src="/src/assets/svg/date.svg" alt="date" />
-                          <p class="user_selected">Friday, August 19</p>
+                          <p class="user_selected user_selected_date">Friday, August 19</p>
                         </div>
                         <div>
                           <img src="/src/assets/svg/time.svg" alt="time" />
-                          <p class="user_selected">16 : 30</p>
+                          <p class="user_selected user_selected_time">16 : 30</p>
                         </div>
                         <div>
                           <img
@@ -928,23 +898,23 @@
                   <div class="total_ticket">
                     <div class="price_all price_basic">
                       <div>
-                        <span class="count_ticket">2</span>
-                        <p>Basic <span>(20 €)</span></p>
+                        <span class="count_ticket">0</span>
+                        <p>Basic (<span>20 </span> €)</p>
                       </div>
-                      <p>40 €</p>
+                      <p><span>40</span> €</p>
                     </div>
                     <div class="price_all price_senior title_underline">
                       <div>
-                        <span class="count_ticket">2</span>
-                        <p>Senior <span>(10 €)</span></p>
+                        <span class="count_ticket">0</span>
+                        <p>Senior (<span>10 </span> €)</p>
                       </div>
-                      <p>20 €</p>
+                      <p><span>20</span> €</p>
                     </div>
                     <!-- </div> -->
                   </div>
                   <div class="total_content">
                     <h3>Total:</h3>
-                    <h3>60 €</h3>
+                    <h3><span class="allPricePopup">60</span> €</h3>
                   </div>
                   <div class="card_container">
                     <div class="card_style front_card">
@@ -986,6 +956,7 @@
                     </div>
                   </div>
                   <div class="btn_container_ticket">
+                    <span class="errorSubmit"></span>
                     <button class="bye_btn">Book</button>
                   </div>
                 </div>

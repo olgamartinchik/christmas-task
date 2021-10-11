@@ -1405,9 +1405,22 @@ button {
   margin-top: 34px;
 }
 .video_section .container .video_block {
+  position: relative;
   display: block;
   width: 1440px;
   height: auto;
+}
+.video_section .container .play_paused {
+  position: absolute;
+  top: 50%;
+  left: 50;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+.video_section .container .play_paused:hover {
+  cursor: pointer;
+  opacity: 0.7;
 }
 .video_section .container .video_great {
   width: 1440px;
@@ -1423,6 +1436,9 @@ button {
   background-color: #000000;
   gap: 0 15px;
   margin-top: -3px;
+}
+.video_section .container .control_panel .btn_play {
+  width: 23px;
 }
 .video_section .container .control_panel .panel_play {
   margin-left: 15px;
@@ -2056,6 +2072,7 @@ button {
 .tickets_section .container .select_box .input_number_container .box_input_btn .plus_btn,
 .tickets_section .container .select_box .input_number_container .box_input_btn .minus_btn {
   position: absolute;
+  outline: none;
   font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: normal;
@@ -2073,10 +2090,12 @@ button {
 .tickets_section .container .select_box .input_number_container .box_input_btn .minus_btn {
   left: 14px;
   top: 6px;
+  outline: none;
 }
 .tickets_section .container .select_box .input_number_container .box_input_btn .plus_btn {
   right: 14px;
   top: 6px;
+  outline: none;
 }
 .tickets_section .container .select_box .input_number_container .box_input_btn .input_number {
   width: 150px;
@@ -2197,6 +2216,16 @@ button {
   align-items: center;
   justify-content: center;
 }
+.tickets_section .container .popup .user_container .errorPhon,
+.tickets_section .container .popup .user_container .errorEmail,
+.tickets_section .container .popup .user_container .errorName,
+.tickets_section .container .popup .user_container .errorTime,
+.tickets_section .container .popup .user_container .errorDate {
+  position: absolute;
+  left: 12px;
+  bottom: -16px;
+  color: red;
+}
 .tickets_section .container .popup .user_container .date_time {
   display: flex;
   align-items: center;
@@ -2212,6 +2241,7 @@ button {
 }
 .tickets_section .container .popup .user_container .input_popup_data,
 .tickets_section .container .popup .user_container .input_popup_time {
+  padding-left: 43px;
   width: 190px;
   background-color: #ffffff;
 }
@@ -2219,13 +2249,11 @@ button {
   padding-left: 43px;
   font-size: 18px;
   font-family: "Roboto", sans-serif;
-  content: attr(placeholder);
 }
 .tickets_section .container .popup .user_container input[type=time]:not(.has-value):before {
   padding-left: 43px;
   font-size: 18px;
   font-family: "Roboto", sans-serif;
-  content: attr(placeholder);
 }
 .tickets_section .container .popup .user_container input[type=time]::-webkit-calendar-picker-indicator {
   opacity: 0;
@@ -2368,6 +2396,7 @@ button {
   color: #ffffff;
   background-color: #030303;
   cursor: pointer;
+  outline: none;
 }
 .tickets_section .container .popup .user_container .entry_ticket .input_number_container .plus_btn:hover,
 .tickets_section .container .popup .user_container .entry_ticket .input_number_container .minus_btn:hover {
@@ -2376,10 +2405,12 @@ button {
 .tickets_section .container .popup .user_container .entry_ticket .input_number_container .minus_btn {
   top: 0;
   left: 0;
+  outline: none;
 }
 .tickets_section .container .popup .user_container .entry_ticket .input_number_container .plus_btn {
   top: 0;
   right: 0;
+  outline: none;
 }
 .tickets_section .container .popup .user_container .entry_ticket .input_number_container p {
   margin-left: 0;
@@ -2662,11 +2693,19 @@ button {
   color: #161615;
 }
 .tickets_section .container .popup .ticket_price_container .btn_container_ticket {
+  position: relative;
   height: 100%;
   width: 100%;
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
+}
+.tickets_section .container .popup .ticket_price_container .btn_container_ticket .errorSubmit {
+  position: absolute;
+  color: red;
+  font-size: 18px;
+  left: 0;
+  font-family: "Roboto", sans-serif;
 }
 .tickets_section .container .popup .ticket_price_container .btn_container_ticket .bye_btn {
   background: #710707;

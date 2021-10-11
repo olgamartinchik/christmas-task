@@ -125,6 +125,7 @@
           .plus_btn,
           .minus_btn {
             position: absolute;
+            outline: none;
 
             font-family: $font-family-Roboto;
             font-style: normal;
@@ -142,10 +143,12 @@
           .minus_btn {
             left: 14px;
             top: 6px;
+            outline: none;
           }
           .plus_btn {
             right: 14px;
             top: 6px;
+            outline: none;
           }
           .input_number {
             width: 150px;
@@ -189,6 +192,7 @@
 
     .popup {
       display: none;
+      // display: block;
       position: fixed;
       left: -200%;
       // left: 0;
@@ -302,6 +306,16 @@
           align-items: center;
           justify-content: center;
         }
+        .errorPhon,
+        .errorEmail,
+        .errorName,
+        .errorTime,
+        .errorDate {
+          position: absolute;
+          left: 12px;
+          bottom: -16px;
+          color: red;
+        }
         .date_time {
           display: flex;
           align-items: center;
@@ -317,6 +331,7 @@
         }
         .input_popup_data,
         .input_popup_time {
+          padding-left: 43px;
           width: 190px;
           background-color: $white-color;
         }
@@ -324,13 +339,13 @@
           padding-left: 43px;
           font-size: 18px;
           font-family: $font-family-Roboto;
-          content: attr(placeholder);
+          // content: attr(placeholder);
         }
         input[type="time"]:not(.has-value):before {
           padding-left: 43px;
           font-size: 18px;
           font-family: $font-family-Roboto;
-          content: attr(placeholder);
+          // content: attr(placeholder);
         }
         input[type="time"]::-webkit-calendar-picker-indicator {
           // background: none;
@@ -499,6 +514,7 @@
               color: $white-color;
               background-color: $dark-color;
               cursor: pointer;
+              outline: none;
               &:hover {
                 opacity: 0.6;
               }
@@ -506,10 +522,12 @@
             .minus_btn {
               top: 0;
               left: 0;
+              outline: none;
             }
             .plus_btn {
               top: 0;
               right: 0;
+              outline: none;
             }
             p {
               margin-left: 0;
@@ -805,12 +823,19 @@
           }
         }
         .btn_container_ticket {
+          position: relative;
           height: 100%;
           width: 100%;
           display: flex;
           align-items: flex-end;
           justify-content: flex-end;
-
+          .errorSubmit {
+            position: absolute;
+            color: red;
+            font-size: 18px;
+            left: 0;
+            font-family: $font-family-Roboto;
+          }
           .bye_btn {
             background: #710707;
             opacity: 0.9;
