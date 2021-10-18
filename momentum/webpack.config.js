@@ -20,6 +20,14 @@ module.exports = (env, options) => {
       path: path.join(__dirname, "/dist"),
       filename: "script.js",
     },
+    //
+    // externals: {
+    //   paths: PATHS,
+    // },
+    // entry: {
+    //   app: ["babel-polyfill", PATHS.src],
+    // },
+    //
     module: {
       rules: [
         {
@@ -71,10 +79,10 @@ module.exports = (env, options) => {
             from: "./src/assets/svg",
             to: "./src/assets/svg",
           },
-          // {
-          //     from: './src/js/data',
-          //     to: './data'
-          // },
+          {
+            from: "./src/data",
+            to: "./src/data",
+          },
 
           // {
           //     from: './src/pages',
