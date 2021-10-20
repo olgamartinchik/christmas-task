@@ -1,5 +1,5 @@
 "use strict";
-import { getTimeOfDay } from "./showTime.js";
+// import { getTimeOfDay } from "./showTime.js";
 
 const body = document.querySelector("body");
 const slidePrev = document.querySelector(".slide-prev");
@@ -15,7 +15,7 @@ export function getRandomNum(min, max) {
 
 //body background
 function setBg() {
-  const timeOfDay = getTimeOfDay();
+  const timeOfDay = getTimeOfDayBg();
   const bgNum = String(randomNum).padStart(2, "0");
   //   console.log(bgNum);
   const img = new Image();
@@ -27,6 +27,23 @@ function setBg() {
   //   console.log("img", img.src);
 }
 setBg();
+
+// get time of day for bg
+export function getTimeOfDayBg() {
+  const date = new Date();
+  const hours = date.getHours();
+  let timeOfDay = "";
+  if (hours < 12) {
+    timeOfDay = "morning";
+  } else if (hours < 18) {
+    timeOfDay = "afternoon";
+  } else if (hours < 24) {
+    timeOfDay = "evening";
+  } else if (hours < 6) {
+    timeOfDay = "night";
+  }
+  return timeOfDay;
+}
 
 //slider body
 function getSlideNext() {

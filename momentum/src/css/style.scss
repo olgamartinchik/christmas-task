@@ -24,6 +24,7 @@ body {
 }
 
 .header {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -33,6 +34,15 @@ body {
   padding: 20px;
 }
 
+.en {
+  background-image: url("/src/assets/img/en.png");
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+.ru {
+  background-image: url("/src/assets/img/ru.png");
+}
 .player-controls {
   display: flex;
   align-items: center;
@@ -138,7 +148,13 @@ body {
   cursor: pointer;
   transition: 0.3s;
 }
-
+.translate_btn {
+  background-color: rgba(255, 255, 255, 0.795);
+  width: 40px;
+  height: 40px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+}
 .player-icon:hover,
 .slider-icon:hover,
 .change-quote:hover {
@@ -322,6 +338,12 @@ body {
 
 .author {
   min-height: 20px;
+}
+
+.toggle-icon {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
 }
 
 @media (max-width: 768px) {
