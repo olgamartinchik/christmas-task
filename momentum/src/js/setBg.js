@@ -19,6 +19,7 @@ function setBg() {
   const bgNum = String(randomNum).padStart(2, "0");
   //   console.log(bgNum);
   const img = new Image();
+  // img.src = `https://raw.githubusercontent.com/olgamartinchik/stage1-tasks/tree/assets/images/${timeOfDay}/${bgNum}.jpg`;
   img.src = `https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/${timeOfDay}/${bgNum}.jpg`;
   img.onload = () => {
     body.style.backgroundImage = `url(${img.src})`;

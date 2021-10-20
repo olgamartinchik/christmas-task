@@ -67,10 +67,10 @@ module.exports = (env, options) => {
       }),
       new CopyWebpackPlugin({
         patterns: [
-          //   {
-          //     from: "./src/assets/video",
-          //     to: "./src/assets/video",
-          //   },
+          {
+            from: "./src/assets/sounds",
+            to: "./src/assets/sounds",
+          },
           {
             from: "./src/assets/img",
             to: "./src/assets/img",
