@@ -737,11 +737,23 @@ body {
   transition: 0.25s;
 }
 
-.play-list {
+.title {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.play-list,
+.photo_list {
   text-align: left;
 }
 
-.play-item {
+.photo_list {
+  font-size: 20px;
+  margin-top: 15px;
+}
+
+.play-item,
+.photo_item {
   position: relative;
   padding: 5px;
   padding-left: 20px;
@@ -751,7 +763,8 @@ body {
   transition: 0.3s;
 }
 
-.play-item:hover {
+.play-item:hover,
+.photo_item:hover {
   opacity: 1;
 }
 
@@ -763,7 +776,17 @@ body {
   font-weight: 900;
 }
 
-.item-active::before {
+.photo_item::before {
+  content: "✓";
+  position: absolute;
+  color: #242323;
+  left: 0;
+  top: 2px;
+  font-weight: 900;
+}
+
+.item-active::before,
+.photo_active::before {
   color: #c5b358;
 }
 
@@ -843,7 +866,8 @@ body {
   text-align: left;
 }
 
-.weather-error {
+.weather-error,
+.quote_warning {
   margin-top: -10px;
   color: #f30303;
 }
@@ -973,16 +997,171 @@ body {
 
 .quote {
   min-height: 32px;
+  transition: 1s ease-in-out;
 }
 
 .author {
   min-height: 20px;
+  transition: 1s ease-in-out;
 }
 
-.toggle-icon {
+.settings {
+  background-image: url("/src/assets/svg/settings.svg");
   position: absolute;
-  bottom: 20px;
+  bottom: 0px;
   left: 20px;
+  filter: invert(99%) sepia(90%) saturate(1%) hue-rotate(201deg) brightness(107%) contrast(99%);
+}
+
+.link {
+  position: absolute;
+  width: 5%;
+  bottom: 0px;
+  right: 45px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.menu_wrapper,
+.link_wrapper {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: transparent;
+  z-index: 10;
+  transition: 0.4s ease-in-out;
+  cursor: pointer;
+  box-shadow: 0 2px 10px 0 #0008;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.menu_wrapper.active,
+.link_wrapper.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu_container,
+.link_container {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.98);
+  border-radius: 5px;
+  padding: 15px 10px;
+  cursor: default;
+  color: #2c2b2b;
+}
+
+.menu_container {
+  left: 20px;
+  max-width: 368px;
+  width: 100%;
+  height: 568px;
+  bottom: 12%;
+  top: 2%;
+}
+
+.link_container {
+  right: 20px;
+  max-width: 300px;
+  width: 100%;
+  height: 100px;
+  bottom: 50%;
+  top: 50%;
+}
+
+.tag_unsplash,
+.tag_flickr {
+  width: 95%;
+  height: 28px;
+  font-size: 18px;
+  opacity: 0;
+  margin: 5px 0 5px;
+  padding: 0 5px;
+  transition: 0.3s ease-in-out;
+}
+
+.tag_flickr_error,
+.tag_unsplash_error {
+  color: #cf4242;
+}
+
+.unsplash_collection {
+  margin-top: 30px;
+}
+
+.unsplash_collection.photo_active ~ .tag_unsplash,
+.flickr_collection.photo_active ~ .tag_flickr {
+  opacity: 1;
+}
+
+.widget_container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-top: 20px;
+  font-size: 20px;
+  height: 200px;
+}
+
+label {
+  padding-left: 15px;
+  cursor: pointer;
+  opacity: 0.7;
+  text-transform: capitalize;
+}
+label:hover {
+  opacity: 1;
+}
+
+input[type=checkbox] {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+input[type=checkbox] + label::before {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  flex-grow: 0;
+  border: 1px solid #adb5bd;
+  border-radius: 0.25em;
+  margin-right: 0.5em;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 50% 50%;
+}
+
+input[type=checkbox]:checked + label::before {
+  border-color: #0b76ef;
+  background-color: #0b76ef;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+}
+
+.contact_container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 20px;
+  width: 100%;
+  border-top: 2px solid rgba(255, 255, 255, 0.979);
+  padding: 15px 0 0;
+}
+
+.footer_icon {
+  height: 36px;
+  opacity: 0.5;
+  margin-left: 15px;
+  filter: invert(76%) sepia(24%) saturate(622%) hue-rotate(131deg) brightness(89%) contrast(102%);
+  transition: 1s easy;
+}
+.footer_icon:hover {
+  opacity: 1;
 }
 
 @media (max-width: 768px) {

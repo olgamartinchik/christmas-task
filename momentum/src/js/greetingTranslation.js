@@ -3,6 +3,7 @@ require("babel-polyfill");
 
 import { getWeather } from "./getWeather";
 import { getQuotes } from "./getQuotes";
+import { getSettings } from "./settings";
 
 const en = document.querySelector(".en");
 const name = document.querySelector(".name");
@@ -14,7 +15,7 @@ function toggleBtnLang() {
   } else {
     name.placeholder = "your name";
   }
-
+  getSettings();
   toggleLang();
   getWeather();
   getQuotes();

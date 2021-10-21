@@ -1,30 +1,110 @@
 "use strict";
+
+import { async } from "regenerator-runtime";
+
 // import { getTimeOfDay } from "./showTime.js";
 
 const body = document.querySelector("body");
 const slidePrev = document.querySelector(".slide-prev");
 const slideNext = document.querySelector(".slide-next");
+const githubCollection = document.querySelector(".github_collection");
+const unsplashCollection = document.querySelector(".unsplash_collection");
+const flickrCollection = document.querySelector(".flickr_collection");
+const tagUnsplash = document.querySelector(".tag_unsplash");
+const tagFlickr = document.querySelector(".tag_flickr");
+const tagUnsplashError = document.querySelector(".tag_unsplash_error");
+const tagFlickrError = document.querySelector(".tag_flickr_error");
+
 let randomNum = getRandomNum(1, 20);
+let timeOfDay;
 
 export function getRandomNum(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-// console.log(getRandomNum(1, 20));
 
 //body background
-function setBg() {
+tagUnsplash.addEventListener("focus", () => {
+  tagUnsplashError.textContent = "";
+});
+tagUnsplash.addEventListener("change", getTagUnsplash);
+function getTagUnsplash() {
+  console.log(tagUnsplash.value);
+  if (tagUnsplash.value !== "") {
+    timeOfDay = tagUnsplash.value;
+  } else {
+    timeOfDay = getTimeOfDayBg();
+  }
+  setBg();
+}
+tagFlickr.addEventListener("focus", () => {
+  tagFlickrError.textContent = "";
+});
+tagFlickr.addEventListener("change", (e) => {
+  if (tagFlickr.value !== "") {
+    timeOfDay = tagFlickr.value;
+  } else {
+    timeOfDay = getTimeOfDayBg();
+  }
+  setBg();
+});
+
+//Flickr API
+async function getPhotoFlickr(img) {
+  try {
+    if (tagFlickr.value !== "") {
+      timeOfDay = tagFlickr.value;
+    } else {
+      timeOfDay = getTimeOfDayBg();
+    }
+    let randomNum = getRandomNum(1, 100);
+    const photo = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=b094181a7ec3bb69f45a00119a1e2fd8&tags=${timeOfDay}&extras=url_l&format=json&nojsoncallback=1`;
+    const rez = await fetch(photo);
+    const data = await rez.json();
+    img.src = `${data.photos.photo[randomNum].url_l}`;
+    console.log("timeOfDay", timeOfDay);
+  } catch (e) {
+    tagFlickrError.textContent = "try another tag";
+  }
+}
+//unsplash
+async function getPhotoUnsplash(img) {
+  try {
+    if (tagUnsplash.value !== "") {
+      timeOfDay = tagUnsplash.value;
+    } else {
+      timeOfDay = getTimeOfDayBg();
+    }
+    const photo = `https://api.unsplash.com/photos/random?orientation=landscape&query=${timeOfDay}&client_id=ekFxRTksnevndmHbJWhEJ7rKtpU2gaF6gQOUUpzLG8k`;
+    const res = await fetch(photo);
+    const data = await res.json();
+    img.src = data.urls.regular;
+    console.log("timeOfDay", timeOfDay);
+  } catch (e) {
+    tagUnsplashError.textContent = "try another tag";
+  }
+}
+export function setBg() {
   const timeOfDay = getTimeOfDayBg();
   const bgNum = String(randomNum).padStart(2, "0");
-  //   console.log(bgNum);
   const img = new Image();
-  // img.src = `https://raw.githubusercontent.com/olgamartinchik/stage1-tasks/tree/assets/images/${timeOfDay}/${bgNum}.jpg`;
-  img.src = `https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/${timeOfDay}/${bgNum}.jpg`;
+  if (flickrCollection.classList.contains("photo_active")) {
+    getPhotoFlickr(img);
+  }
+
+  if (unsplashCollection.classList.contains("photo_active")) {
+    getPhotoUnsplash(img);
+  }
+
+  //github
+  if (githubCollection.classList.contains("photo_active")) {
+    img.src = `https://raw.githubusercontent.com/olgamartinchik/stage1-tasks/assets/images/${timeOfDay}/${bgNum}.jpg`;
+  }
+
   img.onload = () => {
     body.style.backgroundImage = `url(${img.src})`;
   };
-  //   console.log("img", img.src);
 }
 setBg();
 
