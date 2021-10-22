@@ -43,6 +43,10 @@ body {
 .ru {
   background-image: url("/src/assets/img/ru.png");
 }
+.player {
+  opacity: 1;
+  transition: 0.4s ease-in-out;
+}
 .player-controls {
   display: flex;
   align-items: center;
@@ -220,6 +224,8 @@ body {
   width: 180px;
   min-height: 180px;
   text-align: left;
+  opacity: 1;
+  transition: 0.4s ease-in-out;
 }
 
 .weather-error,
@@ -294,12 +300,16 @@ body {
   font-family: "Arial-MT";
   font-size: 100px;
   letter-spacing: -4px;
+  opacity: 1;
+  transition: 0.4s ease-in-out;
 }
 
 .date {
   min-height: 28px;
   font-size: 24px;
   margin-bottom: 20px;
+  opacity: 1;
+  transition: 0.4s ease-in-out;
 }
 
 .greeting-container {
@@ -310,6 +320,8 @@ body {
   min-height: 48px;
   width: 100vw;
   font-size: 40px;
+  opacity: 1;
+  transition: 0.4s ease-in-out;
 }
 
 .greeting {
@@ -353,6 +365,7 @@ body {
 
 .quote {
   min-height: 32px;
+  opacity: 1;
   transition: 1s ease-in-out;
 }
 
@@ -376,6 +389,8 @@ body {
   color: #fff;
   font-weight: 500;
   font-size: 20px;
+  opacity: 1;
+  transition: 0.4s ease-in-out;
 }
 .menu_wrapper,
 .link_wrapper {
@@ -402,7 +417,7 @@ body {
   position: absolute;
   background-color: rgba(255, 255, 255, 0.98);
   border-radius: 5px;
-  padding: 15px 10px;
+  padding: 34px 12px;
   cursor: default;
   // overflow: scroll;
   color: rgb(44, 43, 43);
@@ -411,9 +426,10 @@ body {
   left: 20px;
   max-width: 368px;
   width: 100%;
-  height: 568px;
+  max-height: 550px;
   bottom: 12%;
   top: 2%;
+  overflow: auto;
 }
 .link_container {
   right: 20px;
@@ -486,6 +502,7 @@ input[type="checkbox"]:checked + label::before {
   background-color: #0b76ef;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
 }
+
 .contact_container {
   display: flex;
   align-items: center;
@@ -507,6 +524,13 @@ input[type="checkbox"]:checked + label::before {
   &:hover {
     opacity: 1;
   }
+}
+.quote_widget {
+  opacity: 1;
+  transition: 0.4s ease-in-out;
+}
+.hidden {
+  opacity: 0;
 }
 @media (max-width: 768px) {
   .time {

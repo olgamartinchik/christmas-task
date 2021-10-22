@@ -74,11 +74,12 @@ export function getSettings() {
     const div = document.createElement("div");
     const input = document.createElement("input");
     input.id = index;
+    input.classList.add("widget");
     input.value = block;
-    input.checked = true;
+    input.checked = "true";
     input.type = "checkbox";
     const label = document.createElement("label");
-    label.for = index;
+    label.htmlFor = index;
     label.textContent = block;
     div.append(input);
     div.append(label);
@@ -91,6 +92,31 @@ export function getSettings() {
   title2.textContent = state[ind].title2;
   tagUnsplash.placeholder = `${state[ind].placeholder1}`;
   tagFlickr.placeholder = `${state[ind].placeholder2}`;
-  console.log("https://qna.habr.com/q/558031/favicon.png");
 }
 getSettings();
+
+export function hiddenWidget() {
+  const widgets = document.querySelectorAll(".widget");
+
+  const time = document.querySelector(".time");
+  const date = document.querySelector(".date");
+  const greeting = document.querySelector(".greeting-container");
+  const quote = document.querySelector(".quote_widget");
+  const weather = document.querySelector(".weather");
+  const audio = document.querySelector(".player");
+  const link = document.querySelector(".link");
+  const arrayWidgets = [time, date, greeting, quote, weather, audio, link];
+
+  widgets.forEach((widget, ind) => {
+    widget.addEventListener("change", () => {
+      if (widget.checked === false) {
+        arrayWidgets[ind].classList.add("hidden");
+      } else {
+        arrayWidgets[ind].classList.remove("hidden");
+      }
+    });
+  });
+
+  console.log("widgets", widgets);
+}
+hiddenWidget();
