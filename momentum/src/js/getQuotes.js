@@ -1,10 +1,12 @@
 import { getRandomNum } from "./setBg";
+import { toggleLang } from "./greetingTranslation";
 
 let randomQuote = getRandomNum(1, 32);
 const quote = document.querySelector(".quote");
 const author = document.querySelector(".author");
 const changeQuote = document.querySelector(".change-quote");
 const en = document.querySelector(".en");
+// let lang = toggleLang();
 
 export async function getQuotes() {
   try {

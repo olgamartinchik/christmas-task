@@ -116,7 +116,5 @@ export function hiddenWidget() {
       }
     });
   });
-
-  console.log("widgets", widgets);
 }
 hiddenWidget();

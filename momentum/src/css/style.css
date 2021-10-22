@@ -1035,7 +1035,7 @@ body {
   color: #fff;
   font-weight: 500;
   font-size: 20px;
-  opacity: 1;
+  opacity: 0.6;
   transition: 0.4s ease-in-out;
 }
 
@@ -1076,16 +1076,179 @@ body {
   max-height: 550px;
   bottom: 12%;
   top: 2%;
-  overflow: auto;
+  overflow: hidden;
 }
 
 .link_container {
-  right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  right: 32px;
   max-width: 300px;
   width: 100%;
-  height: 100px;
-  bottom: 50%;
-  top: 50%;
+  max-height: 428px;
+  bottom: 14%;
+  top: 14%;
+  font-size: 20px;
+  overflow: hidden;
+}
+
+.fix_link,
+.new_links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+}
+.fix_link li,
+.new_links li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 0;
+}
+.fix_link li a,
+.new_links li a {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  text-decoration: none;
+  color: black;
+  opacity: 0.7;
+}
+.fix_link li a:hover,
+.new_links li a:hover {
+  opacity: 1;
+}
+.fix_link li a img,
+.new_links li a img {
+  margin-right: 15px;
+  width: 22px;
+}
+.fix_link li .btn_edit,
+.new_links li .btn_edit {
+  position: relative;
+  background: url("/src/assets/img/edit.png") center/cover;
+  opacity: 0.7;
+  cursor: pointer;
+  margin-left: 15px;
+  width: 25px;
+  height: 25px;
+  transition: 0.4s;
+}
+.fix_link li .btn_edit:hover,
+.new_links li .btn_edit:hover {
+  opacity: 1;
+}
+.fix_link li .select_btn,
+.new_links li .select_btn {
+  opacity: 0;
+  position: absolute;
+  right: 47px;
+  width: 100px;
+  height: 80px;
+  background-color: #d6d4d4;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 1;
+  box-shadow: 0 2px 10px 0 #0008;
+  transition: 0.4s ease-in-out;
+}
+.fix_link li .select_btn .edit,
+.fix_link li .select_btn .delete,
+.new_links li .select_btn .edit,
+.new_links li .select_btn .delete {
+  opacity: 0.6;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.fix_link li .select_btn .edit:hover,
+.fix_link li .select_btn .delete:hover,
+.new_links li .select_btn .edit:hover,
+.new_links li .select_btn .delete:hover {
+  opacity: 1;
+}
+.fix_link li .select_btn.active,
+.new_links li .select_btn.active {
+  opacity: 1;
+}
+
+.create_link {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  right: -150%;
+  top: 0;
+  max-width: 300px;
+  width: 100%;
+  max-height: 428px;
+  bottom: 0;
+  top: 0;
+  font-size: 20px;
+  background-color: rgba(255, 255, 255, 0.98);
+  border-radius: 5px;
+  padding: 69px 12px 15px;
+  overflow: auto;
+  opacity: 0;
+  transition: 0.4s ease-in-out;
+}
+.create_link .close_btn {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  color: black;
+  cursor: pointer;
+  font-size: 30px;
+  opacity: 0.5;
+  transition: 0.4s;
+}
+.create_link .close_btn:hover {
+  opacity: 1;
+}
+.create_link h4 {
+  font-size: 28px;
+  margin-top: 20px;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+.create_link input {
+  margin-top: 15px;
+  margin-top: 15px;
+  width: 100%;
+  height: 34px;
+  font-size: 22px;
+  padding: 0 10px;
+}
+.create_link .create_btn {
+  margin-top: 68px;
+  border: none;
+  background: #6cc76c;
+  border-radius: 20px;
+  width: 140px;
+  height: 44px;
+  font-size: 26px;
+  color: white;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: 0.3s;
+}
+.create_link .create_btn:hover {
+  opacity: 1;
+}
+
+.create_link.active {
+  opacity: 1;
+  right: 0;
 }
 
 .tag_unsplash,
@@ -1158,6 +1321,19 @@ input[type=checkbox]:checked + label::before {
   border-color: #0b76ef;
   background-color: #0b76ef;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+}
+
+.btn_new_link {
+  border: none;
+  background: none;
+  font-size: 20px;
+  opacity: 0.5;
+  cursor: pointer;
+  margin: 10px 0;
+  transition: 0.3s;
+}
+.btn_new_link:hover {
+  opacity: 1;
 }
 
 .contact_container {

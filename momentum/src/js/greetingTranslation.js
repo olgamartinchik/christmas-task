@@ -7,18 +7,22 @@ import { getSettings } from "./settings";
 
 const en = document.querySelector(".en");
 const name = document.querySelector(".name");
+const link = document.querySelector(".link");
 
 function toggleBtnLang() {
   en.classList.toggle("ru");
   if (en.classList.contains("ru")) {
     name.placeholder = "ваше имя";
+    link.textContent = "Ссылки";
   } else {
     name.placeholder = "your name";
+    link.textContent = "links";
   }
   getSettings();
   toggleLang();
   getWeather();
   getQuotes();
+  console.log(en.classList.value);
 }
 
 export function toggleLang() {
