@@ -1109,6 +1109,7 @@ body {
   justify-content: space-between;
   width: 100%;
   padding: 10px 0;
+  transition: 0.4s;
 }
 .fix_link li a,
 .new_links li a {
@@ -1230,7 +1231,7 @@ body {
   padding: 0 10px;
 }
 .create_link .create_btn {
-  margin-top: 68px;
+  margin-top: 40px;
   border: none;
   background: #6cc76c;
   border-radius: 20px;
@@ -1244,6 +1245,12 @@ body {
 }
 .create_link .create_btn:hover {
   opacity: 1;
+}
+.create_link .link_error,
+.create_link .name_error {
+  color: #fc4141;
+  font-size: 16px;
+  margin-top: 5px;
 }
 
 .create_link.active {
