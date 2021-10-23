@@ -641,7 +641,7 @@
 }
 
 body {
-  min-width: 480px;
+  min-width: 320px;
   min-height: 100vh;
   font-family: "Arial", sans-serif;
   font-size: 16px;
@@ -675,6 +675,7 @@ body {
 }
 
 .player {
+  width: 280px;
   opacity: 1;
   transition: 0.4s ease-in-out;
 }
@@ -684,7 +685,7 @@ body {
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
-  width: 423px;
+  width: 280px;
   margin-bottom: 28px;
 }
 
@@ -711,7 +712,7 @@ body {
 }
 .progress_block .timeline {
   background-color: #fff;
-  width: 200px;
+  width: 100px;
   height: 10px;
   cursor: pointer;
   box-shadow: 0 2px 10px 0 #0008;
@@ -730,7 +731,7 @@ body {
 }
 .progress_block .volumeline {
   background-color: #fff;
-  width: 85px;
+  width: 55px;
   height: 10px;
   cursor: pointer;
   box-shadow: 0 2px 10px 0 #0008;
@@ -1029,7 +1030,7 @@ body {
 
 .link {
   position: absolute;
-  width: 5%;
+  width: 72px;
   bottom: 0px;
   right: 45px;
   color: #fff;
@@ -1046,7 +1047,7 @@ body {
   height: 100vh;
   background-color: transparent;
   z-index: 10;
-  transition: 0.4s ease-in-out;
+  transition: 0.3s ease-in-out;
   cursor: pointer;
   box-shadow: 0 2px 10px 0 #0008;
   opacity: 0;
@@ -1070,13 +1071,13 @@ body {
 }
 
 .menu_container {
-  left: 20px;
-  max-width: 368px;
+  left: 62px;
+  max-width: 245px;
   width: 100%;
-  max-height: 550px;
-  bottom: 12%;
-  top: 2%;
-  overflow: hidden;
+  max-height: 435px;
+  bottom: 14%;
+  top: 14%;
+  overflow: auto;
 }
 
 .link_container {
@@ -1085,13 +1086,18 @@ body {
   align-items: flex-start;
   justify-content: flex-start;
   right: 32px;
-  max-width: 300px;
+  max-width: 280px;
   width: 100%;
   max-height: 428px;
   bottom: 14%;
   top: 14%;
   font-size: 20px;
   overflow: hidden;
+}
+
+.new_links {
+  max-height: 200px;
+  overflow: auto;
 }
 
 .fix_link,
@@ -1190,7 +1196,7 @@ body {
   justify-content: flex-start;
   right: -150%;
   top: 0;
-  max-width: 300px;
+  max-width: 280px;
   width: 100%;
   max-height: 428px;
   bottom: 0;
@@ -1391,6 +1397,36 @@ input[type=checkbox]:checked + label::before {
   .name {
     font-size: 32px;
     padding: 5px;
+  }
+}
+@media (max-width: 420px) {
+  .time {
+    min-height: 45px;
+    font-size: 36px;
+  }
+
+  .greeting-container {
+    min-height: 20px;
+    font-size: 20px;
+  }
+
+  .greeting {
+    padding: 3px;
+  }
+
+  .name {
+    font-size: 20px;
+    padding: 3px;
+  }
+
+  .play-list {
+    text-align: left;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .weather-icon {
+    font-size: 30px;
   }
 }
 

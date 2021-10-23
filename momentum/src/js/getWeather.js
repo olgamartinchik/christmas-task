@@ -22,9 +22,13 @@ export async function getWeather() {
       lang = "en";
     }
     if (city.value.length === 0) {
+      // if (lang === "ru") {
+      //   city.value = "Минск";
+      // } else {
       city.value = "Minsk";
+      // }
     }
-    // lang === "ru" ? (city.value = "Минск") : (city.value = "Minsk");
+
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=${lang}&appid=83b49ce53f5da56aad9c5b3153a63d22&units=metric`;
     const res = await fetch(url);
     const data = await res.json();
@@ -39,6 +43,7 @@ export async function getWeather() {
     humidity.textContent = `${
       lang === "en" ? "Humidity" : "Влажность"
     }: ${Math.round(data.main.humidity)}%`;
+    console.log("lang", lang);
   } catch (e) {
     console.error(e);
     weatherError.textContent = "There is no such city";
@@ -47,3 +52,7 @@ export async function getWeather() {
 }
 getWeather();
 city.addEventListener("change", getWeather);
+
+city.addEventListener("change", () => {
+  console.log(valueCity);
+});

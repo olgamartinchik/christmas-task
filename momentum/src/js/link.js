@@ -6,10 +6,10 @@ const selectBtns = document.querySelectorAll(".select_btn");
 const btnNewLink = document.querySelector(".btn_new_link");
 const createLink = document.querySelector(".create_link");
 const closeBtn = document.querySelector(".close_btn");
-///
+
 const edits = document.querySelectorAll(".edit");
 const deleteLinks = document.querySelectorAll(".delete");
-///
+
 const btnEdits = document.querySelectorAll(".btn_edit");
 const createBtn = document.querySelector(".create_btn");
 
@@ -18,6 +18,11 @@ const nameError = document.querySelector(".name_error");
 const linkError = document.querySelector(".link_error");
 const nameLink = document.querySelector(".name_link");
 const userNewLink = document.querySelector(".user_new_link");
+/// translate popup links
+const titleNameLink = document.querySelector(".title_name_link");
+const titleNewLink = document.querySelector(".title_new_link");
+const titleBtnNewLink = document.querySelector(".title_btn_new_link");
+const en = document.querySelector(".en");
 
 let localLinks;
 
@@ -37,10 +42,18 @@ function addNewLink() {
   const nameLink = document.querySelector(".name_link");
   const userNewLink = document.querySelector(".user_new_link");
   if (nameLink.value === "") {
-    nameError.textContent = "fill in the field";
+    if (en.classList.contains("ru")) {
+      nameError.textContent = "заполните поле";
+    } else {
+      nameError.textContent = "fill in the field";
+    }
   }
   if (userNewLink.value === "") {
-    linkError.textContent = "fill in the field";
+    if (en.classList.contains("ru")) {
+      linkError.textContent = "заполните поле";
+    } else {
+      linkError.textContent = "fill in the field";
+    }
   }
   const li = document.createElement("li");
   li.classList.add("user_link");
@@ -144,3 +157,33 @@ function getLocalLinks() {
 }
 
 window.addEventListener("load", getLocalLinks);
+
+/// translate popup links
+const stateLinks = [
+  {
+    language: "en",
+    titleBtnNewLink: "New Link",
+    titleNameLink: "name",
+    titleNewLink: "link",
+    createBtn: "Create",
+  },
+  {
+    language: "ru",
+    titleBtnNewLink: "Новая ссылка",
+    titleNameLink: "имя",
+    titleNewLink: "ссылка",
+    createBtn: "Создать",
+  },
+];
+
+export function getTranslateLinkPopup() {
+  let ind = 0;
+  if (en.classList.contains("ru")) {
+    ind = 1;
+  }
+  titleBtnNewLink.textContent = stateLinks[ind].titleBtnNewLink;
+  titleNameLink.textContent = stateLinks[ind].titleNameLink;
+  titleNewLink.textContent = stateLinks[ind].titleNewLink;
+  createBtn.textContent = stateLinks[ind].createBtn;
+}
+getTranslateLinkPopup();

@@ -9,6 +9,7 @@ const greeting = document.querySelector(".greeting");
 const name = document.querySelector(".name");
 const city = document.querySelector(".city");
 const en = document.querySelector(".en");
+
 // let lang = toggleLang();
 function showTime() {
   let lang = toggleLang();
@@ -86,7 +87,7 @@ function showGreeting() {
 function setLocalStorage() {
   localStorage.setItem("name", name.value);
   localStorage.setItem("city", city.value);
-  // localStorage.setItem("lang", en.classList.value);
+  localStorage.setItem("lang", en.classList.value);
 }
 window.addEventListener("beforeunload", setLocalStorage);
 function getLocalStorage() {
@@ -96,9 +97,8 @@ function getLocalStorage() {
   if (localStorage.getItem("city")) {
     city.value = localStorage.getItem("city");
   }
-  // if (localStorage.getItem("lang")) {
-
-  //   en.classList.value = localStorage.getItem("lang");
-  // }
+  if (localStorage.getItem("lang")) {
+    en.classList.value = localStorage.getItem("lang");
+  }
 }
 window.addEventListener("load", getLocalStorage);
