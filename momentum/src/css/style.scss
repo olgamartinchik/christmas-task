@@ -12,7 +12,7 @@
 }
 
 body {
-  min-width: 320px;
+  min-width: 310px;
   min-height: 100vh;
   font-family: "Arial", sans-serif;
   font-size: 16px;
@@ -33,7 +33,24 @@ body {
   min-height: 220px;
   padding: 20px;
 }
-
+.icon_weather {
+  display: none;
+  position: absolute;
+  background: url("/src/assets/img/weather.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 50px;
+  right: 20px;
+  top: 10px;
+  opacity: 0.7;
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover {
+    opacity: 1;
+  }
+}
 .en {
   background-image: url("/src/assets/img/en.png");
   position: absolute;
@@ -406,7 +423,7 @@ body {
   z-index: 10;
   transition: 0.3s ease-in-out;
   cursor: pointer;
-  box-shadow: 0 2px 10px 0 #0008;
+
   opacity: 0;
   visibility: hidden;
 }
@@ -426,6 +443,7 @@ body {
   cursor: default;
   // overflow: scroll;
   color: rgb(44, 43, 43);
+  box-shadow: 0 2px 10px 0 #0008;
 }
 .menu_container {
   left: 62px;
@@ -768,6 +786,38 @@ input[type="checkbox"]:checked + label::before {
   .name {
     font-size: 32px;
     padding: 5px;
+  }
+}
+@media (max-width: 535px) {
+  .icon_weather {
+    display: block;
+  }
+  .weather_container {
+    position: absolute;
+    background: transparent;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    cursor: pointer;
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+    .weather {
+      top: 10%;
+      background-color: #e58585;
+      position: absolute;
+      right: 39px;
+      border-radius: 9px;
+      padding: 15px 20px;
+      width: 239px;
+      cursor: default;
+    }
+  }
+  .weather_container.active {
+    z-index: 2;
+    opacity: 1;
   }
 }
 @media (max-width: 420px) {

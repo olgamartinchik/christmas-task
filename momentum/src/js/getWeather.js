@@ -11,6 +11,7 @@ const humidity = document.querySelector(".humidity");
 const city = document.querySelector(".city");
 const weatherError = document.querySelector(".weather-error");
 const en = document.querySelector(".en");
+const iconWeather = document.querySelector(".icon_weather");
 
 export async function getWeather() {
   try {
@@ -55,4 +56,19 @@ city.addEventListener("change", getWeather);
 
 city.addEventListener("change", () => {
   console.log(valueCity);
+});
+
+if (iconWeather) {
+  iconWeather.addEventListener("click", () => {
+    const weatherContainer = document.querySelector(".weather_container");
+    console.log("click");
+    weatherContainer.classList.add("active");
+  });
+}
+
+window.addEventListener("click", (e) => {
+  const weatherContainer = document.querySelector(".weather_container");
+  if (e.target === weatherContainer) {
+    weatherContainer.classList.remove("active");
+  }
 });

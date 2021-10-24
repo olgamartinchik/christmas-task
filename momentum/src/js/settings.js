@@ -29,6 +29,7 @@ photoItems.forEach((item) => {
     photoItems.forEach((el) => el.classList.remove("photo_active"));
     e.target.classList.add("photo_active");
     setBg();
+    setLocalStorageSettings();
   });
 });
 
@@ -92,6 +93,7 @@ export function getSettings() {
   title2.textContent = state[ind].title2;
   tagUnsplash.placeholder = `${state[ind].placeholder1}`;
   tagFlickr.placeholder = `${state[ind].placeholder2}`;
+  setLocalStorageSettings();
 }
 getSettings();
 
@@ -114,7 +116,30 @@ export function hiddenWidget() {
       } else {
         arrayWidgets[ind].classList.remove("hidden");
       }
+      setLocalStorageSettings();
     });
   });
 }
 hiddenWidget();
+
+//localStorage
+export function setLocalStorageSettings() {
+  const widgetContainer = document.querySelector(".widget_container");
+  const photoList = document.querySelector(".photo_list");
+
+  // console.log(photoItems[0], photoItems[1], photoItems[2], photoList.innerHTML);
+  localStorage.setItem("widgetContainer", widgetContainer.innerHTML);
+  localStorage.setItem("photoList", photoList.innerHTML);
+}
+window.addEventListener("beforeunload", setLocalStorageSettings);
+function getLocalStorageSettings() {
+  // const widgetContainer = document.querySelector(".widget_container");
+  // const photoList = document.querySelector(".photo_list");
+  // if (localStorage.getItem("widgetContainer")) {
+  //   widgetContainer.innerHTML = localStorage.getItem("widgetContainer");
+  // }
+  // if (localStorage.getItem("photoList")) {
+  //   photoList.innerHTML = localStorage.getItem("photoList");
+  // }
+}
+window.addEventListener("load", getLocalStorageSettings);

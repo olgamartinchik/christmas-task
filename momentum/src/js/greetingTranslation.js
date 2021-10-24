@@ -6,7 +6,9 @@ import { getQuotes } from "./getQuotes";
 import { getSettings } from "./settings";
 import { getTranslateLinkPopup } from "./link";
 import { hiddenWidget } from "./settings";
-
+import { setBg } from "./setBg";
+const widgetContainer = document.querySelector(".widget_container");
+const photoList = document.querySelector(".photo_list");
 const en = document.querySelector(".en");
 
 function toggleBtnLang() {
@@ -54,6 +56,7 @@ window.addEventListener("DOMContentLoaded", () => {
   if (localStorage.getItem("lang")) {
     en.classList.value = localStorage.getItem("lang");
   }
+
   getSettings();
   toggleLang();
 
@@ -62,4 +65,5 @@ window.addEventListener("DOMContentLoaded", () => {
   getTranslateLinkPopup();
   getWeather();
   hiddenWidget();
+  // setBg();
 });

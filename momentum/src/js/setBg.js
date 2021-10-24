@@ -3,6 +3,7 @@
 import { async } from "regenerator-runtime";
 
 // import { getTimeOfDay } from "./showTime.js";
+import { setLocalStorageSettings } from "./link";
 
 const body = document.querySelector("body");
 const slidePrev = document.querySelector(".slide-prev");
@@ -36,6 +37,7 @@ function getTagUnsplash() {
   } else {
     timeOfDay = getTimeOfDayBg();
   }
+
   setBg();
 }
 tagFlickr.addEventListener("focus", () => {
@@ -47,6 +49,7 @@ tagFlickr.addEventListener("change", (e) => {
   } else {
     timeOfDay = getTimeOfDayBg();
   }
+
   setBg();
 });
 
