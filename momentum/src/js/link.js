@@ -23,6 +23,7 @@ const titleNameLink = document.querySelector(".title_name_link");
 const titleNewLink = document.querySelector(".title_new_link");
 const titleBtnNewLink = document.querySelector(".title_btn_new_link");
 const en = document.querySelector(".en");
+const newLinks = document.querySelector(".new_links");
 
 let localLinks;
 
@@ -35,12 +36,21 @@ window.addEventListener("click", (e) => {
     linkWrapper.classList.remove("active");
   }
 });
+newLinks.addEventListener("click", (e) => {
+  if (e.target.classList.contains("btn_edit")) {
+    let li = e.target.parentNode;
+    li.remove();
+  }
+});
+
 // create new link
+let i = 0;
 createBtn.addEventListener("click", addNewLink);
 function addNewLink() {
   const newLinks = document.querySelector(".new_links");
   const nameLink = document.querySelector(".name_link");
   const userNewLink = document.querySelector(".user_new_link");
+
   if (nameLink.value === "") {
     if (en.classList.contains("ru")) {
       nameError.textContent = "заполните поле";
@@ -57,6 +67,7 @@ function addNewLink() {
   }
   const li = document.createElement("li");
   li.classList.add("user_link");
+  li.id = i++;
   const a = document.createElement("a");
   a.href = userNewLink.value;
   const img = document.createElement("img");
@@ -92,30 +103,29 @@ function addNewLink() {
   userNewLink.value = "";
 }
 
-btnEdits.forEach((btn, ind) => {
-  btn.addEventListener("click", (e) => {
-    console.log("click");
-    if (e.target === selectBtns[ind]) {
-      selectBtns[ind].classList.toggle("active");
-    }
-  });
-});
+// btnEdits.forEach((btn, ind) => {
+//   btn.addEventListener("click", (e) => {
+//     console.log("click");
+//     if (e.target === selectBtns[ind]) {
+//       selectBtns[ind].classList.toggle("active");
+//     }
+//   });
+// });
 
-deleteLinks.forEach((btn, ind) => {
-  btn.addEventListener("click", () => {
-    userLinks[ind].remove();
-    toLocal();
-  });
-});
+// deleteLinks.forEach((btn, ind) => {
+//   btn.addEventListener("click", () => {
+//     userLinks[ind].remove();
+//     toLocal();
+//   });
+// });
 
-edits.forEach((edit, ind) => {
-  edit.addEventListener("click", (e) => {
-    createLink.classList.add("active");
-  });
-});
+// edits.forEach((edit, ind) => {
+//   edit.addEventListener("click", (e) => {
+//     createLink.classList.add("active");
+//   });
+// });
 
 //open form create link
-
 btnNewLink.addEventListener("click", () => {
   createLink.classList.add("active");
 });
@@ -128,12 +138,6 @@ function addCloseBtn() {
   });
 }
 closeBtn.addEventListener("click", addCloseBtn);
-
-if (createLink.classList.contains("active")) {
-  // selectBtns.forEach((el) => {
-  //   if (el.classList.contains("active")) el.classList.remove("active");
-  // });
-}
 
 nameLink.addEventListener("focus", () => {
   nameError.innerHTML = "";

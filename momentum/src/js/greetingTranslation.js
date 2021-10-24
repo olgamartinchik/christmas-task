@@ -5,6 +5,7 @@ import { getWeather } from "./getWeather";
 import { getQuotes } from "./getQuotes";
 import { getSettings } from "./settings";
 import { getTranslateLinkPopup } from "./link";
+import { hiddenWidget } from "./settings";
 
 const en = document.querySelector(".en");
 
@@ -60,4 +61,5 @@ window.addEventListener("DOMContentLoaded", () => {
   translateLinkAndName();
   getTranslateLinkPopup();
   getWeather();
+  hiddenWidget();
 });
