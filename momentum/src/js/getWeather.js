@@ -16,21 +16,27 @@ const iconWeather = document.querySelector(".icon_weather");
 export async function getWeather() {
   try {
     // let lang = toggleLang();
+    let cityValue;
     let lang = "en";
     if (en.classList.contains("ru")) {
       lang = "ru";
     } else {
       lang = "en";
     }
-    if (city.value.length === 0) {
-      // if (lang === "ru") {
-      //   city.value = "Минск";
-      // } else {
-      city.value = "Minsk";
-      // }
+
+    if (city.value === "") {
+      if (lang === "ru") {
+        cityValue = "Минск";
+        city.placeholder = "Минск";
+      } else {
+        cityValue = "Minsk";
+        city.placeholder = "Minsk";
+      }
+    } else {
+      cityValue = city.value;
     }
 
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=${lang}&appid=83b49ce53f5da56aad9c5b3153a63d22&units=metric`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityValue}&lang=${lang}&appid=83b49ce53f5da56aad9c5b3153a63d22&units=metric`;
     const res = await fetch(url);
     const data = await res.json();
 
@@ -53,10 +59,6 @@ export async function getWeather() {
 }
 getWeather();
 city.addEventListener("change", getWeather);
-
-city.addEventListener("change", () => {
-  console.log(valueCity);
-});
 
 if (iconWeather) {
   iconWeather.addEventListener("click", () => {

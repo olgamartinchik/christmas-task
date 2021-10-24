@@ -29,6 +29,9 @@ export function getRandomNum(min, max) {
 tagUnsplash.addEventListener("focus", () => {
   tagUnsplashError.textContent = "";
 });
+tagFlickr.addEventListener("focus", () => {
+  tagFlickrError.textContent = "";
+});
 tagUnsplash.addEventListener("change", getTagUnsplash);
 function getTagUnsplash() {
   console.log(tagUnsplash.value);
@@ -37,19 +40,17 @@ function getTagUnsplash() {
   } else {
     timeOfDay = getTimeOfDayBg();
   }
-
+  localStorage.setItem("tagUnsplash", tagUnsplash.value);
   setBg();
 }
-tagFlickr.addEventListener("focus", () => {
-  tagFlickrError.textContent = "";
-});
+
 tagFlickr.addEventListener("change", (e) => {
   if (tagFlickr.value !== "") {
     timeOfDay = tagFlickr.value;
   } else {
     timeOfDay = getTimeOfDayBg();
   }
-
+  localStorage.setItem("tagFlickr", tagFlickr.value);
   setBg();
 });
 
@@ -145,3 +146,16 @@ function getSlidePrev() {
 }
 slidePrev.addEventListener("click", getSlidePrev);
 slideNext.addEventListener("click", getSlideNext);
+
+function getLocalStoragePhoto() {
+  if (localStorage.getItem("tagUnsplash")) {
+    tagUnsplash.value = localStorage.getItem("tagUnsplash");
+    timeOfDay = tagUnsplash.value;
+  }
+  if (localStorage.getItem("tagFlickr")) {
+    tagFlickr.value = localStorage.getItem("tagFlickr");
+    timeOfDay = tagFlickr.value;
+  }
+  setBg();
+}
+window.addEventListener("DOMContentLoaded", getLocalStoragePhoto);

@@ -1,7 +1,7 @@
 import { getRandomNum } from "./setBg";
 import { toggleLang } from "./greetingTranslation";
 
-let randomQuote = getRandomNum(1, 32);
+let randomQuote = getRandomNum(1, 31);
 const quote = document.querySelector(".quote");
 const author = document.querySelector(".author");
 const changeQuote = document.querySelector(".change-quote");
@@ -33,7 +33,7 @@ export async function getQuotes() {
 getQuotes();
 function getQuoteNext() {
   randomQuote++;
-  if (randomQuote === 63) {
+  if (randomQuote === 31) {
     randomQuote = 1;
   }
   getQuotes();

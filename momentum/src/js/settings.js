@@ -24,13 +24,23 @@ window.addEventListener("click", (e) => {
     menuWrapper.classList.remove("active");
   }
 });
-photoItems.forEach((item) => {
+
+photoItems.forEach((item, ind) => {
   item.addEventListener("click", (e) => {
     photoItems.forEach((el) => el.classList.remove("photo_active"));
     e.target.classList.add("photo_active");
+    localStorage.setItem("indActivePhoto", ind);
+
     setBg();
-    setLocalStorageSettings();
   });
+  if (localStorage.getItem("indActivePhoto")) {
+    let index = +localStorage.getItem("indActivePhoto");
+    if (ind === index) {
+      photoItems.forEach((el) => el.classList.remove("photo_active"));
+      photoItems[ind].classList.add("photo_active");
+    }
+    setBg();
+  }
 });
 
 const state = [
@@ -93,10 +103,13 @@ export function getSettings() {
   title2.textContent = state[ind].title2;
   tagUnsplash.placeholder = `${state[ind].placeholder1}`;
   tagFlickr.placeholder = `${state[ind].placeholder2}`;
-  setLocalStorageSettings();
 }
 getSettings();
 
+const showWidgets = {
+  checkedFalse: [],
+  checkedTrue: [],
+};
 export function hiddenWidget() {
   const widgets = document.querySelectorAll(".widget");
 
@@ -113,33 +126,34 @@ export function hiddenWidget() {
     widget.addEventListener("change", () => {
       if (widget.checked === false) {
         arrayWidgets[ind].classList.add("hidden");
+        showWidgets.checkedFalse.push(ind);
+        localStorage.setItem("showWidgets", JSON.stringify(showWidgets));
       } else {
         arrayWidgets[ind].classList.remove("hidden");
+        showWidgets.checkedTrue.push(ind);
+        localStorage.setItem("showWidgets", JSON.stringify(showWidgets));
       }
-      setLocalStorageSettings();
     });
+    if (localStorage.getItem("showWidgets")) {
+      let arrayCheckedWidgets = JSON.parse(localStorage.getItem("showWidgets"));
+      let checkedFalse = arrayCheckedWidgets.checkedFalse;
+      let checkedTrue = arrayCheckedWidgets.checkedTrue;
+      checkedFalse.forEach((falseEl) => {
+        if (ind === falseEl) {
+          widget.checked = false;
+          arrayWidgets[ind].classList.add("hidden");
+        }
+      });
+      checkedTrue.forEach((trueEl) => {
+        if (ind === trueEl) {
+          widget.checked = true;
+          arrayWidgets[ind].classList.remove("hidden");
+        }
+      });
+    }
   });
 }
 hiddenWidget();
 
-//localStorage
-export function setLocalStorageSettings() {
-  const widgetContainer = document.querySelector(".widget_container");
-  const photoList = document.querySelector(".photo_list");
-
-  // console.log(photoItems[0], photoItems[1], photoItems[2], photoList.innerHTML);
-  localStorage.setItem("widgetContainer", widgetContainer.innerHTML);
-  localStorage.setItem("photoList", photoList.innerHTML);
-}
-window.addEventListener("beforeunload", setLocalStorageSettings);
-function getLocalStorageSettings() {
-  // const widgetContainer = document.querySelector(".widget_container");
-  // const photoList = document.querySelector(".photo_list");
-  // if (localStorage.getItem("widgetContainer")) {
-  //   widgetContainer.innerHTML = localStorage.getItem("widgetContainer");
-  // }
-  // if (localStorage.getItem("photoList")) {
-  //   photoList.innerHTML = localStorage.getItem("photoList");
-  // }
-}
+function getLocalStorageSettings() {}
 window.addEventListener("load", getLocalStorageSettings);
