@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./src/assets/favicon.ico" rel="shortcut icon" />
+    <!-- <link rel="stylesheet" href="css/owfont-regular.css" /> -->
+    <!-- <link rel="stylesheet" href="css/style.css" /> -->
+
+    <link rel="stylesheet" href="./dist/style.css" />
+
+    <title>momentum</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="player">
+        <div class="player-controls">
+          <div class="btn_container play_block">
+            <button class="play-prev player-icon"></button>
+            <button class="play player-icon"></button>
+            <button class="play-next player-icon"></button>
+          </div>
+          <div class="btn_container progress_block">
+            <span class="title_song"></span>
+            <div class="timeline">
+              <div class="progress_audio"></div>
+            </div>
+            <div class="timer">
+              <div class="current">0:00</div>
+              <div class="divider">/</div>
+              <div class="length">0:00</div>
+            </div>
+            <button class="volume player-icon"></button>
+            <div class="volumeline">
+              <div class="progress_volume"></div>
+            </div>
+          </div>
+        </div>
+        <ul class="play-list"></ul>
+      </div>
+      <div class="icon_weather"></div>
+      <div class="weather_container">
+        <div class="weather">
+          <input type="text" class="city" />
+          <i class="weather-icon owf"></i>
+          <div class="weather-error"></div>
+          <div class="description-container">
+            <span class="temperature"></span>
+            <span class="weather-description"></span>
+          </div>
+          <div class="wind"></div>
+          <div class="humidity"></div>
+        </div>
+      </div>
+
+      <button class="en translate_btn player-icon"></button>
+    </header>
+    <main class="main">
+      <div class="slider-icons">
+        <button class="slide-prev slider-icon"></button>
+        <button class="slide-next slider-icon"></button>
+      </div>
+      <time class="time"></time>
+      <date class="date"></date>
+      <div class="greeting-container">
+        <span class="greeting"></span>
+        <input type="text" class="name" placeholder="your name" />
+      </div>
+      <div class="settings player-icon"></div>
+      <div class="menu_wrapper settings_wrapper">
+        <div class="menu_container settings_container">
+          <div class="select_photo">
+            <h3 class="title title1"></h3>
+            <ul class="photo_list">
+              <li class="photo_item github_collection photo_active">
+                github collection
+              </li>
+              <li class="photo_item unsplash_collection">
+                unsplash collection
+              </li>
+              <input
+                type="text"
+                class="tag_unsplash"
+                placeholder="enter tag: nature, animals ..."
+              />
+              <span class="tag_unsplash_error"></span>
+              <li class="photo_item flickr_collection">flickr collection</li>
+              <input
+                type="text"
+                class="tag_flickr"
+                placeholder="enter tag: space, London ..."
+              />
+              <span class="tag_flickr_error"></span>
+            </ul>
+          </div>
+          <div class="select_widget">
+            <h3 class="title title2"></h3>
+            <div class="widget_container"></div>
+          </div>
+        </div>
+      </div>
+      <div class="link player-icon">Links</div>
+      <div class="link_wrapper">
+        <div class="link_container">
+          <ul class="fix_link">
+            <li>
+              <a href="http://www.google.com"
+                ><img
+                  src="http://www.google.com/s2/favicons?domain=https://google.com/"
+                  alt="icon"
+                />
+                <p>Chrome Tad</p></a
+              >
+            </li>
+          </ul>
+          <ul class="new_links">
+            <!-- <li class="user_link">
+              <a href="chrome://apps/"
+                ><img
+                  src="http://www.google.com/s2/favicons?domain=https://apps.com/"
+                  alt="icon"
+                />
+                <p>Apps</p></a
+              >
+              <div class="btn_edit">
+                <div class="select_btn">
+                  <span class="edit">edit</span>
+                  <span class="delete">delete</span>
+                </div>
+              </div>
+            </li>            -->
+          </ul>
+          <button class="btn_new_link">
+            <span>&#43;</span> <span class="title_btn_new_link">New Link</span>
+          </button>
+          <div class="create_link">
+            <span class="close_btn">&xlarr;</span>
+            <h4 class="title_name_link">name</h4>
+            <input type="text" class="name_link" />
+            <span class="name_error"></span>
+            <h4 class="title_new_link">link</h4>
+            <input
+              type="text"
+              placeholder="example.com"
+              class="user_new_link"
+            />
+            <span class="link_error"></span>
+            <button class="create_btn2">Create</button>
+            <button class="create_btn">Create</button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="quote_widget">
+        <button class="change-quote"></button>
+        <div>
+          <div class="quote"></div>
+          <div class="author"></div>
+          <div class="quote_warning"></div>
+        </div>
+      </div>
+
+      <div class="contact_container">
+        <a href="https://rs.school/js/">
+          <img
+            class="footer_icon"
+            src="https://rs.school/images/rs_school_js.svg"
+            alt="rs icon"
+        /></a>
+        <a href="https://github.com/olgamartinchik"
+          ><img
+            class="footer_icon"
+            src="http://cdn.onlinewebfonts.com/svg/img_4298.png"
+            alt="gitHub icon"
+        /></a>
+      </div>
+    </footer>
+    <!-- <script src="js/script.js"></script> -->
+    <script src="./dist/script.js"></script>
+  </body>
+</html>

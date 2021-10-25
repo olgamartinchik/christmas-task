@@ -1,0 +1,1555 @@
+@charset "UTF-8";
+/*!
+ *  owfont-regular 1.0.0 by Deniz Fuchidzhiev - http://websygen.com
+ *  License - font: SIL OFL 1.1, css: MIT License
+ */
+/* FONT PATH
+ * -------------------------- */
+@font-face {
+  font-family: "owfont";
+  src: url("../assets/fonts/owfont-regular.eot?v=1.0.0");
+  src: url("../assets/fonts/owfont-regular.eot?#iefix&v=1.0.0") format("embedded-opentype"), url("../assets/fonts/owfont-regular.woff") format("woff"), url("../assets/fonts/owfont-regular.ttf") format("truetype"), url("../assets/fonts/owfont-regular.svg#owf-regular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+.owf {
+  display: inline-block;
+  font: normal normal normal 14px/1 owfont;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: translate(0, 0);
+}
+
+/* makes the font 33% larger relative to the icon container */
+.owf-lg {
+  font-size: 1.33333333em;
+  line-height: 0.75em;
+  vertical-align: -15%;
+}
+
+.owf-2x {
+  font-size: 2em;
+}
+
+.owf-3x {
+  font-size: 3em;
+}
+
+.owf-4x {
+  font-size: 4em;
+}
+
+.owf-5x {
+  font-size: 5em;
+}
+
+.owf-fw {
+  width: 1.28571429em;
+  text-align: center;
+}
+
+.owf-ul {
+  padding-left: 0;
+  margin-left: 2.14285714em;
+  list-style-type: none;
+}
+
+.owf-ul > li {
+  position: relative;
+}
+
+.owf-li {
+  position: absolute;
+  left: -2.14285714em;
+  width: 2.14285714em;
+  top: 0.14285714em;
+  text-align: center;
+}
+
+.owf-li.owf-lg {
+  left: -1.85714286em;
+}
+
+.owf-border {
+  padding: 0.2em 0.25em 0.15em;
+  border: solid 0.08em #eeeeee;
+  border-radius: 0.1em;
+}
+
+.owf-pull-right {
+  float: right;
+}
+
+.owf-pull-left {
+  float: left;
+}
+
+.owf.owf-pull-left {
+  margin-right: 0.3em;
+}
+
+.owf.owf-pull-right {
+  margin-left: 0.3em;
+}
+
+/* owfont uses the Unicode Private Use Area (PUA) to ensure screen
+   readers do not read off random characters that represent icons */
+/*   Weather Condition Codes    */
+/*   Thunderstorm - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -    */
+/* thunderstorm with light rain */
+.owf-200:before,
+.owf-200-d:before,
+.owf-200-n:before {
+  content: "\eb28";
+}
+
+/* thunderstorm with rain */
+.owf-201:before,
+.owf-201-d:before,
+.owf-201-n:before {
+  content: "\eb29";
+}
+
+/* thunderstorm with heavy rain */
+.owf-202:before,
+.owf-202-d:before,
+.owf-202-n:before {
+  content: "\eb2a";
+}
+
+/*  light thunderstorm  */
+.owf-210:before,
+.owf-210-d:before,
+.owf-210-n:before {
+  content: "\eb32";
+}
+
+/*  thunderstorm  */
+.owf-211:before,
+.owf-211-d:before,
+.owf-211-n:before {
+  content: "\eb33";
+}
+
+/*   heavy thunderstorm   */
+.owf-212:before,
+.owf-212-d:before,
+.owf-212-n:before {
+  content: "\eb34";
+}
+
+/*   ragged thunderstorm   */
+.owf-221:before,
+.owf-221-d:before,
+.owf-221-n:before {
+  content: "\eb3d";
+}
+
+/*  thunderstorm with light drizzle    */
+.owf-230:before,
+.owf-230-d:before,
+.owf-230-n:before {
+  content: "\eb46";
+}
+
+/*  thunderstorm with drizzle     */
+.owf-231:before,
+.owf-231-d:before,
+.owf-231-n:before {
+  content: "\eb47";
+}
+
+/* thunderstorm with heavy drizzle     */
+.owf-232:before,
+.owf-232-d:before,
+.owf-232-n:before {
+  content: "\eb48";
+}
+
+/*   Drizzle - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -    */
+/*  light intensity drizzle */
+.owf-300:before,
+.owf-300-d:before,
+.owf-300-n:before {
+  content: "\eb8c";
+}
+
+/*  drizzle */
+.owf-301:before,
+.owf-301-d:before,
+.owf-301-n:before {
+  content: "\eb8d";
+}
+
+/*  heavy intensity drizzle  */
+.owf-302:before,
+.owf-302-d:before,
+.owf-302-n:before {
+  content: "\eb8e";
+}
+
+/*   light intensity drizzle rain  */
+.owf-310:before,
+.owf-310-d:before,
+.owf-310-n:before {
+  content: "\eb96";
+}
+
+/*  drizzle rain  */
+.owf-311:before,
+.owf-311-d:before,
+.owf-311-n:before {
+  content: "\eb97";
+}
+
+/* heavy intensity drizzle rain */
+.owf-312:before,
+.owf-312-d:before,
+.owf-312-n:before {
+  content: "\eb98";
+}
+
+/* shower rain and drizzle  */
+.owf-313:before,
+.owf-313-d:before,
+.owf-313-n:before {
+  content: "\eb99";
+}
+
+/* heavy shower rain and drizzle*/
+.owf-314:before,
+.owf-314-d:before,
+.owf-314-n:before {
+  content: "\eb9a";
+}
+
+/* shower drizzle */
+.owf-321:before,
+.owf-321-d:before,
+.owf-321-n:before {
+  content: "\eba1";
+}
+
+/*   Rain - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -    */
+/* light rain  */
+.owf-500:before,
+.owf-500-d:before,
+.owf-500-n:before {
+  content: "\ec54";
+}
+
+/* moderate rain  */
+.owf-501:before,
+.owf-501-d:before,
+.owf-501-n:before {
+  content: "\ec55";
+}
+
+/* heavy intensity rain  */
+.owf-502:before,
+.owf-502-d:before,
+.owf-502-n:before {
+  content: "\ec56";
+}
+
+/* very heavy rain   */
+.owf-503:before,
+.owf-503-d:before,
+.owf-503-n:before {
+  content: "\ec57";
+}
+
+/* extreme rain    */
+.owf-504:before,
+.owf-504-d:before,
+.owf-504-n:before {
+  content: "\ec58";
+}
+
+/* freezing rain    */
+.owf-511:before,
+.owf-511-d:before,
+.owf-511-n:before {
+  content: "\ec5f";
+}
+
+/*  light intensity shower rain    */
+.owf-520:before,
+.owf-520-d:before,
+.owf-520-n:before {
+  content: "\ec68";
+}
+
+/* shower rain  */
+.owf-521:before,
+.owf-521-d:before,
+.owf-521-n:before {
+  content: "\ec69";
+}
+
+/*  heavy intensity shower rain  */
+.owf-522:before,
+.owf-522-d:before,
+.owf-522-n:before {
+  content: "\ec6a";
+}
+
+/* ragged shower rain  */
+.owf-531:before,
+.owf-531-d:before,
+.owf-531-n:before {
+  content: "\ec73";
+}
+
+/*   Snow - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -    */
+/* light snow  */
+.owf-600:before,
+.owf-600-d:before,
+.owf-600-n:before {
+  content: "\ecb8";
+}
+
+/*  snow  */
+.owf-601:before,
+.owf-601-d:before,
+.owf-601-n:before {
+  content: "\ecb9";
+}
+
+/*   heavy snow   */
+.owf-602:before,
+.owf-602-d:before,
+.owf-602-n:before {
+  content: "\ecba";
+}
+
+/*  sleet  */
+.owf-611:before,
+.owf-611-d:before,
+.owf-611-n:before {
+  content: "\ecc3";
+}
+
+/*   shower sleet */
+.owf-612:before,
+.owf-612-d:before,
+.owf-612-n:before {
+  content: "\ecc4";
+}
+
+/* light rain and snow */
+.owf-615:before,
+.owf-615-d:before,
+.owf-615-n:before {
+  content: "\ecc7";
+}
+
+/* rain and snow  */
+.owf-616:before,
+.owf-616-d:before,
+.owf-616-n:before {
+  content: "\ecc8";
+}
+
+/* light shower snow  */
+.owf-620:before,
+.owf-620-d:before,
+.owf-620-n:before {
+  content: "\eccc";
+}
+
+/* shower snow  */
+.owf-621:before,
+.owf-621-d:before,
+.owf-621-n:before {
+  content: "\eccd";
+}
+
+/* heavy shower snow  */
+.owf-622:before,
+.owf-622-d:before,
+.owf-622-n:before {
+  content: "\ecce";
+}
+
+/*   Atmosphere - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -    */
+/* mist */
+.owf-701:before,
+.owf-701-d:before,
+.owf-701-n:before {
+  content: "\ed1d";
+}
+
+/* smoke */
+.owf-711:before,
+.owf-711-d:before,
+.owf-711-n:before {
+  content: "\ed27";
+}
+
+/* haze */
+.owf-721:before,
+.owf-721-d:before,
+.owf-721-n:before {
+  content: "\ed31";
+}
+
+/* Sand/Dust Whirls */
+.owf-731:before,
+.owf-731-d:before,
+.owf-731-n:before {
+  content: "\ed3b";
+}
+
+/* Fog */
+.owf-741:before,
+.owf-741-d:before,
+.owf-741-n:before {
+  content: "\ed45";
+}
+
+/* sand */
+.owf-751:before,
+.owf-751-d:before,
+.owf-751-n:before {
+  content: "\ed4f";
+}
+
+/* dust */
+.owf-761:before,
+.owf-761-d:before,
+.owf-761-n:before {
+  content: "\ed59";
+}
+
+/*  VOLCANIC ASH  */
+.owf-762:before,
+.owf-762-d:before,
+.owf-762-n:before {
+  content: "\ed5a";
+}
+
+/* SQUALLS */
+.owf-771:before,
+.owf-771-d:before,
+.owf-771-n:before {
+  content: "\ed63";
+}
+
+/* TORNADO */
+.owf-781:before,
+.owf-781-d:before,
+.owf-781-n:before {
+  content: "\ed6d";
+}
+
+/*   Clouds - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -    */
+/*  sky is clear  */
+/*  Calm  */
+.owf-800:before,
+.owf-800-d:before,
+.owf-951:before,
+.owf-951-d:before {
+  content: "\ed80";
+}
+
+.owf-800-n:before,
+.owf-951-n:before {
+  content: "\f168";
+}
+
+/*  few clouds   */
+.owf-801:before,
+.owf-801-d:before {
+  content: "\ed81";
+}
+
+.owf-801-n:before {
+  content: "\f169";
+}
+
+/* scattered clouds */
+.owf-802:before,
+.owf-802-d:before {
+  content: "\ed82";
+}
+
+.owf-802-n:before {
+  content: "\f16a";
+}
+
+/* broken clouds  */
+.owf-803:before,
+.owf-803-d:before,
+.owf-803-n:before {
+  content: "\ed83";
+}
+
+/* overcast clouds  */
+.owf-804:before,
+.owf-804-d:before,
+.owf-804-n:before {
+  content: "\ed84";
+}
+
+/*   Extreme - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -    */
+/* tornado  */
+.owf-900:before,
+.owf-900-d:before,
+.owf-900-n:before {
+  content: "\ede4";
+}
+
+/*  tropical storm  */
+.owf-901:before,
+.owf-901-d:before,
+.owf-901-n:before {
+  content: "\ede5";
+}
+
+/* hurricane */
+.owf-902:before,
+.owf-902-d:before,
+.owf-902-n:before {
+  content: "\ede6";
+}
+
+/* cold */
+.owf-903:before,
+.owf-903-d:before,
+.owf-903-n:before {
+  content: "\ede7";
+}
+
+/* hot */
+.owf-904:before,
+.owf-904-d:before,
+.owf-904-n:before {
+  content: "\ede8";
+}
+
+/* windy */
+.owf-905:before,
+.owf-905-d:before,
+.owf-905-n:before {
+  content: "\ede9";
+}
+
+/* hail */
+.owf-906:before,
+.owf-906-d:before,
+.owf-906-n:before {
+  content: "\edea";
+}
+
+/*   Additional - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -    */
+/* Setting */
+.owf-950:before,
+.owf-950-d:before,
+.owf-950-n:before {
+  content: "\ee16";
+}
+
+/*  Light breeze  */
+.owf-952:before,
+.owf-952-d:before,
+.owf-952-n:before {
+  content: "\ee18";
+}
+
+/*  Gentle Breeze  */
+.owf-953:before,
+.owf-953-d:before,
+.owf-953-n:before {
+  content: "\ee19";
+}
+
+/*  Moderate breeze  */
+.owf-954:before,
+.owf-954-d:before,
+.owf-954-n:before {
+  content: "\ee1a";
+}
+
+/* Fresh Breeze  */
+.owf-955:before,
+.owf-955-d:before,
+.owf-955-n:before {
+  content: "\ee1b";
+}
+
+/* Strong  Breeze  */
+.owf-956:before,
+.owf-956-d:before,
+.owf-956-n:before {
+  content: "\ee1c";
+}
+
+/* High wind, near gale  */
+.owf-957:before,
+.owf-957-d:before,
+.owf-957-n:before {
+  content: "\ee1d";
+}
+
+/* Gale */
+.owf-958:before,
+.owf-958-d:before,
+.owf-958-n:before {
+  content: "\ee1e";
+}
+
+/*  Severe Gale  */
+.owf-959:before,
+.owf-959-d:before,
+.owf-959-n:before {
+  content: "\ee1f";
+}
+
+/* Storm */
+.owf-960:before,
+.owf-960-d:before,
+.owf-960-n:before {
+  content: "\ee20";
+}
+
+/*  Violent Storm  */
+.owf-961:before,
+.owf-961-d:before,
+.owf-961-n:before {
+  content: "\ee21";
+}
+
+/* Hurricane */
+.owf-962:before,
+.owf-962-d:before,
+.owf-962-n:before {
+  content: "\ee22";
+}
+
+/* Путь к файлу со шрифтом */
+@font-face {
+  font-family: "Arial-MT";
+  src: url("../assets/fonts/Arial-MT.woff");
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-width: 310px;
+  min-height: 100vh;
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  color: #fff;
+  text-align: center;
+  background: center/cover, rgba(0, 0, 0, 0.5);
+  background-blend-mode: multiply;
+  transition: background-image 1s ease-in-out;
+}
+
+.header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  height: 30vh;
+  min-height: 220px;
+  padding: 20px;
+}
+
+.icon_weather {
+  display: none;
+  position: absolute;
+  background: url("/src/assets/img/weather.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 50px;
+  right: 20px;
+  top: 10px;
+  opacity: 0.7;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.icon_weather:hover {
+  opacity: 1;
+}
+
+.en {
+  background-image: url("/src/assets/img/en.png");
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.ru {
+  background-image: url("/src/assets/img/ru.png");
+}
+
+.player {
+  width: 280px;
+  opacity: 1;
+  transition: 0.4s ease-in-out;
+}
+
+.player-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 280px;
+  margin-bottom: 28px;
+}
+
+.btn_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.play_block {
+  width: 120px;
+}
+
+.progress_block {
+  position: relative;
+  margin-top: 43px;
+  width: 100%;
+}
+.progress_block span {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translate(-50%);
+}
+.progress_block .timeline {
+  background-color: #fff;
+  width: 100px;
+  height: 10px;
+  cursor: pointer;
+  box-shadow: 0 2px 10px 0 #0008;
+}
+.progress_block .timeline .progress_audio {
+  background-color: #6cc76c;
+  width: 0%;
+  height: 100%;
+  transition: 0.25s;
+}
+.progress_block .timer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 77px;
+}
+.progress_block .volumeline {
+  background-color: #fff;
+  width: 55px;
+  height: 10px;
+  cursor: pointer;
+  box-shadow: 0 2px 10px 0 #0008;
+}
+.progress_block .volumeline .progress_volume {
+  background-color: #6cc76c;
+  width: 75%;
+  height: 100%;
+  transition: 0.25s;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  padding: 12px 0;
+}
+
+.play-list,
+.photo_list {
+  text-align: left;
+}
+
+.photo_list {
+  font-size: 20px;
+  margin-top: 15px;
+}
+
+.play-item,
+.photo_item {
+  position: relative;
+  padding: 5px;
+  padding-left: 20px;
+  list-style: none;
+  opacity: 0.8;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.play-item:hover,
+.photo_item:hover {
+  opacity: 1;
+}
+
+.play-item::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 2px;
+  font-weight: 900;
+}
+
+.photo_item::before {
+  content: "✓";
+  position: absolute;
+  color: #242323;
+  left: 0;
+  top: 2px;
+  font-weight: 900;
+}
+
+.item-active::before,
+.photo_active::before {
+  color: #c5b358;
+}
+
+.player-icon,
+.slider-icon,
+.change-quote {
+  width: 32px;
+  height: 32px;
+  background-size: 32px 32px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  opacity: 0.8;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.translate_btn {
+  background-color: rgba(255, 255, 255, 0.795);
+  width: 40px;
+  height: 40px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+}
+
+.player-icon:hover,
+.slider-icon:hover,
+.change-quote:hover {
+  opacity: 1;
+}
+
+.player-icon:active,
+.slider-icon:active,
+.change-quote:active {
+  border: 0;
+  outline: 0;
+  transform: scale(1.1);
+}
+
+.play {
+  width: 40px;
+  height: 40px;
+  background-size: 40px 40px;
+  background-image: url("../assets/svg/play.svg");
+}
+
+.volume {
+  background-image: url("../assets/svg/volume.svg");
+}
+
+.mute {
+  background-image: url("../assets/svg/mute.svg");
+}
+
+.pause {
+  background-image: url("../assets/svg/pause.svg");
+}
+
+.play-prev {
+  background-image: url("../assets/svg/play-prev.svg");
+}
+
+.play-next {
+  background-image: url("../assets/svg/play-next.svg");
+}
+
+.weather {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  row-gap: 5px;
+  width: 180px;
+  min-height: 180px;
+  text-align: left;
+  opacity: 1;
+  transition: 0.4s ease-in-out;
+}
+
+.weather-error,
+.quote_warning {
+  margin-top: -10px;
+  color: #f30303;
+}
+
+.description-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 12px;
+}
+
+.weather-icon {
+  font-size: 44px;
+}
+
+.city {
+  width: 170px;
+  height: 34px;
+  padding: 5px;
+  font-size: 20px;
+  line-height: 24px;
+  color: #fff;
+  border: 0;
+  outline: 0;
+  border-bottom: 1px solid #fff;
+  background-color: transparent;
+}
+
+.city::placeholder {
+  font-size: 20px;
+  color: #fff;
+  opacity: 0.6;
+}
+
+.main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 40vh;
+  min-height: 226px;
+  padding: 20px;
+}
+
+.slider-icon {
+  position: absolute;
+  top: 50%;
+  margin-top: -16px;
+  cursor: pointer;
+}
+
+.slide-prev {
+  left: 20px;
+  background-image: url("../assets/svg/slider-prev.svg");
+}
+
+.slide-next {
+  right: 20px;
+  background-image: url("../assets/svg/slider-next.svg");
+}
+
+.time {
+  min-height: 124px;
+  margin-bottom: 10px;
+  font-family: "Arial-MT";
+  font-size: 100px;
+  letter-spacing: -4px;
+  opacity: 1;
+  transition: 0.4s ease-in-out;
+}
+
+.date {
+  min-height: 28px;
+  font-size: 24px;
+  margin-bottom: 20px;
+  opacity: 1;
+  transition: 0.4s ease-in-out;
+}
+
+.greeting-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: stretch;
+  align-items: center;
+  min-height: 48px;
+  width: 100vw;
+  font-size: 40px;
+  opacity: 1;
+  transition: 0.4s ease-in-out;
+}
+
+.greeting {
+  flex: 1;
+  padding: 10px;
+  text-align: right;
+}
+
+.name {
+  flex: 1;
+  max-width: 50%;
+  padding: 10px;
+  font-size: 40px;
+  text-align: left;
+  color: #fff;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+}
+
+.name::placeholder {
+  color: #fff;
+  opacity: 0.6;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  height: 30vh;
+  min-height: 160px;
+  padding: 20px;
+}
+
+.change-quote {
+  margin-bottom: 30px;
+  background-image: url("../assets/svg/reload.svg");
+}
+
+.quote {
+  min-height: 32px;
+  opacity: 1;
+  transition: 1s ease-in-out;
+}
+
+.author {
+  min-height: 20px;
+  transition: 1s ease-in-out;
+}
+
+.settings {
+  background-image: url("/src/assets/svg/settings.svg");
+  position: absolute;
+  bottom: 0px;
+  left: 20px;
+  filter: invert(99%) sepia(90%) saturate(1%) hue-rotate(201deg) brightness(107%) contrast(99%);
+}
+
+.link {
+  position: absolute;
+  width: 72px;
+  bottom: 0px;
+  right: 45px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 20px;
+  opacity: 0.6;
+  transition: 0.4s ease-in-out;
+}
+
+.menu_wrapper,
+.link_wrapper {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: transparent;
+  z-index: 10;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.menu_wrapper.active,
+.link_wrapper.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu_container,
+.link_container {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.98);
+  border-radius: 5px;
+  padding: 34px 12px;
+  cursor: default;
+  color: #2c2b2b;
+  box-shadow: 0 2px 10px 0 #0008;
+}
+
+.menu_container {
+  left: 62px;
+  max-width: 245px;
+  width: 100%;
+  max-height: 435px;
+  bottom: 14%;
+  top: 14%;
+  overflow: auto;
+}
+
+.link_container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  right: 32px;
+  max-width: 280px;
+  width: 100%;
+  max-height: 428px;
+  bottom: 14%;
+  top: 14%;
+  font-size: 20px;
+  overflow: hidden;
+}
+
+.new_links {
+  max-height: 350px;
+  height: 100%;
+  overflow: auto;
+}
+
+.fix_link,
+.new_links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+}
+.fix_link li,
+.new_links li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 0;
+  transition: 0.4s;
+}
+.fix_link li a,
+.new_links li a {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  text-decoration: none;
+  color: black;
+  opacity: 0.7;
+}
+.fix_link li a:hover,
+.new_links li a:hover {
+  opacity: 1;
+}
+.fix_link li a img,
+.new_links li a img {
+  margin-right: 15px;
+  width: 22px;
+}
+.fix_link li a p,
+.new_links li a p {
+  max-width: 155px;
+  word-wrap: break-word;
+}
+.fix_link li .btn_edit,
+.new_links li .btn_edit {
+  position: relative;
+  background: url("/src/assets/img/delete.png") center/cover;
+  opacity: 0.5;
+  cursor: pointer;
+  margin-left: 15px;
+  width: 25px;
+  height: 25px;
+  transition: 0.4s;
+}
+.fix_link li .btn_edit:hover,
+.new_links li .btn_edit:hover {
+  opacity: 1;
+}
+.fix_link li .select_btn,
+.new_links li .select_btn {
+  opacity: 0;
+  position: absolute;
+  right: 47px;
+  width: 100px;
+  height: 80px;
+  background-color: #d6d4d4;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 1;
+  box-shadow: 0 2px 10px 0 #0008;
+  transition: 0.4s ease-in-out;
+}
+.fix_link li .select_btn .edit,
+.fix_link li .select_btn .delete,
+.new_links li .select_btn .edit,
+.new_links li .select_btn .delete {
+  opacity: 0.6;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.fix_link li .select_btn .edit:hover,
+.fix_link li .select_btn .delete:hover,
+.new_links li .select_btn .edit:hover,
+.new_links li .select_btn .delete:hover {
+  opacity: 1;
+}
+.fix_link li .select_btn.active,
+.new_links li .select_btn.active {
+  opacity: 1;
+}
+
+.create_link {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  right: -150%;
+  top: 0;
+  max-width: 280px;
+  width: 100%;
+  max-height: 428px;
+  bottom: 0;
+  top: 0;
+  font-size: 20px;
+  background-color: rgba(255, 255, 255, 0.98);
+  border-radius: 5px;
+  padding: 69px 12px 15px;
+  overflow: auto;
+  opacity: 0;
+  transition: 0.4s ease-in-out;
+}
+.create_link .close_btn {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  color: black;
+  cursor: pointer;
+  font-size: 30px;
+  opacity: 0.5;
+  transition: 0.4s;
+}
+.create_link .close_btn:hover {
+  opacity: 1;
+}
+.create_link h4 {
+  font-size: 28px;
+  margin-top: 20px;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+.create_link input {
+  margin-top: 15px;
+  margin-top: 15px;
+  width: 100%;
+  height: 34px;
+  font-size: 22px;
+  padding: 0 10px;
+}
+.create_link .create_btn,
+.create_link .create_btn2 {
+  margin-top: 40px;
+  border: none;
+  background: #6cc76c;
+  border-radius: 20px;
+  width: 140px;
+  height: 44px;
+  font-size: 26px;
+  color: white;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: 0.3s;
+}
+.create_link .create_btn:hover,
+.create_link .create_btn2:hover {
+  opacity: 1;
+}
+.create_link .create_btn2 {
+  background: #f75b5b;
+  position: absolute;
+  bottom: 15px;
+  z-index: -1;
+}
+.create_link .link_error,
+.create_link .name_error {
+  color: #fc4141;
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+.create_link.active {
+  opacity: 1;
+  right: 0;
+}
+
+.create_btn2.active {
+  z-index: 10;
+}
+
+.tag_unsplash,
+.tag_flickr {
+  width: 95%;
+  height: 28px;
+  font-size: 18px;
+  opacity: 0;
+  margin: 5px 0 5px;
+  padding: 0 5px;
+  transition: 0.3s ease-in-out;
+}
+
+.tag_flickr_error,
+.tag_unsplash_error {
+  color: #cf4242;
+}
+
+.unsplash_collection {
+  margin-top: 30px;
+}
+
+.unsplash_collection.photo_active ~ .tag_unsplash,
+.flickr_collection.photo_active ~ .tag_flickr {
+  opacity: 1;
+}
+
+.widget_container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-top: 20px;
+  font-size: 20px;
+  height: 200px;
+}
+
+label {
+  padding-left: 15px;
+  cursor: pointer;
+  opacity: 0.7;
+  text-transform: capitalize;
+}
+label:hover {
+  opacity: 1;
+}
+
+input[type=checkbox] {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+input[type=checkbox] + label::before {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  flex-grow: 0;
+  border: 1px solid #adb5bd;
+  border-radius: 0.25em;
+  margin-right: 0.5em;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 50% 50%;
+}
+
+input[type=checkbox]:checked + label::before {
+  border-color: #0b76ef;
+  background-color: #0b76ef;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+}
+
+.btn_new_link {
+  border: none;
+  background: none;
+  font-size: 20px;
+  opacity: 0.5;
+  cursor: pointer;
+  margin: 10px 0;
+  transition: 0.3s;
+}
+.btn_new_link:hover {
+  opacity: 1;
+}
+
+.contact_container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 20px;
+  width: 100%;
+  border-top: 2px solid rgba(255, 255, 255, 0.979);
+  padding: 15px 0 0;
+}
+
+.footer_icon {
+  height: 36px;
+  opacity: 0.5;
+  margin-left: 15px;
+  filter: invert(76%) sepia(24%) saturate(622%) hue-rotate(131deg) brightness(89%) contrast(102%);
+  transition: 1s easy;
+}
+.footer_icon:hover {
+  opacity: 1;
+}
+
+.quote_widget {
+  opacity: 1;
+  transition: 0.4s ease-in-out;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+::-webkit-scrollbar-button {
+  background-repeat: no-repeat;
+  width: 6px;
+  height: 0px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #32312e;
+  box-shadow: 0px 0px 3px #000 inset;
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  background-color: #65c3fa;
+  box-shadow: 0px 1px 1px #fff inset;
+  background-image: url("https://yraaa.ru/_pu/24/59610063.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+::-webkit-resizer {
+  background-repeat: no-repeat;
+  width: 7px;
+  height: 0px;
+}
+
+::-webkit-scrollbar {
+  width: 11px;
+}
+
+@media (max-width: 768px) {
+  .time {
+    min-height: 80px;
+    font-size: 72px;
+  }
+
+  .greeting-container {
+    min-height: 40px;
+    font-size: 32px;
+  }
+
+  .greeting {
+    padding: 5px;
+  }
+
+  .name {
+    font-size: 32px;
+    padding: 5px;
+  }
+}
+@media (max-width: 535px) {
+  .icon_weather {
+    display: block;
+  }
+
+  .weather_container {
+    position: absolute;
+    background: transparent;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    cursor: pointer;
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+  }
+  .weather_container .weather {
+    top: 10%;
+    background-color: #e58585;
+    position: absolute;
+    right: 39px;
+    border-radius: 9px;
+    padding: 15px 20px;
+    width: 239px;
+    cursor: default;
+  }
+
+  .weather_container.active {
+    z-index: 2;
+    opacity: 1;
+  }
+}
+@media (max-width: 420px) {
+  .time {
+    min-height: 45px;
+    font-size: 32px;
+  }
+
+  .date {
+    font-size: 18px;
+  }
+
+  .greeting-container {
+    min-height: 20px;
+    font-size: 18px;
+  }
+
+  .greeting {
+    padding: 3px;
+  }
+
+  .name {
+    font-size: 18px;
+    padding: 3px;
+  }
+
+  .play-list {
+    text-align: left;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 12px;
+  }
+
+  .weather-icon {
+    font-size: 30px;
+  }
+
+  .quote_widget {
+    font-size: 12px;
+  }
+
+  .footer_icon {
+    height: 25px;
+  }
+
+  .change-quote {
+    width: 20px;
+    height: 20px;
+    background-size: 20px 20px;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
