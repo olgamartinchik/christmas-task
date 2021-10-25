@@ -6,9 +6,7 @@ import { getQuotes } from "./getQuotes";
 import { getSettings } from "./settings";
 import { getTranslateLinkPopup } from "./link";
 import { hiddenWidget } from "./settings";
-import { setBg } from "./setBg";
-const widgetContainer = document.querySelector(".widget_container");
-const photoList = document.querySelector(".photo_list");
+
 const en = document.querySelector(".en");
 
 function toggleBtnLang() {
@@ -21,7 +19,6 @@ function toggleBtnLang() {
   translateLinkAndName();
   getTranslateLinkPopup();
   getWeather();
-  // console.log(en.classList.value);
 }
 function translateLinkAndName() {
   const name = document.querySelector(".name");
@@ -59,11 +56,9 @@ window.addEventListener("DOMContentLoaded", () => {
 
   getSettings();
   toggleLang();
-
   getQuotes();
   translateLinkAndName();
   getTranslateLinkPopup();
   getWeather();
   hiddenWidget();
-  // setBg();
 });

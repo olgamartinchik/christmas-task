@@ -12,6 +12,7 @@ const deleteLinks = document.querySelectorAll(".delete");
 
 const btnEdits = document.querySelectorAll(".btn_edit");
 const createBtn = document.querySelector(".create_btn");
+const createBtn2 = document.querySelector(".create_btn2");
 
 const userLinks = document.querySelectorAll(".user_link");
 const nameError = document.querySelector(".name_error");
@@ -36,10 +37,48 @@ window.addEventListener("click", (e) => {
     linkWrapper.classList.remove("active");
   }
 });
+function getActionEdit(e) {
+  console.log("click");
+  if (e.target.classList.contains("delete")) {
+    e.target.parentNode.parentNode.parentNode.remove();
+  }
+  if (e.target.classList.contains("edit")) {
+    createLink.classList.add("active");
+    createBtn2.classList.add("active");
+    console.log("indParent", e.target.parentNode.parentNode.parentNode);
+    let parent = e.target.parentNode.parentNode.parentNode;
+    let ind = e.target.parentNode.parentNode.parentNode.id;
+    console.log("child", ind);
+    nameLink.value = parent.querySelector("p").textContent;
+    userNewLink.value = parent.querySelector("a").href;
+    createBtn2.addEventListener("click", (e) => {
+      const selectBtns = document.querySelectorAll(".select_btn");
+
+      if (parent) {
+        let a = parent.querySelector("a");
+        let img = parent.querySelector("img");
+        let p = parent.querySelector("p");
+        a.href = parent.value;
+        img.src = `http://www.google.com/s2/favicons?domain=${userNewLink.value}`;
+        p.textContent = nameLink.value;
+        console.log("ind", ind);
+      }
+      if (selectBtns[ind].classList.contains("active")) {
+        selectBtns[ind].classList.remove("active");
+      }
+      toLocal();
+      createLink.classList.remove("active");
+      createBtn2.classList.remove("active");
+    });
+  }
+}
 newLinks.addEventListener("click", (e) => {
   if (e.target.classList.contains("btn_edit")) {
-    let li = e.target.parentNode;
-    li.remove();
+    // let li = e.target.parentNode;
+    // li.remove();
+    e.target.childNodes[0].classList.toggle("active");
+
+    e.target.childNodes[0].addEventListener("click", getActionEdit);
   }
 });
 
@@ -127,9 +166,14 @@ function addNewLink() {
 
 //open form create link
 btnNewLink.addEventListener("click", () => {
+  nameLink.value = "";
+  userNewLink.value = "";
   createLink.classList.add("active");
 });
 function addCloseBtn() {
+  nameLink.value = "";
+  userNewLink.value = "";
+  const selectBtns = document.querySelectorAll(".select_btn");
   createLink.classList.remove("active");
   nameError.innerHTML = "";
   linkError.innerHTML = "";
