@@ -87,6 +87,7 @@ audio.addEventListener("ended", () => {
   if (currentIndex > playList.length - 1) {
     currentIndex = 0;
   }
+
   playAudio();
 });
 
@@ -131,7 +132,8 @@ setInterval(() => {
 }, 400);
 
 //volume progress
-volumeline.addEventListener("click", (e) => {
+volumeline.addEventListener("click", getVolumeProgress);
+function getVolumeProgress(e) {
   const volumelineWidth = window.getComputedStyle(volumeline).width;
   const newVolume = e.offsetX / parseInt(volumelineWidth);
   audio.volume = newVolume;
@@ -141,7 +143,7 @@ volumeline.addEventListener("click", (e) => {
   } else {
     volume.classList.remove("mute");
   }
-});
+}
 
 //turn 128 seconds into 2:08
 function getTimeCodeFromNum(num) {

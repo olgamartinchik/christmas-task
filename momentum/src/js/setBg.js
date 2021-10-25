@@ -32,8 +32,15 @@ tagUnsplash.addEventListener("focus", () => {
 tagFlickr.addEventListener("focus", () => {
   tagFlickrError.textContent = "";
 });
+tagUnsplash.addEventListener("blur", () => {
+  tagUnsplashError.textContent = "";
+});
+tagFlickr.addEventListener("blur", () => {
+  tagFlickrError.textContent = "";
+});
 tagUnsplash.addEventListener("change", getTagUnsplash);
 function getTagUnsplash() {
+  tagUnsplashError.textContent = "";
   console.log(tagUnsplash.value);
   if (tagUnsplash.value !== "") {
     timeOfDay = tagUnsplash.value;
@@ -45,6 +52,7 @@ function getTagUnsplash() {
 }
 
 tagFlickr.addEventListener("change", (e) => {
+  tagFlickrError.textContent = "";
   if (tagFlickr.value !== "") {
     timeOfDay = tagFlickr.value;
   } else {
@@ -132,14 +140,14 @@ export function getTimeOfDayBg() {
 //slider body
 function getSlideNext() {
   randomNum++;
-  if (randomNum === 20) {
+  if (randomNum === 21) {
     randomNum = 1;
   }
   setBg();
 }
 function getSlidePrev() {
   randomNum--;
-  if (randomNum === 1) {
+  if (randomNum === 0) {
     randomNum = 20;
   }
   setBg();

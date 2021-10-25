@@ -54,7 +54,7 @@ export async function getWeather() {
   } catch (e) {
     console.error(e);
     weatherError.textContent = "There is no such city";
-    city.value = "";
+    // city.value = "";
   }
 }
 getWeather();
@@ -67,6 +67,9 @@ if (iconWeather) {
     weatherContainer.classList.add("active");
   });
 }
+city.addEventListener("focus", () => {
+  weatherError.textContent = "";
+});
 
 window.addEventListener("click", (e) => {
   const weatherContainer = document.querySelector(".weather_container");
