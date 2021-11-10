@@ -4,12 +4,56 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <!-- <link rel="stylesheet" href="style.css"> -->
     <link rel="stylesheet" href="./dist/style.css" />
-    <title>Document</title>
+    <title>ART-QUIZ</title>
   </head>
   <body>
-    hello
+    <header class="header">
+      <div class="wrapper">
+        <nav class="main_nav">
+          <div class="logo main_logo"></div>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <!-- main page -->
+      <section class="section main_page">
+        <div class="wrapper wrapper_main_page">
+          <div class="container container_category">
+            <div class="card main_card">
+              <img
+                class="category_card"
+                src="/src/assets/pageImg/artists-quiz.png"
+                alt="artists quiz"
+              />
+              <h2><span class="weight_title">ARTISTS</span> QUIZ</h2>
+            </div>
+            <div class="card main_card">
+              <img
+                class="category_card"
+                src="/src/assets/pageImg/pictures-quiz.png"
+                alt="pictures quiz"
+              />
+              <h2><span class="weight_title">PICTURE</span> QUIZ</h2>
+            </div>
+          </div>
+          <button class="button action_btn">
+            <div class="icon_settings">
+              <div class="dot_icon_settings"></div>
+            </div>
+            settings
+          </button>
+        </div>
+      </section>
+    </main>
+    <footer></footer>
     <script src="./dist/script.js"></script>
   </body>
 </html>

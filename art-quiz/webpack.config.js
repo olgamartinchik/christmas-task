@@ -83,6 +83,10 @@ module.exports = (env, options) => {
             from: "./src/assets/svg",
             to: "./src/assets/svg",
           },
+          {
+            from: "./src/assets/png",
+            to: "./src/assets/png",
+          },
           //   {
           //     from: "./src/data",
           //     to: "./src/data",

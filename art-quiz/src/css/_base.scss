@@ -1,5 +1,71 @@
+:root {
+  --fontColor: #660033;
+  --buttonColor: #fff;
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  font-family: Montserrat;
+  color: var(--fontColor);
+  // background: rgba(255, 255, 255, 0.75);
+  background: linear-gradient(
+    45deg,
+    rgb(213, 237, 232) 41%,
+    rgb(191, 241, 243) 98%
+  );
+}
+.active {
+  opacity: 0;
+  z-index: -1;
+}
+.section {
+  opacity: 1;
+  z-index: 2;
+  transition: 2s ease-in-out;
+}
+.wrapper {
+  padding: 0 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+h2 {
+  font-size: 36px;
+  line-height: 44px;
+  font-style: normal;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+.weight_title {
+  font-weight: bold;
+}
+.button {
+  text-transform: uppercase;
+  border: none;
+  font-weight: normal;
+  background-color: var(--fontColor);
+  color: var(--buttonColor);
+  font-size: 18px;
+  line-height: 22px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: 0.3s ease-in-out;
+  &:hover {
+    opacity: 1;
+  }
+}
+.action_btn {
+  width: 150px;
+  height: 50px;
+}
+.agree_btn {
+  width: 100px;
+  height: 50px;
 }

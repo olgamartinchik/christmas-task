@@ -1,0 +1,47 @@
+.main_nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 1s ease;
+}
+.logo {
+  background-image: url("/src/assets/png/logo.png");
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  &:hover {
+    opacity: 0.7;
+  }
+}
+.main_nav {
+  padding: 100px 0;
+}
+.main_logo {
+  width: 220px;
+  height: 140px;
+}
+@media (min-width: 360px) {
+  .main_nav {
+    padding: 15px 0 20px;
+  }
+  .main_logo {
+    width: 100px;
+    height: 65px;
+  }
+  .main_nav {
+    padding: 15px 0 20px;
+  }
+}
+@media (min-width: 768px) {
+  .main_nav {
+    padding: 60px 0 55px;
+  }
+  .main_logo {
+    width: 150px;
+    height: 95px;
+  }
+}
+@media (min-width: 1024px) {
+}
