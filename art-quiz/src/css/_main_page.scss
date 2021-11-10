@@ -1,10 +1,14 @@
 @media (min-width: 340px) {
+  .main_page {
+    opacity: 1;
+    transition: 0.8s ease-in-out;
+  }
   .container_category {
     display: flex;
     align-items: center;
 
     flex-wrap: wrap;
-    gap: 40px;
+    gap: 0 40px;
     justify-content: center;
   }
   .main_card {
@@ -116,4 +120,11 @@
   .action_btn {
     margin: 100px 0 60px;
   }
+}
+
+.active {
+  position: absolute;
+  left: -150%;
+  opacity: 0;
+  z-index: -1;
 }

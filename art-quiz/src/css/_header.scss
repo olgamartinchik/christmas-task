@@ -16,7 +16,7 @@
   }
 }
 .main_nav {
-  padding: 100px 0;
+  padding-top: 100px;
 }
 .main_logo {
   width: 220px;
@@ -24,19 +24,16 @@
 }
 @media (min-width: 360px) {
   .main_nav {
-    padding: 15px 0 20px;
+    padding-top: 15px;
   }
   .main_logo {
     width: 100px;
     height: 65px;
   }
-  .main_nav {
-    padding: 15px 0 20px;
-  }
 }
 @media (min-width: 768px) {
   .main_nav {
-    padding: 60px 0 55px;
+    padding-top: 60px;
   }
   .main_logo {
     width: 150px;

@@ -24,7 +24,7 @@
     </header>
     <main>
       <!-- main page -->
-      <section class="section main_page">
+      <section class="section main_page active">
         <div class="wrapper wrapper_main_page">
           <div class="container container_category">
             <div class="card main_card">
@@ -52,8 +52,52 @@
           </button>
         </div>
       </section>
+      <!-- settings page -->
+      <section class="section setting_page">
+        <div class="wrapper settings_wrapper">
+          <h1>settings</h1>
+          <div class="container container_category container_settings">
+            <div class="card main_card settings_card">
+              <div class="volume"></div>
+              <div class="range_container">
+                <div class="volume_btn"></div>
+                <!-- <input type="range" /> -->
+                <div class="volumeline">
+                  <div class="progress_volume"></div>
+                </div>
+              </div>
+              <h2><span class="weight_title">volume</span></h2>
+            </div>
+            <div class="card main_card settings_card">
+              <div class="time"></div>
+              <input type="checkbox" id="checkbox1" />
+              <label for="checkbox1"> <h3>on/off</h3></label>
+              <h2><span class="weight_title">time game</span></h2>
+            </div>
+          </div>
+          <div class="container_btn">
+            <button class="button action_btn setting_btn">SAVE</button>
+            <button class="button action_btn setting_btn">DEFAULTS</button>
+          </div>
+        </div>
+      </section>
     </main>
-    <footer></footer>
+    <footer>
+      <!-- <div class="wrapper">
+        <a href="https://rs.school/js/">
+          <img
+            class="footer_icon"
+            src="https://rs.school/images/rs_school_js.svg"
+            alt="rs icon"
+        /></a>
+        <a href="https://github.com/olgamartinchik"
+          ><img
+            class="footer_icon"
+            src="http://cdn.onlinewebfonts.com/svg/img_4298.png"
+            alt="gitHub icon"
+        /></a>
+      </div> -->
+    </footer>
     <script src="./dist/script.js"></script>
   </body>
 </html>

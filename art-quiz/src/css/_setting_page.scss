@@ -1,0 +1,173 @@
+.setting_page {
+  opacity: 1;
+  position: relative;
+  transition: 0.8s ease-in-out;
+}
+.settings_wrapper {
+  position: relative;
+}
+.container_settings {
+  width: 100%;
+}
+.settings_card {
+  background-color: var(--buttonColor);
+  height: auto;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  cursor: default;
+  &:hover {
+    opacity: 1;
+  }
+}
+.range_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.volumeline {
+  background-color: #fff;
+  width: 150px;
+  height: 10px;
+  cursor: pointer;
+  box-shadow: 0 2px 10px 0 #0008;
+}
+.volumeline .progress_volume {
+  background-color: var(--fontColor);
+  width: 75%;
+  height: 100%;
+  transition: 0.25s;
+}
+.volume,
+.time,
+.volume_btn {
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.volume_btn {
+  background-image: url("/src/assets/svg/volume-off.svg");
+  width: 18px;
+  height: 30px;
+  margin-right: 5px;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.7;
+  }
+}
+.container_btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0 15px;
+  max-width: 350px;
+  width: 100%;
+}
+.setting_btn {
+  justify-content: center;
+  margin: 0;
+}
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"] + label:before {
+  content: "\2714";
+  color: transparent;
+  display: inline-block;
+  border: 1px solid #ccc;
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 22px;
+  margin: -5px 5px 0 0;
+  height: 20px;
+  width: 20px;
+  text-align: center;
+  vertical-align: middle;
+  transition: color ease 0.3s;
+  position: relative;
+  right: -26px;
+  top: -7px;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked + label:before {
+  color: var(--fontColor);
+  border-color: var(--fontColor);
+}
+label {
+  cursor: pointer;
+}
+@media (min-width: 340px) {
+  h1 {
+    position: absolute;
+    top: -3px;
+  }
+  .container_settings {
+    gap: 15px;
+    margin-top: 27px;
+  }
+  .settings_card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0 16px;
+    height: 204px;
+    h2 {
+      position: relative;
+      right: 0;
+      text-align: center;
+      right: 0;
+    }
+  }
+
+  .volume {
+    background-image: url("/src/assets/svg/volume-on.svg");
+    width: 67px;
+    height: 52px;
+  }
+  .time {
+    background-image: url("/src/assets/svg/time.svg");
+
+    width: 57px;
+    height: 64px;
+  }
+  .container_btn {
+    margin: 25px 0 32px;
+  }
+}
+@media (min-width: 768px) {
+  h1 {
+    position: relative;
+    top: 0;
+    padding: 15px 0 20px;
+  }
+  .container_settings {
+    gap: 20px;
+    margin-top: 0;
+  }
+  .settings_card {
+    padding: 40px 0 24px;
+    height: 320px;
+  }
+
+  .volume {
+    height: 81px;
+    width: 100px;
+  }
+  .time {
+    width: 85px;
+    height: 100px;
+  }
+  .container_btn {
+    margin: 49px 0 30px;
+  }
+}
+@media (min-width: 1000px) {
+  h1 {
+    padding: 21px;
+  }
+
+  .settings_card {
+    padding: 89px 0 55px;
+    height: 415px;
+  }
+}
