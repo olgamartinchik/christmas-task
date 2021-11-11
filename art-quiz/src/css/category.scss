@@ -1,0 +1,104 @@
+.category_btns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+  margin-top: 10px;
+  .button {
+    margin: 0;
+    padding: 0 19px;
+    .home_icon,
+    .score_icon {
+      width: 40px;
+      height: 38.5px;
+      background-repeat: no-repeat;
+    }
+  }
+}
+.home_icon {
+  background-image: url("/src/assets/svg/home.svg");
+}
+.score_icon {
+  background-image: url("/src/assets/svg/score.svg");
+}
+.category_container {
+  margin-top: 20px;
+}
+.cards_category {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-bottom: 15px;
+  height: 75vh;
+  overflow: auto;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--buttonColor);
+  max-width: 184px;
+
+  width: 100%;
+  height: auto;
+  padding: 5px 0;
+  .card_img {
+    width: 100%;
+  }
+}
+.score_category {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 10px;
+}
+@media (min-width: 340px) {
+  .cards_category {
+    gap: 4px 2px;
+  }
+  .card {
+    max-width: 108px;
+  }
+  .category_title {
+    right: 0;
+    bottom: 66px;
+  }
+  .count_answer {
+    font-size: 14px;
+  }
+  .title_card {
+    padding: 0 10px;
+    font-size: 13px;
+    width: 100%;
+  }
+}
+@media (min-width: 768px) {
+  .cards_category {
+    gap: 0 5px;
+  }
+  .card {
+    max-width: 184px;
+  }
+  .category_title {
+    right: 0;
+    bottom: 0;
+  }
+  .count_answer {
+    font-size: 18px;
+  }
+  .title_card {
+    font-size: 18px;
+  }
+}
+@media (min-width: 1000px) {
+  //   .cards_category {
+  //     gap: 0 2px;
+  //   }
+  .title_card {
+    font-size: 14px;
+  }
+}

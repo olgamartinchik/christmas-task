@@ -3,6 +3,7 @@
   align-items: center;
   justify-content: center;
   transition: 1s ease;
+  width: 100%;
 }
 .logo {
   background-image: url("/src/assets/png/logo.png");
@@ -25,6 +26,7 @@
 @media (min-width: 360px) {
   .main_nav {
     padding-top: 15px;
+    justify-content: flex-start;
   }
   .main_logo {
     width: 100px;
@@ -34,6 +36,7 @@
 @media (min-width: 768px) {
   .main_nav {
     padding-top: 60px;
+    justify-content: center;
   }
   .main_logo {
     width: 150px;

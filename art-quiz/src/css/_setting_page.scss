@@ -1,7 +1,7 @@
 .setting_page {
   opacity: 1;
   position: relative;
-  transition: 0.8s ease-in-out;
+  transition: 1s ease-in-out;
 }
 .settings_wrapper {
   position: relative;
@@ -38,19 +38,33 @@
 }
 .volume,
 .time,
-.volume_btn {
+.volume_btn_off {
   background-repeat: no-repeat;
   background-size: contain;
 }
-.volume_btn {
+.volume_btn_off {
   background-image: url("/src/assets/svg/volume-off.svg");
-  width: 18px;
-  height: 30px;
+
+  width: 48px;
+  height: 39px;
   margin-right: 5px;
   cursor: pointer;
+  opacity: 0.7;
+  transition: 0.3s ease-in-out;
   &:hover {
-    opacity: 0.7;
+    opacity: 1;
   }
+}
+.volume_btn_on {
+  background-image: url("/src/assets/svg/volume-on1.svg");
+  background-size: cover;
+  // width: 48px;
+  // height: 39px;
+  // opacity: 0.7;
+  // transition: 0.3s ease-in-out;
+  // &:hover {
+  //   opacity: 1;
+  // }
 }
 .container_btn {
   display: flex;
@@ -96,7 +110,7 @@ label {
   cursor: pointer;
 }
 @media (min-width: 340px) {
-  h1 {
+  .settings_title {
     position: absolute;
     top: -3px;
   }
@@ -135,7 +149,7 @@ label {
   }
 }
 @media (min-width: 768px) {
-  h1 {
+  .settings_title {
     position: relative;
     top: 0;
     padding: 15px 0 20px;
@@ -162,7 +176,7 @@ label {
   }
 }
 @media (min-width: 1000px) {
-  h1 {
+  .settings_title {
     padding: 21px;
   }
 
@@ -170,4 +184,10 @@ label {
     padding: 89px 0 55px;
     height: 415px;
   }
+}
+.active {
+  position: absolute;
+  left: -150%;
+  opacity: 0;
+  z-index: -1;
 }
