@@ -1,6 +1,7 @@
 :root {
   --fontColor: #660033;
   --buttonColor: #fff;
+  --answerColor: #006635;
 }
 * {
   margin: 0;
@@ -55,7 +56,6 @@ h2 {
   font-weight: normal;
 }
 h3 {
-  font-family: Montserrat;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -65,6 +65,15 @@ h3 {
   outline: none;
   user-select: none;
 }
+h4 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 .weight_title {
   font-weight: bold;
 }
