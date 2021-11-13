@@ -1,0 +1,129 @@
+.popup {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.548);
+}
+.container_popup {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  //   justify-content: center;
+  flex-direction: column;
+  max-width: 582px;
+  width: 100%;
+  //   height: auto;
+  padding: 10px;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  //
+  justify-content: space-between;
+  max-height: 600px;
+  height: 100%;
+}
+.grand_container {
+  //   overflow: hidden;
+  background-image: url("/src/assets/pageImg/modal-GRANDRESULT.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.grand_img {
+  max-width: 585px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.next_container_popup,
+.congratulations_container,
+.game_over_container {
+  background-color: var(--buttonColor);
+}
+.next_img_container {
+  max-width: 400px;
+  width: 100%;
+  max-height: 400px;
+  height: 100%;
+  overflow: hidden;
+}
+.next_img {
+  width: 100%;
+  object-fit: cover;
+}
+.selection_answer {
+  background-image: url("/src/assets/svg/correct\ answer.svg");
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 45px;
+  background-position: center;
+}
+.congratulations_container {
+  padding: 30px 10px 32px;
+}
+.congratulations_img {
+  background-image: url("/src/assets/png/goodJod.png");
+  width: 200px;
+  height: 170px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 15px;
+}
+.picture_about,
+.author_picture,
+.picture_year {
+  padding: 2px;
+}
+.game_over_title {
+  word-wrap: break-word;
+}
+.game_over_img {
+  background-image: url("/src/assets/png/cup-icon.png");
+  width: 150px;
+  height: 160px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.game_over_subtitle {
+  font-style: normal;
+  font-weight: bold;
+
+  line-height: 44px;
+  text-align: center;
+  text-transform: uppercase;
+}
+@media (min-width: 340px) {
+  .title_popup {
+    font-size: 30px;
+  }
+  .game_over_title {
+    font-size: 70px;
+  }
+}
+
+@media (min-width: 768px) {
+  .title_popup {
+    font-size: 44px;
+  }
+  .game_over_title {
+    font-size: 96px;
+  }
+}
+
+// hidden popup
+.next_popup,
+.congratulations_popup,
+.grand_popup
+// .game_over_popup
+{
+  display: none;
+}

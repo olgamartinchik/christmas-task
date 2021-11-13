@@ -21,6 +21,9 @@ body {
     rgb(191, 241, 243) 98%
   );
 }
+body.hidden {
+  overflow: hidden;
+}
 .active {
   opacity: 0;
   z-index: -1;
@@ -55,7 +58,8 @@ h2 {
   text-transform: uppercase;
   font-weight: normal;
 }
-h3 {
+h3,
+p {
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -73,7 +77,14 @@ h4 {
   text-align: center;
   text-transform: uppercase;
 }
-
+h5 {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 96px;
+  line-height: 117px;
+  text-align: center;
+  text-transform: uppercase;
+}
 .weight_title {
   font-weight: bold;
 }
