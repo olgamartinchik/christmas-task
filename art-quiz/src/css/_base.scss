@@ -13,7 +13,7 @@ body {
   width: 100%;
   font-family: Montserrat;
   color: var(--fontColor);
-  // background: rgba(255, 255, 255, 0.75);
+
   background: linear-gradient(
     45deg,
     rgb(213, 237, 232) 41%,
@@ -35,6 +35,9 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  max-width: 1185px;
+  width: 100%;
+  margin: 0 auto;
 }
 h1 {
   font-style: normal;

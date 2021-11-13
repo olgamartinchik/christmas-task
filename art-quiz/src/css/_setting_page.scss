@@ -3,6 +3,12 @@
   position: relative;
   transition: 1s ease-in-out;
 }
+.setting_page.active {
+  position: absolute;
+  left: -150%;
+  opacity: 0;
+  z-index: -1;
+}
 .settings_wrapper {
   position: relative;
 }
@@ -112,7 +118,8 @@ label {
 @media (min-width: 340px) {
   .settings_title {
     position: absolute;
-    top: -3px;
+    right: 15px;
+    top: -33px;
   }
   .container_settings {
     gap: 15px;
@@ -152,6 +159,7 @@ label {
   .settings_title {
     position: relative;
     top: 0;
+    right: 0;
     padding: 15px 0 20px;
   }
   .container_settings {
@@ -184,10 +192,4 @@ label {
     padding: 89px 0 55px;
     height: 415px;
   }
-}
-.active {
-  position: absolute;
-  left: -150%;
-  opacity: 0;
-  z-index: -1;
 }

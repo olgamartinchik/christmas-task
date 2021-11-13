@@ -3,13 +3,20 @@
     opacity: 1;
     transition: 1s ease-in-out;
   }
+  .active {
+    position: absolute;
+    left: -150%;
+    opacity: 0;
+    z-index: -1;
+  }
   .container_category {
     display: flex;
     align-items: center;
 
     flex-wrap: wrap;
-    gap: 0 40px;
+    gap: 40px;
     justify-content: center;
+    margin-top: 20px;
   }
   .main_card {
     position: relative;
@@ -120,11 +127,4 @@
   .action_btn {
     margin: 100px 0 60px;
   }
-}
-
-.active {
-  position: absolute;
-  left: -150%;
-  opacity: 0;
-  z-index: -1;
 }
