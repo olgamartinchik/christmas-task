@@ -35,6 +35,7 @@ body.hidden {
 }
 
 .wrapper {
+  position: relative;
   padding: 0 15px;
   display: flex;
   flex-direction: column;
@@ -90,10 +91,6 @@ h5 {
   line-height: 117px;
   text-align: center;
   text-transform: uppercase;
-}
-
-.weight_title {
-  font-weight: bold;
 }
 
 .button {
@@ -188,7 +185,7 @@ h5 {
     transition: 1s ease-in-out;
   }
 
-  .active {
+  .hidden_section {
     position: absolute;
     left: -150%;
     opacity: 0;
@@ -214,7 +211,7 @@ h5 {
     height: 200px;
     overflow: hidden;
   }
-  .main_card h2 {
+  .main_card .main_Title {
     position: absolute;
     bottom: 5px;
     right: 0px;
@@ -222,6 +219,9 @@ h5 {
     width: 100%;
     padding: 3px 10px;
     background-color: rgba(255, 255, 255, 0.651);
+  }
+  .main_card .weight_title {
+    font-weight: bold;
   }
 
   .action_btn {
@@ -253,7 +253,7 @@ h5 {
     width: 100%;
     height: 320px;
   }
-  .main_card h2 {
+  .main_card .main_Title {
     position: absolute;
     right: 34px;
   }
@@ -270,7 +270,7 @@ h5 {
     width: 100%;
     height: 320px;
   }
-  .main_card h2 {
+  .main_card .main_Title {
     margin-right: 0;
   }
 }
@@ -297,7 +297,7 @@ h5 {
     opacity: 1;
     overflow: visible;
   }
-  .main_card h2 {
+  .main_card .main_Title {
     position: relative;
     text-align: end;
     padding: 0;
@@ -321,7 +321,7 @@ h5 {
   transition: 1s ease-in-out;
 }
 
-.setting_page.active {
+.setting_page.hidden_section {
   position: absolute;
   left: -150%;
   opacity: 0;
@@ -529,7 +529,7 @@ label {
   transition: 1s ease-in-out;
 }
 
-.category_page.active {
+.category_page.hidden_section {
   position: absolute;
   left: -350%;
   opacity: 0;
@@ -571,13 +571,23 @@ label {
 }
 
 .cards_category {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-around;
   flex-wrap: wrap;
   padding-bottom: 15px;
   height: 100%;
-  transition: 0.4s;
+  transition: 0.4s ease-in-out;
+  opacity: 1;
+}
+
+.cards_category.artist.hidden_section,
+.cards_category.picture.hidden_section {
+  position: absolute;
+  left: -350%;
+  opacity: 0;
+  z-index: -1;
 }
 
 .card_theme {
@@ -592,12 +602,13 @@ label {
   height: auto;
   padding: 5px 0;
   filter: grayscale(100%);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   z-index: 1;
   cursor: pointer;
   transition: 0.4s ease-in-out;
 }
 .card_theme:hover {
-  transform: scale(1.1);
+  transform: scale(0.9);
   z-index: 3;
 }
 .card_theme .count_answer {
@@ -606,6 +617,26 @@ label {
 }
 .card_theme .card_img {
   width: 100%;
+}
+
+.play_again_btn {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0 10px;
+  transition: 0.4s ease-in-out;
+}
+.play_again_btn .play_icon {
+  background-image: url("/src/assets/svg/play-again.svg");
+  width: 31px;
+  height: 35px;
+}
+
+.play_again_btn:hover .play_icon {
+  position: relative;
+  transform: rotate(360deg);
 }
 
 .card_theme.active_category {
@@ -690,7 +721,7 @@ label {
   transition: 1s ease-in-out;
 }
 
-.artists_quiz.active {
+.artists_quiz.hidden_section {
   position: absolute;
   left: -350%;
   opacity: 0;
@@ -748,6 +779,8 @@ label {
   position: relative;
   max-width: 1000px;
   width: 100%;
+  max-height: 650px;
+  height: 100%;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -810,6 +843,7 @@ label {
   font-weight: normal;
   font-size: 24px;
   line-height: 29px;
+  text-align: center;
   text-transform: uppercase;
   transition: 0.4s ease-in-out;
 }
@@ -884,12 +918,12 @@ label {
     display: none;
   }
 }
-.picture_quise {
+.picture_quiz {
   opacity: 1;
   transition: 1s ease-in-out;
 }
 
-.picture_quise.active {
+.picture_quiz.hidden_section {
   position: absolute;
   left: -350%;
   opacity: 0;
@@ -1071,7 +1105,8 @@ label {
 }
 .next_popup,
 .congratulations_popup,
-.grand_popup {
+.grand_popup,
+.game_over_popup {
   display: none;
 }
 

@@ -3,7 +3,7 @@
     opacity: 1;
     transition: 1s ease-in-out;
   }
-  .active {
+  .hidden_section {
     position: absolute;
     left: -150%;
     opacity: 0;
@@ -29,7 +29,7 @@
     height: 200px;
     overflow: hidden;
 
-    h2 {
+    .main_Title {
       position: absolute;
       bottom: 5px;
       right: 0px;
@@ -37,6 +37,9 @@
       width: 100%;
       padding: 3px 10px;
       background-color: rgba(255, 255, 255, 0.651);
+    }
+    .weight_title {
+      font-weight: bold;
     }
   }
 
@@ -67,7 +70,7 @@
     max-width: 500px;
     width: 100%;
     height: 320px;
-    h2 {
+    .main_Title {
       position: absolute;
       right: 34px;
     }
@@ -84,7 +87,7 @@
     max-width: 500px;
     width: 100%;
     height: 320px;
-    h2 {
+    .main_Title {
       margin-right: 0;
     }
   }
@@ -110,7 +113,7 @@
     transition: 0.7s ease-in-out;
     opacity: 1;
     overflow: visible;
-    h2 {
+    .main_Title {
       position: relative;
       text-align: end;
 

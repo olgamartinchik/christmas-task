@@ -2,7 +2,7 @@
   opacity: 1;
   transition: 1s ease-in-out;
 }
-.category_page.active {
+.category_page.hidden_section {
   position: absolute;
   left: -350%;
   opacity: 0;
@@ -39,13 +39,22 @@
   overflow: auto;
 }
 .cards_category {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-around;
   flex-wrap: wrap;
   padding-bottom: 15px;
   height: 100%;
-  transition: 0.4s;
+  transition: 0.4s ease-in-out;
+  opacity: 1;
+}
+.cards_category.artist.hidden_section,
+.cards_category.picture.hidden_section {
+  position: absolute;
+  left: -350%;
+  opacity: 0;
+  z-index: -1;
 }
 .card_theme {
   position: relative;
@@ -59,11 +68,13 @@
   height: auto;
   padding: 5px 0;
   filter: grayscale(100%);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   z-index: 1;
   cursor: pointer;
   transition: 0.4s ease-in-out;
   &:hover {
-    transform: scale(1.1);
+    transform: scale(0.9);
+
     z-index: 3;
   }
   .count_answer {
@@ -74,6 +85,24 @@
   .card_img {
     width: 100%;
   }
+}
+.play_again_btn {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0 10px;
+  transition: 0.4s ease-in-out;
+  .play_icon {
+    background-image: url("/src/assets/svg/play-again.svg");
+    width: 31px;
+    height: 35px;
+  }
+}
+.play_again_btn:hover .play_icon {
+  position: relative;
+  transform: rotate(360deg);
 }
 .card_theme.active_category {
   filter: none;

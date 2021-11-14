@@ -1,8 +1,8 @@
-.picture_quise {
+.picture_quiz {
   opacity: 1;
   transition: 1s ease-in-out;
 }
-.picture_quise.active {
+.picture_quiz.hidden_section {
   position: absolute;
   left: -350%;
   opacity: 0;

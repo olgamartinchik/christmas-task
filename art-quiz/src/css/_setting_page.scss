@@ -3,7 +3,7 @@
   position: relative;
   transition: 1s ease-in-out;
 }
-.setting_page.active {
+.setting_page.hidden_section {
   position: absolute;
   left: -150%;
   opacity: 0;

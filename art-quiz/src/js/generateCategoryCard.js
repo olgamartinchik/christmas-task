@@ -1,8 +1,9 @@
-const cardsCategory = document.querySelector(".cards_category");
+// const cardsCategory = document.querySelector(".cards_category");
 
-class CategoryCard {
-  constructor(card) {
-    this.card = card;
+export class CategoryCard {
+  constructor(div, classCard) {
+    this.div = div;
+    this.classCard = classCard;
     this.imgs = [
       "30",
       "10",
@@ -32,10 +33,11 @@ class CategoryCard {
       "interior",
     ];
   }
+
   crateCardCategory() {
     for (let i = 0; i <= 11; i++) {
       let divWrapper = document.createElement("div");
-      divWrapper.classList.add("card", "card_theme");
+      divWrapper.classList.add("card", "card_theme", this.classCard);
       divWrapper.id = `${i}`;
       let div = document.createElement("div");
       div.classList.add("score_category");
@@ -57,9 +59,9 @@ class CategoryCard {
       divWrapper.appendChild(div);
       divWrapper.appendChild(p);
       divWrapper.appendChild(img);
-      this.card.appendChild(divWrapper);
+      this.div.appendChild(divWrapper);
     }
+    return this.div;
   }
 }
-
-new CategoryCard(cardsCategory).crateCardCategory();
+// new CategoryCard(cardsCategory).crateCardCategory();

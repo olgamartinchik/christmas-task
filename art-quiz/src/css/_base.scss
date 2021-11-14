@@ -34,6 +34,7 @@ body.hidden {
   transition: 2s ease-in-out;
 }
 .wrapper {
+  position: relative;
   padding: 0 15px;
   display: flex;
   flex-direction: column;
@@ -85,9 +86,7 @@ h5 {
   text-align: center;
   text-transform: uppercase;
 }
-.weight_title {
-  font-weight: bold;
-}
+
 .button {
   text-transform: uppercase;
   border: none;

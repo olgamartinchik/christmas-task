@@ -24,24 +24,28 @@
     </header>
     <main>
       <!-- main page -->
-      <section class="section main_page active">
+      <section class="section main_page">
         <div class="wrapper wrapper_main_page">
-          <div class="container container_category">
-            <div class="card main_card">
+          <div class="container container_category categories_game">
+            <div class="card main_card category_game artists_game">
               <img
                 class="category_card"
                 src="/src/assets/pageImg/artists-quiz.png"
                 alt="artists quiz"
               />
-              <h2><span class="weight_title">ARTISTS</span> QUIZ</h2>
+              <h2 class="main_Title">
+                <span class="weight_title">ARTISTS</span> QUIZ
+              </h2>
             </div>
-            <div class="card main_card">
+            <div class="card main_card category_game pictures_game">
               <img
                 class="category_card"
                 src="/src/assets/pageImg/pictures-quiz.png"
                 alt="pictures quiz"
               />
-              <h2><span class="weight_title">PICTURE</span> QUIZ</h2>
+              <h2 class="main_Title">
+                <span class="weight_title">PICTURE</span> QUIZ
+              </h2>
             </div>
           </div>
           <button class="button action_btn main_btn">
@@ -53,7 +57,7 @@
         </div>
       </section>
       <!-- settings page -->
-      <section class="section setting_page active">
+      <section class="section setting_page hidden_section">
         <div class="wrapper settings_wrapper">
           <h1 class="settings_title">settings</h1>
           <div class="container container_category container_settings">
@@ -81,7 +85,7 @@
           </div>
         </div>
       </section>
-      <section class="section category_page active">
+      <section class="section category_page hidden_section">
         <div class="wrapper category_page_wrapper">
           <div class="category_btns">
             <button class="button action_btn home_btn">
@@ -95,21 +99,27 @@
             </button>
           </div>
           <div class="category_container">
-            <div class="cards_category">
-              <!-- <div class="card card_theme">
+            <div class="cards_category artist hidden_section"></div>
+            <div class="cards_category picture hidden_section"></div>
+            <!-- <div class="cards_category"> -->
+            <!-- <div class="card card_theme">
                 <div class="score_category">
                   <h2 class="count_category">1</h2>
                   <span class="count_answer">10/10</span>
                 </div>
                 <p class="title_card">expressionism</p>
                 <img class="card_img" src="/src/assets/img/0.jpg" alt="" />
-              </div>       -->
-            </div>
+                <button class="button action_btn score_btn play_again_btn">
+                  <div class="play_icon"></div>
+                  play again
+                </button>
+              </div> -->
+            <!-- </div> -->
           </div>
         </div>
       </section>
-      <section class="artists_quiz active">
-        <div class="wrapper">
+      <section class="artists_quiz hidden_section">
+        <div class="wrapper artists_quiz_wrapper">
           <div class="question_container">
             <h4 class="question">Who is the author of this picture?</h4>
             <div class="timer_container">
@@ -121,8 +131,8 @@
               </button>
             </div>
           </div>
-          <div class="answer_container">
-            <div class="img_container">
+          <div class="answer_container answer_container_artist">
+            <!-- <div class="img_container">
               <img
                 class="full_img"
                 src="/src/assets/full/0full.jpg"
@@ -148,80 +158,80 @@
               <div class="picture_answer false">Van Gogh</div>
               <div class="picture_answer">Van Gogh</div>
               <div class="picture_answer">Van Gogh</div>
-            </div>
+            </div> -->
           </div>
         </div>
       </section>
-      <section class="picture_quise">
-        <div class="wrapper">
-          <div class="wrapper">
-            <div class="question_container">
-              <h4 class="question">
-                Which is <span class="painter">Edvard Munch</span> picture?
-              </h4>
-              <div class="timer_container">
-                <div class="timer_icon"></div>
-                <h2><span class="timer">03:59</span></h2>
-                <button class="button action_btn home_btn quiz_btn">
-                  <div class="home_icon"></div>
-                  home
-                </button>
-              </div>
-            </div>
-            <div class="answer_container">
-              <div class="img_container img_container_picture">
-                <div class="wrapper_img">
-                  <img
-                    class="full_img full_picture"
-                    src="/src/assets/full/1full.jpg"
-                    alt="picture"
-                  />
-                </div>
-                <div class="wrapper_img">
-                  <img
-                    class="full_img full_picture"
-                    src="/src/assets/full/2full.jpg"
-                    alt="picture"
-                  />
-                </div>
-                <div class="wrapper_img">
-                  <img
-                    class="full_img full_picture"
-                    src="/src/assets/full/3full.jpg"
-                    alt="picture"
-                  />
-                </div>
-                <div class="wrapper_img">
-                  <img
-                    class="full_img full_picture"
-                    src="/src/assets/full/4full.jpg"
-                    alt="picture"
-                  />
-                </div>
-
-                <div class="dots_container">
-                  <div class="dot active_btn"></div>
-                  <div class="dot"></div>
-                  <div class="dot"></div>
-                  <div class="dot"></div>
-                  <div class="dot"></div>
-                  <div class="dot"></div>
-                  <div class="dot"></div>
-                  <div class="dot"></div>
-                  <div class="dot"></div>
-                  <div class="dot"></div>
-                  <div class="dot"></div>
-                  <div class="dot"></div>
-                </div>
-              </div>
-              <div class="answer">
-                <div class="picture_answer true">A</div>
-                <div class="picture_answer false">B</div>
-                <div class="picture_answer">C</div>
-                <div class="picture_answer">D</div>
-              </div>
+      <section class="picture_quiz hidden_section">
+        <div class="wrapper picture_quiz_wrapper">
+          <!-- <div class="wrapper"> -->
+          <div class="question_container">
+            <h4 class="question">
+              Which is <span class="painter">Edvard Munch</span> picture?
+            </h4>
+            <div class="timer_container">
+              <div class="timer_icon"></div>
+              <h2><span class="timer">03:59</span></h2>
+              <button class="button action_btn home_btn quiz_btn">
+                <div class="home_icon"></div>
+                home
+              </button>
             </div>
           </div>
+          <div class="answer_container answer_container_picture">
+            <div class="img_container img_container_picture">
+              <div class="wrapper_img">
+                <img
+                  class="full_img full_picture"
+                  src="/src/assets/full/1full.jpg"
+                  alt="picture"
+                />
+              </div>
+              <div class="wrapper_img">
+                <img
+                  class="full_img full_picture"
+                  src="/src/assets/full/2full.jpg"
+                  alt="picture"
+                />
+              </div>
+              <div class="wrapper_img">
+                <img
+                  class="full_img full_picture"
+                  src="/src/assets/full/3full.jpg"
+                  alt="picture"
+                />
+              </div>
+              <div class="wrapper_img">
+                <img
+                  class="full_img full_picture"
+                  src="/src/assets/full/4full.jpg"
+                  alt="picture"
+                />
+              </div>
+
+              <div class="dots_container">
+                <div class="dot active_btn"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+              </div>
+            </div>
+            <div class="answer">
+              <div class="picture_answer true">A</div>
+              <div class="picture_answer false">B</div>
+              <div class="picture_answer">C</div>
+              <div class="picture_answer">D</div>
+            </div>
+          </div>
+          <!-- </div> -->
           <!-- popup -->
           <div class="popup next_popup">
             <div class="container_popup next_container_popup">
