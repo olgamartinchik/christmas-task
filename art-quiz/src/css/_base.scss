@@ -10,7 +10,8 @@
 }
 
 body {
-  height: 100vh;
+  // height: 100vh;
+  height: auto;
   width: 100%;
   font-family: Montserrat;
   color: var(--fontColor);
@@ -43,6 +44,7 @@ body.hidden {
   max-width: 1185px;
   width: 100%;
   margin: 0 auto;
+  padding-bottom: 15px;
 }
 h1 {
   font-style: normal;

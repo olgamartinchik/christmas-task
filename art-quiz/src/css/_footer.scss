@@ -1,0 +1,25 @@
+.footer {
+  .wrapper {
+    flex-direction: row;
+    border-top: 1px solid var(--fontColor);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    .footer_icon {
+      width: 90px;
+      opacity: 0.7;
+      transition: 0.4s ease-in-out;
+    }
+    .footer_icon_github {
+      width: 45px;
+      opacity: 0.7;
+      transition: 0.4s ease-in-out;
+    }
+    .footer_icon_github:hover,
+    .footer_icon:hover {
+      cursor: pointer;
+      filter: invert(9%) sepia(68%) saturate(3501%) hue-rotate(313deg)
+        brightness(95%) contrast(112%);
+      opacity: 0.8;
+    }
+  }
+}

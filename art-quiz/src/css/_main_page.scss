@@ -1,3 +1,10 @@
+.main_card {
+  transition: 0.4s ease-in-out;
+}
+.main_card:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
 @media (min-width: 340px) {
   .main_page {
     opacity: 1;

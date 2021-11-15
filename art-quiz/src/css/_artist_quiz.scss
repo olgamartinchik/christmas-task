@@ -20,6 +20,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 1;
+  transition: 0.4s ease-in-out;
+}
+.timer_container.hidden {
+  opacity: 0;
 }
 .timer_icon {
   background-image: url("/src/assets/svg/time.svg");
@@ -112,7 +117,7 @@
   cursor: pointer;
   font-style: normal;
   font-weight: normal;
-  font-size: 24px;
+  font-size: 18px;
   line-height: 29px;
   text-align: center;
   text-transform: uppercase;
@@ -137,7 +142,8 @@
   .timer_container {
     bottom: 80px;
   }
-  .timer {
+  .timer,
+  .timer1 {
     font-size: 30px;
   }
   .dot {
@@ -172,7 +178,8 @@
   }
 }
 @media (min-width: 1000px) {
-  .timer {
+  .timer,
+  .timer1 {
     font-size: 36px;
   }
 }

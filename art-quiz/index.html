@@ -74,14 +74,30 @@
             </div>
             <div class="card main_card settings_card">
               <div class="time"></div>
-              <input type="checkbox" id="checkbox1" />
-              <label for="checkbox1"> <h3>on/off</h3></label>
+              <div class="timer_wrapper">
+                <input type="checkbox" id="checkbox1" />
+                <label for="checkbox1"> <h3>on/off</h3></label>
+                <div class="timer_answer">
+                  <div class="timer_answer_container">
+                    <div class="minus">&minus;</div>
+                    <span class="time_game">5</span>
+                    <div class="plus">&plus;</div>
+                  </div>
+
+                  <!-- <input type="checkbox" id="checkbox2" /> -->
+                  <!-- <label for="checkbox21"> <h3>Time to answer</h3></label> -->
+                  <h3>Time to answer</h3>
+                </div>
+              </div>
+
               <h2><span class="weight_title">time game</span></h2>
             </div>
           </div>
           <div class="container_btn">
-            <button class="button action_btn setting_btn">SAVE</button>
-            <button class="button action_btn setting_btn">DEFAULTS</button>
+            <button class="button action_btn setting_btn save_btn">SAVE</button>
+            <button class="button action_btn setting_btn default_btn">
+              DEFAULTS
+            </button>
           </div>
         </div>
       </section>
@@ -122,9 +138,11 @@
         <div class="wrapper artists_quiz_wrapper">
           <div class="question_container">
             <h4 class="question">Who is the author of this picture?</h4>
-            <div class="timer_container">
+            <div class="timer_container hidden">
               <div class="timer_icon"></div>
-              <h2><span class="timer">03:59</span></h2>
+              <h2>
+                <span class="timer1">00:</span><span class="timer">5</span>
+              </h2>
               <button class="button action_btn home_btn quiz_btn">
                 <div class="home_icon"></div>
                 home
@@ -132,7 +150,7 @@
             </div>
           </div>
           <div class="answer_container answer_container_artist">
-            <!-- <div class="img_container">
+            <!-- <div class="img_container img_container_artist">
               <img
                 class="full_img"
                 src="/src/assets/full/0full.jpg"
@@ -164,14 +182,15 @@
       </section>
       <section class="picture_quiz hidden_section">
         <div class="wrapper picture_quiz_wrapper">
-          <!-- <div class="wrapper"> -->
           <div class="question_container">
             <h4 class="question">
               Which is <span class="painter">Edvard Munch</span> picture?
             </h4>
-            <div class="timer_container">
+            <div class="timer_container hidden">
               <div class="timer_icon"></div>
-              <h2><span class="timer">03:59</span></h2>
+              <h2>
+                <span class="timer1">00:</span><span class="timer">00</span>
+              </h2>
               <button class="button action_btn home_btn quiz_btn">
                 <div class="home_icon"></div>
                 home
@@ -179,7 +198,7 @@
             </div>
           </div>
           <div class="answer_container answer_container_picture">
-            <div class="img_container img_container_picture">
+            <!-- <div class="img_container img_container_picture">
               <div class="wrapper_img">
                 <img
                   class="full_img full_picture"
@@ -229,66 +248,67 @@
               <div class="picture_answer false">B</div>
               <div class="picture_answer">C</div>
               <div class="picture_answer">D</div>
-            </div>
-          </div>
-          <!-- </div> -->
-          <!-- popup -->
-          <div class="popup next_popup">
-            <div class="container_popup next_container_popup">
-              <div class="selection_answer"></div>
-              <div class="next_img_container">
-                <img
-                  class="next_img"
-                  src="/src/assets/full/102full.jpg"
-                  alt="picture"
-                />
-              </div>
-              <p class="picture_about">Girl with a Pearl Earring</p>
-              <p class="author_picture">Johannes Vermeer</p>
-              <p class="picture_year">1665</p>
-              <button class="button action_btn setting_btn">next</button>
-            </div>
-          </div>
-          <div class="popup congratulations_popup">
-            <div class="container_popup congratulations_container">
-              <h2 class="title_popup">CONGRATULATIONS !</h2>
-              <h5><span>8</span>/10</h5>
-              <div class="congratulations_img"></div>
-              <div class="category_btns">
-                <button class="button action_btn home_btn">
-                  <div class="home_icon"></div>
-                  home
-                </button>
-                <button class="button action_btn setting_btn">NEXT QUIZ</button>
-              </div>
-            </div>
-          </div>
-          <div class="popup grand_popup">
-            <div class="container_popup grand_container">
-              <button class="button action_btn home_btn">
-                <div class="home_icon"></div>
-                home
-              </button>
-            </div>
-          </div>
-          <div class="popup game_over_popup">
-            <div class="container_popup game_over_container">
-              <h5 class="game_over_title">GAME OVER</h5>
-              <div class="game_over_img"></div>
-              <p class="game_over_subtitle">PLAY AGAIN ?</p>
-              <div class="category_btns">
-                <button class="button action_btn setting_btn">YES</button>
-                <button class="button action_btn home_btn setting_btn">
-                  NO
-                </button>
-              </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </section>
+      <!-- popup -->
+
+      <div class="popup next_popup">
+        <div class="container_popup next_container_popup">
+          <div class="selection_answer"></div>
+          <div class="next_img_container">
+            <img
+              class="next_img"
+              src="/src/assets/full/102full.jpg"
+              alt="picture"
+            />
+          </div>
+          <p class="picture_about">Girl with a Pearl Earring</p>
+          <p class="author_picture">Johannes Vermeer</p>
+          <p class="picture_year">1665</p>
+          <button class="button action_btn setting_btn next_btn">next</button>
+        </div>
+      </div>
+      <div class="popup congratulations_popup">
+        <div class="container_popup congratulations_container">
+          <h2 class="title_popup">CONGRATULATIONS !</h2>
+          <h5><span>8</span>/10</h5>
+          <div class="congratulations_img"></div>
+          <div class="category_btns">
+            <button class="button action_btn home_btn">
+              <div class="home_icon"></div>
+              home
+            </button>
+            <button class="button action_btn setting_btn">NEXT QUIZ</button>
+          </div>
+        </div>
+      </div>
+      <div class="popup grand_popup">
+        <div class="container_popup grand_container">
+          <button class="button action_btn home_btn">
+            <div class="home_icon"></div>
+            home
+          </button>
+        </div>
+      </div>
+      <div class="popup game_over_popup">
+        <div class="container_popup game_over_container">
+          <h5 class="game_over_title">GAME OVER</h5>
+          <div class="game_over_img"></div>
+          <p class="game_over_subtitle">PLAY AGAIN ?</p>
+          <div class="category_btns">
+            <button class="button action_btn setting_btn">YES</button>
+            <button class="button action_btn home_btn setting_btn">NO</button>
+          </div>
+        </div>
+      </div>
+      <section class="score_game hidden_section">
+        <div class="wrapper"></div>
+      </section>
     </main>
-    <footer>
-      <!-- <div class="wrapper">
+    <footer class="footer">
+      <div class="wrapper">
         <a href="https://rs.school/js/">
           <img
             class="footer_icon"
@@ -297,11 +317,11 @@
         /></a>
         <a href="https://github.com/olgamartinchik"
           ><img
-            class="footer_icon"
+            class="footer_icon_github"
             src="http://cdn.onlinewebfonts.com/svg/img_4298.png"
             alt="gitHub icon"
         /></a>
-      </div> -->
+      </div>
     </footer>
     <script src="./dist/script.js"></script>
   </body>
