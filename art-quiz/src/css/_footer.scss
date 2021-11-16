@@ -2,15 +2,15 @@
   .wrapper {
     flex-direction: row;
     border-top: 1px solid var(--fontColor);
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     .footer_icon {
-      width: 90px;
+      width: 56px;
       opacity: 0.7;
       transition: 0.4s ease-in-out;
     }
     .footer_icon_github {
-      width: 45px;
+      width: 21px;
       opacity: 0.7;
       transition: 0.4s ease-in-out;
     }

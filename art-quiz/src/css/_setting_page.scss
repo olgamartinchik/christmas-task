@@ -6,6 +6,7 @@
 .setting_page.hidden_section {
   position: absolute;
   left: -150%;
+  height: 0;
   opacity: 0;
   z-index: -1;
 }

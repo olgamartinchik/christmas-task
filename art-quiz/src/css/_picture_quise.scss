@@ -5,6 +5,7 @@
 .picture_quiz.hidden_section {
   position: absolute;
   left: -350%;
+  height: 0;
   opacity: 0;
   z-index: -1;
 }
@@ -29,22 +30,24 @@
     height: 340px;
   }
   .answer {
-    height: 105px;
+    height: 70px;
+  }
+}
+@media (min-width: 443px) {
+  .answer {
+    height: 87px;
   }
 }
 @media (min-width: 768px) {
   .img_container_picture {
-    height: 640px;
+    max-height: 640px;
   }
   .answer {
-    height: 115px;
+    height: 107px;
   }
 }
-// @media (min-width: 768px) {
-//   .img_container_picture {
-//     height: 660px;
-//   }
-//   .answer {
-//     height: 158px;
-//   }
-// }
+@media (min-width: 1200px) {
+  .answer {
+    // height: 158px;
+  }
+}

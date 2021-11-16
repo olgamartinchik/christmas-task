@@ -1,5 +1,6 @@
 .popup {
   position: absolute;
+  display: block;
   width: 100%;
   height: 100%;
   top: 0;
@@ -7,6 +8,7 @@
   left: 0;
   right: 0;
   background-color: rgba(0, 0, 0, 0.548);
+  // background-color: transparent;
   z-index: 1;
 }
 .container_popup {
@@ -128,5 +130,19 @@
 .congratulations_popup,
 .grand_popup,
 .game_over_popup {
-  display: none;
+  height: 0;
+  left: -400%;
+}
+.next_popup {
+  transition: 0.5s ease-in-out;
+}
+.congratulations_popup,
+.grand_popup,
+.game_over_popup {
+  transition: 1s ease-in-out;
+}
+
+.visiblePopup {
+  left: 0;
+  height: 100%;
 }

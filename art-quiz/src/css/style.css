@@ -171,7 +171,6 @@ h5 {
 }
 @media (min-width: 768px) {
   .main_nav {
-    padding-top: 60px;
     justify-content: center;
   }
 
@@ -199,6 +198,7 @@ h5 {
     position: absolute;
     left: -150%;
     opacity: 0;
+    height: 0;
     z-index: -1;
   }
 
@@ -334,6 +334,7 @@ h5 {
 .setting_page.hidden_section {
   position: absolute;
   left: -150%;
+  height: 0;
   opacity: 0;
   z-index: -1;
 }
@@ -594,6 +595,7 @@ label {
 .category_page.hidden_section {
   position: absolute;
   left: -350%;
+  height: 0;
   opacity: 0;
   z-index: -1;
 }
@@ -786,6 +788,7 @@ label {
 .artists_quiz.hidden_section {
   position: absolute;
   left: -350%;
+  height: 0;
   opacity: 0;
   z-index: -1;
 }
@@ -854,6 +857,7 @@ label {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  transition: 0.4s;
 }
 
 .full_img {
@@ -892,7 +896,6 @@ label {
   width: 100%;
   height: 158px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
@@ -943,6 +946,11 @@ label {
     font-size: 30px;
   }
 
+  .img_container {
+    max-height: 324px;
+    height: 100%;
+  }
+
   .dot {
     width: 7px;
     height: 7px;
@@ -954,15 +962,29 @@ label {
     overflow: hidden;
     font-size: 0;
   }
+
+  .picture_answer {
+    font-size: 12px;
+  }
 }
 @media (min-width: 520px) {
   .timer_container {
     bottom: 45px;
   }
 }
+@media (min-width: 534px) {
+  .timer_container {
+    bottom: 60px;
+  }
+}
 @media (min-width: 768px) {
   .timer_container {
     bottom: 70px;
+  }
+
+  .img_container {
+    max-height: 530px;
+    height: 100%;
   }
 
   .dot {
@@ -976,6 +998,10 @@ label {
     overflow: visible;
     font-size: 18px;
   }
+
+  .picture_answer {
+    font-size: 16px;
+  }
 }
 @media (min-width: 1000px) {
   .timer,
@@ -987,6 +1013,15 @@ label {
   .quiz_btn {
     display: none;
   }
+
+  .img_container {
+    max-height: 650px;
+    height: 100%;
+  }
+
+  .picture_answer {
+    font-size: 18px;
+  }
 }
 .picture_quiz {
   opacity: 1;
@@ -996,6 +1031,7 @@ label {
 .picture_quiz.hidden_section {
   position: absolute;
   left: -350%;
+  height: 0;
   opacity: 0;
   z-index: -1;
 }
@@ -1023,20 +1059,26 @@ label {
   }
 
   .answer {
-    height: 105px;
+    height: 70px;
+  }
+}
+@media (min-width: 443px) {
+  .answer {
+    height: 87px;
   }
 }
 @media (min-width: 768px) {
   .img_container_picture {
-    height: 640px;
+    max-height: 640px;
   }
 
   .answer {
-    height: 115px;
+    height: 107px;
   }
 }
 .popup {
   position: absolute;
+  display: block;
   width: 100%;
   height: 100%;
   top: 0;
@@ -1173,22 +1215,38 @@ label {
 .congratulations_popup,
 .grand_popup,
 .game_over_popup {
-  display: none;
+  height: 0;
+  left: -400%;
+}
+
+.next_popup {
+  transition: 0.5s ease-in-out;
+}
+
+.congratulations_popup,
+.grand_popup,
+.game_over_popup {
+  transition: 1s ease-in-out;
+}
+
+.visiblePopup {
+  left: 0;
+  height: 100%;
 }
 
 .footer .wrapper {
   flex-direction: row;
   border-top: 1px solid var(--fontColor);
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 .footer .wrapper .footer_icon {
-  width: 90px;
+  width: 56px;
   opacity: 0.7;
   transition: 0.4s ease-in-out;
 }
 .footer .wrapper .footer_icon_github {
-  width: 45px;
+  width: 21px;
   opacity: 0.7;
   transition: 0.4s ease-in-out;
 }

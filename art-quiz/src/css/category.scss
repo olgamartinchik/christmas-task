@@ -5,6 +5,7 @@
 .category_page.hidden_section {
   position: absolute;
   left: -350%;
+  height: 0;
   opacity: 0;
   z-index: -1;
 }

@@ -5,6 +5,7 @@
 .artists_quiz.hidden_section {
   position: absolute;
   left: -350%;
+  height: 0;
   opacity: 0;
   z-index: -1;
 }
@@ -67,6 +68,7 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  transition: 0.4s;
 }
 
 .full_img {
@@ -101,7 +103,7 @@
   width: 100%;
   height: 158px;
   display: flex;
-  flex-direction: column;
+
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
@@ -146,6 +148,10 @@
   .timer1 {
     font-size: 30px;
   }
+  .img_container {
+    max-height: 324px;
+    height: 100%;
+  }
   .dot {
     width: 7px;
     height: 7px;
@@ -156,15 +162,27 @@
     overflow: hidden;
     font-size: 0;
   }
+  .picture_answer {
+    font-size: 12px;
+  }
 }
 @media (min-width: 520px) {
   .timer_container {
     bottom: 45px;
   }
 }
+@media (min-width: 534px) {
+  .timer_container {
+    bottom: 60px;
+  }
+}
 @media (min-width: 768px) {
   .timer_container {
     bottom: 70px;
+  }
+  .img_container {
+    max-height: 530px;
+    height: 100%;
   }
   .dot {
     width: 15px;
@@ -176,6 +194,9 @@
     overflow: visible;
     font-size: 18px;
   }
+  .picture_answer {
+    font-size: 16px;
+  }
 }
 @media (min-width: 1000px) {
   .timer,
@@ -186,5 +207,12 @@
 @media (min-width: 1200px) {
   .quiz_btn {
     display: none;
+  }
+  .img_container {
+    max-height: 650px;
+    height: 100%;
+  }
+  .picture_answer {
+    font-size: 18px;
   }
 }

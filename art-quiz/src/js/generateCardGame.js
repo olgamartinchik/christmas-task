@@ -6,7 +6,7 @@ export class CardGame {
     this.div = div;
     this.odjAnswer = odjAnswer;
     this.index = index;
-    this.arrayAnswer = ["A", "C", "B", "D"];
+    this.arrayAnswer = ["A", "B", "C", "D"];
   }
   // const odjAnswer={}
   // odjAnswer.answerArtist=[]
@@ -25,8 +25,8 @@ export class CardGame {
     dotsContainer.classList.add("dots_container");
     this.div.appendChild(dotsContainer);
     let firstDot = document.createElement("div");
-    firstDot.classList.add("dot", "active_btn");
-    dotsContainer.appendChild(firstDot);
+    // firstDot.classList.add("dot", "active_btn");
+    // dotsContainer.appendChild(firstDot);
     for (let i = 0; i <= 9; i++) {
       let dot = document.createElement("div");
       dot.classList.add("dot");
@@ -63,8 +63,8 @@ export class CardGame {
     dotsContainer.classList.add("dots_container");
     this.div.appendChild(dotsContainer);
     let firstDot = document.createElement("div");
-    firstDot.classList.add("dot", "active_btn");
-    dotsContainer.appendChild(firstDot);
+    // firstDot.classList.add("dot", "active_btn");
+    // dotsContainer.appendChild(firstDot);
     for (let i = 0; i <= 9; i++) {
       let dot = document.createElement("div");
       dot.classList.add("dot");
