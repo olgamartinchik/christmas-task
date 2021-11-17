@@ -106,6 +106,7 @@ async function renderGame() {
   let index = 0;
   let countDots = 0;
   let countRightAnswer = Number(-1);
+  let cardThemeId;
 
   // handler cardsCategory
   cardsCategory.forEach((card) => {
@@ -117,19 +118,26 @@ async function renderGame() {
     odjAnswer.answerArtist = [];
     odjAnswer.answerPicture = [];
     let cardTheme = e.target.parentNode;
-    // console.log("cardTheme", cardTheme);
+    console.log("cardTheme", cardTheme.id);
     if (cardTheme.classList.contains("card_theme")) {
       cardTheme.classList.add("active_category");
       console.log(cardTheme.id);
+      cardThemeId = cardTheme.id;
       index = cardTheme.id * 10;
       console.log(index);
     }
     let mixObjAnswer = await mixArrayAnswer(index, odjAnswer);
-    console.log("odjAnswer.answerPicture!!!", odjAnswer.answerPicture);
-    console.log("odjAnswer.answerArtist!!!", odjAnswer.answerArtist);
+    // console.log("odjAnswer.answerPicture!!!", odjAnswer.answerPicture);
+    // console.log("odjAnswer.answerArtist!!!", odjAnswer.answerArtist);
     categoryPage.classList.add("hidden_section");
+    // const countAnswer = document.querySelectorAll(".count_answer");
 
+    // countAnswer[cardThemeId].textContent = `${countRightAnswer}/10`;
     if (nameCategory === "artist") {
+      // if(countAnswer[cardThemeId].classList.contains(''))
+      if (cardThemeId) {
+        // countAnswer[cardThemeId].textContent = `${countRightAnswer}/10`;
+      }
       artistsQuizPage.classList.remove("hidden_section");
       answerContainerArtist.innerHTML = "";
 
@@ -139,6 +147,10 @@ async function renderGame() {
         index
       ).generateArtistCategory();
     } else if (nameCategory === "picture") {
+      if (cardThemeId) {
+        // countAnswer[cardThemeId].textContent = `${countRightAnswer}/10`;
+      }
+
       pictureQuiz.classList.remove("hidden_section");
       answerContainerPicture.innerHTML = "";
 
@@ -211,6 +223,11 @@ async function renderGame() {
       pictureYear.textContent = data[index].year;
       console.log("111", rightAnswer, userAnswer, indicator);
 
+      //right on the card answer
+      const countAnswer = document.querySelectorAll(".count_answer");
+
+      countAnswer[cardThemeId].textContent = `${countRightAnswer}/10`;
+
       // mix card, ind++
       index++;
 
@@ -252,15 +269,13 @@ async function renderGame() {
       ).generateArtistCategory();
     }
 
-    countDots++;
     console.log("countDots", countDots);
     const dots = document.querySelectorAll(".dot");
-    console.log("dots", dots);
-    if (countDots <= 10) {
-      for (let i = 0; i <= countDots; i++) {
-        dots[i].classList.add("active_btn");
-      }
+    for (let i = 0; i <= countDots; i++) {
+      dots[i].classList.add("active_btn");
     }
+
+    countDots++;
 
     const answers = document.querySelectorAll(".answer");
     answers.forEach((answer) => {
@@ -278,17 +293,75 @@ async function renderGame() {
 
     rightAnswer.textContent = countRightAnswer;
 
-    if (countDots === 9) {
-      // && countRightAnswer <= 9
+    if (countDots === 2) {
       congratulationsPopup.classList.add("visiblePopup");
       if (countRightAnswer <= 4) {
         titlePopup.textContent = "Try again";
+      } else if (countRightAnswer === 10) {
+        titlePopup.textContent = "great result!";
+        // grandPopup.classList.add("visiblePopup");
       } else {
         titlePopup.textContent = "Congratulation!";
       }
-    } else if (countRightAnswer === 10) {
-      grandPopup.classList.add("visiblePopup");
+    }
+    // cardThemeId = +cardThemeId + 1;
+    // if (cardThemeId === 11) {
+    //   cardThemeId = 0;
+    // }
+  }
+  function getNewIndex() {
+    cardThemeId = +cardThemeId + 1;
+    if (cardThemeId === 11) {
+      cardThemeId = 0;
+    }
+    let newIndex = cardThemeId * 10;
+    index = newIndex;
+    console.log("newIndex", newIndex);
+    const countAnswer = document.querySelectorAll(".count_answer");
+    if (nameCategory === "artist") {
+      const artists = document.querySelectorAll(".artist");
+      if (artists[cardThemeId].classList.contains("active_category")) {
+        return;
+      } else {
+        artists[cardThemeId].classList.add("active_category");
+        if (cardThemeId) {
+          // countAnswer[cardThemeId].textContent = `${countRightAnswer}/10`;
+        }
+      }
+    } else if (nameCategory === "picture") {
+      let pictures = document.querySelectorAll(".picture");
+      if (pictures[cardThemeId].classList.contains("active_category")) {
+        return;
+      } else {
+        pictures[cardThemeId].classList.add("active_category");
+        if (cardThemeId) {
+          // countAnswer[cardThemeId].textContent = `${countRightAnswer}/10`;
+        }
+      }
     }
   }
+  //handler next quiz
+  const nextQuizBtn = document.querySelector(".next_quiz_btn");
+  nextQuizBtn.addEventListener("click", getNewQuiz);
+  function getNewQuiz(e) {
+    getNewIndex();
+    console.log("indexNew quiz", index);
+    console.log("cardThemeId", cardThemeId);
+
+    if (index === 110) {
+      index = 0;
+    }
+
+    const congratulationsPopup = document.querySelector(
+      ".congratulations_popup"
+    );
+    congratulationsPopup.classList.remove("visiblePopup");
+    getGame(e);
+  }
+  //handler home btn congratulations_btn
+  const congratulationsBtn = document.querySelector(".congratulations_btn");
+  congratulationsBtn.addEventListener("click", () => {
+    getNewIndex();
+  });
 }
 renderGame();
