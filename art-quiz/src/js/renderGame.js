@@ -130,14 +130,8 @@ async function renderGame() {
     // console.log("odjAnswer.answerPicture!!!", odjAnswer.answerPicture);
     // console.log("odjAnswer.answerArtist!!!", odjAnswer.answerArtist);
     categoryPage.classList.add("hidden_section");
-    // const countAnswer = document.querySelectorAll(".count_answer");
 
-    // countAnswer[cardThemeId].textContent = `${countRightAnswer}/10`;
     if (nameCategory === "artist") {
-      // if(countAnswer[cardThemeId].classList.contains(''))
-      if (cardThemeId) {
-        // countAnswer[cardThemeId].textContent = `${countRightAnswer}/10`;
-      }
       artistsQuizPage.classList.remove("hidden_section");
       answerContainerArtist.innerHTML = "";
 
@@ -147,10 +141,6 @@ async function renderGame() {
         index
       ).generateArtistCategory();
     } else if (nameCategory === "picture") {
-      if (cardThemeId) {
-        // countAnswer[cardThemeId].textContent = `${countRightAnswer}/10`;
-      }
-
       pictureQuiz.classList.remove("hidden_section");
       answerContainerPicture.innerHTML = "";
 
@@ -167,6 +157,34 @@ async function renderGame() {
       answer.addEventListener("click", getAnswer);
     });
     getAnswer(e);
+
+    //timer
+    const timerContainer = document.querySelector(".timer_container");
+    let timers = document.querySelectorAll(".timer");
+    const timeGame = document.querySelector(".time_game");
+
+    if (timerContainer.classList.contains("hidden")) {
+      return;
+    } else {
+      let tik = timeGame.textContent;
+
+      let time = setInterval(func, 1000);
+
+      function func() {
+        tik--;
+        timers.forEach((timer) => {
+          timer.textContent = String(tik).padStart(2, 0);
+        });
+        console.log("tik", tik);
+        if (tik === 0) {
+          clearInterval(time);
+        }
+      }
+      // timers.forEach((timer) => {
+      //   timer.textContent = tik;
+      // });
+    }
+    console.log("!!!!!!!!!", timerContainer.classList.value);
   }
   // handler answer
   const answers = document.querySelectorAll(".answer");
@@ -225,7 +243,6 @@ async function renderGame() {
 
       //right on the card answer
       const countAnswer = document.querySelectorAll(".count_answer");
-
       countAnswer[cardThemeId].textContent = `${countRightAnswer}/10`;
 
       // mix card, ind++
@@ -325,7 +342,6 @@ async function renderGame() {
       } else {
         artists[cardThemeId].classList.add("active_category");
         if (cardThemeId) {
-          // countAnswer[cardThemeId].textContent = `${countRightAnswer}/10`;
         }
       }
     } else if (nameCategory === "picture") {
@@ -335,7 +351,6 @@ async function renderGame() {
       } else {
         pictures[cardThemeId].classList.add("active_category");
         if (cardThemeId) {
-          // countAnswer[cardThemeId].textContent = `${countRightAnswer}/10`;
         }
       }
     }

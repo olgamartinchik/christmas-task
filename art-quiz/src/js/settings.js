@@ -54,7 +54,7 @@ plus.addEventListener("click", (e) => {
   }
   timeGame.textContent = count;
   timers.forEach((timer) => {
-    timer.textContent = timeGame.textContent;
+    timer.textContent = String(timeGame.textContent).padStart(2, 0);
   });
 });
 minus.addEventListener("click", (e) => {
@@ -64,7 +64,7 @@ minus.addEventListener("click", (e) => {
   }
   timeGame.textContent = count;
   timers.forEach((timer) => {
-    timer.textContent = timeGame.textContent;
+    timer.textContent = String(timeGame.textContent).padStart(2, 0);
   });
 });
 
@@ -76,7 +76,7 @@ defaultBtn.addEventListener("click", (e) => {
   checkbox.checked = false;
   timeGame.textContent = 5;
   timers.forEach((timer) => {
-    timer.textContent = timeGame.textContent;
+    timer.textContent = String(timeGame.textContent).padStart(2, 0);
   });
   timersContainer.forEach((timerContainer) => {
     timerContainer.classList.add("hidden");
