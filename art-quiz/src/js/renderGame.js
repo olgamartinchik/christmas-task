@@ -102,11 +102,13 @@ function getCategory(e) {
 }
 
 async function renderGame() {
+  const timeGame = document.querySelector(".time_game");
   let data = await getDataForGame();
   let index = 0;
   let countDots = 0;
   let countRightAnswer = Number(-1);
   let cardThemeId;
+  let tik = timeGame.textContent;
 
   // handler cardsCategory
   cardsCategory.forEach((card) => {
@@ -158,34 +160,9 @@ async function renderGame() {
     });
     getAnswer(e);
 
-    //timer
-    const timerContainer = document.querySelector(".timer_container");
-    let timers = document.querySelectorAll(".timer");
-    const timeGame = document.querySelector(".time_game");
-
-    if (timerContainer.classList.contains("hidden")) {
-      return;
-    } else {
-      let tik = timeGame.textContent;
-
-      let time = setInterval(func, 1000);
-
-      function func() {
-        tik--;
-        timers.forEach((timer) => {
-          timer.textContent = String(tik).padStart(2, 0);
-        });
-        console.log("tik", tik);
-        if (tik === 0) {
-          clearInterval(time);
-        }
-      }
-      // timers.forEach((timer) => {
-      //   timer.textContent = tik;
-      // });
-    }
     console.log("!!!!!!!!!", timerContainer.classList.value);
   }
+
   // handler answer
   const answers = document.querySelectorAll(".answer");
   answers.forEach((answer) => {
@@ -253,10 +230,37 @@ async function renderGame() {
     }
   }
 
+  // function getTimer() {
+  //timer
+  let time;
+  const timerContainer = document.querySelector(".timer_container");
+  let timers = document.querySelectorAll(".timer");
+
+  if (timerContainer.classList.contains("hidden")) {
+    return;
+  } else {
+    // let tik = timeGame.textContent;
+    time = setInterval(func, 1000);
+    function func() {
+      tik--;
+      timers.forEach((timer) => {
+        timer.textContent = String(tik).padStart(2, 0);
+      });
+      console.log("tik", tik);
+      if (tik === 0) {
+        clearInterval(time);
+      }
+    }
+  }
+  // }
   /// //handler next btn
   const nextBtn = document.querySelector(".next_btn");
   nextBtn.addEventListener("click", getNewQuestion);
   async function getNewQuestion(e) {
+    // tik = timeGame.textContent;
+    // clearInterval(time);
+    // tik = timeGame.textContent;
+    // func();
     const nextPopup = document.querySelector(".next_popup");
     nextPopup.classList.remove("visiblePopup");
     document.body.classList.remove("hidden");

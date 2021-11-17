@@ -57,7 +57,8 @@
   opacity: 0;
   z-index: -1;
 }
-.card_theme {
+.card_theme,
+.card_theme_score {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -127,7 +128,8 @@
   .cards_category {
     gap: 4px 2px;
   }
-  .card_theme {
+  .card_theme,
+  .card_theme_score {
     max-width: 113px;
   }
   .category_title {
@@ -152,7 +154,8 @@
   .cards_category {
     gap: 5px;
   }
-  .card_theme {
+  .card_theme,
+  .card_theme_score {
     max-width: 184px;
   }
   .category_title {
