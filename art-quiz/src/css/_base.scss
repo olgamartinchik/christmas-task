@@ -124,3 +124,18 @@ h5 {
     position: relative;
   }
 }
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #7a7979a9;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2) inset;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--answerColor);
+  border-radius: 8px;
+  border: 1px solid #7a7979a9;
+}

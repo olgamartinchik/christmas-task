@@ -20,10 +20,10 @@ class ScoreCards {
       "nude",
       "interior",
     ];
+    this.count = 0;
   }
   generateScoreCards() {
     for (let i = 0; i < this.categories.length; i++) {
-      console.log("i", this.categories[i]);
       let scoreImag = document.createElement("div");
       scoreImag.classList.add("score_image", `${this.categories[i]}`);
       let h2 = document.createElement("h2");
@@ -37,6 +37,7 @@ class ScoreCards {
         //cards
         let card = document.createElement("div");
         card.classList.add("card", "card_theme_score");
+        card.id = this.count;
         let scoreCategory = document.createElement("div");
         scoreCategory.classList.add("score_category");
         card.appendChild(scoreCategory);
@@ -47,6 +48,7 @@ class ScoreCards {
         scoreCategory.appendChild(countCategory);
         let selectionAnswerScore = document.createElement("div");
         selectionAnswerScore.classList.add("selection_answer_score");
+        selectionAnswerScore.id = this.count;
         scoreCategory.appendChild(selectionAnswerScore);
         //
         let titleCard = document.createElement("p");
@@ -79,6 +81,7 @@ class ScoreCards {
 
         //
         cardCategory.appendChild(card);
+        this.count++;
       }
       //
 
@@ -98,7 +101,4 @@ export async function getScoreCard() {
       card.classList.toggle("active_about");
     });
   });
-  console.log("scoreImagContainer", scoreImagContainer);
-
-  console.log("imgData", imgData);
 }

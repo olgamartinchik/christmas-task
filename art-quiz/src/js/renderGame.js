@@ -155,7 +155,7 @@ async function renderGame() {
     });
     getAnswer(e);
 
-    console.log("!!!!!!!!!", timerContainer.classList.value);
+    // console.log("!!!!!!!!!", timerContainer.classList.value);
   }
 
   // handler answer
@@ -193,19 +193,36 @@ async function renderGame() {
       // open next popup
       const nextPopup = document.querySelector(".next_popup");
       nextPopup.classList.add("visiblePopup");
-
+      // next popup data
       const selectionAnswer = document.querySelector(".selection_answer");
       const pictureAbout = document.querySelector(".picture_about");
       const authorPicture = document.querySelector(".author_picture");
       const pictureYear = document.querySelector(".picture_year");
       let nextImg = document.querySelector(".next_img");
+      //score cards data
+      const cardsThemeScore = document.querySelectorAll(".card_theme_score");
+      const selectionAnswersScore = document.querySelectorAll(
+        ".selection_answer_score"
+      );
+
+      cardsThemeScore[index].classList.add("active_card");
 
       if (indicator === false) {
         console.log("false", selectionAnswer);
         selectionAnswer.classList.add("false");
+        // add marker for score card
+        if (selectionAnswersScore[index].classList.contains("true")) {
+          selectionAnswersScore[index].classList.remove("true");
+        }
+        selectionAnswersScore[index].classList.add("false");
       } else {
         console.log("true", selectionAnswer);
         selectionAnswer.classList.remove("false");
+        // add marker for score card
+        if (selectionAnswersScore[index].classList.contains("false")) {
+          selectionAnswersScore[index].classList.remove("false");
+        }
+        selectionAnswersScore[index].classList.add("true");
       }
       nextImg.src = `/src/assets/full/${data[index].imageNum}full.jpg`;
       pictureAbout.textContent = data[index].name;
@@ -217,8 +234,8 @@ async function renderGame() {
       const countAnswer = document.querySelectorAll(".count_answer");
       countAnswer[cardThemeId].textContent = `${countRightAnswer}/10`;
 
-      // mix card, ind++
-      index++;
+      // // mix card, ind++
+      // index++;
 
       console.log("index", index);
       console.log("odjAnswer.answerPicture", odjAnswer.answerPicture);
@@ -227,27 +244,28 @@ async function renderGame() {
 
   // function getTimer() {
   //timer
-  let time;
-  const timerContainer = document.querySelector(".timer_container");
-  let timers = document.querySelectorAll(".timer");
+  // let time;
+  // const timerContainer = document.querySelector(".timer_container");
+  // let timers = document.querySelectorAll(".timer");
 
-  if (timerContainer.classList.contains("hidden")) {
-    return;
-  } else {
-    // let tik = timeGame.textContent;
-    time = setInterval(func, 1000);
-    function func() {
-      tik--;
-      timers.forEach((timer) => {
-        timer.textContent = String(tik).padStart(2, 0);
-      });
-      console.log("tik", tik);
-      if (tik === 0) {
-        clearInterval(time);
-      }
-    }
-  }
+  // if (timerContainer.classList.contains("hidden")) {
+  //   return;
+  // } else {
+  //   // let tik = timeGame.textContent;
+  //   time = setInterval(func, 1000);
+  //   function func() {
+  //     tik--;
+  //     timers.forEach((timer) => {
+  //       timer.textContent = String(tik).padStart(2, 0);
+  //     });
+  //     console.log("tik", tik);
+  //     if (tik === 0) {
+  //       clearInterval(time);
+  //     }
+  //   }
   // }
+  // }
+
   /// //handler next btn
   const nextBtn = document.querySelector(".next_btn");
   nextBtn.addEventListener("click", getNewQuestion);
@@ -256,6 +274,9 @@ async function renderGame() {
     // clearInterval(time);
     // tik = timeGame.textContent;
     // func();
+
+    // mix card, ind++
+    index++;
     const nextPopup = document.querySelector(".next_popup");
     nextPopup.classList.remove("visiblePopup");
     document.body.classList.remove("hidden");
@@ -309,7 +330,7 @@ async function renderGame() {
 
     rightAnswer.textContent = countRightAnswer;
 
-    if (countDots === 2) {
+    if (countDots === 10) {
       congratulationsPopup.classList.add("visiblePopup");
       if (countRightAnswer <= 4) {
         titlePopup.textContent = "Try again";
@@ -361,11 +382,9 @@ async function renderGame() {
     getNewIndex();
     console.log("indexNew quiz", index);
     console.log("cardThemeId", cardThemeId);
-
     if (index === 110) {
       index = 0;
     }
-
     const congratulationsPopup = document.querySelector(
       ".congratulations_popup"
     );
