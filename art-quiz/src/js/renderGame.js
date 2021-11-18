@@ -18,7 +18,7 @@ const answerContainerPicture = document.querySelector(
 );
 
 //get data
-async function getDataForGame() {
+export async function getDataForGame() {
   const url = "/src/js/data.json";
   const res = await fetch(url);
   const data = await res.json();
@@ -48,21 +48,16 @@ async function mixArrayAnswer(ind, odj) {
 }
 
 let allAnswer = {
-  artist: [
+  0: [
     {
-      0: [
-        {
-          indicator: true,
-          imgNum: 10,
-          author: "",
-          name: "",
-          year: "",
-        },
-        0,
-      ],
+      indicator: true,
+      imgNum: 10,
+      author: "",
+      name: "",
+      year: "",
     },
+    0,
   ],
-  picture: [{}],
 };
 const odjAnswer = {};
 odjAnswer.answerArtist = [];

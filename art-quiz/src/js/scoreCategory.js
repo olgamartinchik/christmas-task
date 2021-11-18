@@ -1,11 +1,9 @@
-const cardsThemeScore = document.querySelectorAll(".card_theme_score");
-cardsThemeScore.forEach((card) => {
-  card.addEventListener("click", (e) => {
-    card.classList.toggle("active_about");
-  });
-});
+import { async } from "regenerator-runtime";
+import { getScoreCard } from "./getScoreCard";
+//
 
-function activeSlider() {
+async function activeSlider() {
+  await getScoreCard();
   let count = 0;
   const scoreImages = document.querySelectorAll(".score_image");
   console.log(scoreImages);
@@ -41,4 +39,21 @@ function activeSlider() {
     textSlider.textContent = count + 1;
   });
 }
+
 activeSlider();
+
+function toggleCategoryToScore() {
+  const scoreBtn = document.querySelector(".score_btn");
+  const categoryBtn = document.querySelector(".category_btn");
+  const scoreGame = document.querySelector(".score_game");
+  const categoryPage = document.querySelector(".category_page");
+  scoreBtn.addEventListener("click", () => {
+    scoreGame.classList.remove("hidden_section");
+    categoryPage.classList.add("hidden_section");
+  });
+  categoryBtn.addEventListener("click", () => {
+    scoreGame.classList.add("hidden_section");
+    categoryPage.classList.remove("hidden_section");
+  });
+}
+toggleCategoryToScore();

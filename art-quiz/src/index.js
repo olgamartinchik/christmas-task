@@ -1,6 +1,8 @@
 import "./js/settings";
 import "./js/generateCategoryCard";
-import "./js/renderGame";
+
 import "./js/generateCardGame";
 import "./js/toggleMainPage";
+import "./js/getScoreCard";
 import "./js/scoreCategory";
+import "./js/renderGame";

@@ -62,7 +62,7 @@ export class CardGame {
     let dotsContainer = document.createElement("div");
     dotsContainer.classList.add("dots_container");
     this.div.appendChild(dotsContainer);
-    let firstDot = document.createElement("div");
+    // let firstDot = document.createElement("div");
     // firstDot.classList.add("dot", "active_btn");
     // dotsContainer.appendChild(firstDot);
     for (let i = 0; i <= 9; i++) {
