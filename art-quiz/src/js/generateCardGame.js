@@ -29,7 +29,7 @@ export class CardGame {
     // dotsContainer.appendChild(firstDot);
     for (let i = 0; i <= 9; i++) {
       let dot = document.createElement("div");
-      dot.classList.add("dot");
+      dot.classList.add("dot", "artist_dot");
       dotsContainer.appendChild(dot);
     }
     imgContainer.appendChild(dotsContainer);
@@ -67,7 +67,7 @@ export class CardGame {
     // dotsContainer.appendChild(firstDot);
     for (let i = 0; i <= 9; i++) {
       let dot = document.createElement("div");
-      dot.classList.add("dot");
+      dot.classList.add("dot", "picture_dot");
       dotsContainer.appendChild(dot);
     }
     imgContainer.appendChild(dotsContainer);

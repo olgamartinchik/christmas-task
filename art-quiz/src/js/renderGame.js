@@ -16,6 +16,7 @@ const answerContainerArtist = document.querySelector(
 const answerContainerPicture = document.querySelector(
   ".answer_container_picture"
 );
+const audioContainer = document.querySelector(".audio_container");
 
 //get data
 export async function getDataForGame() {
@@ -41,7 +42,6 @@ async function mixArrayAnswer(ind, odj) {
     odj.answerArtist.push(data[indAnswer].author);
     odj.answerPicture.push(indAnswer);
   }
-
   shuffle(odjAnswer.answerArtist);
   shuffle(odjAnswer.answerPicture);
   return odj;
@@ -63,6 +63,27 @@ const odjAnswer = {};
 odjAnswer.answerArtist = [];
 odjAnswer.answerPicture = [];
 let nameCategory = "";
+
+const audioGameOver = new Audio();
+audioGameOver.classList.add("audio");
+audioGameOver.src = "/src/assets/audio/game_over.mp3";
+let buttonPress = new Audio();
+buttonPress.classList.add("audio", "buttonPress");
+buttonPress.src = "/src/assets/audio/button2.mp3";
+const won1 = new Audio();
+won1.classList.add("audio");
+won1.src = "/src/assets/audio/game-won.mp3";
+const won2 = new Audio();
+won2.classList.add("audio");
+won2.src = "/src/assets/audio/zvuk-pobedyi-vyiigryisha.mp3";
+const won3 = new Audio();
+won3.classList.add("audio");
+won3.src = "/src/assets/audio/finish_game.mp3";
+audioContainer.appendChild(audioGameOver);
+audioContainer.appendChild(buttonPress);
+audioContainer.appendChild(won1);
+audioContainer.appendChild(won2);
+audioContainer.appendChild(won3);
 
 //handler  categoriesGame
 categoriesGame.addEventListener("click", getCategory);
@@ -164,6 +185,7 @@ async function renderGame() {
     answer.addEventListener("click", getAnswer);
   });
   async function getAnswer(e) {
+    buttonPress.play();
     let data = await getDataForGame();
     const ans = e.target;
     if (ans.classList.contains("ans")) {
@@ -270,6 +292,7 @@ async function renderGame() {
   const nextBtn = document.querySelector(".next_btn");
   nextBtn.addEventListener("click", getNewQuestion);
   async function getNewQuestion(e) {
+    buttonPress.play();
     // tik = timeGame.textContent;
     // clearInterval(time);
     // tik = timeGame.textContent;
@@ -307,7 +330,13 @@ async function renderGame() {
     }
 
     console.log("countDots", countDots);
-    const dots = document.querySelectorAll(".dot");
+    let dots = document.querySelectorAll(".dot");
+    if (nameCategory === "artist") {
+      dots = document.querySelectorAll(".artist_dot");
+    } else if (nameCategory === "picture") {
+      dots = document.querySelectorAll(".picture_dot");
+    }
+
     for (let i = 0; i <= countDots; i++) {
       dots[i].classList.add("active_btn");
     }
@@ -334,11 +363,14 @@ async function renderGame() {
       congratulationsPopup.classList.add("visiblePopup");
       if (countRightAnswer <= 4) {
         titlePopup.textContent = "Try again";
+        won3.play();
       } else if (countRightAnswer === 10) {
         titlePopup.textContent = "great result!";
+        won2.play();
         // grandPopup.classList.add("visiblePopup");
       } else {
         titlePopup.textContent = "Congratulation!";
+        won1.play();
       }
     }
     // cardThemeId = +cardThemeId + 1;
@@ -379,6 +411,7 @@ async function renderGame() {
   const nextQuizBtn = document.querySelector(".next_quiz_btn");
   nextQuizBtn.addEventListener("click", getNewQuiz);
   function getNewQuiz(e) {
+    buttonPress.play();
     getNewIndex();
     console.log("indexNew quiz", index);
     console.log("cardThemeId", cardThemeId);
@@ -394,6 +427,7 @@ async function renderGame() {
   //handler home btn congratulations_btn
   const congratulationsBtn = document.querySelector(".congratulations_btn");
   congratulationsBtn.addEventListener("click", () => {
+    buttonPress.play();
     getNewIndex();
   });
 }
