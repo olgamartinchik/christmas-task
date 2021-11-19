@@ -1446,4 +1446,3 @@ const images = [
     imageNum: "240",
   },
 ];
-console.log(JSON.stringify(images));

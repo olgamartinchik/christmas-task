@@ -1,6 +1,7 @@
 import { async } from "regenerator-runtime";
 import { CategoryCard } from "./generateCategoryCard";
 import { CardGame } from "./generateCardGame";
+import { isMuted } from "./settings";
 
 const mainPage = document.querySelector(".main_page");
 const categoryPage = document.querySelector(".category_page");
@@ -16,7 +17,13 @@ const answerContainerArtist = document.querySelector(
 const answerContainerPicture = document.querySelector(
   ".answer_container_picture"
 );
-const audioContainer = document.querySelector(".audio_container");
+
+const audioGameOver = document.querySelector(".audioGameOver");
+const buttonPress = document.querySelector(".buttonPress");
+const won1 = document.querySelector(".won1");
+const won2 = document.querySelector(".won2");
+const won3 = document.querySelector(".won3");
+const soundAir = document.querySelector(".soundAir");
 
 //get data
 export async function getDataForGame() {
@@ -64,31 +71,11 @@ odjAnswer.answerArtist = [];
 odjAnswer.answerPicture = [];
 let nameCategory = "";
 
-const audioGameOver = new Audio();
-audioGameOver.classList.add("audio");
-audioGameOver.src = "/src/assets/audio/game_over.mp3";
-let buttonPress = new Audio();
-buttonPress.classList.add("audio", "buttonPress");
-buttonPress.src = "/src/assets/audio/button2.mp3";
-const won1 = new Audio();
-won1.classList.add("audio");
-won1.src = "/src/assets/audio/game-won.mp3";
-const won2 = new Audio();
-won2.classList.add("audio");
-won2.src = "/src/assets/audio/zvuk-pobedyi-vyiigryisha.mp3";
-const won3 = new Audio();
-won3.classList.add("audio");
-won3.src = "/src/assets/audio/finish_game.mp3";
-audioContainer.appendChild(audioGameOver);
-audioContainer.appendChild(buttonPress);
-audioContainer.appendChild(won1);
-audioContainer.appendChild(won2);
-audioContainer.appendChild(won3);
-
 //handler  categoriesGame
 categoriesGame.addEventListener("click", getCategory);
 
 function getCategory(e) {
+  soundAir.play();
   const cardCategory = e.target.parentNode;
   if (cardCategory.classList.contains("category_game")) {
     // console.log("yes");
@@ -292,7 +279,12 @@ async function renderGame() {
   const nextBtn = document.querySelector(".next_btn");
   nextBtn.addEventListener("click", getNewQuestion);
   async function getNewQuestion(e) {
-    buttonPress.play();
+    if (isMuted === false) {
+      buttonPress.play();
+    } else {
+      buttonPress.pause();
+    }
+
     // tik = timeGame.textContent;
     // clearInterval(time);
     // tik = timeGame.textContent;

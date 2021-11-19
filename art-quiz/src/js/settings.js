@@ -9,10 +9,10 @@ const saveBtn = document.querySelector(".save_btn");
 const defaultBtn = document.querySelector(".default_btn");
 const timers = document.querySelectorAll(".timer");
 const timersContainer = document.querySelectorAll(".timer_container");
-const audioContainer = document.querySelector(".audio_container");
+const allAudio = document.querySelectorAll(".audio");
+const buttonPress = document.querySelector(".buttonPress");
 
-let buttonPress = document.querySelector(".buttonPress");
-let mut = true;
+export let isMuted = true;
 const settingsData = {
   volumeline: "volumeline",
   volumeBtn: "volume_btn_off",
@@ -21,7 +21,6 @@ const settingsData = {
   progressVolume: "",
 };
 let count = 5;
-let allAudio = document.querySelectorAll(".audio");
 
 volumeline.addEventListener("click", getVolumeProgress);
 function getVolumeProgress(e) {
@@ -43,7 +42,11 @@ function getVolumeProgress(e) {
 }
 
 plus.addEventListener("click", (e) => {
-  buttonPress.play();
+  if (isMuted === false) {
+    buttonPress.play();
+  } else {
+    buttonPress.pause();
+  }
   count = count + 5;
   if (count >= 30) {
     count = 30;
@@ -54,7 +57,11 @@ plus.addEventListener("click", (e) => {
   });
 });
 minus.addEventListener("click", (e) => {
-  buttonPress.play();
+  if (isMuted === false) {
+    buttonPress.play();
+  } else {
+    buttonPress.pause();
+  }
   count = count - 5;
   if (count <= 5) {
     count = 5;
@@ -66,6 +73,11 @@ minus.addEventListener("click", (e) => {
 });
 
 checkbox.addEventListener("change", (e) => {
+  if (isMuted === false) {
+    buttonPress.play();
+  } else {
+    buttonPress.pause();
+  }
   if (checkbox.checked === true) {
     timersContainer.forEach((timerContainer) => {
       timerContainer.classList.remove("hidden");
@@ -78,11 +90,11 @@ checkbox.addEventListener("change", (e) => {
 });
 
 saveBtn.addEventListener("click", (e) => {
-  // if (mut === false) {
-  // buttonPress.play();
-  // } else {
-  //   buttonPress.pause();
-  // }
+  if (isMuted === false) {
+    buttonPress.play();
+  } else {
+    buttonPress.pause();
+  }
 
   console.log("volumeline", volumeline.classList, "volume", volume.classList);
   settingsData.volumeline = volumeline.classList.value;
@@ -107,13 +119,20 @@ defaultBtn.addEventListener("click", (e) => {
   timersContainer.forEach((timerContainer) => {
     timerContainer.classList.add("hidden");
   });
-  // if (volume.classList.contains("volume_btn_on")) {
-  //   allAudio.forEach((audio) => {
-  //     // mut = false;
-  //     audio.muted = false;
-  //     audio.pause();
-  //   });
-  // }
+  if (volume.classList.contains("volume_btn_on")) {
+    isMuted = false;
+    allAudio.forEach((audio) => {
+      audio.muted = false;
+    });
+    volumeline.classList.add("visible");
+  } else {
+    isMuted = true;
+    allAudio.forEach((audio) => {
+      audio.muted = true;
+      audio.pause();
+    });
+  }
+
   progressVolume.style.width = 75 + "%";
   settingsData.progressVolume = progressVolume.style.width;
   settingsData.volumeline = volumeline.classList.value;
@@ -125,29 +144,34 @@ defaultBtn.addEventListener("click", (e) => {
   console.log("settingsData", settingsData);
 });
 
-//volume
+// toggle volume
 function toggleVolume() {
+  console.log("buttonPress", buttonPress);
   console.log("audio", allAudio);
   volume.classList.toggle("volume_btn_on");
-  buttonPress.play();
+
   console.log("settingsData", settingsData);
   if (volume.classList.contains("volume_btn_on")) {
-    // mut = false;
+    isMuted = false;
     allAudio.forEach((audio) => {
       audio.muted = false;
     });
     volumeline.classList.add("visible");
   } else {
-    // mut = true;
+    isMuted = true;
     allAudio.forEach((audio) => {
       audio.muted = true;
       audio.pause();
     });
-    // audio.pause();
+
     volumeline.classList.remove("visible");
   }
+  if (isMuted === false) {
+    buttonPress.play();
+  } else {
+    buttonPress.pause();
+  }
 }
-
 volume.addEventListener("click", toggleVolume);
 
 window.addEventListener("DOMContentLoaded", () => {

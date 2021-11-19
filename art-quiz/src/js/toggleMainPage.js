@@ -1,3 +1,4 @@
+import { isMuted } from "./settings";
 const main = document.querySelector(".main_page");
 const settings = document.querySelector(".setting_page");
 const mainBtn = document.querySelector(".main_btn");
@@ -6,8 +7,18 @@ const sections = document.querySelectorAll("section");
 const homeBtns = document.querySelectorAll(".home_btn");
 const categoryGame = document.querySelectorAll(".category_game");
 const cardsCategory = document.querySelectorAll(".cards_category");
+let buttonPress = document.querySelector(".buttonPress");
+
 const popups = document.querySelectorAll(".popup");
 mainBtn.addEventListener("click", (e) => {
+  console.log("isMuted", isMuted);
+  console.log("buttonPress", buttonPress);
+  if (isMuted === false) {
+    buttonPress.play();
+  } else {
+    buttonPress.pause();
+  }
+
   main.classList.add("hidden_section");
   settings.classList.remove("hidden_section");
 });
@@ -30,4 +41,9 @@ function toggleMainPage() {
   popups.forEach((popup) => {
     popup.classList.remove("visiblePopup");
   });
+  if (isMuted === false) {
+    buttonPress.play();
+  } else {
+    buttonPress.pause();
+  }
 }
