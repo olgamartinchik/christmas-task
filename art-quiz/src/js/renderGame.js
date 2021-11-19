@@ -24,6 +24,7 @@ const won1 = document.querySelector(".won1");
 const won2 = document.querySelector(".won2");
 const won3 = document.querySelector(".won3");
 const soundAir = document.querySelector(".soundAir");
+const choice = document.querySelector(".choice");
 
 //get data
 export async function getDataForGame() {
@@ -65,6 +66,11 @@ let allAnswer = {
     },
     0,
   ],
+};
+const scoreData = {
+  activeCard: [],
+  true: [],
+  false: [],
 };
 const odjAnswer = {};
 odjAnswer.answerArtist = [];
@@ -112,14 +118,20 @@ async function renderGame() {
   let countRightAnswer = Number(-1);
   let cardThemeId;
   let tik = timeGame.textContent;
+  //data for localStorage
+  // scoreData.activeCard = [];
+  // scoreData.false = [];
+  // scoreData.true = [];
 
   // handler cardsCategory
   cardsCategory.forEach((card) => {
     card.addEventListener("click", getGame);
   });
   async function getGame(e) {
+    choice.play();
     countDots = 0;
     countRightAnswer = 0;
+    console.log("countRightAnswer", countRightAnswer);
     odjAnswer.answerArtist = [];
     odjAnswer.answerPicture = [];
     let cardTheme = e.target.parentNode;
@@ -215,24 +227,38 @@ async function renderGame() {
       );
 
       cardsThemeScore[index].classList.add("active_card");
+      if (scoreData.activeCard.indexOf(index) !== -1) {
+        return;
+      } else {
+        scoreData.activeCard.push(index);
+      }
 
       if (indicator === false) {
-        console.log("false", selectionAnswer);
         selectionAnswer.classList.add("false");
-        // add marker for score card
+        // add false marker for score card
         if (selectionAnswersScore[index].classList.contains("true")) {
           selectionAnswersScore[index].classList.remove("true");
         }
         selectionAnswersScore[index].classList.add("false");
-      } else {
-        console.log("true", selectionAnswer);
+        if (scoreData.false.indexOf(index) !== -1) {
+          return;
+        } else {
+          scoreData.false.push(index);
+        }
+      } else if (indicator === true) {
         selectionAnswer.classList.remove("false");
-        // add marker for score card
+        // add true marker for score card
         if (selectionAnswersScore[index].classList.contains("false")) {
           selectionAnswersScore[index].classList.remove("false");
         }
         selectionAnswersScore[index].classList.add("true");
+        if (scoreData.true.indexOf(index) !== -1) {
+          return;
+        } else {
+          scoreData.true.push(index);
+        }
       }
+      localStorage.setItem("scoreData", JSON.stringify(scoreData));
       nextImg.src = `/src/assets/full/${data[index].imageNum}full.jpg`;
       pictureAbout.textContent = data[index].name;
       authorPicture.textContent = data[index].author;
@@ -240,14 +266,15 @@ async function renderGame() {
       console.log("111", rightAnswer, userAnswer, indicator);
 
       //right on the card answer
-      const countAnswer = document.querySelectorAll(".count_answer");
-      countAnswer[cardThemeId].textContent = `${countRightAnswer}/10`;
+      if (nameCategory === "picture") {
+        const countAnswer = document.querySelectorAll(".picture_count_answer");
+        countAnswer[cardThemeId].textContent = `${countRightAnswer}/10`;
+      } else if (nameCategory === "artist") {
+        const countAnswer = document.querySelectorAll(".artist_count_answer");
+        countAnswer[cardThemeId].textContent = `${countRightAnswer}/10`;
+      }
 
-      // // mix card, ind++
-      // index++;
-
-      console.log("index", index);
-      console.log("odjAnswer.answerPicture", odjAnswer.answerPicture);
+      // console.log("odjAnswer.answerPicture", odjAnswer.answerPicture);
     }
   }
 
@@ -284,12 +311,6 @@ async function renderGame() {
     } else {
       buttonPress.pause();
     }
-
-    // tik = timeGame.textContent;
-    // clearInterval(time);
-    // tik = timeGame.textContent;
-    // func();
-
     // mix card, ind++
     index++;
     const nextPopup = document.querySelector(".next_popup");
@@ -298,11 +319,11 @@ async function renderGame() {
     odjAnswer.answerArtist = [];
     odjAnswer.answerPicture = [];
     let mixObjAnswer = await mixArrayAnswer(index, odjAnswer);
-    console.log(
-      "1mixObjAnswer",
-      mixObjAnswer.answerArtist,
-      mixObjAnswer.answerPicture
-    );
+    // console.log(
+    //   "1mixObjAnswer",
+    //   mixObjAnswer.answerArtist,
+    //   mixObjAnswer.answerPicture
+    // );
     if (nameCategory === "picture") {
       answerContainerPicture.innerHTML = "";
       let painter = document.querySelector(".painter");

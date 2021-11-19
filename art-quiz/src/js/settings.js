@@ -19,6 +19,7 @@ const settingsData = {
   checkbox: false,
   timeGame: count,
   progressVolume: "",
+  isMuted: true,
 };
 let count = 5;
 
@@ -102,6 +103,7 @@ saveBtn.addEventListener("click", (e) => {
   settingsData.checkbox = checkbox.checked;
   settingsData.timeGame = count;
   settingsData.progressVolume = progressVolume.style.width;
+  settingsData.isMuted = isMuted;
   localStorage.setItem("settingsData", JSON.stringify(settingsData));
   console.log("settingsData!!!", settingsData);
 });
@@ -134,11 +136,13 @@ defaultBtn.addEventListener("click", (e) => {
   }
 
   progressVolume.style.width = 75 + "%";
+
   settingsData.progressVolume = progressVolume.style.width;
   settingsData.volumeline = volumeline.classList.value;
   settingsData.volumeBtn = volume.classList.value;
   settingsData.checkbox = false;
   settingsData.timeGame = timeGame.textContent;
+  settingsData.isMuted = isMuted;
 
   localStorage.setItem("settingsData", JSON.stringify(settingsData));
   console.log("settingsData", settingsData);
@@ -176,7 +180,7 @@ volume.addEventListener("click", toggleVolume);
 
 window.addEventListener("DOMContentLoaded", () => {
   if (localStorage.getItem("settingsData")) {
-    console.log(JSON.parse(localStorage.getItem("settingsData")));
+    // console.log(JSON.parse(localStorage.getItem("settingsData")));
     const localSettings = JSON.parse(localStorage.getItem("settingsData"));
     volumeline.className = localSettings.volumeline;
     volume.className = localSettings.volumeBtn;
@@ -195,5 +199,6 @@ window.addEventListener("DOMContentLoaded", () => {
         timerContainer.classList.add("hidden");
       });
     }
+    isMuted = localSettings.isMuted;
   }
 });

@@ -83,7 +83,6 @@ class ScoreCards {
         cardCategory.appendChild(card);
         this.count++;
       }
-      //
 
       this.div.appendChild(scoreImag);
     }
@@ -101,4 +100,25 @@ export async function getScoreCard() {
       card.classList.toggle("active_about");
     });
   });
+  getLocalStorageScoreData();
+}
+
+function getLocalStorageScoreData() {
+  if (localStorage.getItem("scoreData")) {
+    // console.log("scoreData", localStorage.getItem("scoreData"));
+    const scoreData = JSON.parse(localStorage.getItem("scoreData"));
+    const cardsThemeScore = document.querySelectorAll(".card_theme_score");
+    const selectionAnswersScore = document.querySelectorAll(
+      ".selection_answer_score"
+    );
+    scoreData.activeCard.forEach((indCard) => {
+      cardsThemeScore[indCard].classList.add("active_card");
+    });
+    scoreData.true.forEach((indTrue) => {
+      selectionAnswersScore[indTrue].classList.add("true");
+    });
+    scoreData.false.forEach((indFalse) => {
+      selectionAnswersScore[indFalse].classList.add("false");
+    });
+  }
 }

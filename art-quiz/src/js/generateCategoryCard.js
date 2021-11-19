@@ -1,9 +1,9 @@
 // const cardsCategory = document.querySelector(".cards_category");
 
 export class CategoryCard {
-  constructor(div, classCard) {
+  constructor(div, nameCategory) {
     this.div = div;
-    this.classCard = classCard;
+    this.nameCategory = nameCategory;
     this.imgs = [
       "30",
       "10",
@@ -37,7 +37,7 @@ export class CategoryCard {
   crateCardCategory() {
     for (let i = 0; i <= 11; i++) {
       let divWrapper = document.createElement("div");
-      divWrapper.classList.add("card", "card_theme", this.classCard);
+      divWrapper.classList.add("card", "card_theme", this.nameCategory);
       divWrapper.id = `${i}`;
       let div = document.createElement("div");
       div.classList.add("score_category");
@@ -45,8 +45,8 @@ export class CategoryCard {
       h2.classList.add("count_category");
       h2.textContent = `${i + 1}`;
       let span = document.createElement("span");
-      span.classList.add("count_answer");
-      span.textContent = `10/10`;
+      span.classList.add("count_answer", `${this.nameCategory}_count_answer`);
+      span.textContent = `00/10`;
       let p = document.createElement("span");
       p.classList.add("title_card");
       p.textContent = `${this.category[i]}`;

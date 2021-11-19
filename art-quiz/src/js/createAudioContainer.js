@@ -18,9 +18,14 @@ won3.src = "/src/assets/audio/finish_game.mp3";
 const soundAir = new Audio();
 soundAir.classList.add("audio", "soundAir");
 soundAir.src = "/src/assets/audio/zvuk-dvijeniya-vozduha.mp3";
+const choice = new Audio();
+choice.classList.add("audio", "choice");
+choice.src = "/src/assets/audio/choice.mp3";
+
 audioContainer.appendChild(audioGameOver);
 audioContainer.appendChild(buttonPress);
 audioContainer.appendChild(won1);
 audioContainer.appendChild(won2);
 audioContainer.appendChild(won3);
 audioContainer.appendChild(soundAir);
+audioContainer.appendChild(choice);
