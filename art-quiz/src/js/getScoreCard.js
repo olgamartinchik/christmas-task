@@ -6,21 +6,44 @@ class ScoreCards {
   constructor(div, imgData) {
     this.div = div;
     this.imgData = imgData;
-    this.categories = [
-      "portrait",
-      "landscape",
-      "still-life",
-      "impressionism",
-      "expressionism",
-      "avant-garde",
-      "renaissance",
-      "surrealism",
-      "kitsch",
-      "minimalism",
-      "nude",
-      "interior",
-    ];
+    this.categories = [];
     this.count = 0;
+    this.category = [];
+    if (localStorage.getItem("settingsData")) {
+      const localSettings = JSON.parse(localStorage.getItem("settingsData"));
+      let en = localSettings.enChecked;
+      let ru = localSettings.ruChecked;
+      this.categories =
+        en === true
+          ? [
+              "portrait",
+              "landscape",
+              "still-life",
+              "realism",
+              "cubism",
+              "avant-garde",
+              "renaissance",
+              "surrealism",
+              "kitsch",
+              "minimalism",
+              "nude",
+              "interior",
+            ]
+          : [
+              "портрет",
+              "пейзаж",
+              "натюрморт",
+              "pеализм",
+              "Кубизм",
+              "авангард",
+              "pенессанс",
+              "cюрреализм",
+              "китч",
+              "минимализм",
+              "ню",
+              "интерьер",
+            ];
+    }
   }
   generateScoreCards() {
     for (let i = 0; i < this.categories.length; i++) {

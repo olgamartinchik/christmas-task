@@ -18,20 +18,42 @@ export class CategoryCard {
       "110",
       "120",
     ];
-    this.category = [
-      "portrait",
-      "landscape",
-      "still life",
-      "impressionism",
-      "expressionism",
-      "avant-garde",
-      "Renaissance ",
-      "Surrealism ",
-      "kitsch",
-      "minimalism ",
-      "nude",
-      "interior",
-    ];
+    this.category = [];
+    if (localStorage.getItem("settingsData")) {
+      const localSettings = JSON.parse(localStorage.getItem("settingsData"));
+      let en = localSettings.enChecked;
+      let ru = localSettings.ruChecked;
+      this.category =
+        en === true
+          ? [
+              "portrait",
+              "landscape",
+              "still-life",
+              "realism",
+              "cubism",
+              "avant-garde",
+              "renaissance",
+              "surrealism",
+              "kitsch",
+              "minimalism",
+              "nude",
+              "interior",
+            ]
+          : [
+              "портрет",
+              "пейзаж",
+              "натюрморт",
+              "pеализм",
+              "Кубизм",
+              "авангард",
+              "Ренессанс ",
+              "cюрреализм",
+              "китч",
+              "минимализм",
+              "ню",
+              "интерьер",
+            ];
+    }
   }
 
   crateCardCategory() {

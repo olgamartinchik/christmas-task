@@ -6,7 +6,7 @@ async function activeSlider() {
   await getScoreCard();
   let count = 0;
   const scoreImages = document.querySelectorAll(".score_image");
-  console.log(scoreImages);
+  // console.log(scoreImages);
   scoreImages[count].classList.add("visible_category");
 
   const prev = document.querySelector(".prev");
@@ -22,7 +22,7 @@ async function activeSlider() {
     if (count === scoreImages.length) {
       count = 0;
     }
-    console.log(count, scoreImages.length);
+    // console.log(count, scoreImages.length);
     scoreImages[count].classList.add("visible_category");
     textSlider.textContent = count + 1;
   });
@@ -34,7 +34,7 @@ async function activeSlider() {
     if (count === -1) {
       count = scoreImages.length - 1;
     }
-    console.log(count, scoreImages.length);
+    // console.log(count, scoreImages.length);
     scoreImages[count].classList.add("visible_category");
     textSlider.textContent = count + 1;
   });

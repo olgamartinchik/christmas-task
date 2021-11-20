@@ -1,3 +1,4 @@
+import { toggleLang, selectUrl, url } from "./getTranslation";
 const volume = document.querySelector(".volume_btn_off");
 const volumeline = document.querySelector(".volumeline");
 const progressVolume = document.querySelector(".progress_volume");
@@ -11,7 +12,9 @@ const timers = document.querySelectorAll(".timer");
 const timersContainer = document.querySelectorAll(".timer_container");
 const allAudio = document.querySelectorAll(".audio");
 const buttonPress = document.querySelector(".buttonPress");
-
+const en = document.querySelector("#en");
+const ru = document.querySelector("#ru");
+// export let url = "/src/js/dataEn.json";
 export let isMuted = true;
 const settingsData = {
   volumeline: "volumeline",
@@ -20,6 +23,8 @@ const settingsData = {
   timeGame: count,
   progressVolume: "",
   isMuted: true,
+  enChecked: true,
+  ruChecked: false,
 };
 let count = 5;
 
@@ -96,8 +101,12 @@ saveBtn.addEventListener("click", (e) => {
   } else {
     buttonPress.pause();
   }
+  toggleLang(en.checked, ru.checked);
 
   console.log("volumeline", volumeline.classList, "volume", volume.classList);
+
+  settingsData.enChecked = en.checked;
+  settingsData.ruChecked = ru.checked;
   settingsData.volumeline = volumeline.classList.value;
   settingsData.volumeBtn = volume.classList.value;
   settingsData.checkbox = checkbox.checked;
@@ -109,6 +118,10 @@ saveBtn.addEventListener("click", (e) => {
 });
 
 defaultBtn.addEventListener("click", (e) => {
+  en.checked = true;
+  ru.checked = false;
+  toggleLang(en.checked, ru.checked);
+
   if (volumeline.classList.contains("visible")) {
     volumeline.classList.remove("visible");
   }
@@ -137,6 +150,8 @@ defaultBtn.addEventListener("click", (e) => {
 
   progressVolume.style.width = 75 + "%";
 
+  settingsData.enChecked = true;
+  settingsData.ruChecked = false;
   settingsData.progressVolume = progressVolume.style.width;
   settingsData.volumeline = volumeline.classList.value;
   settingsData.volumeBtn = volume.classList.value;
@@ -178,7 +193,7 @@ function toggleVolume() {
 }
 volume.addEventListener("click", toggleVolume);
 
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("load", () => {
   if (localStorage.getItem("settingsData")) {
     // console.log(JSON.parse(localStorage.getItem("settingsData")));
     const localSettings = JSON.parse(localStorage.getItem("settingsData"));
@@ -200,5 +215,9 @@ window.addEventListener("DOMContentLoaded", () => {
       });
     }
     isMuted = localSettings.isMuted;
+    en.checked = localSettings.enChecked;
+    ru.checked = localSettings.ruChecked;
+    // ruLang = localSettings.enChecked;
+    // enLang = localSettings.ruChecked;
   }
 });

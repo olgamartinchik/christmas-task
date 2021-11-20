@@ -2,12 +2,14 @@ import { async } from "regenerator-runtime";
 import { CategoryCard } from "./generateCategoryCard";
 import { CardGame } from "./generateCardGame";
 import { isMuted } from "./settings";
+import { getQuizData } from "./getQuizData";
+import { url } from "./getTranslation";
 
 const mainPage = document.querySelector(".main_page");
 const categoryPage = document.querySelector(".category_page");
 const cardsCategory = document.querySelectorAll(".cards_category");
-const artistCardsCategory = document.querySelector(".artist");
-const pictureCardsCategory = document.querySelector(".picture");
+const artistCardsCategory = document.querySelector(".category_artist");
+const pictureCardsCategory = document.querySelector(".category_picture");
 const categoriesGame = document.querySelector(".categories_game");
 const artistsQuizPage = document.querySelector(".artists_quiz");
 const pictureQuiz = document.querySelector(".picture_quiz");
@@ -28,7 +30,16 @@ const choice = document.querySelector(".choice");
 
 //get data
 export async function getDataForGame() {
-  const url = "/src/js/data.json";
+  let url = "/src/js/dataEn.json";
+  if (localStorage.getItem("settingsData")) {
+    const localSettings = JSON.parse(localStorage.getItem("settingsData"));
+    let en = localSettings.enChecked;
+    let ru = localSettings.ruChecked;
+    url = en === true ? "/src/js/dataEn.json" : "/src/js/dataRu.json";
+  }
+  // const urlData = "/src/js/dataRu.json";
+  // const urlData = "/src/js/dataEn.json";
+
   const res = await fetch(url);
   const data = await res.json();
   return data;
@@ -55,33 +66,59 @@ async function mixArrayAnswer(ind, odj) {
   return odj;
 }
 
-let allAnswer = {
-  0: [
-    {
-      indicator: true,
-      imgNum: 10,
-      author: "",
-      name: "",
-      year: "",
-    },
-    0,
-  ],
+const quizData = {
+  activeCardArtist: [],
+  activeCardPicture: [],
+  countRightAnswerArtist: [],
+  countRightAnswerPicture: [],
 };
+if (localStorage.getItem("quizData")) {
+  const quizDataLocalStorage = JSON.parse(localStorage.getItem("quizData"));
+  quizDataLocalStorage.activeCardArtist.forEach((artistInd) => {
+    if (artistInd !== "") {
+      quizData.activeCardArtist.push(artistInd);
+    }
+  });
+  quizDataLocalStorage.activeCardPicture.forEach((pictureInd) => {
+    if (pictureInd !== "") {
+      quizData.activeCardPicture.push(pictureInd);
+    }
+  });
+}
 const scoreData = {
   activeCard: [],
   true: [],
   false: [],
 };
+
+if (localStorage.getItem("scoreData")) {
+  const scoreDataLocal = JSON.parse(localStorage.getItem("scoreData"));
+  scoreDataLocal.activeCard.forEach((card) => {
+    scoreData.activeCard.push(card);
+  });
+  scoreDataLocal.false.forEach((unCorrectAnswer) => {
+    scoreData.false.push(unCorrectAnswer);
+  });
+  scoreDataLocal.true.forEach((correctAnswer) => {
+    scoreData.true.push(correctAnswer);
+  });
+}
+
 const odjAnswer = {};
 odjAnswer.answerArtist = [];
 odjAnswer.answerPicture = [];
-let nameCategory = "";
+export let nameCategory = "";
 
 //handler  categoriesGame
 categoriesGame.addEventListener("click", getCategory);
 
 function getCategory(e) {
-  soundAir.play();
+  if (isMuted === false) {
+    soundAir.play();
+  } else {
+    soundAir.pause();
+  }
+
   const cardCategory = e.target.parentNode;
   if (cardCategory.classList.contains("category_game")) {
     // console.log("yes");
@@ -97,6 +134,7 @@ function getCategory(e) {
     if (artistCardsCategory.innerHTML.length === 0) {
       new CategoryCard(artistCardsCategory, nameCategory).crateCardCategory();
     }
+    getQuizData();
   } else if (cardCategory.classList.contains("pictures_game", "active_game")) {
     mainPage.classList.add("hidden_section");
     categoryPage.classList.remove("hidden_section");
@@ -107,9 +145,11 @@ function getCategory(e) {
       pictureCardsCategory.classList.remove("hidden_section");
       new CategoryCard(pictureCardsCategory, nameCategory).crateCardCategory();
     }
+    getQuizData();
   }
 }
 
+let array = [];
 async function renderGame() {
   const timeGame = document.querySelector(".time_game");
   let data = await getDataForGame();
@@ -118,17 +158,20 @@ async function renderGame() {
   let countRightAnswer = Number(-1);
   let cardThemeId;
   let tik = timeGame.textContent;
-  //data for localStorage
-  // scoreData.activeCard = [];
-  // scoreData.false = [];
-  // scoreData.true = [];
+  let copyIndex = 0;
 
   // handler cardsCategory
   cardsCategory.forEach((card) => {
     card.addEventListener("click", getGame);
   });
   async function getGame(e) {
-    choice.play();
+    let data = await getDataForGame();
+    if (isMuted === false) {
+      choice.play();
+    } else {
+      choice.pause();
+    }
+
     countDots = 0;
     countRightAnswer = 0;
     console.log("countRightAnswer", countRightAnswer);
@@ -141,7 +184,7 @@ async function renderGame() {
       console.log(cardTheme.id);
       cardThemeId = cardTheme.id;
       index = cardTheme.id * 10;
-      console.log(index);
+      console.log("index", index);
     }
     let mixObjAnswer = await mixArrayAnswer(index, odjAnswer);
     // console.log("odjAnswer.answerPicture!!!", odjAnswer.answerPicture);
@@ -149,6 +192,11 @@ async function renderGame() {
     categoryPage.classList.add("hidden_section");
 
     if (nameCategory === "artist") {
+      // quizData
+
+      if (quizData.activeCardArtist.indexOf(cardTheme.id) === -1) {
+        quizData.activeCardArtist.push(cardTheme.id);
+      }
       artistsQuizPage.classList.remove("hidden_section");
       answerContainerArtist.innerHTML = "";
 
@@ -158,6 +206,12 @@ async function renderGame() {
         index
       ).generateArtistCategory();
     } else if (nameCategory === "picture") {
+      // quizData
+
+      if (quizData.activeCardPicture.indexOf(cardTheme.id) === -1) {
+        quizData.activeCardPicture.push(cardTheme.id);
+      }
+
       pictureQuiz.classList.remove("hidden_section");
       answerContainerPicture.innerHTML = "";
 
@@ -169,6 +223,9 @@ async function renderGame() {
       let painter = document.querySelector(".painter");
       painter.textContent = `${data[index].author}`;
     }
+
+    localStorage.setItem("quizData", JSON.stringify(quizData));
+
     const answers = document.querySelectorAll(".answer");
     answers.forEach((answer) => {
       answer.addEventListener("click", getAnswer);
@@ -184,7 +241,13 @@ async function renderGame() {
     answer.addEventListener("click", getAnswer);
   });
   async function getAnswer(e) {
-    buttonPress.play();
+    console.log("index", index);
+    if (isMuted === false) {
+      buttonPress.play();
+    } else {
+      buttonPress.pause();
+    }
+
     let data = await getDataForGame();
     const ans = e.target;
     if (ans.classList.contains("ans")) {
@@ -227,12 +290,10 @@ async function renderGame() {
       );
 
       cardsThemeScore[index].classList.add("active_card");
-      if (scoreData.activeCard.indexOf(index) !== -1) {
-        return;
-      } else {
+
+      if (scoreData.activeCard.indexOf(index) === -1) {
         scoreData.activeCard.push(index);
       }
-
       if (indicator === false) {
         selectionAnswer.classList.add("false");
         // add false marker for score card
@@ -240,9 +301,11 @@ async function renderGame() {
           selectionAnswersScore[index].classList.remove("true");
         }
         selectionAnswersScore[index].classList.add("false");
-        if (scoreData.false.indexOf(index) !== -1) {
-          return;
-        } else {
+
+        if (scoreData.false.indexOf(index) === -1) {
+          if (scoreData.true.indexOf(index)) {
+            scoreData.true.splice(index, 1);
+          }
           scoreData.false.push(index);
         }
       } else if (indicator === true) {
@@ -252,13 +315,16 @@ async function renderGame() {
           selectionAnswersScore[index].classList.remove("false");
         }
         selectionAnswersScore[index].classList.add("true");
-        if (scoreData.true.indexOf(index) !== -1) {
-          return;
-        } else {
+
+        if (scoreData.true.indexOf(index) === -1) {
+          if (scoreData.false.indexOf(index)) {
+            scoreData.false.splice(index, 1);
+          }
           scoreData.true.push(index);
         }
       }
-      localStorage.setItem("scoreData", JSON.stringify(scoreData));
+
+      console.log("index3", index);
       nextImg.src = `/src/assets/full/${data[index].imageNum}full.jpg`;
       pictureAbout.textContent = data[index].name;
       authorPicture.textContent = data[index].author;
@@ -269,13 +335,33 @@ async function renderGame() {
       if (nameCategory === "picture") {
         const countAnswer = document.querySelectorAll(".picture_count_answer");
         countAnswer[cardThemeId].textContent = `${countRightAnswer}/10`;
+        if (quizData.countRightAnswerPicture.indexOf(countRightAnswer) === -1) {
+          quizData.countRightAnswerPicture.push(countRightAnswer);
+        }
       } else if (nameCategory === "artist") {
         const countAnswer = document.querySelectorAll(".artist_count_answer");
         countAnswer[cardThemeId].textContent = `${countRightAnswer}/10`;
+        // let max;
+        // if (countRightAnswer === 0) {
+        //   quizData.countRightAnswerArtist.push(max);
+        //   array = [];
+        //   max = 0;
+        //   array.push(countRightAnswer);
+        // } else {
+        //   array.push(countRightAnswer);
+        //   max = Math.max(...array);
+        //   console.log("maxCount", array);
+        //   console.log("maxCount1", max);
+        // }
+        if (quizData.countRightAnswerArtist.indexOf(countRightAnswer) === -1) {
+          quizData.countRightAnswerArtist.push(countRightAnswer);
+        }
       }
 
       // console.log("odjAnswer.answerPicture", odjAnswer.answerPicture);
     }
+    localStorage.setItem("scoreData", JSON.stringify(scoreData));
+    localStorage.setItem("quizData", JSON.stringify(quizData));
   }
 
   // function getTimer() {
@@ -313,11 +399,13 @@ async function renderGame() {
     }
     // mix card, ind++
     index++;
+    console.log("index2", index);
     const nextPopup = document.querySelector(".next_popup");
     nextPopup.classList.remove("visiblePopup");
     document.body.classList.remove("hidden");
     odjAnswer.answerArtist = [];
     odjAnswer.answerPicture = [];
+
     let mixObjAnswer = await mixArrayAnswer(index, odjAnswer);
     // console.log(
     //   "1mixObjAnswer",
@@ -376,55 +464,67 @@ async function renderGame() {
       congratulationsPopup.classList.add("visiblePopup");
       if (countRightAnswer <= 4) {
         titlePopup.textContent = "Try again";
-        won3.play();
+        if (isMuted === false) {
+          buttonwon3Press.play();
+        } else {
+          won3.pause();
+        }
       } else if (countRightAnswer === 10) {
         titlePopup.textContent = "great result!";
-        won2.play();
+        if (isMuted === false) {
+          won2.play();
+        } else {
+          won2.pause();
+        }
+
         // grandPopup.classList.add("visiblePopup");
       } else {
         titlePopup.textContent = "Congratulation!";
-        won1.play();
+        if (isMuted === false) {
+          won1.play();
+        } else {
+          won1.pause();
+        }
       }
     }
-    // cardThemeId = +cardThemeId + 1;
-    // if (cardThemeId === 11) {
-    //   cardThemeId = 0;
-    // }
   }
   function getNewIndex() {
     cardThemeId = +cardThemeId + 1;
-    if (cardThemeId === 11) {
+    // if (cardThemeId === 11) {
+    //   cardThemeId = 0;
+    // }
+    if (cardThemeId === 12) {
       cardThemeId = 0;
     }
     let newIndex = cardThemeId * 10;
     index = newIndex;
     console.log("newIndex", newIndex);
-    const countAnswer = document.querySelectorAll(".count_answer");
+    console.log("cardThemeId", cardThemeId);
+
     if (nameCategory === "artist") {
       const artists = document.querySelectorAll(".artist");
-      if (artists[cardThemeId].classList.contains("active_category")) {
-        return;
-      } else {
-        artists[cardThemeId].classList.add("active_category");
-        if (cardThemeId) {
-        }
-      }
+
+      // if (!artists[cardThemeId].classList.contains("active_category")) {
+      artists[cardThemeId].classList.add("active_category");
+      // }
     } else if (nameCategory === "picture") {
-      let pictures = document.querySelectorAll(".picture");
-      if (pictures[cardThemeId].classList.contains("active_category")) {
-        return;
-      } else {
-        pictures[cardThemeId].classList.add("active_category");
-        if (cardThemeId) {
-        }
-      }
+      const pictures = document.querySelectorAll(".picture");
+
+      // if (!pictures[cardThemeId].classList.contains("active_category")) {
+      pictures[cardThemeId].classList.add("active_category");
+      // }
     }
   }
   //handler next quiz
   const nextQuizBtn = document.querySelector(".next_quiz_btn");
   nextQuizBtn.addEventListener("click", getNewQuiz);
   function getNewQuiz(e) {
-    buttonPress.play();
+    if (isMuted === false) {
+      buttonPress.play();
+    } else {
+      buttonPress.pause();
+    }
+
     getNewIndex();
     console.log("indexNew quiz", index);
     console.log("cardThemeId", cardThemeId);
@@ -440,7 +540,12 @@ async function renderGame() {
   //handler home btn congratulations_btn
   const congratulationsBtn = document.querySelector(".congratulations_btn");
   congratulationsBtn.addEventListener("click", () => {
-    buttonPress.play();
+    if (isMuted === false) {
+      buttonPress.play();
+    } else {
+      buttonPress.pause();
+    }
+
     getNewIndex();
   });
 }

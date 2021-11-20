@@ -18,7 +18,7 @@
   margin-top: 10px;
   .button {
     margin: 0;
-    padding: 0 19px;
+    padding: 0 12px;
     .home_icon,
     .score_icon {
       width: 40px;
@@ -50,8 +50,8 @@
   transition: 0.4s ease-in-out;
   opacity: 1;
 }
-.cards_category.artist.hidden_section,
-.cards_category.picture.hidden_section {
+.cards_category.category_artist.hidden_section,
+.cards_category.category_picture.hidden_section {
   position: absolute;
   left: -350%;
   opacity: 0;
@@ -125,8 +125,16 @@
       padding: 0 5px;
     }
   }
+  .category_cards_container {
+    height: 70vh;
+  }
   .cards_category {
     gap: 4px 2px;
+  }
+  .category_artist,
+  .category_picture {
+    padding: 10px 0;
+    height: auto;
   }
   .card_theme,
   .card_theme_score {
@@ -151,6 +159,9 @@
   }
 }
 @media (min-width: 768px) {
+  .category_cards_container {
+    height: 66vh;
+  }
   .cards_category {
     gap: 5px;
   }

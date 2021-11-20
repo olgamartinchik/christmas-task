@@ -126,3 +126,13 @@
 .card_theme_score.active_card {
   filter: none;
 }
+@media (min-width: 340px) {
+  .score_image_container {
+    height: 64vh;
+  }
+}
+@media (min-width: 768px) {
+  .score_image_container {
+    height: 60vh;
+  }
+}

@@ -27,6 +27,7 @@
     margin-top: 20px;
   }
   .main_card {
+    // .category_game {
     position: relative;
     display: flex;
     align-items: center;
@@ -59,12 +60,15 @@
     margin: 20px 0 31px;
   }
   .icon_settings {
-    width: 45px;
-    height: 45px;
+    width: 32px;
+    height: 32px;
     background-image: url("/src/assets/svg/settings.svg");
     display: flex;
     justify-content: center;
     align-items: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
     .dot_icon_settings {
       width: 13px;
       height: 13px;
@@ -75,9 +79,11 @@
 }
 @media (min-width: 768px) {
   .main_card {
+    // .category_game {
     max-width: 500px;
     width: 100%;
     height: 320px;
+
     .main_Title {
       position: absolute;
       right: 34px;
@@ -89,7 +95,8 @@
 }
 
 @media (min-width: 1006px) {
-  .main_card {
+  // .main_card {
+  .category_game {
     flex-direction: column;
     align-items: end;
     max-width: 500px;
@@ -117,6 +124,7 @@
     transition: 0.4s;
   }
   .main_card {
+    // .category_game {
     cursor: pointer;
     transition: 0.7s ease-in-out;
     opacity: 1;

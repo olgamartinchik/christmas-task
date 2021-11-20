@@ -29,7 +29,7 @@
     </header>
     <main>
       <!-- main page -->
-      <section class="section main_page">
+      <section class="section main_page ">
         <div class="wrapper wrapper_main_page">
           <div class="audio_container"></div>
           <div class="container container_category categories_game">
@@ -40,7 +40,7 @@
                 alt="artists quiz"
               />
               <h2 class="main_Title">
-                <span class="weight_title">ARTISTS</span> QUIZ
+                <span class="weight_title artist_title">ARTISTS</span> <span class="title_quiz">QUIZ</span>
               </h2>
             </div>
             <div class="card main_card category_game pictures_game">
@@ -50,7 +50,7 @@
                 alt="pictures quiz"
               />
               <h2 class="main_Title">
-                <span class="weight_title">PICTURE</span> QUIZ
+                <span class="weight_title picture_title">PICTURE</span> <span class="title_quiz">QUIZ</span> 
               </h2>
             </div>
           </div>
@@ -58,7 +58,8 @@
             <div class="icon_settings">
               <div class="dot_icon_settings"></div>
             </div>
-            settings
+            <span class="main_btn_title">settings</span>
+            
           </button>
         </div>
       </section>
@@ -68,6 +69,18 @@
           <h1 class="settings_title">settings</h1>
           <div class="container container_category container_settings">
             <div class="card main_card settings_card">
+              <div class="language"></div>
+              <div>                 
+                <input class="checked_lang" type="radio" id="en" name="lang" checked /><label for="en" class="custom-radio"><h3 class="english_title">english</h3></label>                
+                 </label>
+              </div>
+              <div>
+                 <input class="checked_lang" type="radio" id="ru" name="lang" /><label for="ru" class="custom-radio"><h3 class="russian_title">russian</h3></label>                
+              </label>
+              </div>
+              <h2><span class="weight_title language_title">language</span></h2>
+            </div>
+            <div class="card main_card settings_card">
               <div class="volume"></div>
               <div class="range_container">
                 <div class="volume_btn_off"></div>
@@ -76,13 +89,13 @@
                   <div class="progress_volume"></div>
                 </div>
               </div>
-              <h2><span class="weight_title">volume</span></h2>
+              <h2><span class="weight_title volume_title">volume</span></h2>
             </div>
             <div class="card main_card settings_card">
               <div class="time"></div>
               <div class="timer_wrapper">
                 <input type="checkbox" id="checkbox1" />
-                <label for="checkbox1"> <h3>on/off</h3></label>
+                <label for="checkbox1"> <h3 class="on_of">on/off</h3></label>
                 <div class="timer_answer">
                   <div class="timer_answer_container">
                     <div class="minus">&minus;</div>
@@ -90,13 +103,10 @@
                     <div class="plus">&plus;</div>
                   </div>
 
-                  <!-- <input type="checkbox" id="checkbox2" /> -->
-                  <!-- <label for="checkbox21"> <h3>Time to answer</h3></label> -->
-                  <h3>Time to answer</h3>
+                  <h3 class="timer_title">Time to answer</h3>
                 </div>
               </div>
-
-              <h2><span class="weight_title">time game</span></h2>
+              <h2><span class="weight_title time_game_title">time game</span></h2>
             </div>
           </div>
           <div class="container_btn">
@@ -112,17 +122,17 @@
           <div class="category_btns">
             <button class="button action_btn home_btn">
               <div class="home_icon"></div>
-              home
+             <span class="home_btn_title">home</span> 
             </button>
             <h1 class="category_title">categories</h1>
             <button class="button action_btn score_btn">
               <div class="score_icon"></div>
-              score
+             <span class="score_btn_title">score</span> 
             </button>
           </div>
-          <div class="category_container">
-            <div class="cards_category artist hidden_section"></div>
-            <div class="cards_category picture hidden_section"></div>
+          <div class="category_container category_cards_container">
+            <div class="cards_category category_artist hidden_section"></div>
+            <div class="cards_category category_picture hidden_section"></div>
             <!-- <div class="cards_category"> -->
             <!-- <div class="card card_theme">
                 <div class="score_category">
@@ -143,7 +153,7 @@
       <section class="artists_quiz hidden_section">
         <div class="wrapper artists_quiz_wrapper">
           <div class="question_container">
-            <h4 class="question">Who is the author of this picture?</h4>
+            <h4 class="question question_title">Who is the author of this picture?</h4>
             <div class="timer_container hidden">
               <div class="timer_icon"></div>
               <h2>
@@ -151,7 +161,7 @@
               </h2>
               <button class="button action_btn home_btn quiz_btn">
                 <div class="home_icon"></div>
-                home
+                <span class="home_btn_title">home</span> 
               </button>
             </div>
           </div>
@@ -190,7 +200,7 @@
         <div class="wrapper picture_quiz_wrapper">
           <div class="question_container">
             <h4 class="question">
-              Which is <span class="painter">Edvard Munch</span> picture?
+             <span class="question_title1">Which is</span>  <span class="painter">Edvard Munch</span> <span class="question_title2">picture?</span> 
             </h4>
             <div class="timer_container hidden">
               <div class="timer_icon"></div>
@@ -199,7 +209,7 @@
               </h2>
               <button class="button action_btn home_btn quiz_btn">
                 <div class="home_icon"></div>
-                home
+                <span class="home_btn_title">home</span> 
               </button>
             </div>
           </div>
@@ -278,13 +288,13 @@
       </div>
       <div class="popup congratulations_popup">
         <div class="container_popup congratulations_container">
-          <h2 class="title_popup">CONGRATULATIONS!</h2>
+          <h2 class="title_popup congratulations_title">CONGRATULATIONS!</h2>
           <h5><span class="right_answer">8</span>/10</h5>
           <div class="congratulations_img"></div>
           <div class="category_btns">
             <button class="button action_btn home_btn congratulations_btn">
               <div class="home_icon"></div>
-              home
+              <span class="home_btn_title">home</span> 
             </button>
             <button class="button action_btn setting_btn next_quiz_btn">
               NEXT QUIZ
@@ -296,7 +306,7 @@
         <div class="container_popup grand_container">
           <button class="button action_btn home_btn">
             <div class="home_icon"></div>
-            home
+            <span class="home_btn_title">home</span> 
           </button>
         </div>
       </div>
@@ -307,7 +317,7 @@
           <p class="game_over_subtitle">PLAY AGAIN ?</p>
           <div class="category_btns">
             <button class="button action_btn setting_btn yes_btn">YES</button>
-            <button class="button action_btn home_btn setting_btn">NO</button>
+            <button class="button action_btn home_btn setting_btn no_btn">NO</button>
           </div>
         </div>
       </div>
@@ -316,12 +326,12 @@
           <div class="category_btns">
             <button class="button action_btn home_btn">
               <div class="home_icon"></div>
-              home
+              <span class="home_btn_title">home</span> 
             </button>
-            <h1 class="category_title">score</h1>
+            <h1 class="category_title score_title">score</h1>
             <button class="button action_btn category_btn">
               <div class="category_icon"></div>
-              category
+            <span class="category_btn_title">category</span> 
             </button>
           </div>
           <div class="score_container">
