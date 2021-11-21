@@ -5,6 +5,13 @@
   cursor: pointer;
   opacity: 0.7;
 }
+.main_Title {
+  transition: 0.5s ease-in-out;
+}
+.main_card:hover .main_Title {
+  opacity: 0;
+  left: -400%;
+}
 @media (min-width: 340px) {
   .main_page {
     opacity: 1;

@@ -103,7 +103,7 @@ saveBtn.addEventListener("click", (e) => {
   }
   toggleLang(en.checked, ru.checked);
 
-  console.log("volumeline", volumeline.classList, "volume", volume.classList);
+  // console.log("volumeline", volumeline.classList, "volume", volume.classList);
 
   settingsData.enChecked = en.checked;
   settingsData.ruChecked = ru.checked;
@@ -114,7 +114,7 @@ saveBtn.addEventListener("click", (e) => {
   settingsData.progressVolume = progressVolume.style.width;
   settingsData.isMuted = isMuted;
   localStorage.setItem("settingsData", JSON.stringify(settingsData));
-  console.log("settingsData!!!", settingsData);
+  // console.log("settingsData!!!", settingsData);
 });
 
 defaultBtn.addEventListener("click", (e) => {
@@ -160,16 +160,16 @@ defaultBtn.addEventListener("click", (e) => {
   settingsData.isMuted = isMuted;
 
   localStorage.setItem("settingsData", JSON.stringify(settingsData));
-  console.log("settingsData", settingsData);
+  // console.log("settingsData", settingsData);
 });
 
 // toggle volume
 function toggleVolume() {
-  console.log("buttonPress", buttonPress);
-  console.log("audio", allAudio);
+  // console.log("buttonPress", buttonPress);
+  // console.log("audio", allAudio);
   volume.classList.toggle("volume_btn_on");
 
-  console.log("settingsData", settingsData);
+  // console.log("settingsData", settingsData);
   if (volume.classList.contains("volume_btn_on")) {
     isMuted = false;
     allAudio.forEach((audio) => {

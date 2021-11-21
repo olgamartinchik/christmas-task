@@ -2,17 +2,19 @@ import { async } from "regenerator-runtime";
 import { getDataForGame } from "./renderGame";
 const scoreImagContainer = document.querySelector(".score_image_container");
 
-class ScoreCards {
+export class ScoreCards {
   constructor(div, imgData) {
     this.div = div;
     this.imgData = imgData;
     this.categories = [];
     this.count = 0;
     this.category = [];
+
     if (localStorage.getItem("settingsData")) {
       const localSettings = JSON.parse(localStorage.getItem("settingsData"));
       let en = localSettings.enChecked;
       let ru = localSettings.ruChecked;
+
       this.categories =
         en === true
           ? [
@@ -43,12 +45,27 @@ class ScoreCards {
               "ню",
               "интерьер",
             ];
+    } else {
+      this.categories = [
+        "portrait",
+        "landscape",
+        "still-life",
+        "realism",
+        "cubism",
+        "avant-garde",
+        "renaissance",
+        "surrealism",
+        "kitsch",
+        "minimalism",
+        "nude",
+        "interior",
+      ];
     }
   }
   generateScoreCards() {
     for (let i = 0; i < this.categories.length; i++) {
       let scoreImag = document.createElement("div");
-      scoreImag.classList.add("score_image", `${this.categories[i]}`);
+      scoreImag.classList.add("score_image");
       let h2 = document.createElement("h2");
       h2.textContent = `${this.categories[i]}`;
       scoreImag.appendChild(h2);
@@ -115,6 +132,7 @@ class ScoreCards {
 
 export async function getScoreCard() {
   const imgData = await getDataForGame();
+  scoreImagContainer.innerHTML = "";
   new ScoreCards(scoreImagContainer, imgData).generateScoreCards();
 
   const cardsThemeScore = document.querySelectorAll(".card_theme_score");
@@ -135,7 +153,9 @@ function getLocalStorageScoreData() {
       ".selection_answer_score"
     );
     scoreData.activeCard.forEach((indCard) => {
-      cardsThemeScore[indCard].classList.add("active_card");
+      if (cardsThemeScore) {
+        cardsThemeScore[indCard].classList.add("active_card");
+      }
     });
     scoreData.true.forEach((indTrue) => {
       selectionAnswersScore[indTrue].classList.add("true");
@@ -145,3 +165,7 @@ function getLocalStorageScoreData() {
     });
   }
 }
+window.addEventListener("load", async () => {
+  // const imgData = await getDataForGame();
+  // new ScoreCards(scoreImagContainer, imgData).generateScoreCards();
+});

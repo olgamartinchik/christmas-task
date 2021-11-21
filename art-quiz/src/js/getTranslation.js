@@ -1,4 +1,3 @@
-// import { url } from "./settings";
 const en = document.querySelector("#en");
 const ru = document.querySelector("#ru");
 const checkedLang = document.querySelectorAll(".checked_lang");
