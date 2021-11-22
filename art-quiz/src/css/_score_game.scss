@@ -1,0 +1,138 @@
+.score_game {
+  opacity: 1;
+  transition: 1s ease-in-out;
+}
+.score_game.hidden_section {
+  position: absolute;
+  left: -350%;
+  height: 0;
+  opacity: 0;
+  z-index: -1;
+}
+.score_container {
+  width: 100%;
+}
+.score_image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.category_icon {
+  background-image: url("/src/assets/svg/category_icon.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 29px;
+  height: 24px;
+}
+.cards_category_score {
+  width: 100%;
+  justify-content: space-around;
+  margin-top: 11px;
+  height: 52vh;
+  overflow: auto;
+}
+.category_btns {
+  .category_btn {
+    padding: 0 5px;
+  }
+}
+.about_picture {
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+  background: #660033bb;
+
+  bottom: 0;
+  opacity: 0;
+  transition: 0.4s ease-in-out;
+}
+.card_theme_score {
+  position: relative;
+  .picture_about {
+    font-style: italic;
+  }
+  .picture_about,
+  .author_picture,
+  .picture_year {
+    word-break: break-word;
+    font-size: 12px;
+    color: var(--buttonColor);
+  }
+}
+.card_theme_score.active_about {
+  .about_picture {
+    opacity: 1;
+  }
+}
+.selection_answer_score {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 32px;
+  height: 32px;
+}
+.selection_answer_score.true {
+  background-image: url("/src/assets/svg/correct answer.svg");
+}
+.selection_answer_score.false {
+  background-image: url("/src/assets/svg/wrong-answer.svg");
+}
+.slider_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 127px;
+  width: 100%;
+  margin: 0 auto;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 10px;
+  .prev,
+  .next {
+    font-size: 32px;
+    user-select: none;
+    outline: none;
+    opacity: 0.7;
+    transition: 0.3s ease-in-out;
+    &:hover {
+      cursor: pointer;
+      opacity: 1;
+      transform: scale(1.2);
+    }
+  }
+}
+.score_image_container {
+  position: relative;
+  height: 60vh;
+  width: 100%;
+}
+.score_image {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+}
+.score_image {
+  opacity: 0;
+
+  transition: 0.4s ease-in-out;
+}
+.score_image.visible_category {
+  opacity: 1;
+  right: 0;
+}
+.card_theme_score.active_card {
+  filter: none;
+}
+@media (min-width: 340px) {
+  .score_image_container {
+    height: 64vh;
+  }
+}
+@media (min-width: 768px) {
+  .score_image_container {
+    height: 60vh;
+  }
+}
