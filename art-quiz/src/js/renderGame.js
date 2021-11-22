@@ -188,7 +188,7 @@ async function renderGame() {
         timers.forEach((timer) => {
           timer.textContent = String(tik).padStart(2, 0);
         });
-        console.log("tik", tik);
+        // console.log("tik", tik);
         if (tik === 0) {
           clearInterval(timer);
         }
@@ -232,7 +232,7 @@ async function renderGame() {
       // console.log(cardTheme.id);
       cardThemeId = cardTheme.id;
       index = cardTheme.id * 10;
-      console.log("index", index);
+      // console.log("index", index);
     }
     let mixObjAnswer = await mixArrayAnswer(index, odjAnswer);
     // console.log("odjAnswer.answerPicture!!!", odjAnswer.answerPicture);
@@ -287,7 +287,7 @@ async function renderGame() {
     answer.addEventListener("click", getAnswer);
   });
   async function getAnswer(e) {
-    console.log("index", index);
+    // console.log("index", index);
 
     if (isMuted === false) {
       buttonPress.play();
@@ -381,7 +381,7 @@ async function renderGame() {
         }
       }
 
-      console.log("index3", index);
+      // console.log("index3", index);
       nextImg.src = `/src/assets/full/${data[index].imageNum}full.jpg`;
       pictureAbout.textContent = data[index].name;
       authorPicture.textContent = data[index].author;
@@ -391,6 +391,7 @@ async function renderGame() {
       //right on the card answer
       if (nameCategory === "picture") {
         clearInterval(timer);
+        tik = timeGame.textContent;
         const countAnswer = document.querySelectorAll(".picture_count_answer");
         countAnswer[cardThemeId].textContent = `${countRightAnswer}/10`;
         //
@@ -402,6 +403,7 @@ async function renderGame() {
         localStorage.setItem("ansPicture", JSON.stringify(quizData));
       } else if (nameCategory === "artist") {
         clearInterval(timer);
+        tik = timeGame.textContent;
         const countAnswer = document.querySelectorAll(".artist_count_answer");
         countAnswer[cardThemeId].textContent = `${countRightAnswer}/10`;
         //
@@ -432,7 +434,7 @@ async function renderGame() {
         timers.forEach((timer) => {
           timer.textContent = String(tik).padStart(2, 0);
         });
-        console.log("tik", tik);
+        // console.log("tik", tik);
         if (tik === 0) {
           clearInterval(timer);
         }
@@ -471,7 +473,7 @@ async function renderGame() {
     }
     // mix card, ind++
     index++;
-    console.log("index2", index);
+    // console.log("index2", index);
     const nextPopup = document.querySelector(".next_popup");
     nextPopup.classList.remove("visiblePopup");
     document.body.classList.remove("hidden");
@@ -502,7 +504,7 @@ async function renderGame() {
       ).generateArtistCategory();
     }
 
-    console.log("countDots", countDots);
+    // console.log("countDots", countDots);
     let dots = document.querySelectorAll(".dot");
     if (nameCategory === "artist") {
       dots = document.querySelectorAll(".artist_dot");
@@ -600,8 +602,8 @@ async function renderGame() {
     }
     let newIndex = cardThemeId * 10;
     index = newIndex;
-    console.log("newIndex", newIndex);
-    console.log("cardThemeId", cardThemeId);
+    // console.log("newIndex", newIndex);
+    // console.log("cardThemeId", cardThemeId);
 
     if (nameCategory === "artist") {
       const artists = document.querySelectorAll(".artist");
@@ -630,8 +632,8 @@ async function renderGame() {
     clearInterval(timer);
 
     getNewIndex();
-    console.log("indexNew quiz", index);
-    console.log("cardThemeId", cardThemeId);
+    // console.log("indexNew quiz", index);
+    // console.log("cardThemeId", cardThemeId);
     if (index === 110) {
       index = 0;
     }
@@ -664,6 +666,7 @@ async function renderGame() {
     const gameOverPopup = document.querySelector(".game_over_popup");
     gameOverPopup.classList.remove("visiblePopup");
     rememberFalseAnswer();
+    index++;
     getGame(e);
   });
   const noBtn = document.querySelector(".no_btn");

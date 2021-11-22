@@ -15,6 +15,8 @@
       href="/src/assets/png/logo.png"
       type="image/x-icon"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==" crossorigin="anonymous" referrerpolicy="no-referrer" />   
+    <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
     <!-- <link rel="stylesheet" href="style.css"> -->
     <link rel="stylesheet" href="./dist/style.css" />
     <title>ART-QUIZ</title>
@@ -23,7 +25,13 @@
     <header class="header">
       <div class="wrapper">
         <nav class="main_nav">
-          <div class="logo main_logo"></div>
+          <div class="logo main_logo home_btn"></div> 
+          <div class="auth_container">
+           <p class="user hidden"><span class="greeting">Hello</span>, <span class="user_name"></span></p> 
+            <button class="sing_in">log in</button>
+            <button class="sing_out hidden">log out</button>
+       
+          </div>
         </nav>
       </div>
     </header>
@@ -34,23 +42,23 @@
           <div class="audio_container"></div>
           <div class="container container_category categories_game">
            
-            <div class="card main_card category_game pictures_game">
+            <div class="animate__animated    animate__backInDown card main_card category_game pictures_game">
               <img
                 class="category_card"
                 src="/src/assets/pageImg/pictures-quiz.png"
                 alt="pictures quiz"
               />
-              <h2 class="main_Title">
+              <h2 class="  main_Title">
                 <span class="weight_title picture_title">PICTURE</span> <span class="title_quiz">QUIZ</span> 
               </h2>
             </div>
-            <div class="card main_card category_game artists_game">
+            <div class="animate__animated    animate__backInUp card main_card category_game artists_game">
               <img
                 class="category_card"
                 src="/src/assets/pageImg/artists-quiz.png"
                 alt="artists quiz"
               />
-              <h2 class="main_Title">
+              <h2 class=" main_Title ">
                 <span class="weight_title artist_title">ARTISTS</span> <span class="title_quiz">QUIZ</span>
               </h2>
             </div>
@@ -100,7 +108,7 @@
                 <div class="timer_answer">
                   <div class="timer_answer_container">
                     <div class="minus">&minus;</div>
-                    <span class="time_game">5</span>
+                    <span class="time_game">05</span>
                     <div class="plus">&plus;</div>
                   </div>
 
@@ -132,22 +140,9 @@
             </button>
           </div>
           <div class="category_container category_cards_container">
-            <div class="cards_category category_artist hidden_section"></div>
+            <div class=" cards_category category_artist hidden_section"></div>
             <div class="cards_category category_picture hidden_section"></div>
-            <!-- <div class="cards_category"> -->
-            <!-- <div class="card card_theme">
-                <div class="score_category">
-                  <h2 class="count_category">1</h2>
-                  <span class="count_answer">10/10</span>
-                </div>
-                <p class="title_card">expressionism</p>
-                <img class="card_img" src="/src/assets/img/0.jpg" alt="" />
-                <button class="button action_btn score_btn play_again_btn">
-                  <div class="play_icon"></div>
-                  play again
-                </button>
-              </div> -->
-            <!-- </div> -->
+  
           </div>
         </div>
       </section>
@@ -167,33 +162,7 @@
             </div>
           </div>
           <div class="answer_container answer_container_artist">
-            <!-- <div class="img_container img_container_artist">
-              <img
-                class="full_img"
-                src="/src/assets/full/0full.jpg"
-                alt="picture"
-              />
-              <div class="dots_container">
-                <div class="dot active_btn"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-              </div>
-            </div>
-            <div class="answer">
-              <div class="picture_answer true">Van Gogh</div>
-              <div class="picture_answer false">Van Gogh</div>
-              <div class="picture_answer">Van Gogh</div>
-              <div class="picture_answer">Van Gogh</div>
-            </div> -->
+           
           </div>
         </div>
       </section>
@@ -215,57 +184,7 @@
             </div>
           </div>
           <div class="answer_container answer_container_picture">
-            <!-- <div class="img_container img_container_picture">
-              <div class="wrapper_img">
-                <img
-                  class="full_img full_picture"
-                  src="/src/assets/full/1full.jpg"
-                  alt="picture"
-                />
-              </div>
-              <div class="wrapper_img">
-                <img
-                  class="full_img full_picture"
-                  src="/src/assets/full/2full.jpg"
-                  alt="picture"
-                />
-              </div>
-              <div class="wrapper_img">
-                <img
-                  class="full_img full_picture"
-                  src="/src/assets/full/3full.jpg"
-                  alt="picture"
-                />
-              </div>
-              <div class="wrapper_img">
-                <img
-                  class="full_img full_picture"
-                  src="/src/assets/full/4full.jpg"
-                  alt="picture"
-                />
-              </div>
-
-              <div class="dots_container">
-                <div class="dot active_btn"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-              </div>
-            </div>
-            <div class="answer">
-              <div class="picture_answer true">A</div>
-              <div class="picture_answer false">B</div>
-              <div class="picture_answer">C</div>
-              <div class="picture_answer">D</div>
-            </div> -->
+           
           </div>
         </div>
       </section>
@@ -287,6 +206,7 @@
           <button class="button action_btn setting_btn next_btn">next</button>
         </div>
       </div>
+    
       <div class="popup congratulations_popup">
         <div class="container_popup congratulations_container">
           <h2 class="title_popup congratulations_title">CONGRATULATIONS!</h2>
@@ -330,25 +250,7 @@
           </div>
           <div class="score_container">
             <div class="score_image_container">
-              <!-- <div class="score_image portrait">
-                <h2>portrait</h2>
-                <div class="cards_category cards_category_score">
-                
-                  <div class="card card_theme_score">
-                    <div class="score_category">
-                      <h2 class="count_category">1</h2>
-                      <div class="selection_answer_score"></div>
-                    </div>
-                    <p class="title_card">portrait</p>
-                    <img class="card_img" src="/src/assets/img/0.jpg" alt="" />
-                    <div class="about_picture">
-                      <p class="picture_about">Girl with a Pearl Earring</p>
-                      <p class="author_picture">Johannes Vermeer</p>
-                      <p class="picture_year">1665</p>
-                    </div>
-                  </div>              
-                </div>
-              </div>-->
+              
             </div>
 
             <div class="slider_container">
@@ -376,6 +278,7 @@
         /></a>
       </div>
     </footer>
+    
     <script src="./dist/script.js"></script>
   </body>
 </html>

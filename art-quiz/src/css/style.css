@@ -54,6 +54,7 @@ h1 {
   line-height: 29px;
   text-align: center;
   text-transform: uppercase;
+  text-shadow: 1px 1px 0.5px #660033;
 }
 
 h2 {
@@ -62,6 +63,7 @@ h2 {
   font-style: normal;
   text-transform: uppercase;
   font-weight: normal;
+  text-shadow: 1px 1px 0.5px #660033;
 }
 
 h3,
@@ -83,6 +85,7 @@ h4 {
   line-height: 29px;
   text-align: center;
   text-transform: uppercase;
+  text-shadow: 1px 1px 0.5px #660033;
 }
 
 h5 {
@@ -92,6 +95,7 @@ h5 {
   line-height: 117px;
   text-align: center;
   text-transform: uppercase;
+  text-shadow: 1px 1px 0.5px #660033;
 }
 
 .button {
@@ -103,13 +107,52 @@ h5 {
   font-size: 18px;
   line-height: 22px;
   cursor: pointer;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  transform-origin: 47% 47% 0;
+  text-shadow: 1px 1px 0.5px #fff;
   opacity: 0.7;
   transition: 0.3s ease-in-out;
 }
 .button:hover {
   opacity: 1;
+  animation: 1500ms ease 0s normal none 1 running pulse;
 }
 
+@keyframes pulse {
+  0% {
+    transform: scaleX(1) scaleY(1);
+  }
+  10% {
+    transform: scaleX(0.85) scaleY(0.85);
+  }
+  20% {
+    transform: scaleX(1) scaleY(1);
+  }
+  30% {
+    transform: scaleX(0.85) scaleY(0.85);
+  }
+  40% {
+    transform: scaleX(1) scaleY(1);
+  }
+  50% {
+    transform: scaleX(0.85) scaleY(0.85);
+  }
+  60% {
+    transform: scaleX(1) scaleY(1);
+  }
+  70% {
+    transform: scaleX(0.85) scaleY(0.85);
+  }
+  80% {
+    transform: scaleX(1) scaleY(1);
+  }
+  90% {
+    transform: scaleX(0.85) scaleY(0.85);
+  }
+  100% {
+    transform: scaleX(1) scaleY(1);
+  }
+}
 .action_btn {
   width: 150px;
   height: 50px;
@@ -146,6 +189,7 @@ h5 {
 }
 
 .main_nav {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -173,6 +217,61 @@ h5 {
   height: 140px;
 }
 
+.auth_container {
+  position: absolute;
+  right: 0;
+  top: 7px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.user.hidden {
+  opacity: 0;
+  font-size: 11px;
+  transition: 0.4s ease-in-out;
+}
+
+.user {
+  opacity: 1;
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+
+.sing_in,
+.sing_out {
+  position: absolute;
+  top: 18px;
+  text-transform: uppercase;
+  border: none;
+  font-weight: normal;
+  background-color: var(--answerColor);
+  color: var(--buttonColor);
+  font-size: 20px;
+  line-height: 22px;
+  cursor: pointer;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  transform-origin: 47% 47% 0;
+  text-shadow: 1px 1px 0.5px #fff;
+  padding: 3px;
+  width: 98px;
+  opacity: 0.7;
+  transition: 0.3s ease-in-out;
+}
+
+.sing_in:hover,
+.sing_out:hover {
+  opacity: 0.7;
+  background-color: var(--fontColor);
+}
+
+.sing_out.hidden,
+.sing_in.hidden {
+  opacity: 0;
+  transform: translateY(-1000%);
+}
+
 @media (min-width: 360px) {
   .main_nav {
     padding-top: 15px;
@@ -198,18 +297,26 @@ h5 {
   transition: 0.4s ease-in-out;
 }
 
-.main_card:hover {
-  cursor: pointer;
-  opacity: 0.7;
-}
-
 .main_Title {
-  transition: 0.8s ease-in-out;
+  opacity: 1;
+  transition: 1s ease-in-out;
+}
+.main_Title:hover {
+  opacity: 0;
 }
 
 .main_card:hover .main_Title {
   opacity: 0;
-  left: -300%;
+  left: -500%;
+}
+
+.category_card {
+  opacity: 1;
+  transition: 0.8s ease-in-out;
+}
+
+.category_card:hover {
+  opacity: 0.7;
 }
 
 @media (min-width: 340px) {
@@ -250,6 +357,7 @@ h5 {
   }
 
   .main_card {
+    cursor: pointer;
     position: relative;
     display: flex;
     align-items: center;
@@ -258,6 +366,9 @@ h5 {
     width: 100%;
     height: 200px;
     overflow: hidden;
+  }
+  .main_card:hover {
+    opacity: 0.7;
   }
   .main_card .main_Title {
     position: absolute;
@@ -372,9 +483,6 @@ h5 {
     text-align: end;
     padding: 0;
     background-color: transparent;
-  }
-  .main_card:hover {
-    opacity: 0.7;
   }
 
   .action_btn {
@@ -521,6 +629,7 @@ h5 {
   opacity: 0.7;
   outline: none;
   user-select: none;
+  cursor: pointer;
   transition: 0.3s ease-in-out;
 }
 .timer_answer_container .plus:hover,
@@ -1006,6 +1115,7 @@ input[type=radio]:checked + label:after {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   transition: 0.4s;
 }
 
@@ -1230,6 +1340,7 @@ input[type=radio]:checked + label:after {
 
   .answer {
     height: 90px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   }
 }
 @media (min-width: 443px) {

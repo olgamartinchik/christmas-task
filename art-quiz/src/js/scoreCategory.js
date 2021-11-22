@@ -9,7 +9,7 @@ async function activeSlider() {
   let count = 0;
 
   const scoreImages = document.querySelectorAll(".score_image");
-  console.log(scoreImages);
+  // console.log(scoreImages);
 
   scoreImages[count].classList.add("visible_category");
 

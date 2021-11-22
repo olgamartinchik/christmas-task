@@ -1446,5 +1446,3 @@ const images = [
     imageNum: "240",
   },
 ];
-
-export default images;

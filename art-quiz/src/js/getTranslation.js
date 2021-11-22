@@ -31,6 +31,9 @@ const categoryTitle = document.querySelector(".category_title");
 const scoreBtnTitle = document.querySelector(".score_btn_title");
 const russianTitle = document.querySelector(".russian_title");
 const englishTitle = document.querySelector(".english_title");
+const singIn = document.querySelector(".sing_in");
+const greeting = document.querySelector(".greeting");
+const singOut = document.querySelector(".sing_out");
 
 let enLang = true;
 let ruLang = false;
@@ -88,6 +91,9 @@ export function toggleLang(enLang, ruLang) {
   scoreBtnTitle.textContent = enLang === true ? "score" : "счет";
   russianTitle.textContent = enLang === true ? "russian" : "русский ";
   englishTitle.textContent = enLang === true ? "english" : "английский ";
+  singIn.textContent = enLang === true ? "log in" : "войти";
+  singOut.textContent = enLang === true ? "log out" : "выйти";
+  greeting.textContent = enLang === true ? "Hello" : "Привет";
 
   if (nameCategory === "artist") {
     const cardsCategory = document.querySelector(".cards_category");

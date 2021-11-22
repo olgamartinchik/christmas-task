@@ -1,4 +1,5 @@
 .main_nav {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -22,6 +23,58 @@
 .main_logo {
   width: 220px;
   height: 140px;
+}
+
+.auth_container {
+  position: absolute;
+  right: 0;
+  top: 7px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+}
+.user.hidden {
+  opacity: 0;
+  font-size: 11px;
+  transition: 0.4s ease-in-out;
+}
+.user {
+  opacity: 1;
+  font-size: 12px;
+
+  margin-bottom: 6px;
+}
+.sing_in,
+.sing_out {
+  position: absolute;
+  top: 18px;
+  text-transform: uppercase;
+  border: none;
+  font-weight: normal;
+  background-color: var(--answerColor);
+  color: var(--buttonColor);
+  font-size: 20px;
+  line-height: 22px;
+  cursor: pointer;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  transform-origin: 47% 47% 0;
+  text-shadow: 1px 1px 0.5px #fff;
+  padding: 3px;
+  width: 98px;
+  opacity: 0.7;
+  transition: 0.3s ease-in-out;
+}
+.sing_in:hover,
+.sing_out:hover {
+  opacity: 0.7;
+  background-color: var(--fontColor);
+}
+
+.sing_out.hidden,
+.sing_in.hidden {
+  opacity: 0;
+  transform: translateY(-1000%);
 }
 @media (min-width: 360px) {
   .main_nav {

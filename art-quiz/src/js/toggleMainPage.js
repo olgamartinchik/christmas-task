@@ -11,8 +11,8 @@ let buttonPress = document.querySelector(".buttonPress");
 
 const popups = document.querySelectorAll(".popup");
 mainBtn.addEventListener("click", (e) => {
-  console.log("isMuted", isMuted);
-  console.log("buttonPress", buttonPress);
+  // console.log("isMuted", isMuted);
+  // console.log("buttonPress", buttonPress);
   if (isMuted === false) {
     buttonPress.play();
   } else {
