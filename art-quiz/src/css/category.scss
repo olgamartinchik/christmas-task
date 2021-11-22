@@ -126,7 +126,8 @@
     }
   }
   .category_cards_container {
-    height: 70vh;
+    height: 62vh;
+    margin-bottom: 15px;
   }
   .cards_category {
     gap: 4px 2px;
@@ -160,7 +161,7 @@
 }
 @media (min-width: 768px) {
   .category_cards_container {
-    height: 66vh;
+    // height: 62vh;
   }
   .cards_category {
     gap: 5px;

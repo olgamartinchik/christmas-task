@@ -22,6 +22,13 @@ const choice = new Audio();
 choice.classList.add("audio", "choice");
 choice.src = "/src/assets/audio/choice.mp3";
 
+const correct = new Audio();
+correct.classList.add("audio", "correct");
+correct.src = "/src/assets/audio/correct.mp3";
+const unCorrect = new Audio();
+unCorrect.classList.add("audio", "unCorrect");
+unCorrect.src = "/src/assets/audio/uncorrect.mp3";
+
 audioContainer.appendChild(audioGameOver);
 audioContainer.appendChild(buttonPress);
 audioContainer.appendChild(won1);
@@ -29,3 +36,5 @@ audioContainer.appendChild(won2);
 audioContainer.appendChild(won3);
 audioContainer.appendChild(soundAir);
 audioContainer.appendChild(choice);
+audioContainer.appendChild(correct);
+audioContainer.appendChild(unCorrect);

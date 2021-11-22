@@ -26,39 +26,8 @@ const won2 = document.querySelector(".won2");
 const won3 = document.querySelector(".won3");
 const soundAir = document.querySelector(".soundAir");
 const choice = document.querySelector(".choice");
-//timer
-function startTimer(timer, tik, timers) {
-  const timerContainer = document.querySelector(".timer_container");
-  const timeGame = document.querySelector(".time_game");
-  if (timerContainer.classList.value === "timer_container") {
-    tik = timeGame.textContent;
-    timer = setInterval(func, 1000);
-    function func() {
-      tik--;
-      timers.forEach((timer) => {
-        timer.textContent = String(tik).padStart(2, 0);
-      });
-      console.log("tik", tik);
-      if (tik === 0) {
-        clearInterval(timer);
-      }
-      //gameover popup
-      const gameOverPopup = document.querySelector(".game_over_popup");
-      const popups = document.querySelectorAll(".popup");
-      if (tik === 0) {
-        if (isMuted === false) {
-          won3.play();
-        } else {
-          won3.pause();
-        }
-        popups.forEach((popup) => {
-          popup.classList.remove("visiblePopup");
-        });
-        gameOverPopup.classList.add("visiblePopup");
-      }
-    }
-  }
-}
+const correct = document.querySelector(".correct");
+const unCorrect = document.querySelector(".unCorrect");
 
 //get data
 export async function getDataForGame() {
@@ -209,7 +178,47 @@ async function renderGame() {
     } else {
       choice.pause();
     }
-    startTimer(timer, tik, timers);
+
+    //timer
+    if (timerContainer.classList.value === "timer_container") {
+      tik = timeGame.textContent;
+      timer = setInterval(func, 1000);
+      function func() {
+        tik--;
+        timers.forEach((timer) => {
+          timer.textContent = String(tik).padStart(2, 0);
+        });
+        console.log("tik", tik);
+        if (tik === 0) {
+          clearInterval(timer);
+        }
+        //gameover popup
+        const gameOverPopup = document.querySelector(".game_over_popup");
+        const popups = document.querySelectorAll(".popup");
+        if (tik === 0) {
+          if (isMuted === false) {
+            won3.play();
+          } else {
+            won3.pause();
+          }
+          popups.forEach((popup) => {
+            popup.classList.remove("visiblePopup");
+          });
+          gameOverPopup.classList.add("visiblePopup");
+          //add false answer in the score
+          const cardsThemeScore =
+            document.querySelectorAll(".card_theme_score");
+          const selectionAnswersScore = document.querySelectorAll(
+            ".selection_answer_score"
+          );
+          cardsThemeScore[index].classList.add("active_card");
+          if (selectionAnswersScore[index].classList.contains("true")) {
+            selectionAnswersScore[index].classList.remove("true");
+          }
+          selectionAnswersScore[index].classList.add("false");
+        }
+      }
+    }
 
     countDots = 0;
     countRightAnswer = 0;
@@ -273,13 +282,11 @@ async function renderGame() {
   }
 
   // handler answer
-
   const answers = document.querySelectorAll(".answer");
   answers.forEach((answer) => {
     answer.addEventListener("click", getAnswer);
   });
   async function getAnswer(e) {
-    clearInterval(timer);
     console.log("index", index);
 
     if (isMuted === false) {
@@ -306,9 +313,19 @@ async function renderGame() {
       if (rightAnswer === userAnswer) {
         ans.classList.add("true");
         indicator = true;
+        if (isMuted === false) {
+          correct.play();
+        } else {
+          correct.pause();
+        }
       } else {
         ans.classList.add("false");
         indicator = false;
+        if (isMuted === false) {
+          unCorrect.play();
+        } else {
+          unCorrect.pause();
+        }
       }
       if (indicator === true) {
         countRightAnswer++;
@@ -373,6 +390,7 @@ async function renderGame() {
 
       //right on the card answer
       if (nameCategory === "picture") {
+        clearInterval(timer);
         const countAnswer = document.querySelectorAll(".picture_count_answer");
         countAnswer[cardThemeId].textContent = `${countRightAnswer}/10`;
         //
@@ -383,6 +401,7 @@ async function renderGame() {
         // console.log("picture_count_answer", quizData.countRightAnswerPicture);
         localStorage.setItem("ansPicture", JSON.stringify(quizData));
       } else if (nameCategory === "artist") {
+        clearInterval(timer);
         const countAnswer = document.querySelectorAll(".artist_count_answer");
         countAnswer[cardThemeId].textContent = `${countRightAnswer}/10`;
         //
@@ -404,8 +423,46 @@ async function renderGame() {
   const nextBtn = document.querySelector(".next_btn");
   nextBtn.addEventListener("click", getNewQuestion);
   async function getNewQuestion(e) {
-    // clearInterval(timer);
-    startTimer(timer, tik, timers);
+    //timer
+    if (timerContainer.classList.value === "timer_container") {
+      tik = timeGame.textContent;
+      timer = setInterval(func, 1000);
+      function func() {
+        tik--;
+        timers.forEach((timer) => {
+          timer.textContent = String(tik).padStart(2, 0);
+        });
+        console.log("tik", tik);
+        if (tik === 0) {
+          clearInterval(timer);
+        }
+        //gameover popup
+        const gameOverPopup = document.querySelector(".game_over_popup");
+        const popups = document.querySelectorAll(".popup");
+        if (tik === 0) {
+          if (isMuted === false) {
+            won3.play();
+          } else {
+            won3.pause();
+          }
+          popups.forEach((popup) => {
+            popup.classList.remove("visiblePopup");
+          });
+          gameOverPopup.classList.add("visiblePopup");
+          //add false answer in the score
+          const cardsThemeScore =
+            document.querySelectorAll(".card_theme_score");
+          const selectionAnswersScore = document.querySelectorAll(
+            ".selection_answer_score"
+          );
+          cardsThemeScore[index].classList.add("active_card");
+          if (selectionAnswersScore[index].classList.contains("true")) {
+            selectionAnswersScore[index].classList.remove("true");
+          }
+          selectionAnswersScore[index].classList.add("false");
+        }
+      }
+    }
 
     if (isMuted === false) {
       buttonPress.play();
@@ -472,7 +529,7 @@ async function renderGame() {
     const congratulationsPopup = document.querySelector(
       ".congratulations_popup"
     );
-    const grandPopup = document.querySelector(".grand_popup");
+
     const titlePopup = document.querySelector(".title_popup");
     const rightAnswer = document.querySelector(".right_answer");
 
@@ -480,8 +537,17 @@ async function renderGame() {
 
     if (countDots === 10) {
       congratulationsPopup.classList.add("visiblePopup");
+      clearInterval(timer);
       if (countRightAnswer <= 4) {
         titlePopup.textContent = "Try again";
+        if (localStorage.getItem("settingsData")) {
+          const localSettings = JSON.parse(
+            localStorage.getItem("settingsData")
+          );
+          let en = localSettings.enChecked;
+          let ru = localSettings.ruChecked;
+          titlePopup.textContent = en === true ? "Try again" : "Попробуй снова";
+        }
         if (isMuted === false) {
           won3.play();
         } else {
@@ -489,6 +555,15 @@ async function renderGame() {
         }
       } else if (countRightAnswer === 10) {
         titlePopup.textContent = "great result!";
+        if (localStorage.getItem("settingsData")) {
+          const localSettings = JSON.parse(
+            localStorage.getItem("settingsData")
+          );
+          let en = localSettings.enChecked;
+          let ru = localSettings.ruChecked;
+          titlePopup.textContent =
+            en === true ? "great result!" : "Отличный результат";
+        }
         if (isMuted === false) {
           won2.play();
         } else {
@@ -498,6 +573,15 @@ async function renderGame() {
         // grandPopup.classList.add("visiblePopup");
       } else {
         titlePopup.textContent = "Congratulation!";
+        if (localStorage.getItem("settingsData")) {
+          const localSettings = JSON.parse(
+            localStorage.getItem("settingsData")
+          );
+          let en = localSettings.enChecked;
+          let ru = localSettings.ruChecked;
+          titlePopup.textContent =
+            en === true ? "Congratulation!" : "Великолепно!";
+        }
         if (isMuted === false) {
           won1.play();
         } else {
@@ -544,7 +628,6 @@ async function renderGame() {
     }
 
     clearInterval(timer);
-    startTimer(timer, tik, timers);
 
     getNewIndex();
     console.log("indexNew quiz", index);
@@ -572,6 +655,7 @@ async function renderGame() {
 
   const yesBtn = document.querySelector(".yes_btn");
   yesBtn.addEventListener("click", (e) => {
+    // index++
     if (isMuted === false) {
       buttonPress.play();
     } else {
@@ -579,7 +663,28 @@ async function renderGame() {
     }
     const gameOverPopup = document.querySelector(".game_over_popup");
     gameOverPopup.classList.remove("visiblePopup");
+    rememberFalseAnswer();
     getGame(e);
+  });
+  const noBtn = document.querySelector(".no_btn");
+  noBtn.addEventListener("click", rememberFalseAnswer);
+  function rememberFalseAnswer() {
+    if (scoreData.activeCard.indexOf(index) === -1) {
+      scoreData.activeCard.push(index);
+    }
+    if (scoreData.false.indexOf(index) === -1) {
+      if (scoreData.true.indexOf(index)) {
+        scoreData.true.splice(index, 1);
+      }
+      scoreData.false.push(index);
+    }
+    localStorage.setItem("scoreData", JSON.stringify(scoreData));
+  }
+  const homeBtns = document.querySelectorAll(".home_btn");
+  homeBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      clearInterval(timer);
+    });
   });
 }
 renderGame();

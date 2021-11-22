@@ -12,14 +12,14 @@
 }
 
 body {
-  height: auto;
+  height: 100vh;
   width: 100%;
   font-family: Montserrat;
   color: var(--fontColor);
   background: linear-gradient(45deg, #d5ede8 41%, #bff1f3 98%);
-}
-
-body.hidden {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   overflow: hidden;
 }
 
@@ -204,12 +204,12 @@ h5 {
 }
 
 .main_Title {
-  transition: 0.5s ease-in-out;
+  transition: 0.8s ease-in-out;
 }
 
 .main_card:hover .main_Title {
   opacity: 0;
-  left: -400%;
+  left: -300%;
 }
 
 @media (min-width: 340px) {
@@ -233,6 +233,20 @@ h5 {
     gap: 40px;
     justify-content: center;
     margin-top: 20px;
+  }
+
+  .categories_game {
+    margin-top: 0;
+    gap: 11px;
+  }
+
+  .category_card {
+    max-width: 345px;
+    width: 100%;
+  }
+
+  .category_game {
+    width: 100%;
   }
 
   .main_card {
@@ -266,6 +280,10 @@ h5 {
     margin: 20px 0 31px;
   }
 
+  .main_btn {
+    margin: 16px 15px;
+  }
+
   .icon_settings {
     width: 32px;
     height: 32px;
@@ -284,7 +302,18 @@ h5 {
     background-color: var(--buttonColor);
   }
 }
+@media (min-width: 730px) {
+  .main_card {
+    height: auto;
+  }
+}
 @media (min-width: 768px) {
+  .categories_game {
+    flex-wrap: nowrap;
+    margin-top: 20px;
+    gap: 40px;
+  }
+
   .main_card {
     max-width: 500px;
     width: 100%;
@@ -297,6 +326,10 @@ h5 {
 
   .action_btn {
     margin: 54px 0 30px;
+  }
+
+  .main_btn {
+    margin: 16px 15px;
   }
 }
 @media (min-width: 1006px) {
@@ -344,12 +377,12 @@ h5 {
     opacity: 0.7;
   }
 
-  .category_card {
-    width: 100%;
-  }
-
   .action_btn {
     margin: 100px 0 60px;
+  }
+
+  .main_btn {
+    margin: 16px 15px;
   }
 }
 .setting_page {
@@ -822,7 +855,8 @@ input[type=radio]:checked + label:after {
   }
 
   .category_cards_container {
-    height: 70vh;
+    height: 62vh;
+    margin-bottom: 15px;
   }
 
   .cards_category {
@@ -859,10 +893,6 @@ input[type=radio]:checked + label:after {
   }
 }
 @media (min-width: 768px) {
-  .category_cards_container {
-    height: 66vh;
-  }
-
   .cards_category {
     gap: 5px;
   }
@@ -913,7 +943,7 @@ input[type=radio]:checked + label:after {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 15px;
+  margin-bottom: 10px;
 }
 
 .timer_container {
@@ -967,7 +997,7 @@ input[type=radio]:checked + label:after {
 
 .img_container {
   position: relative;
-  max-width: 1000px;
+  max-width: 610px;
   width: 100%;
   max-height: 650px;
   height: 100%;
@@ -981,6 +1011,9 @@ input[type=radio]:checked + label:after {
 
 .full_img {
   width: 100%;
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
 }
 
 .dots_container {
@@ -990,7 +1023,7 @@ input[type=radio]:checked + label:after {
   justify-content: space-between;
   max-width: 330px;
   width: 100%;
-  padding: 0 30px;
+  padding: 5px 20px;
   gap: 5px;
   bottom: 15px;
   right: 0;
@@ -1006,7 +1039,7 @@ input[type=radio]:checked + label:after {
 }
 
 .dot.active_btn {
-  background-color: var(--answerColor);
+  background-color: #1cbc6f;
 }
 
 .answer {
@@ -1018,7 +1051,7 @@ input[type=radio]:checked + label:after {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 12px;
+  margin-top: 10px;
 }
 
 .picture_answer {
@@ -1070,9 +1103,15 @@ input[type=radio]:checked + label:after {
     height: 100%;
   }
 
+  .img_container_artist {
+    height: 45vh;
+    max-width: 520px;
+    width: 100%;
+  }
+
   .dot {
-    width: 7px;
-    height: 7px;
+    width: 10px;
+    height: 10px;
   }
 
   .quiz_btn {
@@ -1106,6 +1145,12 @@ input[type=radio]:checked + label:after {
     height: 100%;
   }
 
+  .img_container_artist {
+    height: 45vh;
+    max-width: 520px;
+    width: 100%;
+  }
+
   .dot {
     width: 15px;
     height: 15px;
@@ -1136,6 +1181,12 @@ input[type=radio]:checked + label:after {
   .img_container {
     max-height: 650px;
     height: 100%;
+  }
+
+  .img_container_artist {
+    height: 45vh;
+    max-width: 520px;
+    width: 100%;
   }
 
   .picture_answer {
@@ -1178,12 +1229,12 @@ input[type=radio]:checked + label:after {
   }
 
   .answer {
-    height: 70px;
+    height: 90px;
   }
 }
 @media (min-width: 443px) {
   .answer {
-    height: 87px;
+    height: 90px;
   }
 }
 @media (min-width: 768px) {
@@ -1204,7 +1255,7 @@ input[type=radio]:checked + label:after {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.548);
+  background-color: transparent;
   z-index: 1;
 }
 
@@ -1258,6 +1309,7 @@ input[type=radio]:checked + label:after {
 .next_img {
   width: 100%;
   object-fit: cover;
+  height: 100%;
 }
 
 .selection_answer {

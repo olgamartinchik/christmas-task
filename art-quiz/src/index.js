@@ -1,5 +1,6 @@
-import "./js/getTranslation";
 import "./js/createAudioContainer";
+import "./js/getTranslation";
+
 import "./js/generateCategoryCard";
 
 import "./js/generateCardGame";

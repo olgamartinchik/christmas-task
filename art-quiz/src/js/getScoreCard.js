@@ -18,7 +18,7 @@ export class ScoreCards {
       this.categories =
         en === true
           ? [
-              "portrait",
+              "сlassicism",
               "landscape",
               "still-life",
               "realism",
@@ -32,7 +32,7 @@ export class ScoreCards {
               "interior",
             ]
           : [
-              "портрет",
+              "классицизм",
               "пейзаж",
               "натюрморт",
               "pеализм",
@@ -42,7 +42,7 @@ export class ScoreCards {
               "cюрреализм",
               "китч",
               "минимализм",
-              "ню",
+              "нюд",
               "интерьер",
             ];
     } else {

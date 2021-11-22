@@ -1,3 +1,5 @@
+import { nameCategory } from "./renderGame";
+import { CategoryCard } from "./generateCategoryCard";
 const en = document.querySelector("#en");
 const ru = document.querySelector("#ru");
 const checkedLang = document.querySelectorAll(".checked_lang");
@@ -86,6 +88,16 @@ export function toggleLang(enLang, ruLang) {
   scoreBtnTitle.textContent = enLang === true ? "score" : "счет";
   russianTitle.textContent = enLang === true ? "russian" : "русский ";
   englishTitle.textContent = enLang === true ? "english" : "английский ";
+
+  if (nameCategory === "artist") {
+    const cardsCategory = document.querySelector(".cards_category");
+    cardsCategory.innerHTML = "";
+    new CategoryCard(cardsCategory).crateCardCategory();
+  } else if (nameCategory === "pictures") {
+    const cardsCategory = document.querySelector(".cards_category");
+    cardsCategory.innerHTML = "";
+    new CategoryCard(cardsCategory).crateCardCategory();
+  }
 }
 
 toggleLang(enLang, ruLang);

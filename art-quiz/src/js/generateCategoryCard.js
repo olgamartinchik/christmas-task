@@ -5,9 +5,9 @@ export class CategoryCard {
     this.div = div;
     this.nameCategory = nameCategory;
     this.imgs = [
-      "30",
       "10",
       "20",
+      "30",
       "40",
       "50",
       "60",
@@ -26,7 +26,7 @@ export class CategoryCard {
       this.category =
         en === true
           ? [
-              "portrait",
+              "сlassicism",
               "landscape",
               "still-life",
               "realism",
@@ -40,7 +40,7 @@ export class CategoryCard {
               "interior",
             ]
           : [
-              "портрет",
+              "классицизм",
               "пейзаж",
               "натюрморт",
               "pеализм",
@@ -50,9 +50,24 @@ export class CategoryCard {
               "cюрреализм",
               "китч",
               "минимализм",
-              "ню",
+              "нюд",
               "интерьер",
             ];
+    } else {
+      this.category = [
+        "сlassicism",
+        "landscape",
+        "still-life",
+        "realism",
+        "cubism",
+        "avant-garde",
+        "renaissance",
+        "surrealism",
+        "kitsch",
+        "minimalism",
+        "nude",
+        "interior",
+      ];
     }
   }
 

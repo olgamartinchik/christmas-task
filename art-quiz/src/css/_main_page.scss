@@ -6,12 +6,22 @@
   opacity: 0.7;
 }
 .main_Title {
-  transition: 0.5s ease-in-out;
+  transition: 0.8s ease-in-out;
 }
 .main_card:hover .main_Title {
   opacity: 0;
-  left: -400%;
+  left: -300%;
 }
+//
+// .category_card {
+//   max-width: 400px;
+//   width: 100%;
+// }
+// .category_game {
+//   width: 100%;
+// }
+
+//
 @media (min-width: 340px) {
   .main_page {
     opacity: 1;
@@ -33,6 +43,20 @@
     justify-content: center;
     margin-top: 20px;
   }
+  .categories_game {
+    margin-top: 0;
+    gap: 11px;
+  }
+  /////////
+  .category_card {
+    max-width: 345px;
+    width: 100%;
+  }
+  .category_game {
+    width: 100%;
+  }
+
+  //////////
   .main_card {
     // .category_game {
     position: relative;
@@ -66,6 +90,11 @@
     padding: 0 7px 0 3px;
     margin: 20px 0 31px;
   }
+  //
+  .main_btn {
+    margin: 16px 15px;
+  }
+  //
   .icon_settings {
     width: 32px;
     height: 32px;
@@ -84,7 +113,19 @@
     }
   }
 }
+@media (min-width: 730px) {
+  .main_card {
+    height: auto;
+  }
+}
 @media (min-width: 768px) {
+  .container_category {
+  }
+  .categories_game {
+    flex-wrap: nowrap;
+    margin-top: 20px;
+    gap: 40px;
+  }
   .main_card {
     // .category_game {
     max-width: 500px;
@@ -99,6 +140,11 @@
   .action_btn {
     margin: 54px 0 30px;
   }
+  //
+  .main_btn {
+    margin: 16px 15px;
+  }
+  //
 }
 
 @media (min-width: 1006px) {
@@ -130,6 +176,7 @@
     height: auto;
     transition: 0.4s;
   }
+
   .main_card {
     // .category_game {
     cursor: pointer;
@@ -148,9 +195,14 @@
     }
   }
   .category_card {
-    width: 100%;
+    // width: 100%;
   }
   .action_btn {
     margin: 100px 0 60px;
   }
+  //
+  .main_btn {
+    margin: 16px 15px;
+  }
+  //
 }
