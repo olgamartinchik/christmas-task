@@ -1,21 +1,20 @@
 import './sources.css';
-import { IData } from '../appView';
+
 type SourceItem={
     name:string|null,
-    id:number
+    id:string
 }
-
 class Sources {
     draw(data:SourceItem[]):void {
-        const fragment = document.createDocumentFragment();
-        const sourceItemTemp = document.querySelector('#sourceItemTemp') as HTMLElement;
+        const fragment = document.createDocumentFragment() as DocumentFragment;
+        const sourceItemTemp = document.querySelector('#sourceItemTemp') as HTMLTemplateElement;
 
-        data.forEach((item) => {
+        data.forEach((item:SourceItem) => {
 
-     const sourceClone = sourceItemTemp.content.cloneNode(true);
+     const sourceClone = sourceItemTemp.content.cloneNode(true) as HTMLElement;
 
-           sourceClone.querySelector('.source__item-name').textContent = item.name;
-            sourceClone.querySelector('.source__item').setAttribute('data-source-id', item.id);
+           (sourceClone.querySelector('.source__item-name') as HTMLElement).textContent = item.name;
+            (sourceClone.querySelector('.source__item') as HTMLElement).setAttribute('data-source-id', item.id);
 
             fragment.append(sourceClone);
 

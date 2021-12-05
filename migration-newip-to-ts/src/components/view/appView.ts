@@ -2,7 +2,7 @@ import News from './news/news';
 import Sources from './sources/sources';
 
 export interface IData{
-    articles?:string,
+    articles?:string|string[],
     sources?:string|string[]
 }
 

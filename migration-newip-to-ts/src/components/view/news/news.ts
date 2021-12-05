@@ -15,14 +15,14 @@ export interface IItem{
 
 
 class News {
-    draw(data:[IItem]) {
+    draw(data:IItem[]) {
         const news = data.length >= 10 ? data.filter((_item:IItem, idx:number) => idx < 10) : data;
 
         const fragment = document.createDocumentFragment() ;
-        const newsItemTemp = document.querySelector('#newsItemTemp') as HTMLElement;
+        const newsItemTemp = document.querySelector('#newsItemTemp') as HTMLTemplateElement;
 
         news.forEach((item:IItem, idx:number) => {
-            const newsClone =newsItemTemp.content.cloneNode(true) ;
+            const newsClone =newsItemTemp.content.cloneNode(true) as HTMLElement;
 
             if (idx % 2) (newsClone.querySelector('.news__item') as HTMLElement).classList.add('alt');
 
