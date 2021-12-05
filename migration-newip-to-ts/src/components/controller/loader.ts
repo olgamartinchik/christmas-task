@@ -1,19 +1,14 @@
+import { IData } from './../view/appView';
+import { CallbackType } from './controller';
 interface ILoder{
     baseLink:string
     options:object
 }
 export type ArgLoader={
-    endpoint?:string,
- 
+    endpoint?:string, 
     options?:object,
     callback?:void
 }
-type Res={
-   ok:string,
-   status:number,
-   statusText:string
-}
-type Callback<T>=(data:T)=>void
 interface IOptions{
     [key:string]:string
 }
@@ -23,6 +18,7 @@ enum ErrorStatus{
     ForBindden,
     NotFound
 }
+// callback:CallbackType<IData>
 class Loader {
     baseLink:string;
     options:object
@@ -33,7 +29,7 @@ class Loader {
 
     getResp(
         { endpoint, options = {} }:ArgLoader,
-        callback= ():void => {
+        callback:CallbackType<IData> = () => {
             console.error('No callback for GET response');
         }
     ) {
@@ -61,8 +57,8 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    load(method:string, endpoint:string, callback:void, options:object = {}) {
-        fetch(this.makeUrl(endpoint,options ), { method })
+    load(method:string, endpoint:string, callback:CallbackType<IData>, options:object = {}) {
+        fetch(this.makeUrl(endpoint, options ), { method })
             .then(this.errorHandler)
             .then((res) => res.json())
             .then((data) => callback(data))

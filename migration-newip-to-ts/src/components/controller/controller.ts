@@ -1,7 +1,7 @@
 import { IData } from './../view/appView';
 
 import AppLoader from './appLoader'
-type CallbackType <T> = (data?: T) => void
+export type CallbackType <T> = (data?: T) => void
 class AppController extends AppLoader {
     getSources(callback:CallbackType<IData>) {
         super.getResp(
