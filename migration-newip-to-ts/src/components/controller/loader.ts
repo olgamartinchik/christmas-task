@@ -3,9 +3,9 @@ interface ILoder{
     options:object
 }
 export type ArgLoader={
-    endpoint:string,
+    endpoint?:string,
  
-    options:object,
+    options?:object,
     callback?:void
 }
 type Res={
