@@ -4,10 +4,11 @@ interface ILoder{
     baseLink:string
     options:object
 }
-export type ArgLoader={
-    endpoint?:string, 
-    options?:object,
-    callback?:void
+export type ArgLoader = {
+    method?:string,
+    endpoint:string, 
+    callback?:CallbackType<IData>,
+    options?:object,   
 }
 interface IOptions{
     [key:string]:string
@@ -18,7 +19,7 @@ enum ErrorStatus{
     ForBindden,
     NotFound
 }
-// callback:CallbackType<IData>
+
 class Loader {
     baseLink:string;
     options:object
@@ -32,11 +33,11 @@ class Loader {
         callback:CallbackType<IData> = () => {
             console.error('No callback for GET response');
         }
-    ) {
+    ):void {
         this.load('GET', endpoint, callback, options);
     }
 
-    errorHandler(res:Response) {
+    errorHandler(res:Response):Response|never {
         if (!res.ok) {
             if (res.status === ErrorStatus.Unauthorized || res.status === ErrorStatus.NotFound)
                 console.log(`Sorry, but there is ${res.status} error: ${res.statusText}`);
@@ -46,7 +47,7 @@ class Loader {
         return res;
     }
 
-    makeUrl(endpoint:string,options:IOptions, ):string {
+    makeUrl(endpoint:string,options:object):string {
         const urlOptions = { ...this.options, ...options };
         let url = `${this.baseLink}${endpoint}?`;
 
@@ -57,7 +58,7 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    load(method:string, endpoint:string, callback:CallbackType<IData>, options:object = {}) {
+    load(method:string, endpoint:string, callback:CallbackType<IData>, options:object = {}):void {
         fetch(this.makeUrl(endpoint, options ), { method })
             .then(this.errorHandler)
             .then((res) => res.json())
@@ -67,4 +68,3 @@ class Loader {
 }
 
 export default Loader;
-// (Object.keys(urlOptions) as Array<keyof typeof urlOptions>)
