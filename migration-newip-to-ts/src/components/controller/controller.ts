@@ -4,7 +4,7 @@ import AppLoader from './appLoader';
 
 export type CallbackType<T> = (data?: T) => void;
 class AppController extends AppLoader {
-    getSources(callback: CallbackType<IData>):void {
+    getSources(callback: CallbackType<IData>): void {
         super.getResp(
             {
                 endpoint: 'sources',
@@ -13,7 +13,7 @@ class AppController extends AppLoader {
         );
     }
 
-    getNews(e: Event, callback: CallbackType<IData>):void {
+    getNews(e: Event, callback: CallbackType<IData>): void {
         let target: HTMLDivElement = e.target as HTMLDivElement;
         const newsContainer = <HTMLElement>e.currentTarget;
 

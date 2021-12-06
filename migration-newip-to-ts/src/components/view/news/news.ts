@@ -1,4 +1,3 @@
-import { IData } from '../appView';
 import './news.css';
 
 export interface INewsItem {
@@ -14,7 +13,7 @@ export interface INewsItem {
 }
 
 class News {
-    draw(data: INewsItem[]):void {
+    draw(data: INewsItem[]): void {
         const news = data.length >= 10 ? data.filter((_item: INewsItem, idx: number) => idx < 10) : data;
 
         const fragment = document.createDocumentFragment();
