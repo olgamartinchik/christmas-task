@@ -1,9 +1,10 @@
-import { IData } from './../view/appView';
+import { IData } from '../view/appView';
 
-import AppLoader from './appLoader'
-export type CallbackType <T> = (data?: T) => void
+import AppLoader from './appLoader';
+
+export type CallbackType<T> = (data?: T) => void;
 class AppController extends AppLoader {
-    getSources(callback:CallbackType<IData>) {
+    getSources(callback: CallbackType<IData>):void {
         super.getResp(
             {
                 endpoint: 'sources',
@@ -12,13 +13,13 @@ class AppController extends AppLoader {
         );
     }
 
-    getNews(e:Event, callback:CallbackType<IData>) {
-        let target: HTMLDivElement = e.target as HTMLDivElement
-        const newsContainer= <HTMLElement>e.currentTarget ;
+    getNews(e: Event, callback: CallbackType<IData>):void {
+        let target: HTMLDivElement = e.target as HTMLDivElement;
+        const newsContainer = <HTMLElement>e.currentTarget;
 
         while (target !== newsContainer) {
             if (target.classList.contains('source__item')) {
-                const sourceId:string = <string>target.getAttribute('data-source-id') ;
+                const sourceId: string = <string>target.getAttribute('data-source-id');
                 if (newsContainer.getAttribute('data-source') !== sourceId) {
                     newsContainer.setAttribute('data-source', sourceId);
                     super.getResp(

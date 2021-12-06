@@ -1,43 +1,39 @@
-import { IData } from './../view/appView';
+import { IData } from '../view/appView';
 import { CallbackType } from './controller';
-interface ILoder{
-    baseLink:string
-    options:object
-}
+
 export type ArgLoader = {
-    method?:string,
-    endpoint:string, 
-    callback?:CallbackType<IData>,
-    options?:object,   
-}
-interface IOptions{
-    [key:string]:string
-}
-enum ErrorStatus{
-    Unauthorized=401,
+    method?: string;
+    endpoint: string;
+    callback?: CallbackType<IData>;
+    options?: object;
+};
+
+enum ErrorStatus {
+    Unauthorized = 401,
     PaymentRequired,
     ForBindden,
-    NotFound
+    NotFound,
 }
-
 class Loader {
-    baseLink:string;
-    options:object
-    constructor(baseLink:string, options:object={}) {
+    baseLink: string;
+
+    options: object;
+
+    constructor(baseLink: string, options: object = {}) {
         this.baseLink = baseLink;
         this.options = options;
     }
 
     getResp(
-        { endpoint, options = {} }:ArgLoader,
-        callback:CallbackType<IData> = () => {
+        { endpoint, options = {} }: ArgLoader,
+        callback: CallbackType<IData> = () => {
             console.error('No callback for GET response');
         }
-    ):void {
+    ): void {
         this.load('GET', endpoint, callback, options);
     }
 
-    errorHandler(res:Response):Response|never {
+    errorHandler(res: Response): Response | never {
         if (!res.ok) {
             if (res.status === ErrorStatus.Unauthorized || res.status === ErrorStatus.NotFound)
                 console.log(`Sorry, but there is ${res.status} error: ${res.statusText}`);
@@ -47,7 +43,7 @@ class Loader {
         return res;
     }
 
-    makeUrl(endpoint:string,options:object):string {
+    makeUrl(endpoint: string, options: object): string {
         const urlOptions = { ...this.options, ...options };
         let url = `${this.baseLink}${endpoint}?`;
 
@@ -58,8 +54,8 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    load(method:string, endpoint:string, callback:CallbackType<IData>, options:object = {}):void {
-        fetch(this.makeUrl(endpoint, options ), { method })
+    load(method: string, endpoint: string, callback: CallbackType<IData>, options: object = {}): void {
+        fetch(this.makeUrl(endpoint, options), { method })
             .then(this.errorHandler)
             .then((res) => res.json())
             .then((data) => callback(data))
