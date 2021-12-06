@@ -4,7 +4,7 @@ export interface ISourceItem {
     id: string;
 }
 class Sources {
-    draw(data: ISourceItem[]): void {
+    public draw(data: ISourceItem[]): void {
         const fragment = document.createDocumentFragment() as DocumentFragment;
         const sourceItemTemp = document.querySelector('#sourceItemTemp') as HTMLTemplateElement;
 

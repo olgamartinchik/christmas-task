@@ -1,3 +1,35 @@
+.news {
+    transition: all 0.4s ease-in-out;
+}
+.news__container {
+    position: relative;
+    height: 60vh;
+    margin-top: 30px;
+}
+.news__image {
+    position: absolute;
+    display: block;
+    left: 50%;
+    transform: translate(-50%, 0);
+    max-width: 510px;
+    width: 100%;
+
+    filter: invert(65%) sepia(70%) saturate(424%) hue-rotate(172deg) brightness(103%) contrast(105%);
+    animation: MoveUpDown 2.4s linear infinite;
+    bottom: 0;
+}
+
+@keyframes MoveUpDown {
+    0%,
+    100% {
+        bottom: 0;
+        filter: invert(70%) sepia(52%) saturate(619%) hue-rotate(75deg) brightness(88%);
+    }
+    50% {
+        bottom: 15px;
+        filter: invert(65%) sepia(70%) saturate(424%) hue-rotate(172deg) brightness(103%) contrast(105%);
+    }
+}
 .news__item {
     display: flex;
     flex-direction: column;

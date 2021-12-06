@@ -4,6 +4,13 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+            integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
         <title>NewsPortal</title>
     </head>
     <body>
@@ -12,10 +19,17 @@
         </header>
         <main>
             <div class="sources buttons"></div>
-            <div class="news"></div>
+            <div class="news">
+                <div class="news__container">
+                    <img class="news__image" src="http://cdn.onlinewebfonts.com/svg/img_573740.png" alt="icon news" />
+                </div>
+            </div>
         </main>
         <footer>
-            <p class="copyright">Copyright <a href="https://newsapi.org">NewsAPI</a></p>
+            <p class="copyright">
+                Copyright <a href="https://newsapi.org">NewsAPI</a>
+                <a href="https://github.com/olgamartinchik"><i class="fab fa-github"></i></a>
+            </p>
         </footer>
 
         <template id="sourceItemTemp">
