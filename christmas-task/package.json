@@ -6,6 +6,7 @@
   "scripts": {
     "start": "rss-scripts start -ts",
     "lint": "eslint ./src/ --ext .ts, ./src --ext .ts --fix",
+    "style": "sass --watch src/scss/style.scss src/style.css",
     "build": "rss-scripts build -ts"
   },
   "prettier": {

@@ -1,17 +1,7 @@
 body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  text-transform: uppercase;
-  background-color: #363636;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-h1 { color: #e6c300; }
-
-img {
-  width: 90vw;
-  max-width: 256px;
-}
+/*# sourceMappingURL=style.css.map */
