@@ -1,5 +1,74 @@
+@font-face {
+    font-family: 'Steppe';
+    src: url('../assets/font/Steppe.otf');
+}
+@font-face {
+    font-family: Neucha-Regular;
+    src: url('../assets/font/Neucha-Regular.woff');
+}
+:root {
+    --font-steppee: 'Steppe', Georgia;
+    --font-neucha: 'Neucha', cursive;
+}
+* {
+    box-sizing: border-box;
+}
 body {
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
+    font-family: var(--font-steppee);
+    color: #fff;
+    line-height: 1.5;
+    font-weight: 400;
+    font-size: 18px;
 }
+h1,
+button {
+    font-family: var(--font-neucha);
+}
+.header__container,
+.footer__container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    background-color: #192f2d;
+
+    width: auto;
+    height: 70px;
+    z-index: 1;
+}
+.main {
+    background-image: url('../assets/bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+.rs-icon {
+    width: 70px;
+}
+.fa-github {
+    font-size: 20px;
+}
+.footer-logo {
+    padding: 5px;
+    color: #fff;
+    margin-left: 20px;
+    transition: 0.4s ease-in-out;
+    &:hover {
+        cursor: pointer;
+        filter: invert(57%) sepia(100%) saturate(329%) hue-rotate(141deg) brightness(89%) contrast(90%);
+    }
+}
+
+// .img {
+//     background-color: #fff;
+//     mask-size: cover;
+//     -webkit-mask-size: cover;
+//     width: 20px;
+//     height: 20px;
+//     mask-image: url('../assets/svg/...svg');
+//   }

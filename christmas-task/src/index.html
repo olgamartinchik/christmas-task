@@ -1,13 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My JS App</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h1>My JS App</h1>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="./assets/favicon.ico" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+            integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <title>Christmas</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <header class="header">
+            <div class="header__container">
+                <nav class="nav">
+                    <a class="nav__logo" href="#"></a>
+                </nav>
+            </div>
+        </header>
+        <main class="main">
+            <div class="main-page">
+                <div class="main-page__ball main-page__ball-small"></div>
+                <div class="main-page__ball main-page__ball-big"></div>
+                <h1 class="main-page__title">
+                    Новогодняя игра
+                    <span>«Наряди ёлку»</span>
+                </h1>
+                <button class="button main-page__button">Начать</button>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="footer__container">
+                <p class="copyright">
+                    © 2021
+                    <a class="footer-logo" href="https://github.com/olgamartinchik"><i class="fab fa-github"></i></a>
+                </p>
+                <a class="footer-logo" href="https://rs.school/js/">
+                    <img class="rs-icon" src="./assets/svg/rss.svg" alt="rs-school icon" />
+                </a>
+            </div>
+        </footer>
+    </body>
 </html>
