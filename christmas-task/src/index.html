@@ -45,7 +45,63 @@
                 </h1>
                 <button class="button main-page__button">Начать</button>
             </section>
-            <section class="toy-page"></section>
+            <section class="toys-page">
+                <div class="toys-page__container">
+                    <div class="toys-page__controls">
+                        <div class="controls controls__sort">
+                            <h2 class="title">Сортировать:</h2>
+                            <select name="sort" id="" class="sort">
+                                <option value="name-max">По названию от «А» до «Я»</option>
+                                <option value="name-mim">По названию от «Я» до «А»</option>
+                                <option value="count-max">По количеству по возрастанию</option>
+                                <option value="count-min">По количеству по убыванию</option>
+                            </select>
+                        </div>
+                        <div class="controls controls__form">
+                            <h2 class="title">Форма:</h2>
+                            <div class="controls__form-toys">
+                                <img class="form-toy" data-filter="шар" src="./assets/svg/ball.svg" alt="" />
+                                <img class="form-toy" data-filter="колокольчик" src="./assets/svg/bell.svg" alt="" />
+                                <img class="form-toy" data-filter="шишка" src="./assets/svg/cone.svg" alt="" />
+                                <img class="form-toy" src="./assets/svg/snowflake.svg" data-filter="снежинка" alt="" />
+                                <img class="form-toy" data-filter="фигурка" src="./assets/svg/toy.svg" alt="" />
+                            </div>
+                        </div>
+                        <div class="controls controls__items">
+                            <h2 class="title">Количество экземпляров:</h2>
+                            <input type="range" />
+                        </div>
+                        <div class="controls controls__years">
+                            <h2 class="title">Год приобретения:</h2>
+                            <input type="range" />
+                        </div>
+                        <div class="controls controls__colors">
+                            <h2 class="title">Цвет:</h2>
+                            <div class="controls__colors-toys">
+                                <input type="checkbox" data-filter="белый" class="" />
+                                <input type="checkbox" data-filter="желтый" />
+                                <input type="checkbox" data-filter="красный" />
+                                <input type="checkbox" data-filter="синий" />
+                                <input type="checkbox" data-filter="зеленый" />
+                            </div>
+                        </div>
+                        <div class="controls controls__size">
+                            <h2 class="title">Размер:</h2>
+                            <div class="controls__size-toys">
+                                <img data-filter="большой" class="toy-size" src="./assets/svg/ball.svg" alt="" />
+                                <img data-filter="средний" class="toy-size" src="./assets/svg/ball.svg" alt="" />
+                                <img data-filter="маленький" class="toy-size" src="./assets/svg/ball.svg" alt="" />
+                            </div>
+                        </div>
+                        <div class="controls controls__favorite">
+                            <h2 class="title">Только любимые:</h2>
+                            <input type="checkbox" />
+                        </div>
+                        <button class="reset-button">Сброс фильтров</button>
+                    </div>
+                    <div class=""></div>
+                </div>
+            </section>
             <section class="tree-page"></section>
         </main>
 
