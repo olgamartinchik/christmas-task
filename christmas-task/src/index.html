@@ -20,11 +20,23 @@
             <div class="header__container">
                 <nav class="nav">
                     <a class="nav__logo" href="#"></a>
+                    <div class="nav__container">
+                        <ul class="nav__menu">
+                            <li class="nav__switch switch-toy switch-toy_active">Игрушки</li>
+                            <li class="nav__switch switch-tree">Елка</li>
+                        </ul>
+                        <div class="nav__search-container">
+                            <input type="search" class="nav__search" />
+                            <div class="nav__select">
+                                <span>0</span>
+                            </div>
+                        </div>
+                    </div>
                 </nav>
             </div>
         </header>
         <main class="main">
-            <div class="main-page">
+            <section class="main-page hidden">
                 <div class="main-page__ball main-page__ball-small"></div>
                 <div class="main-page__ball main-page__ball-big"></div>
                 <h1 class="main-page__title">
@@ -32,7 +44,9 @@
                     <span>«Наряди ёлку»</span>
                 </h1>
                 <button class="button main-page__button">Начать</button>
-            </div>
+            </section>
+            <section class="toy-page"></section>
+            <section class="tree-page"></section>
         </main>
 
         <footer class="footer">
