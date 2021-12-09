@@ -310,7 +310,7 @@ h2 {
 
 .toys-page__controls {
   padding: 10px;
-  max-width: 330px;
+  max-width: 300px;
   width: 100%;
   margin: 10px 10px;
   border-radius: 10px;
@@ -395,6 +395,109 @@ h2 {
 .controls__size-toys,
 .controls__colors-toys {
   width: 200px;
+}
+
+.toys-wrapper {
+  position: relative;
+  height: calc(100vh - 114px);
+  width: 100%;
+}
+
+.toys-wrapper::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  background-image: url("https://open.spbstu.ru/wp-content/uploads/2019/01/arrow_down_white.png");
+  background-color: rgba(31, 112, 127, 0.3);
+  width: 100%;
+  height: 61px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.7;
+}
+
+.toys-container {
+  margin-right: 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 15px;
+  height: 100%;
+  overflow: auto;
+}
+
+.toys-container::-webkit-scrollbar {
+  display: none;
+}
+
+.toy-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 290px;
+  height: 280px;
+  padding-left: 10px;
+  border-radius: 10px;
+  border: 1px solid #278d9f;
+  background-color: rgba(31, 112, 127, 0.3);
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+}
+
+.toy-card__title {
+  font-size: 22px;
+}
+
+.toy-card__description {
+  padding-right: 10px;
+}
+
+.toy-card__image {
+  width: 90px;
+  height: 112px;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.toy-card__ribbon {
+  position: absolute;
+  top: 210px;
+  width: 80px;
+  height: 40px;
+  background: #24c5db;
+  left: -8px;
+}
+
+.toy-card.active .toy-card__ribbon {
+  background: #cbb77a;
+}
+
+.toy-card__ribbon::before,
+.toy-card__ribbon::after {
+  content: "";
+  position: absolute;
+  height: 0;
+  width: 0;
+}
+
+.toy-card.active .toy-card__ribbon:after {
+  border-left: 15px solid #cbb77a;
+}
+
+.toy-card__ribbon:after {
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-left: 15px solid #24c5db;
+  right: -15px;
+}
+
+.toy-card__ribbon:before {
+  border-bottom: 8px solid #14455b;
+  border-left: 8px solid transparent;
+  top: -8px;
 }
 
 /*# sourceMappingURL=style.css.map */
