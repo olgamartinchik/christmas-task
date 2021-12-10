@@ -69,11 +69,53 @@
                         </div>
                         <div class="controls controls__items">
                             <h2 class="title">Количество экземпляров:</h2>
-                            <input type="range" />
+                            <div id="slider-items"></div>
+                            <div class="input-container">
+                                <input
+                                    type="number"
+                                    min="1"
+                                    max="12"
+                                    placeholder="1"
+                                    class="input-range items-min"
+                                    disabled
+                                    id="input-item1"
+                                />
+
+                                <input
+                                    type="number"
+                                    min="1"
+                                    max="12"
+                                    placeholder="12"
+                                    class="input-range items-max"
+                                    disabled
+                                    id="input-item2"
+                                />
+                            </div>
                         </div>
                         <div class="controls controls__years">
                             <h2 class="title">Год приобретения:</h2>
-                            <input type="range" />
+
+                            <div id="slider-years"></div>
+                            <div class="input-container">
+                                <input
+                                    type="number"
+                                    min="1940"
+                                    max="2020"
+                                    placeholder="1940"
+                                    class="input-range years-min"
+                                    disabled
+                                    id="input-year1"
+                                />
+                                <input
+                                    type="number"
+                                    min="1940"
+                                    max="2020"
+                                    placeholder="2020"
+                                    class="input-range years-max"
+                                    disabled
+                                    id="input-year2"
+                                />
+                            </div>
                         </div>
                         <div class="controls controls__colors">
                             <h2 class="title">Цвет:</h2>

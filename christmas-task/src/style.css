@@ -401,6 +401,7 @@ h2 {
   position: relative;
   height: calc(100vh - 114px);
   width: 100%;
+  margin-right: 10px;
 }
 
 .toys-wrapper::after {
@@ -410,7 +411,7 @@ h2 {
   background-image: url("https://open.spbstu.ru/wp-content/uploads/2019/01/arrow_down_white.png");
   background-color: rgba(31, 112, 127, 0.3);
   width: 100%;
-  height: 61px;
+  height: 45px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -498,6 +499,68 @@ h2 {
   border-bottom: 8px solid #14455b;
   border-left: 8px solid transparent;
   top: -8px;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.input-range {
+  width: 45px;
+  outline: none;
+  padding: 3px;
+  background-color: rgba(31, 112, 127, 0.3);
+  border: 2px solid #278d9f;
+  border-radius: 10px;
+  text-align: center;
+  color: #fff;
+}
+.input-range::placeholder {
+  color: #fff;
+}
+
+#slider-years,
+#slider-items {
+  width: 95%;
+  width: calc(100% - 17px);
+}
+
+.noUi-horizontal {
+  height: 8.5px !important;
+}
+
+.input-container {
+  margin-top: 10px;
+}
+
+.noUi-horizontal .noUi-handle {
+  width: 19px !important;
+  height: 19px !important;
+  border-radius: 50%;
+}
+
+.noUi-handle::after,
+.noUi-handle::before {
+  display: none !important;
+}
+
+.noUi-connect {
+  background: #278d9f !important;
 }
 
 /*# sourceMappingURL=style.css.map */
