@@ -177,3 +177,38 @@
     border-left: 8px solid transparent;
     top: -8px;
 }
+//
+input[type='checkbox'] {
+    display: none;
+}
+
+input[type='checkbox'] + label:before {
+    content: '\2714';
+    color: transparent;
+    display: inline-block;
+    border: 1px solid #ccc;
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 22px;
+    margin: -5px 5px 0 0;
+    height: 20px;
+    width: 20px;
+    text-align: center;
+    vertical-align: middle;
+    transition: color ease 0.3s;
+    position: relative;
+    right: -26px;
+    top: 0;
+    cursor: pointer;
+}
+
+input[type='checkbox']:checked + label:before {
+    color: var(--fontColor);
+    border-color: var(--fontColor);
+}
+label {
+    cursor: pointer;
+}
+.timer_wrapper input[type='checkbox']:checked ~ .timer_answer {
+    opacity: 1;
+}

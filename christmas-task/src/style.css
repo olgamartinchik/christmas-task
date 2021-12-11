@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "Steppe";
   src: url("../assets/font/Steppe.otf");
@@ -501,6 +502,43 @@ h2 {
   top: -8px;
 }
 
+input[type=checkbox] {
+  display: none;
+}
+
+input[type=checkbox] + label:before {
+  content: "✔";
+  color: transparent;
+  display: inline-block;
+  border: 1px solid #ccc;
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 22px;
+  margin: -5px 5px 0 0;
+  height: 20px;
+  width: 20px;
+  text-align: center;
+  vertical-align: middle;
+  transition: color ease 0.3s;
+  position: relative;
+  right: -26px;
+  top: 0;
+  cursor: pointer;
+}
+
+input[type=checkbox]:checked + label:before {
+  color: var(--fontColor);
+  border-color: var(--fontColor);
+}
+
+label {
+  cursor: pointer;
+}
+
+.timer_wrapper input[type=checkbox]:checked ~ .timer_answer {
+  opacity: 1;
+}
+
 .input-container {
   display: flex;
   align-items: center;
@@ -561,6 +599,54 @@ input[type=number] {
 
 .noUi-connect {
   background: #278d9f !important;
+}
+
+.color-btn {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #278d9f;
+  border-radius: 5px;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.color-btn:hover {
+  transform: scale(1.1);
+}
+
+.controls__colors-toys .color-btn:nth-child(1) {
+  background-color: #fff;
+}
+
+.controls__colors-toys .color-btn:nth-child(2) {
+  background-color: #fdd700;
+}
+
+.controls__colors-toys .color-btn:nth-child(3) {
+  background-color: #fd0000;
+}
+
+.controls__colors-toys .color-btn:nth-child(4) {
+  background-color: #2199eb;
+}
+
+.controls__colors-toys .color-btn:nth-child(5) {
+  background-color: #08aa05;
+}
+
+.color-btn.active::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 5px;
+  left: 9px;
+  width: 6px;
+  height: 10px;
+  border: solid #fff;
+  border-width: 0 4px 4px 0;
+  transform: rotate(45deg);
 }
 
 /*# sourceMappingURL=style.css.map */

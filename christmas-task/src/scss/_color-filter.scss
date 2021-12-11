@@ -1,0 +1,43 @@
+.color-btn {
+    position: relative;
+    width: 30px;
+    height: 30px;
+
+    border: 1px solid #278d9f;
+    border-radius: 5px;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: 0.3s;
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+.controls__colors-toys .color-btn:nth-child(1) {
+    background-color: #fff;
+}
+.controls__colors-toys .color-btn:nth-child(2) {
+    background-color: #fdd700;
+}
+.controls__colors-toys .color-btn:nth-child(3) {
+    background-color: #fd0000;
+}
+.controls__colors-toys .color-btn:nth-child(4) {
+    background-color: #2199eb;
+}
+.controls__colors-toys .color-btn:nth-child(5) {
+    background-color: #08aa05;
+}
+
+.color-btn.active::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 5px;
+    left: 9px;
+    width: 6px;
+    height: 10px;
+    border: solid #fff;
+    border-width: 0 4px 4px 0;
+    transform: rotate(45deg);
+}

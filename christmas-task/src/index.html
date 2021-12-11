@@ -120,11 +120,18 @@
                         <div class="controls controls__colors">
                             <h2 class="title">Цвет:</h2>
                             <div class="controls__colors-toys">
-                                <input type="checkbox" data-filter="белый" class="" />
-                                <input type="checkbox" data-filter="желтый" />
-                                <input type="checkbox" data-filter="красный" />
-                                <input type="checkbox" data-filter="синий" />
-                                <input type="checkbox" data-filter="зеленый" />
+                                <button class="color-btn" data-filter="белый"></button>
+                                <button class="color-btn" color-btn data-filter="желтый"></button>
+                                <button class="color-btn" data-filter="красный"></button>
+                                <button class="color-btn" data-filter="синий"></button>
+                                <button class="color-btn" data-filter="зеленый"></button>
+                                <!-- <input type="checkbox" data-filter="белый" class="" id="input0" /><label
+                                    for="input0"
+                                ></label>
+                                <input type="checkbox" data-filter="желтый" id="input1" /><label for="input1"></label>
+                                <input type="checkbox" data-filter="красный" id="input2" /><label for="input2"></label>
+                                <input type="checkbox" data-filter="синий" id="input3" /><label for="input3"></label>
+                                <input type="checkbox" data-filter="зеленый" id="input4" /><label for="input4"></label> -->
                             </div>
                         </div>
                         <div class="controls controls__size">
@@ -137,7 +144,7 @@
                         </div>
                         <div class="controls controls__favorite">
                             <h2 class="title">Только любимые:</h2>
-                            <input type="checkbox" />
+                            <input type="checkbox" id="favorite" /><label for="favorite"></label>
                         </div>
                         <button class="reset-button">Сброс фильтров</button>
                     </div>
