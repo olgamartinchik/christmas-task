@@ -90,6 +90,7 @@ h2 {
   background-size: cover;
   background-attachment: fixed;
   overflow: hidden;
+  height: calc(100vh - 140px);
 }
 
 .rs-icon {
@@ -112,7 +113,8 @@ h2 {
 }
 
 .main-page.hidden,
-.nav__container.hidden {
+.nav__container.hidden,
+.toys-page.hidden {
   position: absolute;
   opacity: 0;
   top: -9999px;
@@ -127,7 +129,7 @@ h2 {
   align-items: center;
   padding: 0 10px;
   min-width: 100%;
-  min-height: calc(100vh - 140px);
+  height: 100%;
   transition: 1s ease-in-out;
 }
 
@@ -303,6 +305,10 @@ h2 {
   background-color: #278d9f;
 }
 
+.toys-page {
+  height: 100%;
+}
+
 .toys-page__container {
   display: flex;
   align-items: center;
@@ -310,21 +316,19 @@ h2 {
 }
 
 .toys-page__controls {
-  padding: 10px;
+  padding: 0 10px 10px;
   max-width: 300px;
   width: 100%;
-  margin: 10px 10px;
+  margin: 0px 10px;
   border-radius: 10px;
   background-color: rgba(31, 112, 127, 0.3);
   backdrop-filter: blur(6px);
-  min-height: calc(100vh - 140px);
 }
 
 .controls {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 5px;
 }
 
 .controls__items,
@@ -371,11 +375,11 @@ h2 {
   height: 40px;
   cursor: pointer;
   padding: 3px;
-  transition: 0.4s;
+  transition: 0.4s ease-in-out;
 }
 .form-toy:hover,
 .toy-size:hover {
-  filter: invert(9%) sepia(63%) saturate(461%) hue-rotate(322deg) brightness(83%) contrast(88%);
+  transform: scale(1.1);
 }
 
 .toy-size:first-of-type {
@@ -400,9 +404,9 @@ h2 {
 
 .toys-wrapper {
   position: relative;
-  height: calc(100vh - 114px);
+  height: calc(100vh - 150px);
   width: 100%;
-  margin-right: 10px;
+  margin: 5px 10px 5px 0;
 }
 
 .toys-wrapper::after {
@@ -412,11 +416,11 @@ h2 {
   background-image: url("https://open.spbstu.ru/wp-content/uploads/2019/01/arrow_down_white.png");
   background-color: rgba(31, 112, 127, 0.3);
   width: 100%;
-  height: 45px;
+  height: 35px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  opacity: 0.7;
+  box-shadow: 0 0 8px 8px #ffffffab inset;
 }
 
 .toys-container {
@@ -429,6 +433,7 @@ h2 {
   gap: 15px;
   height: 100%;
   overflow: auto;
+  padding: 10px 0 46px;
 }
 
 .toys-container::-webkit-scrollbar {
@@ -436,6 +441,7 @@ h2 {
 }
 
 .toy-card {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -451,6 +457,7 @@ h2 {
 
 .toy-card__title {
   font-size: 22px;
+  width: 100%;
 }
 
 .toy-card__description {
@@ -458,55 +465,36 @@ h2 {
 }
 
 .toy-card__image {
-  width: 90px;
+  width: 86px;
   height: 112px;
   object-fit: contain;
   pointer-events: none;
 }
 
-.toy-card__ribbon {
+.toy-card__like {
   position: absolute;
-  top: 210px;
-  width: 80px;
-  height: 40px;
-  background: #24c5db;
-  left: -8px;
+  background-image: url("https://cdn11.bigcommerce.com/s-hii7479o/images/stencil/original/products/13138/31164/heart__21416.1558024297.png?c=2");
+  left: 12px;
+  bottom: 12px;
+  width: 35px;
+  height: 42px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  filter: invert(42%) sepia(92%) saturate(365%) hue-rotate(141deg) brightness(93%) contrast(87%);
 }
 
-.toy-card.active .toy-card__ribbon {
-  background: #cbb77a;
+.toy-card.active .toy-card__like {
+  filter: invert(17%) sepia(71%) saturate(7459%) hue-rotate(1deg) brightness(91%) contrast(121%);
 }
 
-.toy-card__ribbon::before,
-.toy-card__ribbon::after {
-  content: "";
-  position: absolute;
-  height: 0;
-  width: 0;
-}
-
-.toy-card.active .toy-card__ribbon:after {
-  border-left: 15px solid #cbb77a;
-}
-
-.toy-card__ribbon:after {
-  border-top: 20px solid transparent;
-  border-bottom: 20px solid transparent;
-  border-left: 15px solid #24c5db;
-  right: -15px;
-}
-
-.toy-card__ribbon:before {
-  border-bottom: 8px solid #14455b;
-  border-left: 8px solid transparent;
-  top: -8px;
-}
-
-input[type=checkbox] {
+.favorite-toys {
   display: none;
 }
 
-input[type=checkbox] + label:before {
+.favorite-toys + label:before {
   content: "✔";
   color: transparent;
   display: inline-block;
@@ -526,17 +514,13 @@ input[type=checkbox] + label:before {
   cursor: pointer;
 }
 
-input[type=checkbox]:checked + label:before {
-  color: var(--fontColor);
-  border-color: var(--fontColor);
+.favorite-toys:checked + label:before {
+  color: #fff;
+  border-color: #24c5db;
 }
 
 label {
   cursor: pointer;
-}
-
-.timer_wrapper input[type=checkbox]:checked ~ .timer_answer {
-  opacity: 1;
 }
 
 .input-container {
@@ -608,8 +592,8 @@ input[type=number] {
   border: 1px solid #278d9f;
   border-radius: 5px;
   outline: none;
-  background-color: transparent;
   cursor: pointer;
+  margin: 2px;
   transition: 0.3s;
 }
 .color-btn:hover {
@@ -645,6 +629,19 @@ input[type=number] {
   width: 6px;
   height: 10px;
   border: solid #fff;
+  border-width: 0 4px 4px 0;
+  transform: rotate(45deg);
+}
+
+.controls__colors-toys .color-btn:nth-child(1).active::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 5px;
+  left: 9px;
+  width: 6px;
+  height: 10px;
+  border: solid #363535;
   border-width: 0 4px 4px 0;
   transform: rotate(45deg);
 }

@@ -83,6 +83,7 @@ h2 {
     background-size: cover;
     background-attachment: fixed;
     overflow: hidden;
+    height: calc(100vh - 140px);
 }
 .rs-icon {
     width: 70px;
@@ -110,7 +111,8 @@ h2 {
 //     mask-image: url('../assets/svg/...svg');
 //   }
 .main-page.hidden,
-.nav__container.hidden {
+.nav__container.hidden,
+.toys-page.hidden {
     position: absolute;
     opacity: 0;
     top: -9999px;

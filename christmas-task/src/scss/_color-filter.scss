@@ -6,8 +6,8 @@
     border: 1px solid #278d9f;
     border-radius: 5px;
     outline: none;
-    background-color: transparent;
     cursor: pointer;
+    margin: 2px;
     transition: 0.3s;
     &:hover {
         transform: scale(1.1);
@@ -38,6 +38,18 @@
     width: 6px;
     height: 10px;
     border: solid #fff;
+    border-width: 0 4px 4px 0;
+    transform: rotate(45deg);
+}
+.controls__colors-toys .color-btn:nth-child(1).active::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 5px;
+    left: 9px;
+    width: 6px;
+    height: 10px;
+    border: solid rgb(54, 53, 53);
     border-width: 0 4px 4px 0;
     transform: rotate(45deg);
 }
