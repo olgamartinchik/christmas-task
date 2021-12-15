@@ -28,7 +28,7 @@ class App {
         //  const toysContainer=document.querySelector('.toys-container') as HTMLElement
         //  toysContainer.innerHTML=''
         //  new ToysCard().buildCards(toysContainer)
-        new Filters().filterOutCards()
+        new Filters().filterCards()
     }
 }
 export default App;

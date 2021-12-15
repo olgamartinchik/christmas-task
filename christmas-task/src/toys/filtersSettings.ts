@@ -3,8 +3,8 @@ const toysPageControls=document.querySelector('.toys-page__controls') as HTMLEle
 
 const optionsValue:object={'name':'Сортировать по','name-max':'По названию от «А» до «Я»','name-mim':'По названию от «Я» до «А»','count-max':'По количеству по возрастанию','count-min':'По количеству по убыванию'}
 const formToys:object={"шар":"ball","колокольчик":"bell","шишка":"cone","снежинка":"snowflake","фигурка":"toy"}
-const colorsArray:string[]=['белый','желтый','красный','синий','зеленый']
-const sizeArray:string[]=['большой','средний','маленький']
+const colorsArray:string[]=['белый','желтый','красный','синий','зелёный']
+const sizeArray:string[]=['большой','средний','малый']
 
 class FiltersControls{
     // selector:HTMLElement
@@ -51,7 +51,7 @@ class FiltersControls{
         for (let name in formToys){
             const img=document.createElement('img')
             img.classList.add('form-toy')
-            img.setAttribute(`data-filter`, `${name}`)
+            img.setAttribute(`data-shape`, `${name}`)
             img.src=`./assets/svg/${formToys[name]}.svg`
             img.alt='toy'
             controlsFormToys.appendChild(img)
@@ -118,7 +118,7 @@ class FiltersControls{
         controlsColorContainer.classList.add('controls__colors-toys')
         colorsArray.forEach(color=>{
             let button=document.createElement('button')           
-            this.setAttributes(button,{'class':'color-btn', 'data-filter':`${color}`})
+            this.setAttributes(button,{'class':'color-btn', 'data-color':`${color}`})
             controlsColorContainer.appendChild(button)
         })
         controlsColors.appendChild(titleColor)
@@ -136,7 +136,7 @@ class FiltersControls{
         controlsSizeToys.classList.add('controls__size-toys')
         sizeArray.forEach(size=>{
             let img=document.createElement('img')
-            this.setAttributes(img,{'data-filter':`${size}`,'class':'toy-size','src':'./assets/svg/ball.svg','alt':'ball'})
+            this.setAttributes(img,{'data-size':`${size}`,'class':'toy-size','src':'./assets/svg/ball.svg','alt':'ball'})
             controlsSizeToys.appendChild(img)
         })
         controlsColors.appendChild(titleSize)

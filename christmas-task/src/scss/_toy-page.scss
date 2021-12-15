@@ -65,7 +65,7 @@
     height: 40px;
     cursor: pointer;
     padding: 3px;
-    transition: 0.4s ease-in-out;
+    transition: 0.3s ease-in-out;
     &:hover {
         transform: scale(1.1);
         // filter: invert(9%) sepia(63%) saturate(461%) hue-rotate(322deg) brightness(83%) contrast(88%);
@@ -85,6 +85,7 @@
 }
 .controls__size-toys,
 .controls__colors-toys {
+    display: inherit;
     width: 200px;
 }
 ///
@@ -130,13 +131,16 @@
     justify-content: space-between;
     width: 290px;
     height: 280px;
-
     padding-left: 10px;
     border-radius: 10px;
     border: 1px solid #278d9f;
     background-color: rgba(31, 112, 127, 0.3);
     backdrop-filter: blur(6px);
     cursor: pointer;
+    transition: 0.3s ease-in-out;
+    &:hover {
+        transform: scale(1.02);
+    }
 }
 .toy-card__title {
     font-size: 22px;
@@ -207,6 +211,6 @@
 label {
     cursor: pointer;
 }
-// .toys-container .toy-card:nth-child(1) {
-//     display: none;
-// }
+.toy-card.hidden {
+    display: none;
+}
