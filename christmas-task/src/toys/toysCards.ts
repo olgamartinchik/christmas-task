@@ -58,26 +58,20 @@ class ToysCard{
         let toyCard:HTMLDivElement
         if(filterData.minMaxSort){
             if(filterData.minMaxSort==='name-max'){
-                 data.sort((a,b)=>{
-                        if(a.name.toLowerCase()<b.name.toLowerCase()){
-                            return -1
-                        }
-                        if(a.name.toLowerCase()>b.name.toLowerCase()){
-                            return 1
-                        }
-                        return 0
-                 })
+                 data.sort((a,b)=>a.name.toLowerCase().charCodeAt(0)-b.name.toLowerCase().charCodeAt(0))
+                //  {
+                //         if(a.name.toLowerCase()<b.name.toLowerCase()){
+                //             return 1
+                //         }
+                //         if(a.name.toLowerCase()>b.name.toLowerCase()){
+                //             return -1
+                //         }
+                //         return 0
+                //  })
             }
             if(filterData.minMaxSort==='name-mim'){
-                data.sort((a,b)=>{
-                    if(a.name.toLowerCase()>b.name.toLowerCase()){
-                        return 1
-                    }
-                    if(a.name.toLowerCase()<b.name.toLowerCase()){
-                        return -1
-                    }
-                    return 0
-             })
+                data.sort((a,b)=>b.name.toLowerCase().charCodeAt(0)-a.name.toLowerCase().charCodeAt(0))
+                
             }
             if(filterData.minMaxSort==='count-max'){
                 data.sort((a,b)=>(+a.count)-(+b.count))
