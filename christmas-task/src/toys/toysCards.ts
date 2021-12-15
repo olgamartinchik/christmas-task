@@ -25,6 +25,12 @@ class ToysCard{
             const data = await res.json();
             return data
     }
+    createMessage():HTMLDivElement{
+        let h2=document.createElement('h2')
+        h2.classList.add('toys-container__title')
+        h2.textContent='Совпаденией нет'
+        return h2
+    }
     createCards(card:ICard):HTMLDivElement{
         this.descriptionArray={'Количество:':`${card.count}`, 'Год покупки:':`${card.year}`, 'Форма:':`${card.shape}`, 'Цвет:':`${card.color}`, 'Размер:':`${card.size}`, 'Любимая:':`${card.favorite===false ?'нет':'да'}`}
 
@@ -50,11 +56,47 @@ class ToysCard{
    async buildCards(selector:HTMLElement,filterData:SortType):Promise<HTMLElement>{
         let data=await this.getData()
         let toyCard:HTMLDivElement
-       
-        data.forEach(card => {
+        if(filterData.minMaxSort){
+            if(filterData.minMaxSort==='name-max'){
+                 data.sort((a,b)=>{
+                        if(a.name.toLowerCase()<b.name.toLowerCase()){
+                            return -1
+                        }
+                        if(a.name.toLowerCase()>b.name.toLowerCase()){
+                            return 1
+                        }
+                        return 0
+                 })
+            }
+            if(filterData.minMaxSort==='name-mim'){
+                data.sort((a,b)=>{
+                    if(a.name.toLowerCase()>b.name.toLowerCase()){
+                        return 1
+                    }
+                    if(a.name.toLowerCase()<b.name.toLowerCase()){
+                        return -1
+                    }
+                    return 0
+             })
+            }
+            if(filterData.minMaxSort==='count-max'){
+                data.sort((a,b)=>(+a.count)-(+b.count))
+            }
+            if(filterData.minMaxSort==='count-min'){
+                data.sort((a,b)=>(+b.count)-(+a.count))
+            }
+           
+        }
+
+
+    //    console.log('data',data)
+        data.forEach((card )=> {
             // console.log(filterData)
-            if(!filterData.favorite||!filterData.shape||!filterData.color||!filterData.size
-                ||!filterData.name
+            if(!filterData.favorite
+                &&!filterData.shape
+                &&!filterData.color
+                &&!filterData.size
+                &&!filterData.name
                 ){
                 toyCard =  this.createCards(card)
                 selector.appendChild( toyCard)
@@ -68,11 +110,17 @@ class ToysCard{
                 &&
                 (filterData.size!.length === 0 ||filterData.size!.includes(card.size))
                 &&
-                (filterData.name!.length === 0 ||(card.name.toLowerCase()).includes(filterData.name))
+                (!filterData.name ||(card.name.toLowerCase()).includes(filterData.name))
+                &&
+                (+card.count >= +filterData.minNum! && +card.count <= +filterData.maxNum!)
+                &&
+                (+card.year >= +filterData.minYear! && +card.year <= +filterData.maxYear!)
                 ){
+                    
 
                 toyCard=  this.createCards(card)
                 selector.appendChild( toyCard)
+               
             }
         }
         // selector.appendChild( toyCard)

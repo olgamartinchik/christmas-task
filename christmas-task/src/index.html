@@ -17,6 +17,12 @@
     </head>
     <body>
         <header class="header">
+            <div class="popup-wrapper">
+                <div class="popup-container">
+                    <h2 class="popup-title"></h2>
+                    <button class="popup-btn">закрыть</button>
+                </div>
+            </div>
             <div class="header__container">
                 <nav class="nav">
                     <a class="nav__logo" href="#"></a>
@@ -28,7 +34,7 @@
                         <div class="nav__search-container">
                             <input type="search" class="nav__search" placeholder="Найти игрушку" autofocus />
                             <div class="nav__select">
-                                <span>0</span>
+                                <span class="count-select">0</span>
                             </div>
                         </div>
                     </div>
@@ -143,6 +149,7 @@
                     </div>
                     <div class="toys-wrapper">
                         <div class="toys-container">
+                            <!-- <h2 class="toys-container__title">Совпаденией нет</h2> -->
                             <!-- <div class="toy-card" data-num-toy="1">
                                 <h2 class="toy-card__title">Большой шар с рисунком</h2>
                                 <img class="toy-card__image" src="./assets/toys/1.png" alt="" />

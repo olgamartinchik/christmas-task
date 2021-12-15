@@ -1,6 +1,7 @@
 import FiltersControls from "./filtersSettings";
 // import ToysCard from './toysCards'
 import Filters from "./filters";
+import SelectionToys from "./selectionToy";
 class App {
 
     public start(): void {
@@ -29,6 +30,7 @@ class App {
         //  toysContainer.innerHTML=''
         //  new ToysCard().buildCards(toysContainer)
         new Filters().filterCards()
+        // new SelectionToys().toggleSelectionCards()
     }
 }
 export default App;

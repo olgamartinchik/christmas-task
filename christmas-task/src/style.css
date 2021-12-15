@@ -41,7 +41,8 @@ button {
 }
 
 .main-page__button,
-.reset-button {
+.reset-button,
+.popup-btn {
   border: 3px solid #278d9f;
   border-radius: 25px;
   background-color: rgba(31, 112, 127, 0.3);
@@ -58,7 +59,8 @@ button {
   transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 .main-page__button:hover,
-.reset-button:hover {
+.reset-button:hover,
+.popup-btn:hover {
   outline-color: rgba(255, 255, 255, 0);
   outline-offset: 15px;
   color: #278d9f;
@@ -654,6 +656,56 @@ input[type=number] {
   border: solid #363535;
   border-width: 0 4px 4px 0;
   transform: rotate(45deg);
+}
+
+.header {
+  position: relative;
+}
+
+.popup-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: transparent;
+  z-index: 2;
+  opacity: 0;
+  left: -500%;
+  transition: 0.4s ease-in-out;
+}
+
+.popup-container {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 336px;
+  height: 170px;
+  border-radius: 10px;
+  background-color: #b56ff7;
+  top: 50%;
+  left: 50%;
+  padding: 10px;
+  transform: translate(-50%, -50%);
+}
+
+.popup-btn {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  padding: 3px 5px;
+  width: 112px;
+}
+.popup-btn:hover {
+  color: #1d555e;
+}
+
+.popup-wrapper.active {
+  opacity: 1;
+  left: 0;
 }
 
 /*# sourceMappingURL=style.css.map */
