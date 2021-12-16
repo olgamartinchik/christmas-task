@@ -140,9 +140,6 @@
     backdrop-filter: blur(6px);
     cursor: pointer;
     transition: 0.4s ease-in-out;
-    // animation-name: Appearance;
-    // animation-duration: 1s;
-    // animation-timing-function: cubic-bezier(0.1, -0.6, 0.2, 0);
 
     &:hover {
         transform: scale(1.02);
@@ -219,41 +216,4 @@ label {
 }
 .toy-card.hidden {
     display: none;
-}
-
-///animation
-@-webkit-keyframes Appearance {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@-o-keyframes Appearance {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@-moz-keyframes Appearance {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@keyframes Appearance {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
 }

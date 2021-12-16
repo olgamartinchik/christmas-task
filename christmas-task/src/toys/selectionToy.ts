@@ -58,6 +58,8 @@ class SelectionToys{
 
                 // console.log('numLikeCards',numLikeCards)
                 localStorage.setItem('numLikeCards', JSON.stringify(numLikeCards))
+                
+                localStorage.setItem('containerLikeCards', JSON.stringify(containerLikeCards))
                  console.log('containerLikeCards',containerLikeCards)
             }
             
@@ -92,6 +94,7 @@ class SelectionToys{
                 
             }
             localStorage.setItem('numLikeCards', JSON.stringify(numLikeCards))
+            localStorage.setItem('containerLikeCards', JSON.stringify(containerLikeCards))
             card!.classList.remove('active')
           
          }

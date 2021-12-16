@@ -136,7 +136,7 @@ class Filters{
             }
         });
         const inputItems=[inputItem1,inputItem2];
-        sliderItems.noUiSlider!.on('update',(values:(number|string)[],handle):void=>{
+        sliderItems.noUiSlider!.on('change',(values:(number|string)[],handle):void=>{
         inputItems[handle.toString()].value=Math.round(values[handle.toString()])
 
         this.sortData.minNum=inputItems[0].value
@@ -168,7 +168,7 @@ class Filters{
                 }
             });
             const inputYears=[inputYear1,inputYear2];
-            sliderYears!.noUiSlider!.on('update',(values:(number|string)[],handle):void=>{
+            sliderYears!.noUiSlider!.on('change',(values:(number|string)[],handle):void=>{
             inputYears[handle.toString()].value=Math.round(values[handle.toString()])
             this.sortData.minYear=inputYears[0].value
             this.sortData.maxYear=inputYears[1].value

@@ -36,6 +36,7 @@ class App {
         //  toysContainer.innerHTML=''
         //  new ToysCard().buildCards(toysContainer)
         new Filters().filterCards()
+  
         new SelectionToys().toggleSelectionCards()
          
     }
