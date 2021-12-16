@@ -1,6 +1,7 @@
 import FiltersControls from "./filtersSettings";
 // import ToysCard from './toysCards'
 import Filters from "./filters";
+import LikeCards from './likeCardsHandler';
 import SelectionToys from "./selectionToy";
 class App {
 
@@ -26,11 +27,17 @@ class App {
          const toysPageControls=document.querySelector('.toys-page__controls') as HTMLElement
          toysPageControls.innerHTML=''
          new FiltersControls().buildControlsContainer(toysPageControls)
+      
+
+        //  new LikeCards().openLikeCards()
+
+
         //  const toysContainer=document.querySelector('.toys-container') as HTMLElement
         //  toysContainer.innerHTML=''
         //  new ToysCard().buildCards(toysContainer)
         new Filters().filterCards()
-        // new SelectionToys().toggleSelectionCards()
+        new SelectionToys().toggleSelectionCards()
+         
     }
 }
 export default App;

@@ -1,6 +1,18 @@
 import { target } from 'nouislider';
 import ToysCard from "./toysCards"
 import Popup from './popupHandler'
+import LikeCards from './likeCardsHandler';
+//  let containerLikeCards:HTMLElement[]=[]
+
+export const containerLikeCards:HTMLElement[]=[]
+
+
+let numLikeCards:string[]=[]
+
+if(localStorage.getItem("numLikeCards")){
+    numLikeCards=JSON.parse(localStorage.getItem("numLikeCards")!)
+}
+
 
 
 class SelectionToys{
@@ -8,66 +20,87 @@ class SelectionToys{
     data:ToysCard
     closeBtn:Popup
     openPopup:Popup
+    // likeToys:HTMLElement[]
+
+
     constructor(){
         this.countToy=0
+        if(localStorage.getItem("numLikeCards")){
+            this.countToy=JSON.parse(localStorage.getItem("numLikeCards")!).length
+        }
         this.data=new ToysCard()
         this.closeBtn=new Popup
         this.openPopup=new Popup
+        // this.likeToys=[]
     }
 
-async toggleSelectionCards(){
-    // await this.data.getData()
+ toggleSelectionCards(){
+//    new LikeCards().openLikeCards()
+
     const toysContainer=document.querySelector('.toys-container') as HTMLElement
+    
     let countSelectionCards= document.querySelector('.count-select') as HTMLElement
-    toysContainer!.addEventListener('click',(e)=>{
-        let target=(e.target as HTMLElement).parentNode  as HTMLDivElement 
-        // let target=(e.target as HTMLElement)
-        console.log('e.target',target!.closest('.toy-card'));
-    if((target!.closest('.toy-card'))){
-        console.log('target',target);
-       target!.classList.add('active')
-        
-       if(this.countToy>=20){
-        this.countToy=19
-        target.classList.value='toy-card'
-
-        this.openPopup.openPopup('Свободных слотов больше нет') 
-       this.closeBtn.closeBtn()
+    if(localStorage.getItem("numLikeCards")){
+        countSelectionCards.textContent=JSON.parse(localStorage.getItem("numLikeCards")!).length
     }
-    this.countToy++
-    countSelectionCards!.textContent=(this.countToy).toString()
-    }else if(target.closest('active')){
-        target.classList.remove('active')
-        this.countToy--
-        countSelectionCards!.textContent=(this.countToy).toString()
-    }    
-    })
-    const toysCards=document.querySelectorAll('.toy-card') 
-    // let countSelectionCards= document.querySelector('.count-select') as HTMLElement
-    // console.log('toysCards',toysCards)
-    // toysCards.forEach((card,ind)=>{
-    //     card!.addEventListener('click',(e)=>{
-    //         if(card.classList.value==='toy-card'){
-    //             card.classList.add('active')                
-                
-    //             if(this.countToy>=20){
-    //                 this.countToy=19
-    //                 card.classList.value='toy-card'
 
-    //                 this.openPopup.openPopup('Свободных слотов больше нет') 
-    //                this.closeBtn.closeBtn()
-    //             }
-    //             this.countToy++
-    //             countSelectionCards!.textContent=(this.countToy).toString()
-    //         }else if(card.classList.contains('active')){
-    //             card.classList.remove('active')
-    //             this.countToy--
-    //             countSelectionCards!.textContent=(this.countToy).toString()
-    //         }        
-    //     console.log('click')      
-        
-    // })
-    // })
+    toysContainer!.addEventListener('click',(e)=>{
+       
+     if((e.target as HTMLElement).closest('.toy-card')){
+         let card =(e.target as HTMLElement).closest('.toy-card') as HTMLElement
+         console.log('true', card);
+         if(card!.classList.contains('toy-card')&&!card!.classList.contains('active')){
+            card!.classList.add('active')
+            if(this.countToy<=19){
+
+                containerLikeCards.push(card!)
+                numLikeCards!.push(card.getAttribute('data-num-toy')!)
+                console.log('numLikeCards',numLikeCards)
+                localStorage.setItem('numLikeCards', JSON.stringify(numLikeCards))
+            console.log('containerLikeCards',containerLikeCards)
+            }
+            
+            if(this.countToy>=20){
+                this.countToy=19
+                card!.classList.value='toy-card'
+            
+                this.openPopup.openPopup('Свободных слотов больше нет') 
+                this.closeBtn.closeBtn()
+            }
+            this.countToy++
+            countSelectionCards!.textContent=(this.countToy).toString()
+           
+
+         }else if(card!.classList.contains('active')){
+            this.countToy--
+            countSelectionCards!.textContent=(this.countToy).toString()
+
+                if(numLikeCards.includes(card.getAttribute('data-num-toy')!)){
+                 let ind=numLikeCards.indexOf(card.getAttribute('data-num-toy')!)
+                    numLikeCards.splice(numLikeCards.indexOf(card.getAttribute('data-num-toy')!,1))
+                    console.log('numLikeCards!!!!',ind)
+                    console.log('numLikeCards!!!!',numLikeCards)
+                }
+                
+           
+            if(containerLikeCards.includes(card)){
+                let ind=containerLikeCards.indexOf(card)
+                // this.likeToys.splice(ind,1)
+                console.log('containerLikeCards',containerLikeCards)
+
+                containerLikeCards.splice(ind,1);
+
+
+                
+                
+            }
+            localStorage.setItem('numLikeCards', JSON.stringify(numLikeCards))
+            card!.classList.remove('active')
+          
+         }
+     }
+
+    })
    
 }
 

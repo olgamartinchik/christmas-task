@@ -1,5 +1,6 @@
 import FiltersControls from "./filtersSettings"
 import { SortType } from "./filters"
+import Popup from './popupHandler'
 
 interface ICard{
     num: string,
@@ -15,9 +16,14 @@ type IData= [ card:ICard]
 class ToysCard{
     setAttributes:FiltersControls
     descriptionArray:object
+    closeBtn:Popup
+    openPopup:Popup
+
     constructor(){
        this.descriptionArray={}
         this.setAttributes=new FiltersControls()
+        this.closeBtn=new Popup
+        this.openPopup=new Popup
     }
     async getData():Promise<IData>{
             const url='../data.json'
@@ -25,17 +31,17 @@ class ToysCard{
             const data = await res.json();
             return data
     }
-    createMessage():HTMLDivElement{
-        let h2=document.createElement('h2')
-        h2.classList.add('toys-container__title')
-        h2.textContent='Совпаденией нет'
-        return h2
-    }
+   
     createCards(card:ICard):HTMLDivElement{
+        let numLikeCards
+        if(localStorage.getItem("numLikeCards")){
+            numLikeCards=JSON.parse(localStorage.getItem("numLikeCards")!)
+        }
+        
         this.descriptionArray={'Количество:':`${card.count}`, 'Год покупки:':`${card.year}`, 'Форма:':`${card.shape}`, 'Цвет:':`${card.color}`, 'Размер:':`${card.size}`, 'Любимая:':`${card.favorite===false ?'нет':'да'}`}
 
         const toyCard=document.createElement('div')            
-        this.setAttributes.setAttributes(toyCard,{'class':'toy-card','data-num-toy':`${card.num}`});
+        this.setAttributes.setAttributes(toyCard,{'class':`toy-card ${numLikeCards.includes(card.num)?'active':''}`,'data-num-toy':`${card.num}`});
         const h2=document.createElement('h2')
         h2.classList.add('toy-card__title')
         h2.textContent=`${card.name}`
@@ -59,15 +65,7 @@ class ToysCard{
         if(filterData.minMaxSort){
             if(filterData.minMaxSort==='name-max'){
                  data.sort((a,b)=>a.name.toLowerCase().charCodeAt(0)-b.name.toLowerCase().charCodeAt(0))
-                //  {
-                //         if(a.name.toLowerCase()<b.name.toLowerCase()){
-                //             return 1
-                //         }
-                //         if(a.name.toLowerCase()>b.name.toLowerCase()){
-                //             return -1
-                //         }
-                //         return 0
-                //  })
+            
             }
             if(filterData.minMaxSort==='name-mim'){
                 data.sort((a,b)=>b.name.toLowerCase().charCodeAt(0)-a.name.toLowerCase().charCodeAt(0))
@@ -81,8 +79,6 @@ class ToysCard{
             }
            
         }
-
-
     //    console.log('data',data)
         data.forEach((card )=> {
             // console.log(filterData)
@@ -109,17 +105,22 @@ class ToysCard{
                 (+card.count >= +filterData.minNum! && +card.count <= +filterData.maxNum!)
                 &&
                 (+card.year >= +filterData.minYear! && +card.year <= +filterData.maxYear!)
-                ){
-                    
+                ){                   
 
                 toyCard=  this.createCards(card)
                 selector.appendChild( toyCard)
+              
                
             }
         }
         // selector.appendChild( toyCard)
+       
         });
-        
+        if(selector.innerHTML===''){
+            // console.log('empty')
+            this.openPopup.openPopup('Совпадений нет') 
+       this.closeBtn.closeBtn()
+        }
         return selector
     }
 }

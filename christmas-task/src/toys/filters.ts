@@ -2,6 +2,7 @@ import GeneratorCards from './generateCarts'
 import SelectionToys from "./selectionToy";
 import * as noUiSlider from 'nouislider';
 import 'nouislider/dist/nouislider.css';
+import LikeCards from './likeCardsHandler';
 
 
 
@@ -114,11 +115,12 @@ class Filters{
         console.log('target',(e.currentTarget! as  HTMLInputElement).value)
             let valueSelect=(e.currentTarget! as  HTMLInputElement).value
             this.sortData.minMaxSort=valueSelect
-            console.log('this.sortData.minMaxSort',this.sortData.minMaxSort)
+            // console.log('this.sortData.minMaxSort',this.sortData.minMaxSort)
             this.generatorCards.generateCard(this.sortData)
         })
     }
-    filterByNum(){        
+    filterByNum(){     
+        
         const sliderItems=document.querySelector('#slider-items')  as noUiSlider.target
         const inputItem1=document.querySelector('#input-item1')  as HTMLInputElement
         const inputItem2=document.querySelector('#input-item2')  as HTMLInputElement
@@ -133,16 +135,21 @@ class Filters{
             }
         });
         const inputItems=[inputItem1,inputItem2];
-        sliderItems.noUiSlider.on('update',(values:(number|string)[],handle):void=>{
+        sliderItems.noUiSlider!.on('update',(values:(number|string)[],handle):void=>{
         inputItems[handle.toString()].value=Math.round(values[handle.toString()])
 
         this.sortData.minNum=inputItems[0].value
         this.sortData.maxNum=inputItems[1].value
+       
+
+     console.log('noUiSlider')
+      
+
+
         this.generatorCards.generateCard(this.sortData)
-        console.log('this.sortData.maxNum',inputItems[0].value,inputItems[1].value)
         })
         }
-    
+        console.log('noUiSlider111')
     }
     filterByYear(){
             const sliderYears=document.querySelector('#slider-years')  as     noUiSlider.target
@@ -160,16 +167,22 @@ class Filters{
                 }
             });
             const inputYears=[inputYear1,inputYear2];
-            sliderYears!.noUiSlider.on('update',(values:(number|string)[],handle):void=>{
+            sliderYears!.noUiSlider!.on('update',(values:(number|string)[],handle):void=>{
             inputYears[handle.toString()].value=Math.round(values[handle.toString()])
             this.sortData.minYear=inputYears[0].value
             this.sortData.maxYear=inputYears[1].value
-            this.generatorCards.generateCard(this.sortData)
-            console.log('this.sortData.minYear',inputYears[0].value,inputYears[1].value)
+
+           
+                console.log('noUiSlider')
+                this.generatorCards.generateCard(this.sortData)
+          
+            
+            
             })
+            console.log('noUiSlider111')
 }
     }
-    filterCards(){
+    filterCards():void{
         this.sortByFavorite()
         this.sortByShape()  
         this.sortByColor()
@@ -179,7 +192,10 @@ class Filters{
         this.filterByNum()  
         this.filterByYear()  
         this.generatorCards.generateCard(this.sortData)
-        new SelectionToys().toggleSelectionCards()
+
+
+        // new SelectionToys().toggleSelectionCards()
+        // new LikeCards().openLikeCards()
     }
 }
 
