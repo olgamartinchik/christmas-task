@@ -92,5 +92,11 @@
         line-height: 40px;
         font-size: 20px;
         background-color: #278d9f;
+        text-shadow: black 0.1em 0.1em 0.2em;
+        transition: 0.3s ease-in-out;
+        &:hover {
+            cursor: pointer;
+            color: #fff;
+        }
     }
 }

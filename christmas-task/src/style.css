@@ -42,7 +42,8 @@ button {
 
 .main-page__button,
 .reset-button,
-.popup-btn {
+.popup-btn,
+.count-select {
   border: 3px solid #278d9f;
   border-radius: 25px;
   background-color: rgba(31, 112, 127, 0.3);
@@ -59,8 +60,13 @@ button {
   transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 .main-page__button:hover,
+.main-page__button .count-select:hover,
 .reset-button:hover,
-.popup-btn:hover {
+.reset-button .count-select:hover,
+.popup-btn:hover,
+.popup-btn .count-select:hover,
+.count-select:hover,
+.count-select .count-select:hover {
   outline-color: rgba(255, 255, 255, 0);
   outline-offset: 15px;
   color: #278d9f;
@@ -121,6 +127,21 @@ h2 {
   opacity: 0;
   top: -9999px;
   left: -9999px;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #7a7979a9;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2) inset;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--answerColor);
+  border-radius: 8px;
+  border: 1px solid #7a7979a9;
 }
 
 .main-page {
@@ -305,6 +326,12 @@ h2 {
   line-height: 40px;
   font-size: 20px;
   background-color: #278d9f;
+  text-shadow: black 0.1em 0.1em 0.2em;
+  transition: 0.3s ease-in-out;
+}
+.nav__select span:hover {
+  cursor: pointer;
+  color: #fff;
 }
 
 .toys-page {
@@ -325,6 +352,7 @@ h2 {
   border-radius: 10px;
   background-color: rgba(31, 112, 127, 0.3);
   backdrop-filter: blur(6px);
+  transition: 0.3s ease-in-out;
 }
 
 .controls {
@@ -437,6 +465,7 @@ h2 {
   height: 100%;
   overflow: auto;
   padding: 10px 0 46px;
+  transition: 1s ease-in-out;
 }
 
 .toys-container::-webkit-scrollbar {
@@ -456,7 +485,7 @@ h2 {
   background-color: rgba(31, 112, 127, 0.3);
   backdrop-filter: blur(6px);
   cursor: pointer;
-  transition: 0.3s ease-in-out;
+  transition: 0.4s ease-in-out;
 }
 .toy-card:hover {
   transform: scale(1.02);
@@ -534,6 +563,38 @@ label {
   display: none;
 }
 
+@-webkit-keyframes Appearance {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-o-keyframes Appearance {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes Appearance {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes Appearance {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .input-container {
   display: flex;
   align-items: center;

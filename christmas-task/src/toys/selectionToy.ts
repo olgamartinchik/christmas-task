@@ -52,12 +52,13 @@ class SelectionToys{
          if(card!.classList.contains('toy-card')&&!card!.classList.contains('active')){
             card!.classList.add('active')
             if(this.countToy<=19){
-
                 containerLikeCards.push(card!)
+
                 numLikeCards!.push(card.getAttribute('data-num-toy')!)
-                console.log('numLikeCards',numLikeCards)
+
+                // console.log('numLikeCards',numLikeCards)
                 localStorage.setItem('numLikeCards', JSON.stringify(numLikeCards))
-            console.log('containerLikeCards',containerLikeCards)
+                 console.log('containerLikeCards',containerLikeCards)
             }
             
             if(this.countToy>=20){
@@ -76,10 +77,9 @@ class SelectionToys{
             countSelectionCards!.textContent=(this.countToy).toString()
 
                 if(numLikeCards.includes(card.getAttribute('data-num-toy')!)){
-                 let ind=numLikeCards.indexOf(card.getAttribute('data-num-toy')!)
                     numLikeCards.splice(numLikeCards.indexOf(card.getAttribute('data-num-toy')!,1))
-                    console.log('numLikeCards!!!!',ind)
-                    console.log('numLikeCards!!!!',numLikeCards)
+                   
+                    // console.log('numLikeCards!!!!',numLikeCards)
                 }
                 
            
@@ -89,9 +89,6 @@ class SelectionToys{
                 console.log('containerLikeCards',containerLikeCards)
 
                 containerLikeCards.splice(ind,1);
-
-
-                
                 
             }
             localStorage.setItem('numLikeCards', JSON.stringify(numLikeCards))

@@ -28,6 +28,7 @@ class Filters{
     sortData:SortType
     dataAttribute:string|null
   
+  
     constructor(){
     this.sortData={
         minMaxSort:null,
@@ -171,12 +172,11 @@ class Filters{
             inputYears[handle.toString()].value=Math.round(values[handle.toString()])
             this.sortData.minYear=inputYears[0].value
             this.sortData.maxYear=inputYears[1].value
-
            
-                console.log('noUiSlider')
-                this.generatorCards.generateCard(this.sortData)
+            console.log('noUiSlider')
+            this.generatorCards.generateCard(this.sortData)
           
-            
+           
             
             })
             console.log('noUiSlider111')

@@ -13,14 +13,19 @@ class Popup{
         popupTitle!.innerHTML=''
         popupTitle!.textContent=message
     }
-    openCards(odj:HTMLElement[]){
+    openCards(arrayCards:HTMLElement[], message:string){
         let popup=document.querySelector('.popup-wrapper')
         let cardsContainer=document.querySelector('.cards-container')
         popup!.classList.add('active')
         cardsContainer!.innerHTML=''
-        odj.forEach(el=>{
+       
+        if(arrayCards.length===0){
+            cardsContainer!.innerHTML=message
+        }else{
+             arrayCards.forEach(el=>{
             cardsContainer!.append(el)
         })
+        }
     }
 }
 export default Popup

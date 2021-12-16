@@ -15,6 +15,7 @@
     border-radius: 10px;
     background-color: rgba(31, 112, 127, 0.3);
     backdrop-filter: blur(6px);
+    transition: 0.3s ease-in-out;
     // min-height: calc(100vh - 140px);
 }
 .controls {
@@ -120,6 +121,7 @@
     height: 100%;
     overflow: auto;
     padding: 10px 0 46px;
+    transition: 1s ease-in-out;
 }
 .toys-container::-webkit-scrollbar {
     display: none;
@@ -137,7 +139,11 @@
     background-color: rgba(31, 112, 127, 0.3);
     backdrop-filter: blur(6px);
     cursor: pointer;
-    transition: 0.3s ease-in-out;
+    transition: 0.4s ease-in-out;
+    // animation-name: Appearance;
+    // animation-duration: 1s;
+    // animation-timing-function: cubic-bezier(0.1, -0.6, 0.2, 0);
+
     &:hover {
         transform: scale(1.02);
     }
@@ -213,4 +219,41 @@ label {
 }
 .toy-card.hidden {
     display: none;
+}
+
+///animation
+@-webkit-keyframes Appearance {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes Appearance {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes Appearance {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes Appearance {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }

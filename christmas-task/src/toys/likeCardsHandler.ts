@@ -20,7 +20,7 @@ class LikeCards {
 
             // this.openPopup.openPopup()
             console.log('this.likeToys',containerLikeCards)
-            this.openCards.openCards(containerLikeCards)
+            this.openCards.openCards(containerLikeCards, 'Нет избранных игрушек')
             this.closeBtn.closeBtn()
         })
     }
