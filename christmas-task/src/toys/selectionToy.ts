@@ -4,11 +4,14 @@ import Popup from './popupHandler'
 import LikeCards from './likeCardsHandler';
 //  let containerLikeCards:HTMLElement[]=[]
 
-export const containerLikeCards:HTMLElement[]=[]
+export let containerLikeCards:string[]=[]
+if(localStorage.getItem("containerLikeCards")){
+    containerLikeCards=JSON.parse(localStorage.getItem("containerLikeCards")!)
+}
+
 
 
 let numLikeCards:string[]=[]
-
 if(localStorage.getItem("numLikeCards")){
     numLikeCards=JSON.parse(localStorage.getItem("numLikeCards")!)
 }
@@ -35,7 +38,7 @@ class SelectionToys{
     }
 
  toggleSelectionCards(){
-//    new LikeCards().openLikeCards()
+   new LikeCards().openLikeCards()
 
     const toysContainer=document.querySelector('.toys-container') as HTMLElement
     
@@ -52,7 +55,7 @@ class SelectionToys{
          if(card!.classList.contains('toy-card')&&!card!.classList.contains('active')){
             card!.classList.add('active')
             if(this.countToy<=19){
-                containerLikeCards.push(card!)
+                containerLikeCards.push(card!.outerHTML)
 
                 numLikeCards!.push(card.getAttribute('data-num-toy')!)
 
@@ -85,8 +88,8 @@ class SelectionToys{
                 }
                 
            
-            if(containerLikeCards.includes(card)){
-                let ind=containerLikeCards.indexOf(card)
+            if(containerLikeCards.includes(card!.outerHTML)){
+                let ind=containerLikeCards.indexOf(card!.outerHTML)
                 // this.likeToys.splice(ind,1)
                 console.log('containerLikeCards',containerLikeCards)
 

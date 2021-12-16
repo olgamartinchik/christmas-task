@@ -33,7 +33,7 @@ class ToysCard{
     }
    
     createCards(card:ICard):HTMLDivElement{
-        let numLikeCards:string[]
+        let numLikeCards:string[]|null=null
         if(localStorage.getItem("numLikeCards")){
             numLikeCards=JSON.parse(localStorage.getItem("numLikeCards")!)
         }
@@ -41,7 +41,7 @@ class ToysCard{
         this.descriptionArray={'Количество:':`${card.count}`, 'Год покупки:':`${card.year}`, 'Форма:':`${card.shape}`, 'Цвет:':`${card.color}`, 'Размер:':`${card.size}`, 'Любимая:':`${card.favorite===false ?'нет':'да'}`}
 
         const toyCard=document.createElement('div')            
-        this.setAttributes.setAttributes(toyCard,{'class':` animate__animated animate__fadeInDown toy-card ${numLikeCards!.includes(card.num)?'active':''}`,'data-num-toy':`${card.num}`});
+        this.setAttributes.setAttributes(toyCard,{'class':` animate__animated animate__fadeInDown toy-card ${ numLikeCards?.includes(card.num)?'active':''}`,'data-num-toy':`${card.num}`});
         const h2=document.createElement('h2')
         h2.classList.add('toy-card__title')
         h2.textContent=`${card.name}`

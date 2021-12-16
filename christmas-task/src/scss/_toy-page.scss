@@ -8,6 +8,10 @@
     // padding: 0 15px;
 }
 .toys-page__controls {
+    height: calc(100vh - 145px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     padding: 0 10px 10px;
     max-width: 300px;
     width: 100%;
@@ -16,7 +20,6 @@
     background-color: rgba(31, 112, 127, 0.3);
     backdrop-filter: blur(6px);
     transition: 0.3s ease-in-out;
-    // min-height: calc(100vh - 140px);
 }
 .controls {
     display: flex;
