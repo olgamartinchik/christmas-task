@@ -10,6 +10,7 @@ class App {
             (document.querySelector('.main-page') as HTMLElement).classList.add('hidden');
             (document.querySelector('.nav__container') as HTMLElement).classList.remove('hidden');
             (document.querySelector('.toys-page')as HTMLElement).classList.remove('hidden');
+            (document.querySelector('.nav__search') as HTMLInputElement).focus()
         });
 
         (document.querySelector('.nav__logo') as HTMLElement).addEventListener('click',():void=>{

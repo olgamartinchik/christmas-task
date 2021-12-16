@@ -129,6 +129,7 @@
 .toys-container::-webkit-scrollbar {
     display: none;
 }
+
 .toy-card {
     position: relative;
     display: flex;
@@ -142,10 +143,10 @@
     background-color: rgba(31, 112, 127, 0.3);
     backdrop-filter: blur(6px);
     cursor: pointer;
-    transition: 0.4s ease-in-out;
+    transition: 0.4s ease-in-out !important;
 
     &:hover {
-        transform: scale(1.02);
+        background-color: rgba(15, 53, 59, 0.3);
     }
 }
 .toy-card__title {

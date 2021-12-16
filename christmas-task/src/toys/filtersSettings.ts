@@ -1,3 +1,4 @@
+import { SortType } from "./filters"
 const toysPageControls=document.querySelector('.toys-page__controls') as HTMLElement
 
 
@@ -9,9 +10,25 @@ const sizeArray:string[]=['большой','средний','малый']
 class FiltersControls{
     // selector:HTMLElement
     containerControls:HTMLDivElement[]=[]
+    localSortData:SortType
     constructor(){
         // this.selector=selector;
         this.containerControls=[]
+        this.localSortData={}
+        if(localStorage.getItem('sortData')){
+            let localSortData=JSON.parse(localStorage.getItem("sortData")!) as SortType
+            this.localSortData.minMaxSort=localSortData!.minMaxSort
+            this.localSortData.minNum=localSortData!.minNum
+            this.localSortData.maxNum=localSortData!.maxNum
+            this.localSortData.minYear=localSortData!.minYear
+            this.localSortData.maxYear=localSortData!.maxYear
+            this.localSortData.name=localSortData!.name
+            this.localSortData.shape=localSortData!.shape
+            this.localSortData.color=localSortData!.color
+            this.localSortData.size=localSortData!.size
+            this.localSortData.favorite=localSortData!.favorite
+    
+        }
     }
 
      setAttributes(el:HTMLElement, attrs:object):void {
@@ -30,6 +47,9 @@ class FiltersControls{
         select.setAttribute('name', 'sort')
         for(let name in optionsValue){
             const option=document.createElement('option')
+            if(this.localSortData.minMaxSort&&this.localSortData.minMaxSort===name){
+                option.selected=true
+            }
             option.setAttribute('value',`${name}`)
             option.textContent=`${optionsValue[name]}`
             select.appendChild(option)
@@ -52,6 +72,13 @@ class FiltersControls{
             const img=document.createElement('img')
             img.classList.add('form-toy')
             img.setAttribute(`data-shape`, `${name}`)
+            if(this.localSortData.shape){
+                this.localSortData.shape.forEach(shape=>{
+                    if(shape===name){
+                        img.classList.add('active')
+                    }
+                })
+            }
             img.src=`./assets/svg/${formToys[name]}.svg`
             img.alt='toy'
             controlsFormToys.appendChild(img)
@@ -72,8 +99,17 @@ class FiltersControls{
         let inputContainer=document.createElement('div')
         inputContainer.classList.add('input-container')
         let input1=document.createElement('input')
+        if(this.localSortData.minNum){
+            
+            input1.value=this.localSortData.minNum
+        }
         this.setAttributes(input1,{'type':'number', 'min':'1','max':'12','placeholder':'1','id':'input-item1', 'class':'input-range items-min','disabled':'disabled'})
         let input2=document.createElement('input')
+        if(this.localSortData.maxNum){
+          
+            input1.value=this.localSortData.maxNum
+           
+        }
         this.setAttributes(input2,{'type':'number', 'min':'1','max':'12','placeholder':'12','id':'input-item2', 'class':'input-range items-max','disabled':'disabled'})
         inputContainer.appendChild(input1)
         inputContainer.appendChild(input2)
@@ -96,8 +132,16 @@ class FiltersControls{
         let inputContainer=document.createElement('div')
         inputContainer.classList.add('input-container')
         let input1=document.createElement('input')
+        if(this.localSortData.minYear){
+           
+            input1.value=this.localSortData.minYear
+        }
         this.setAttributes(input1,{'type':'number', 'min':'1940','max':'2020','placeholder':'1940','id':'input-year1', 'class':'input-range years-min','disabled':'disabled'})
         let input2=document.createElement('input')
+        if(this.localSortData.maxYear){
+           
+            input2.value=this.localSortData.maxYear
+        }
         this.setAttributes(input2,{'type':'number', 'min':'1940','max':'2020','placeholder':'2020','id':'input-year2', 'class':'input-range years-max','disabled':'disabled'})
         inputContainer.appendChild(input1)
         inputContainer.appendChild(input2)
@@ -119,6 +163,14 @@ class FiltersControls{
         colorsArray.forEach(color=>{
             let button=document.createElement('button')           
             this.setAttributes(button,{'class':'color-btn', 'data-color':`${color}`})
+            if(this.localSortData.color){
+                this.localSortData.color.forEach(dataColor=>{
+                    if(dataColor===color){
+                        button.classList.add('active')
+                    }
+                })
+                
+            }
             controlsColorContainer.appendChild(button)
         })
         controlsColors.appendChild(titleColor)
@@ -137,6 +189,13 @@ class FiltersControls{
         sizeArray.forEach(size=>{
             let img=document.createElement('img')
             this.setAttributes(img,{'data-size':`${size}`,'class':'toy-size','src':'./assets/svg/ball.svg','alt':'ball'})
+            if(this.localSortData.size){
+                this.localSortData.size.forEach(dataSize=>{
+                    if(dataSize===size){
+                        img.classList.add('active')
+                    }
+                })
+            }
             controlsSizeToys.appendChild(img)
         })
         controlsColors.appendChild(titleSize)
@@ -152,6 +211,11 @@ class FiltersControls{
         titleFavorite.textContent='Только любимые:'
         let input = document.createElement('input')
         this.setAttributes(input,{'type':'checkbox','id':'favorite','class':'favorite-toys'})
+        if(this.localSortData.favorite){
+             this.localSortData.favorite?.forEach(data=>data?input!.checked =true:input!.checked=false)
+        }
+       
+       
         let label=document.createElement('label')
         this.setAttributes(label,{'for':'favorite'})
 
@@ -184,4 +248,3 @@ class FiltersControls{
 }
 
 export default FiltersControls
-// new FiltersControls(toysPageControls).buildControlsContainer()

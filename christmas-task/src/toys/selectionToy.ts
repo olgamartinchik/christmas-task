@@ -23,7 +23,6 @@ class SelectionToys{
     data:ToysCard
     closeBtn:Popup
     openPopup:Popup
-    // likeToys:HTMLElement[]
 
 
     constructor(){
@@ -34,7 +33,6 @@ class SelectionToys{
         this.data=new ToysCard()
         this.closeBtn=new Popup
         this.openPopup=new Popup
-        // this.likeToys=[]
     }
 
  toggleSelectionCards(){
@@ -51,7 +49,7 @@ class SelectionToys{
        
      if((e.target as HTMLElement).closest('.toy-card')){
          let card =(e.target as HTMLElement).closest('.toy-card') as HTMLElement
-         console.log('true', card);
+        //  console.log('true', card);
          if(card!.classList.contains('toy-card')&&!card!.classList.contains('active')){
             card!.classList.add('active')
             if(this.countToy<=19){
@@ -63,7 +61,7 @@ class SelectionToys{
                 localStorage.setItem('numLikeCards', JSON.stringify(numLikeCards))
                 
                 localStorage.setItem('containerLikeCards', JSON.stringify(containerLikeCards))
-                 console.log('containerLikeCards',containerLikeCards)
+                //  console.log('containerLikeCards',containerLikeCards)
             }
             
             if(this.countToy>=20){
@@ -91,7 +89,7 @@ class SelectionToys{
             if(containerLikeCards.includes(card!.outerHTML)){
                 let ind=containerLikeCards.indexOf(card!.outerHTML)
                 // this.likeToys.splice(ind,1)
-                console.log('containerLikeCards',containerLikeCards)
+                // console.log('containerLikeCards',containerLikeCards)
 
                 containerLikeCards.splice(ind,1);
                 
