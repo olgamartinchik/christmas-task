@@ -1,26 +1,23 @@
-import Popup from './popupHandler'
-import SelectionToys from './selectionToy'
-import { containerLikeCards } from './selectionToy'
-
+import Popup from './popupHandler';
+import { containerLikeCards } from './selectionToy';
 
 class LikeCards {
-    closeBtn:Popup
-    openCards:Popup
+    closeBtn: Popup;
 
-    constructor(){
-        
-        this.closeBtn=new Popup
-        this.openCards=new Popup
+    openCards: Popup;
+
+    constructor() {
+        this.closeBtn = new Popup();
+        this.openCards = new Popup();
     }
-    openLikeCards(){
-        const countSelect=document.querySelector('.count-select')
-        countSelect!.addEventListener('click',(e)=>{
 
+    openLikeCards() {
+        const countSelect = document.querySelector('.count-select');
+        countSelect!.addEventListener('click', () => {
             // console.log('this.likeToys',containerLikeCards)
-            this.openCards.openCards(containerLikeCards, 'Нет избранных игрушек')
-            this.closeBtn.closeBtn()
-        })
+            this.openCards.openCards(containerLikeCards, 'Нет избранных игрушек');
+            this.closeBtn.closeBtn();
+        });
     }
-
 }
-export default LikeCards
+export default LikeCards;

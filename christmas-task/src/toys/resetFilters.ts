@@ -1,45 +1,41 @@
-import ControlsPanel from "./buildControllsPanel"
-import Filters, { SortType } from "./filters"
+import ControlsPanel from './buildControlsPanel';
+import Filters, { SortType } from './filters';
 
-class ResetFilters{
-    sortData:Filters
-    constructor(){
-        this.sortData=new Filters
+class ResetFilters {
+    sortData: Filters;
+
+    constructor() {
+        this.sortData = new Filters();
     }
 
-    getEmptyFilters(){
-        const controlsPanel=document.querySelector('.toys-page__controls') as HTMLElement
+    getEmptyFilters() {
+        const controlsPanel = document.querySelector('.toys-page__controls') as HTMLElement;
 
-        controlsPanel!.addEventListener('click',(e)=>{
-            if(((e.target as HTMLElement).closest )('.reset-button')){
-                 console.log('click')
-                 if(localStorage.getItem('sortData')){
-                    localStorage.removeItem('sortData')
+        controlsPanel!.addEventListener('click', (e) => {
+            if ((e.target as HTMLElement).closest('.reset-button')) {
+                console.log('click');
+                if (localStorage.getItem('sortData')) {
+                    localStorage.removeItem('sortData');
                 }
-                this.resetSortData(this.sortData.sortData)
-                new ControlsPanel().buildControls()
-                new Filters().getAllFilters()
+                this.resetSortData(this.sortData.sortData);
+                new ControlsPanel().buildControls();
+                new Filters().getAllFilters();
             }
-        })
-
-       
-
-    }
-    resetSortData(object:SortType){
-        object.minMaxSort=null,
-        object.minNum='1';
-        object.maxNum='12';
-        object.minYear='1940';
-        object.maxYear='2020';
-        object.name=null;
-        object.shape=[];
-        object.color=[];
-        object.size=[];
-        object.favorite=[];
+        });
     }
 
-
+    resetSortData(object: SortType) {
+        object.minMaxSort = null;
+        object.minNum = '1';
+        object.maxNum = '12';
+        object.minYear = '1940';
+        object.maxYear = '2020';
+        object.name = null;
+        object.shape = [];
+        object.color = [];
+        object.size = [];
+        object.favorite = [];
+    }
 }
 
-export default ResetFilters
-
+export default ResetFilters;

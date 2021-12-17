@@ -1,12 +1,11 @@
-import ToysCard from "./toysCards"
-import { SortType } from "./filters"
+import ToysCard from './toysCards';
+import { SortType } from './filters';
 
-class GeneratorCards{
-    generateCard(sortData:SortType){
-        const toysContainer=document.querySelector('.toys-container') as HTMLElement
-        toysContainer.innerHTML=''
-        new ToysCard().buildCards(toysContainer,sortData)
-
+class GeneratorCards {
+    generateCard(sortData: SortType) {
+        const toysContainer = document.querySelector('.toys-container') as HTMLElement;
+        toysContainer.innerHTML = '';
+        new ToysCard().buildCards(toysContainer, sortData);
     }
 }
-export default GeneratorCards
+export default GeneratorCards;

@@ -1,114 +1,103 @@
-import { target } from 'nouislider';
-import ToysCard from "./toysCards"
-import Popup from './popupHandler'
+import ToysCard from './toysCards';
+import Popup from './popupHandler';
 import LikeCards from './likeCardsHandler';
 //  let containerLikeCards:HTMLElement[]=[]
 
-export let containerLikeCards:string[]=[]
-if(localStorage.getItem("containerLikeCards")){
-    containerLikeCards=JSON.parse(localStorage.getItem("containerLikeCards")!)
+export let containerLikeCards: string[] = [];
+if (localStorage.getItem('containerLikeCards')) {
+    containerLikeCards = JSON.parse(localStorage.getItem('containerLikeCards')!);
 }
 
-export let numLikeCards:string[]=[]
-if(localStorage.getItem("numLikeCards")){
-    numLikeCards=JSON.parse(localStorage.getItem("numLikeCards")!)
+export let numLikeCards: string[] = [];
+if (localStorage.getItem('numLikeCards')) {
+    numLikeCards = JSON.parse(localStorage.getItem('numLikeCards')!);
 }
-export let countToy:number=0
-class SelectionToys{
+export let countToy = 0;
+class SelectionToys {
+    data: ToysCard;
 
-    data:ToysCard
-    closeBtn:Popup
-    openPopup:Popup
+    closeBtn: Popup;
 
+    openPopup: Popup;
 
-    constructor(){
-        
-        if(localStorage.getItem("numLikeCards")){
-            countToy=JSON.parse(localStorage.getItem("numLikeCards")!).length
+    constructor() {
+        if (localStorage.getItem('numLikeCards')) {
+            countToy = JSON.parse(localStorage.getItem('numLikeCards')!).length;
         }
-        this.data=new ToysCard()
-        this.closeBtn=new Popup
-        this.openPopup=new Popup
+        this.data = new ToysCard();
+        this.closeBtn = new Popup();
+        this.openPopup = new Popup();
     }
 
- toggleSelectionCards(){
-   new LikeCards().openLikeCards()
+    toggleSelectionCards() {
+        new LikeCards().openLikeCards();
 
-    const toysContainer=document.querySelector('.toys-container') as HTMLElement
-    
-    let countSelectionCards= document.querySelector('.count-select') as HTMLElement
-    if(localStorage.getItem("numLikeCards")){
-        countSelectionCards.textContent=JSON.parse(localStorage.getItem("numLikeCards")!).length
-    }
+        const toysContainer = document.querySelector('.toys-container') as HTMLElement;
 
-    toysContainer!.addEventListener('click',(e)=>{
-        console.log('numLikeCards',numLikeCards)
-        // console.log('containerLikeCards',containerLikeCards)
-       
-     if((e.target as HTMLElement).closest('.toy-card')){
-         let card =(e.target as HTMLElement).closest('.toy-card') as HTMLElement
-        //  console.log('true', card);
-         if(card!.classList.contains('toy-card')&&!card!.classList.contains('active')){
-            card!.classList.add('active')
+        const countSelectionCards = document.querySelector('.count-select') as HTMLElement;
+        if (localStorage.getItem('numLikeCards')) {
+            countSelectionCards.textContent = JSON.parse(localStorage.getItem('numLikeCards')!).length;
+        }
 
-            numLikeCards.indexOf((card.getAttribute('data-num-toy')!))
-            countToy++
-            countSelectionCards!.textContent=(countToy).toString()
-            if(countToy<=19){
-                containerLikeCards.push((card!.cloneNode(true) as HTMLElement).outerHTML)
+        toysContainer!.addEventListener('click', (e) => {
+            console.log('numLikeCards', numLikeCards);
+            // console.log('containerLikeCards',containerLikeCards)
 
-                numLikeCards!.push(card.getAttribute('data-num-toy')!)
+            if ((e.target as HTMLElement).closest('.toy-card')) {
+                const card = (e.target as HTMLElement).closest('.toy-card') as HTMLElement;
+                //  console.log('true', card);
+                if (card!.classList.contains('toy-card') && !card!.classList.contains('active')) {
+                    card!.classList.add('active');
 
-                // console.log('numLikeCards',numLikeCards)
-                localStorage.setItem('numLikeCards', JSON.stringify(numLikeCards))
-                
-                localStorage.setItem('containerLikeCards', JSON.stringify(containerLikeCards))
-                //  console.log('containerLikeCards',containerLikeCards)
-            }
-            
-            if(countToy>=20){
-                countToy=19
-                card!.classList.value='toy-card'
-            
-                this.openPopup.openPopup('Извините, все слоты заполнены') 
-                this.closeBtn.closeBtn()
-            }
-            
-           
+                    numLikeCards.indexOf(card.getAttribute('data-num-toy')!);
+                    countToy++;
+                    countSelectionCards!.textContent = countToy.toString();
+                    if (countToy <= 19) {
+                        containerLikeCards.push((card!.cloneNode(true) as HTMLElement).outerHTML);
 
-         }else if(card!.classList.contains('active')){
-            countToy--
-            countSelectionCards!.textContent=(countToy).toString()
-            console.log('numLikeCards',numLikeCards)
-        console.log('containerLikeCards',containerLikeCards)
+                        numLikeCards!.push(card.getAttribute('data-num-toy')!);
 
-                if(numLikeCards.includes(card.getAttribute('data-num-toy')!)){
-                    let ind=numLikeCards.indexOf((card.getAttribute('data-num-toy')!)) 
-                    numLikeCards.splice(ind,1)
-                   
-                   
+                        // console.log('numLikeCards',numLikeCards)
+                        localStorage.setItem('numLikeCards', JSON.stringify(numLikeCards));
+
+                        localStorage.setItem('containerLikeCards', JSON.stringify(containerLikeCards));
+                        //  console.log('containerLikeCards',containerLikeCards)
+                    }
+
+                    if (countToy >= 20) {
+                        countToy = 19;
+                        card!.classList.value = 'toy-card';
+
+                        this.openPopup.openPopup('Извините, все слоты заполнены');
+                        this.closeBtn.closeBtn();
+                    }
+                } else if (card!.classList.contains('active')) {
+                    countToy--;
+                    countSelectionCards!.textContent = countToy.toString();
+                    console.log('numLikeCards', numLikeCards);
+                    console.log('containerLikeCards', containerLikeCards);
+
+                    if (numLikeCards.includes(card.getAttribute('data-num-toy')!)) {
+                        const ind = numLikeCards.indexOf(card.getAttribute('data-num-toy')!);
+                        numLikeCards.splice(ind, 1);
+                    }
+
+                    if (containerLikeCards.includes(card!.outerHTML)) {
+                        const ind = containerLikeCards.indexOf(card!.outerHTML);
+                        containerLikeCards.splice(ind, 1);
+                    }
+                    localStorage.setItem('numLikeCards', JSON.stringify(numLikeCards));
+                    localStorage.setItem('containerLikeCards', JSON.stringify(containerLikeCards));
+                    card!.classList.remove('active');
                 }
-                
-           
-            if(containerLikeCards.includes(card!.outerHTML)){
-                let ind=containerLikeCards.indexOf(card!.outerHTML)
-                containerLikeCards.splice(ind,1);
-                
             }
-            localStorage.setItem('numLikeCards', JSON.stringify(numLikeCards))
-            localStorage.setItem('containerLikeCards', JSON.stringify(containerLikeCards))
-            card!.classList.remove('active')
-          
-         }
-     }
+        });
+    }
 
-    })
-   
+    resetCount() {
+        countToy = 0;
+        const countSelectionCards = document.querySelector('.count-select') as HTMLElement;
+        countSelectionCards.textContent = countToy.toString();
+    }
 }
-resetCount(){
-    countToy=0
-    let countSelectionCards= document.querySelector('.count-select') as HTMLElement
-    countSelectionCards.textContent=(countToy).toString()
-}
-}
-export default SelectionToys
+export default SelectionToys;

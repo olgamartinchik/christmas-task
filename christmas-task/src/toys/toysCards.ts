@@ -1,129 +1,144 @@
-import FiltersControls from "./controlsContainer"
-import { SortType } from "./filters"
-import Popup from './popupHandler'
+import FiltersControls from './controlsContainer';
+import { SortType } from './filters';
+import Popup from './popupHandler';
 
-interface ICard{
-    num: string,
-        name: string,
-        count: string,
-        year: string,
-        shape: string,
-        color: string,
-        size: string,
-        favorite: boolean,
+interface ICard {
+    num: string;
+    name: string;
+    count: string;
+    year: string;
+    shape: string;
+    color: string;
+    size: string;
+    favorite: boolean;
 }
-type IData= [ card:ICard]
-class ToysCard{
-    setAttributes:FiltersControls
-    descriptionArray:object
-    closeBtn:Popup
-    openPopup:Popup
+type IData = [card: ICard];
+class ToysCard {
+    setAttributes: FiltersControls;
 
-    constructor(){
-       this.descriptionArray={}
-        this.setAttributes=new FiltersControls()
-        this.closeBtn=new Popup
-        this.openPopup=new Popup
-    }
-    async getData():Promise<IData>{
-            const url='../data.json'
-            const res = await fetch(url);
-            const data = await res.json();
-            return data
-    }
-   
-    createCards(card:ICard):HTMLDivElement{
-        let numLikeCards:string[]|null=null
-        if(localStorage.getItem("numLikeCards")){
-            numLikeCards=JSON.parse(localStorage.getItem("numLikeCards")!)
-        }
-        
-        this.descriptionArray={'Количество:':`${card.count}`, 'Год покупки:':`${card.year}`, 'Форма:':`${card.shape}`, 'Цвет:':`${card.color}`, 'Размер:':`${card.size}`, 'Любимая:':`${card.favorite===false ?'нет':'да'}`}
+    descriptionArray: object;
 
-        const toyCard=document.createElement('div')            
-        this.setAttributes.setAttributes(toyCard,{'class':` animate__animated animate__fadeInDown toy-card ${ numLikeCards?.includes(card.num)?'active':''}`,'data-num-toy':`${card.num}`});
-        const h2=document.createElement('h2')
-        h2.classList.add('toy-card__title')
-        h2.textContent=`${card.name}`
-        let img=document.createElement('img') as HTMLElement
-        this.setAttributes.setAttributes(img,{'class':'toy-card__image','src':`./assets/toys/${card.num}.png`, 'alt':'toy'});
-        let ul=document.createElement('ul')
-            ul.classList.add('toy-card__description')
-            for(let description in this.descriptionArray){
-                let li=document.createElement('li')                 
-                li.textContent=`${description} ${this.descriptionArray[description]}`
-                ul.appendChild(li)
-            }           
-        const toyCardLike=document.createElement('div')
-        toyCardLike.classList.add('toy-card__like')
-        toyCard.append(h2, img, ul,toyCardLike)        
-        return toyCard
-    }
-   async buildCards(selector:HTMLElement,filterData:SortType):Promise<HTMLElement>{
-        let data=await this.getData()
-        let toyCard:HTMLDivElement
-        if(filterData.minMaxSort){
-            if(filterData.minMaxSort==='name-max'){
-                 data.sort((a,b)=>a.name.toLowerCase().charCodeAt(0)-b.name.toLowerCase().charCodeAt(0))
-            
-            }
-            if(filterData.minMaxSort==='name-mim'){
-                data.sort((a,b)=>b.name.toLowerCase().charCodeAt(0)-a.name.toLowerCase().charCodeAt(0))
-                
-            }
-            if(filterData.minMaxSort==='count-max'){
-                data.sort((a,b)=>(+a.count)-(+b.count))
-            }
-            if(filterData.minMaxSort==='count-min'){
-                data.sort((a,b)=>(+b.count)-(+a.count))
-            }
-           
-        }
-    //    console.log('data',data)
-        data.forEach((card )=> {
-            // console.log(filterData)
-            if(!filterData.favorite
-                &&!filterData.shape
-                &&!filterData.color
-                &&!filterData.size
-                &&!filterData.name
-                ){
-                toyCard =  this.createCards(card)
-                selector.appendChild( toyCard)
-            }else {
-                // console.log(filterData);
-                if((filterData.favorite!.length === 0 ||filterData.favorite!.includes(card.favorite))
-                &&
-                (filterData.shape!.length === 0 ||filterData.shape!.includes(card.shape))
-                &&
-                (filterData.color!.length === 0 ||filterData.color!.includes(card.color))
-                &&
-                (filterData.size!.length === 0 ||filterData.size!.includes(card.size))
-                &&
-                (!filterData.name ||(card.name.toLowerCase()).includes(filterData.name))
-                &&
-                (+card.count >= +filterData.minNum! && +card.count <= +filterData.maxNum!)
-                &&
-                (+card.year >= +filterData.minYear! && +card.year <= +filterData.maxYear!)
-                ){                   
+    closeBtn: Popup;
 
-                toyCard=  this.createCards(card)
-                selector.appendChild( toyCard)
-              
-               
-            }
+    openPopup: Popup;
+
+    constructor() {
+        this.descriptionArray = {};
+        this.setAttributes = new FiltersControls();
+        this.closeBtn = new Popup();
+        this.openPopup = new Popup();
+    }
+
+    async getData(): Promise<IData> {
+        const url = '../data.json';
+        const res = await fetch(url);
+        const data = await res.json();
+        return data;
+    }
+
+    createCards(card: ICard): HTMLDivElement {
+        let numLikeCards: string[] | null = null;
+        if (localStorage.getItem('numLikeCards')) {
+            numLikeCards = JSON.parse(localStorage.getItem('numLikeCards')!);
         }
-        // selector.appendChild( toyCard)
-       
+
+        this.descriptionArray = {
+            'Количество:': `${card.count}`,
+            'Год покупки:': `${card.year}`,
+            'Форма:': `${card.shape}`,
+            'Цвет:': `${card.color}`,
+            'Размер:': `${card.size}`,
+            'Любимая:': `${card.favorite === false ? 'нет' : 'да'}`,
+        };
+
+        const toyCard = document.createElement('div');
+        this.setAttributes.setAttributes(toyCard, {
+            class: ` animate__animated animate__fadeInDown toy-card ${
+                numLikeCards?.includes(card.num) ? 'active' : ''
+            }`,
+            'data-num-toy': `${card.num}`,
         });
-        if(selector.innerHTML===''){
-            // console.log('empty')
-            this.openPopup.openPopup('Извините, совпадений не обнаружено') 
-       this.closeBtn.closeBtn()
+        const h2 = document.createElement('h2');
+        h2.classList.add('toy-card__title');
+        h2.textContent = `${card.name}`;
+        const img = document.createElement('img') as HTMLElement;
+        this.setAttributes.setAttributes(img, {
+            class: 'toy-card__image',
+            src: `./assets/toys/${card.num}.png`,
+            alt: 'toy',
+        });
+        const ul = document.createElement('ul');
+        ul.classList.add('toy-card__description');
+        for (const description in this.descriptionArray) {
+            const li = document.createElement('li');
+            li.textContent = `${description} ${this.descriptionArray[description]}`;
+            ul.appendChild(li);
         }
-        return selector
+        const toyCardLike = document.createElement('div');
+        toyCardLike.classList.add('toy-card__like');
+        toyCard.append(h2, img, ul, toyCardLike);
+        return toyCard;
+    }
+
+    async buildCards(selector: HTMLElement, filterData: SortType): Promise<HTMLElement> {
+        const data = await this.getData();
+        let toyCard: HTMLDivElement;
+        if (filterData.minMaxSort) {
+            if (filterData.minMaxSort === 'name-max') {
+                data.sort((a, b) => a.name.toLowerCase().charCodeAt(0) - b.name.toLowerCase().charCodeAt(0));
+            }
+            if (filterData.minMaxSort === 'name-mim') {
+                data.sort((a, b) => b.name.toLowerCase().charCodeAt(0) - a.name.toLowerCase().charCodeAt(0));
+            }
+            if (filterData.minMaxSort === 'count-max') {
+                data.sort((a, b) => +a.count - +b.count);
+            }
+            if (filterData.minMaxSort === 'count-min') {
+                data.sort((a, b) => +b.count - +a.count);
+            }
+        }
+        //    console.log('data',data)
+        data.forEach((card) => {
+            // console.log(filterData)
+            if (
+                !filterData.favorite &&
+                !filterData.shape &&
+                !filterData.color &&
+                !filterData.size &&
+                !filterData.name
+            ) {
+                toyCard = this.createCards(card);
+                selector.appendChild(toyCard);
+            } else {
+                // console.log(filterData);
+                if (
+                    (filterData.favorite!.length === 0 || filterData.favorite!.includes(card.favorite)) &&
+                    (filterData.shape!.length === 0 || filterData.shape!.includes(card.shape)) &&
+                    (filterData.color!.length === 0 || filterData.color!.includes(card.color)) &&
+                    (filterData.size!.length === 0 || filterData.size!.includes(card.size)) &&
+                    (!filterData.name || card.name.toLowerCase().includes(filterData.name)) &&
+                    +card.count >= +filterData.minNum! &&
+                    +card.count <= +filterData.maxNum! &&
+                    +card.year >= +filterData.minYear! &&
+                    +card.year <= +filterData.maxYear!
+                ) {
+                    toyCard = this.createCards(card);
+                    selector.appendChild(toyCard);
+                }
+            }
+            // selector.appendChild( toyCard)
+        });
+        if (selector.innerHTML === '') {
+            // console.log('empty')
+           
+            this.openPopup.openPopup('Извините, совпадений не обнаружено');
+            this.closeBtn.closeBtn();
+             if(document.hasFocus() as boolean){
+                (document.querySelector('.nav__search') as HTMLInputElement).blur();
+            }
+        }
+        return selector;
     }
 }
 
-
-export default ToysCard
+export default ToysCard;
