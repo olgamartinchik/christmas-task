@@ -37,19 +37,21 @@ class SelectionToys{
     const toysContainer=document.querySelector('.toys-container') as HTMLElement
     
     let countSelectionCards= document.querySelector('.count-select') as HTMLElement
-    // if(localStorage.getItem("numLikeCards")){
-    //     countSelectionCards.textContent=JSON.parse(localStorage.getItem("numLikeCards")!).length
-    // }
-    countSelectionCards.textContent=(countToy).toString()
+    if(localStorage.getItem("numLikeCards")){
+        countSelectionCards.textContent=JSON.parse(localStorage.getItem("numLikeCards")!).length
+    }
+
     toysContainer!.addEventListener('click',(e)=>{
-        console.log('this.countToy',countToy)
-   
+        console.log('numLikeCards',numLikeCards)
+        // console.log('containerLikeCards',containerLikeCards)
        
      if((e.target as HTMLElement).closest('.toy-card')){
          let card =(e.target as HTMLElement).closest('.toy-card') as HTMLElement
         //  console.log('true', card);
          if(card!.classList.contains('toy-card')&&!card!.classList.contains('active')){
             card!.classList.add('active')
+
+            numLikeCards.indexOf((card.getAttribute('data-num-toy')!))
             countToy++
             countSelectionCards!.textContent=(countToy).toString()
             if(countToy<=19){
@@ -77,18 +79,19 @@ class SelectionToys{
          }else if(card!.classList.contains('active')){
             countToy--
             countSelectionCards!.textContent=(countToy).toString()
+            console.log('numLikeCards',numLikeCards)
+        console.log('containerLikeCards',containerLikeCards)
 
                 if(numLikeCards.includes(card.getAttribute('data-num-toy')!)){
-                    numLikeCards.splice(numLikeCards.indexOf(card.getAttribute('data-num-toy')!,1))
+                    let ind=numLikeCards.indexOf((card.getAttribute('data-num-toy')!)) 
+                    numLikeCards.splice(ind,1)
                    
-                    // console.log('numLikeCards!!!!',numLikeCards)
+                   
                 }
                 
            
             if(containerLikeCards.includes(card!.outerHTML)){
                 let ind=containerLikeCards.indexOf(card!.outerHTML)
-                // this.likeToys.splice(ind,1)
-                // console.log('containerLikeCards',containerLikeCards)
                 containerLikeCards.splice(ind,1);
                 
             }
@@ -104,8 +107,8 @@ class SelectionToys{
 }
 resetCount(){
     countToy=0
-    // countSelectionCards.textContent=(countToy).toString()
+    let countSelectionCards= document.querySelector('.count-select') as HTMLElement
+    countSelectionCards.textContent=(countToy).toString()
 }
-
 }
 export default SelectionToys

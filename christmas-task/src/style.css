@@ -144,7 +144,7 @@ h2 {
 ::-webkit-scrollbar-thumb {
   background: var(--answerColor);
   border-radius: 8px;
-  border: 1px solid #7a7979a9;
+  border: 1px solid #222222a9;
 }
 
 .main-page {

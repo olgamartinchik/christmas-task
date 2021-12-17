@@ -34,13 +34,10 @@ class LocalMemory {
         }
     }
     resetCountToys(){
-        console.log('this.countToy',countToy)
-        let countSelectionCards= document.querySelector('.count-select') as HTMLElement
+        console.log('this.countToy',countToy)       
         this.resetCount.resetCount()
-        //  countToy=0
         containerLikeCards.length=0
-        numLikeCards.length=0
-        countSelectionCards.textContent=(countToy).toString()
+        numLikeCards.length=0       
         console.log('this.countToy',countToy)
     }
 
