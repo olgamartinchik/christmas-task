@@ -1,8 +1,11 @@
-import GeneratorCards from './generateCarts'
+import GeneratorCards from './generateCards'
 import SelectionToys from "./selectionToy";
 import * as noUiSlider from 'nouislider';
 import 'nouislider/dist/nouislider.css';
 import LikeCards from './likeCardsHandler';
+import ResetFilters from './resetFilters';
+import LocalMemory from './resetLocalStorage';
+import ControlsPanel from './buildControllsPanel';
 
 
 
@@ -143,6 +146,7 @@ class Filters{
             this.sortData.minMaxSort=valueSelect
             // console.log('this.sortData.minMaxSort',this.sortData.minMaxSort)
             this.generatorCards.generateCard(this.sortData)
+
             localStorage.setItem('sortData',JSON.stringify(this.sortData))
         })
     }
@@ -166,9 +170,10 @@ class Filters{
         sliderItems.noUiSlider!.on('change',(values:(number|string)[],handle):void=>{
         inputItems[handle.toString()].value=Math.round(values[handle.toString()])
        
+        console.log('inputItems',inputItems[0].value, inputItems[1].value,Math.round(+values[0]).toString())
 
-        this.sortData.minNum=inputItems[0].value
-        this.sortData.maxNum=inputItems[1].value
+        this.sortData.minNum=Math.round(+values[0]).toString()
+        this.sortData.maxNum=Math.round(+values[1]).toString()
      
 
         this.generatorCards.generateCard(this.sortData)
@@ -184,6 +189,7 @@ class Filters{
             if(sliderYears){
                 noUiSlider.create(sliderYears,{
                 start: [this.sortData.minYear! , this.sortData.maxYear!],
+               
                 connect: true,
                 step:10,
                     range: {
@@ -194,9 +200,11 @@ class Filters{
                 const inputYears=[inputYear1,inputYear2];
                 sliderYears!.noUiSlider!.on('change',(values:(number|string)[],handle):void=>{
                 inputYears[handle.toString()].value=Math.round(values[handle.toString()])
+
+                console.log('inputYears',inputYears[0].value, inputYears[1].value, values)
                
-                this.sortData.minYear=inputYears[0].value
-                this.sortData.maxYear=inputYears[1].value
+                this.sortData.minYear=Math.round(+values[0]).toString()
+                this.sortData.maxYear=Math.round(+values[1]).toString()
                 
                 this.generatorCards.generateCard(this.sortData)
 
@@ -204,7 +212,7 @@ class Filters{
                 })
             }
     }
-    filterCards():void{
+    getAllFilters(){
         this.sortByFavorite()
         this.sortByShape()  
         this.sortByColor()
@@ -213,12 +221,23 @@ class Filters{
         this.filterMaxMin() 
         this.filterByNum()  
         this.filterByYear()  
+    }
+    filterCards():void{
+        new ControlsPanel().buildControls()
+        this.getAllFilters()
         this.generatorCards.generateCard(this.sortData)
+      
+
+        // new ResetFilters().getEmptyFilters()
+        // new LocalMemory().cleanLocalStorage(this.sortData)
 
 
         // new SelectionToys().toggleSelectionCards()
         // new LikeCards().openLikeCards()
     }
+   
+ 
+    
 }
 
 

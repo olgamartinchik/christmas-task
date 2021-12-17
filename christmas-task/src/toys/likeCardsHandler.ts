@@ -15,11 +15,8 @@ class LikeCards {
     openLikeCards(){
         const countSelect=document.querySelector('.count-select')
         countSelect!.addEventListener('click',(e)=>{
-            e.preventDefault()
-            e.stopPropagation()
 
-            // this.openPopup.openPopup()
-            console.log('this.likeToys',containerLikeCards)
+            // console.log('this.likeToys',containerLikeCards)
             this.openCards.openCards(containerLikeCards, 'Нет избранных игрушек')
             this.closeBtn.closeBtn()
         })

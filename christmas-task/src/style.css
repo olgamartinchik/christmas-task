@@ -43,7 +43,8 @@ button {
 .main-page__button,
 .reset-button,
 .popup-btn,
-.count-select {
+.count-select,
+.memory-button {
   border: 3px solid #278d9f;
   border-radius: 25px;
   background-color: rgba(31, 112, 127, 0.3);
@@ -66,7 +67,9 @@ button {
 .popup-btn:hover,
 .popup-btn .count-select:hover,
 .count-select:hover,
-.count-select .count-select:hover {
+.count-select .count-select:hover,
+.memory-button:hover,
+.memory-button .count-select:hover {
   outline-color: rgba(255, 255, 255, 0);
   outline-offset: 15px;
   color: #278d9f;
@@ -285,7 +288,7 @@ h2 {
   position: relative;
   width: 232px;
   height: 40px;
-  padding: 5px 14px;
+  padding: 5px 6px 5px 30px;
   margin: 10px 0;
   margin-right: 10px;
   border-radius: 20px;
@@ -296,7 +299,7 @@ h2 {
   background-image: url("../assets/svg/search.svg");
   background-size: 20px;
   background-repeat: no-repeat;
-  background-position: 199px center;
+  background-position: 7px center;
   backdrop-filter: blur(6px);
   outline: none;
   transition: 0.3s;
@@ -488,6 +491,7 @@ h2 {
   border: 1px solid #278d9f;
   background-color: rgba(31, 112, 127, 0.3);
   backdrop-filter: blur(6px);
+  user-select: none;
   cursor: pointer;
   transition: 0.4s ease-in-out !important;
 }
@@ -567,6 +571,13 @@ label {
   display: none;
 }
 
+.reset-button,
+.memory-button {
+  padding: 0px 5px;
+  margin: 0 3px 6px;
+  font-size: 16px;
+}
+
 .input-container {
   display: flex;
   align-items: center;
@@ -604,6 +615,7 @@ input[type=number] {
 #slider-items {
   width: 95%;
   width: calc(100% - 17px);
+  cursor: pointer;
 }
 
 .noUi-horizontal {
@@ -627,6 +639,10 @@ input[type=number] {
 
 .noUi-connect {
   background: #278d9f !important;
+}
+
+.noUi-horizontal .noUi-handle {
+  cursor: pointer;
 }
 
 .color-btn {
@@ -721,7 +737,7 @@ input[type=number] {
   background-color: #bca5d2;
   top: 50%;
   left: 50%;
-  padding: 20px 10px;
+  padding: 20px 10px 60px;
   transform: translate(-50%, -50%);
 }
 

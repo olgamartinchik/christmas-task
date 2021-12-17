@@ -1,4 +1,4 @@
-import FiltersControls from "./filtersSettings"
+import FiltersControls from "./controlsContainer"
 import { SortType } from "./filters"
 import Popup from './popupHandler'
 
@@ -118,7 +118,7 @@ class ToysCard{
         });
         if(selector.innerHTML===''){
             // console.log('empty')
-            this.openPopup.openPopup('Совпадений нет') 
+            this.openPopup.openPopup('Извините, совпадений не обнаружено') 
        this.closeBtn.closeBtn()
         }
         return selector

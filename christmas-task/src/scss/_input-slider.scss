@@ -32,6 +32,7 @@ input[type='number'] {
 #slider-items {
     width: 95%;
     width: calc(100% - 17px);
+    cursor: pointer;
 }
 
 .noUi-horizontal {
@@ -54,4 +55,7 @@ input[type='number'] {
 }
 .noUi-connect {
     background: #278d9f !important;
+}
+.noUi-horizontal .noUi-handle {
+    cursor: pointer;
 }

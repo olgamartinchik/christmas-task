@@ -1,8 +1,11 @@
-import FiltersControls from "./filtersSettings";
+import FiltersControls from "./controlsContainer";
 // import ToysCard from './toysCards'
 import Filters from "./filters";
 import LikeCards from './likeCardsHandler';
 import SelectionToys from "./selectionToy";
+import ResetFilters from "./resetFilters";
+import LocalMemory from "./resetLocalStorage";
+import ControlsPanel from "./buildControllsPanel";
 class App {
 
     public start(): void {
@@ -25,9 +28,9 @@ class App {
         navSearch.addEventListener('blur',():void=>{    
             navSearch.classList.remove('nav__search_active')    
          })
-         const toysPageControls=document.querySelector('.toys-page__controls') as HTMLElement
-         toysPageControls.innerHTML=''
-         new FiltersControls().buildControlsContainer(toysPageControls)
+
+        
+        //  new ControlsPanel().buildControls()
       
 
         //  new LikeCards().openLikeCards()
@@ -37,9 +40,14 @@ class App {
         //  toysContainer.innerHTML=''
         //  new ToysCard().buildCards(toysContainer)
         new Filters().filterCards()
-  
+        
+
+        
+        //  new LocalMemory().cleanLocalStorage()
+        new ResetFilters().getEmptyFilters()
+
+        new LocalMemory().cleanMemory()
         new SelectionToys().toggleSelectionCards()
-         
     }
 }
 export default App;

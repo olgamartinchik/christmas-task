@@ -225,9 +225,23 @@ class FiltersControls{
         this.containerControls.push(controlsFavorite)
         return controlsFavorite
     }
+    buildButtons():HTMLDivElement{
+        const buttonContainer=document.createElement('div')
+        buttonContainer.classList.add('controls')
+        let buttonResetFilters=document.createElement('button')
+        buttonResetFilters.classList.add('reset-button')
+        buttonResetFilters.textContent='Сброс фильтров'
+        buttonContainer.appendChild(buttonResetFilters)
+        let buttonResetMemory=document.createElement('button')
+        buttonResetMemory.classList.add('memory-button')
+        buttonResetMemory.textContent='Очистить память'
+        buttonContainer.appendChild(buttonResetMemory)
+        this.containerControls.push(buttonContainer)
+        return buttonContainer
+    }
 
 
-    buildControlsContainer(selector):HTMLElement{
+    buildControlsContainer(selector:HTMLElement):HTMLElement{
         this.buildControlsSort()
         this.buildControlsForm()
         this.buildControlsItems()
@@ -235,13 +249,14 @@ class FiltersControls{
         this.buildControlsColor()
         this.buildControlsSize()
         this.buildControlsFavorite()
+        this.buildButtons()
         this.containerControls.forEach(control=>{
           selector.appendChild(control)
         })     
-        let button=document.createElement('button')
-        button.classList.add('reset-button')
-        button.textContent='Сброс фильтров'
-        selector.appendChild(button)
+        // let button=document.createElement('button')
+        // button.classList.add('reset-button')
+        // button.textContent='Сброс фильтров'
+        // selector.appendChild(button)
     
         return selector
     }
