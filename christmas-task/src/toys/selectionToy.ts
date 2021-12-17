@@ -13,18 +13,18 @@ export let numLikeCards:string[]=[]
 if(localStorage.getItem("numLikeCards")){
     numLikeCards=JSON.parse(localStorage.getItem("numLikeCards")!)
 }
-
+export let countToy:number=0
 class SelectionToys{
-    countToy:number
+
     data:ToysCard
     closeBtn:Popup
     openPopup:Popup
 
 
     constructor(){
-        this.countToy=0
+        
         if(localStorage.getItem("numLikeCards")){
-            this.countToy=JSON.parse(localStorage.getItem("numLikeCards")!).length
+            countToy=JSON.parse(localStorage.getItem("numLikeCards")!).length
         }
         this.data=new ToysCard()
         this.closeBtn=new Popup
@@ -40,9 +40,9 @@ class SelectionToys{
     // if(localStorage.getItem("numLikeCards")){
     //     countSelectionCards.textContent=JSON.parse(localStorage.getItem("numLikeCards")!).length
     // }
-    // countSelectionCards.textContent=(this.countToy).toString()
+    countSelectionCards.textContent=(countToy).toString()
     toysContainer!.addEventListener('click',(e)=>{
-console.log('this.countToy',this.countToy)
+        console.log('this.countToy',countToy)
    
        
      if((e.target as HTMLElement).closest('.toy-card')){
@@ -50,9 +50,9 @@ console.log('this.countToy',this.countToy)
         //  console.log('true', card);
          if(card!.classList.contains('toy-card')&&!card!.classList.contains('active')){
             card!.classList.add('active')
-            this.countToy++
-            countSelectionCards!.textContent=(this.countToy).toString()
-            if(this.countToy<=19){
+            countToy++
+            countSelectionCards!.textContent=(countToy).toString()
+            if(countToy<=19){
                 containerLikeCards.push((card!.cloneNode(true) as HTMLElement).outerHTML)
 
                 numLikeCards!.push(card.getAttribute('data-num-toy')!)
@@ -64,8 +64,8 @@ console.log('this.countToy',this.countToy)
                 //  console.log('containerLikeCards',containerLikeCards)
             }
             
-            if(this.countToy>=20){
-                this.countToy=19
+            if(countToy>=20){
+                countToy=19
                 card!.classList.value='toy-card'
             
                 this.openPopup.openPopup('Извините, все слоты заполнены') 
@@ -75,8 +75,8 @@ console.log('this.countToy',this.countToy)
            
 
          }else if(card!.classList.contains('active')){
-            this.countToy--
-            countSelectionCards!.textContent=(this.countToy).toString()
+            countToy--
+            countSelectionCards!.textContent=(countToy).toString()
 
                 if(numLikeCards.includes(card.getAttribute('data-num-toy')!)){
                     numLikeCards.splice(numLikeCards.indexOf(card.getAttribute('data-num-toy')!,1))
@@ -101,6 +101,10 @@ console.log('this.countToy',this.countToy)
 
     })
    
+}
+resetCount(){
+    countToy=0
+    // countSelectionCards.textContent=(countToy).toString()
 }
 
 }

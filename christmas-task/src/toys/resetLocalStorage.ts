@@ -1,13 +1,10 @@
 
 import Filters from "./filters";
-import SelectionToys, { containerLikeCards } from './selectionToy'
-import { numLikeCards } from './selectionToy'
+import SelectionToys, { containerLikeCards,numLikeCards, countToy } from './selectionToy'
 
 
 class LocalMemory {
     resetCount:SelectionToys;
-    
-
       constructor(){
             this.resetCount=new SelectionToys
         }
@@ -37,11 +34,14 @@ class LocalMemory {
         }
     }
     resetCountToys(){
+        console.log('this.countToy',countToy)
         let countSelectionCards= document.querySelector('.count-select') as HTMLElement
-        this.resetCount.countToy=0
+        this.resetCount.resetCount()
+        //  countToy=0
         containerLikeCards.length=0
         numLikeCards.length=0
-        countSelectionCards.textContent=(this.resetCount.countToy).toString()
+        countSelectionCards.textContent=(countToy).toString()
+        console.log('this.countToy',countToy)
     }
 
 }
