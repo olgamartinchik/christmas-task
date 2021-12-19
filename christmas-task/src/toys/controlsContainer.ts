@@ -1,24 +1,48 @@
 import { SortType } from './filters';
+import { isRu } from './toggleLang';
 
-const optionsValue: object = {
-    name: 'Сортировать по',
-    'name-max': 'По названию от «А» до «Я»',
-    'name-mim': 'По названию от «Я» до «А»',
-    'count-max': 'По количеству по возрастанию',
-    'count-min': 'По количеству по убыванию',
-};
-const formToys: object = { шар: 'ball', колокольчик: 'bell', шишка: 'cone', снежинка: 'snowflake', фигурка: 'toy' };
-const colorsArray: string[] = ['белый', 'желтый', 'красный', 'синий', 'зелёный'];
-const sizeArray: string[] = ['большой', 'средний', 'малый'];
+// let optionsValue: object = isRu?{
+//     'name': 'Сортировать по',
+//     'name-max': 'По названию от «А» до «Я»',
+//     'name-mim': 'По названию от «Я» до «А»',
+//     'count-max': 'По количеству по возрастанию',
+//     'count-min': 'По количеству по убыванию',
+// }:{
+//     'name': 'Sort by',
+//     'name-max': 'By name from «A» to «Z»',
+//     'name-mim': 'By name from «Z» до «А»',
+//     'count-max': 'By quantity ascending',
+//     'count-min': 'By quantity descending',
+// };
+// let formToys: object = isRu?{
+//      'шар': 'ball', 
+//      'колокольчик': 'bell', 
+//      'шишка': 'cone',
+//      'снежинка': 'snowflake', 
+//      'фигурка': 'toy' 
+//     }:{
+//         'ball': 'ball', 
+//         'bell': 'bell', 
+//         'bump': 'cone',
+//         'snowflake': 'snowflake', 
+//         'figure': 'toy' 
+//        };
+// let colorsArray: string[] =isRu? ['белый', 'желтый', 'красный', 'синий', 'зелёный']:
+// ['white', 'yellow', 'red', 'blue', 'green'];
+// let sizeArray: string[] = isRu? ['большой', 'средний', 'малый']:['large', 'medium', 'small'];
 
 class FiltersControls {
-    // selector:HTMLElement
+   
     containerControls: HTMLDivElement[] = [];
 
     localSortData: SortType;
+    optionsValue: object;
+    formToys: object;
+    colorsArray: string[]
+    sizeArray: string[]
 
     constructor() {
-        // this.selector=selector;
+        
         this.containerControls = [];
         this.localSortData = {};
         if (localStorage.getItem('sortData')) {
@@ -34,11 +58,42 @@ class FiltersControls {
             this.localSortData.size = localSortData!.size;
             this.localSortData.favorite = localSortData!.favorite;
         }
+        this.optionsValue = isRu?{
+            'name': 'Сортировать по',
+            'name-max': 'По названию от «А» до «Я»',
+            'name-mim': 'По названию от «Я» до «А»',
+            'count-max': 'По количеству по возрастанию',
+            'count-min': 'По количеству по убыванию',
+        }:{
+            'name': 'Sort by',
+            'name-max': 'By name from «A» to «Z»',
+            'name-mim': 'By name from «Z» до «А»',
+            'count-max': 'By quantity ascending',
+            'count-min': 'By quantity descending',
+        }
+
+        this.formToys = isRu?{
+            'шар': 'ball', 
+            'колокольчик': 'bell', 
+            'шишка': 'cone',
+            'снежинка': 'snowflake', 
+            'фигурка': 'toy' 
+           }:{
+               'ball': 'ball', 
+               'bell': 'bell', 
+               'bump': 'cone',
+               'snowflake': 'snowflake', 
+               'figure': 'toy' 
+              }
+
+        this.colorsArray =isRu? ['белый', 'желтый', 'красный', 'синий', 'зелёный']:
+        ['white', 'yellow', 'red', 'blue', 'green']
+        this.sizeArray = isRu? ['большой', 'средний', 'малый']:['large', 'medium', 'small']
     }
 
-    setAttributes(el: HTMLElement, attrs: object): void {
-        for (const key in attrs) {
-            el.setAttribute(key, attrs[key]);
+    setAttributes(el: HTMLElement, attribute: object): void {
+        for (const key in attribute) {
+            el.setAttribute(key, attribute[key]);
         }
     }
 
@@ -47,17 +102,17 @@ class FiltersControls {
         controlsSort.classList.add('controls', 'controls__sort');
         const titleSort = document.createElement('h2');
         titleSort.classList.add('title');
-        titleSort.textContent = 'Сортировать:';
+        titleSort.textContent = `${isRu?'Сортировать:':'Sort:'}`;
         const select = document.createElement('select');
         select.classList.add('sort');
         select.setAttribute('name', 'sort');
-        for (const name in optionsValue) {
+        for (const name in this.optionsValue) {
             const option = document.createElement('option');
             if (this.localSortData.minMaxSort && this.localSortData.minMaxSort === name) {
                 option.selected = true;
             }
             option.setAttribute('value', `${name}`);
-            option.textContent = `${optionsValue[name]}`;
+            option.textContent = `${this.optionsValue[name]}`;
             select.appendChild(option);
         }
         controlsSort.appendChild(titleSort);
@@ -72,10 +127,10 @@ class FiltersControls {
         controlsForm.classList.add('controls', 'controls__form');
         const titleForm = document.createElement('h2');
         titleForm.classList.add('title');
-        titleForm.textContent = 'Форма:';
+        titleForm.textContent = `${isRu?'Форма:':'Shape:'}`;
         const controlsFormToys = document.createElement('div');
         controlsFormToys.classList.add('controls__form-toys');
-        for (const name in formToys) {
+        for (const name in this.formToys) {
             const img = document.createElement('img');
             img.classList.add('form-toy');
             img.setAttribute(`data-shape`, `${name}`);
@@ -86,7 +141,7 @@ class FiltersControls {
                     }
                 });
             }
-            img.src = `./assets/svg/${formToys[name]}.svg`;
+            img.src = `./assets/svg/${this.formToys[name]}.svg`;
             img.alt = 'toy';
             controlsFormToys.appendChild(img);
         }
@@ -101,7 +156,7 @@ class FiltersControls {
         controlsItems.classList.add('controls', 'controls__items');
         const titleItem = document.createElement('h2');
         titleItem.classList.add('title');
-        titleItem.textContent = 'Количество экземпляров:';
+        titleItem.textContent = `${isRu?'Количество экземпляров:':'Number of copies:'}`;
         const sliderItems = document.createElement('div');
         sliderItems.id = 'slider-items';
         const inputContainer = document.createElement('div');
@@ -147,7 +202,7 @@ class FiltersControls {
         controlsYears.classList.add('controls', 'controls__years');
         const titleYear = document.createElement('h2');
         titleYear.classList.add('title');
-        titleYear.textContent = 'Год приобретения:';
+        titleYear.textContent = `${isRu?'Год приобретения:':'Year of purchase:'}`;
         const sliderItems = document.createElement('div');
         sliderItems.id = 'slider-years';
         const inputContainer = document.createElement('div');
@@ -193,10 +248,10 @@ class FiltersControls {
         controlsColors.classList.add('controls', 'controls__colors');
         const titleColor = document.createElement('h2');
         titleColor.classList.add('title');
-        titleColor.textContent = 'Цвет:';
+        titleColor.textContent = `${isRu?'Цвет:':'Color:'}`;
         const controlsColorContainer = document.createElement('div');
         controlsColorContainer.classList.add('controls__colors-toys');
-        colorsArray.forEach((color) => {
+        this.colorsArray.forEach((color) => {
             const button = document.createElement('button');
             this.setAttributes(button, { class: 'color-btn', 'data-color': `${color}` });
             if (this.localSortData.color) {
@@ -219,10 +274,10 @@ class FiltersControls {
         controlsColors.classList.add('controls', 'controls__size');
         const titleSize = document.createElement('h2');
         titleSize.classList.add('title');
-        titleSize.textContent = 'Размер:';
+        titleSize.textContent = `${isRu?'Размер:':'Size:'}`;
         const controlsSizeToys = document.createElement('div');
         controlsSizeToys.classList.add('controls__size-toys');
-        sizeArray.forEach((size) => {
+        this.sizeArray.forEach((size) => {
             const img = document.createElement('img');
             this.setAttributes(img, {
                 'data-size': `${size}`,
@@ -250,7 +305,7 @@ class FiltersControls {
         controlsFavorite.classList.add('controls', 'controls__favorite');
         const titleFavorite = document.createElement('h2');
         titleFavorite.classList.add('title');
-        titleFavorite.textContent = 'Только любимые:';
+        titleFavorite.textContent = `${isRu?'Только любимые:':'Only favorite:'}`;
         const input = document.createElement('input');
         this.setAttributes(input, { type: 'checkbox', id: 'favorite', class: 'favorite-toys' });
         if (this.localSortData.favorite) {
@@ -272,11 +327,11 @@ class FiltersControls {
         buttonContainer.classList.add('controls');
         const buttonResetFilters = document.createElement('button');
         buttonResetFilters.classList.add('reset-button');
-        buttonResetFilters.textContent = 'Сброс фильтров';
+        buttonResetFilters.textContent = `${isRu?'Сброс фильтров':'Reset filters'}`;
         buttonContainer.appendChild(buttonResetFilters);
         const buttonResetMemory = document.createElement('button');
         buttonResetMemory.classList.add('memory-button');
-        buttonResetMemory.textContent = 'Очистить память';
+        buttonResetMemory.textContent = `${isRu?'Очистить память':'Clear memory'}`;
         buttonContainer.appendChild(buttonResetMemory);
         this.containerControls.push(buttonContainer);
         return buttonContainer;
@@ -294,11 +349,7 @@ class FiltersControls {
         this.containerControls.forEach((control) => {
             selector.appendChild(control);
         });
-        // let button=document.createElement('button')
-        // button.classList.add('reset-button')
-        // button.textContent='Сброс фильтров'
-        // selector.appendChild(button)
-
+       
         return selector;
     }
 }

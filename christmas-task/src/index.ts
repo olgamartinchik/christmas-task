@@ -1,5 +1,5 @@
-import App from './toys/app';
-// import './toys/toysCards';
+import App from './app/app';
+
 
 const app = new App();
 app.start();

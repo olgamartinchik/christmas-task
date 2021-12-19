@@ -1,23 +1,23 @@
 class Popup {
-    closeBtn() {
-        const popupBtn = document.querySelector('.popup-btn');
+    closeBtn():void {
+        const popupBtn = document.querySelector('.popup-btn') as HTMLElement;
         popupBtn!.addEventListener('click', () => {
-            const popup = document.querySelector('.popup-wrapper');
+            const popup = document.querySelector('.popup-wrapper') as HTMLElement;
             popup!.classList.remove('active');
         });
     }
 
-    openPopup(message: string) {
-        const popup = document.querySelector('.popup-wrapper');
+    openPopup(message: string):void {
+        const popup = document.querySelector('.popup-wrapper') as HTMLElement;
         popup!.classList.add('active');
-        const popupTitle = document.querySelector('.popup-title');
+        const popupTitle = document.querySelector('.popup-title') as HTMLElement;
         popupTitle!.innerHTML = '';
         popupTitle!.textContent = message;
     }
 
-    openCards(arrayCards: string[], message: string) {
-        const popup = document.querySelector('.popup-wrapper');
-        const cardsContainer = document.querySelector('.cards-container');
+    openCards(arrayCards: string[], message: string):void {
+        const popup = document.querySelector('.popup-wrapper') as HTMLElement;
+        const cardsContainer = document.querySelector('.cards-container') as HTMLElement;
         popup!.classList.add('active');
         cardsContainer!.innerHTML = '';
 

@@ -29,7 +29,7 @@ class SelectionToys {
         this.openPopup = new Popup();
     }
 
-    toggleSelectionCards() {
+    toggleSelectionCards():void {
         new LikeCards().openLikeCards();
 
         const toysContainer = document.querySelector('.toys-container') as HTMLElement;
@@ -39,7 +39,7 @@ class SelectionToys {
             countSelectionCards.textContent = JSON.parse(localStorage.getItem('numLikeCards')!).length;
         }
 
-        toysContainer!.addEventListener('click', (e) => {
+        toysContainer!.addEventListener('click', (e):void => {
             console.log('numLikeCards', numLikeCards);
             // console.log('containerLikeCards',containerLikeCards)
 
@@ -94,7 +94,7 @@ class SelectionToys {
         });
     }
 
-    resetCount() {
+    resetCount():void {
         countToy = 0;
         const countSelectionCards = document.querySelector('.count-select') as HTMLElement;
         countSelectionCards.textContent = countToy.toString();

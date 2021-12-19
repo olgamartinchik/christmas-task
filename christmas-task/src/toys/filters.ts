@@ -56,9 +56,9 @@ class Filters {
         this.generatorCards = new GeneratorCards();
     }
 
-    private sort(selector: NodeListOf<Element>, object: ObjectData, dataAttribute: string | null) {
+    private sort(selector: NodeListOf<Element>, object: ObjectData, dataAttribute: string | null):void {
         selector.forEach((filter) => {
-            filter.addEventListener('click', () => {
+            filter.addEventListener('click', ():void => {
                 filter.classList.toggle('active');
                 if (filter.classList.contains('active')) {
                     object!.push(filter.getAttribute(`${dataAttribute}`));
@@ -80,28 +80,28 @@ class Filters {
         });
     }
 
-    sortByShape() {
+    sortByShape():void {
         const shapeFilter = document.querySelectorAll('[data-shape]');
 
         this.dataAttribute = 'data-shape';
         this.sort(shapeFilter, this.sortData.shape, this.dataAttribute);
     }
 
-    sortByColor() {
+    sortByColor():void {
         const colorFilter = document.querySelectorAll('[data-color]');
 
         this.dataAttribute = 'data-color';
         this.sort(colorFilter, this.sortData.color, this.dataAttribute);
     }
 
-    sortBySize() {
+    sortBySize():void {
         const colorFilter = document.querySelectorAll('[data-size]');
 
         this.dataAttribute = 'data-size';
         this.sort(colorFilter, this.sortData.size, this.dataAttribute);
     }
 
-    sortByFavorite() {
+    sortByFavorite():void {
         const favoriteToy = document.querySelector('#favorite') as HTMLInputElement;
         favoriteToy!.addEventListener('change', (): void => {
             if (favoriteToy.checked === true) {
@@ -121,9 +121,9 @@ class Filters {
         });
     }
 
-    searchToy() {
+    searchToy():void {
         const navSearch = document.querySelector('.nav__search') as HTMLInputElement;
-        navSearch!.addEventListener('input', () => {
+        navSearch!.addEventListener('input', ():void => {
             console.log('search', navSearch!.value);
             this.sortData.name = navSearch!.value.toLowerCase().trim();
             console.log('search111', this.sortData.name);
@@ -133,10 +133,10 @@ class Filters {
         });
     }
 
-    filterMaxMin() {
+    filterMaxMin():void {
         const sort = document.querySelector('.sort') as HTMLInputElement;
         // console.log('sort', sort)
-        (sort! as HTMLInputElement).addEventListener('change', (e) => {
+        (sort! as HTMLInputElement).addEventListener('change', (e):void => {
             console.log('target', (e.currentTarget! as HTMLInputElement).value);
             const valueSelect = (e.currentTarget! as HTMLInputElement).value;
             this.sortData.minMaxSort = valueSelect;
@@ -147,7 +147,7 @@ class Filters {
         });
     }
 
-    filterByNum() {
+    filterByNum():void {
         const sliderItems = document.querySelector('#slider-items') as noUiSlider.target;
         const inputItem1 = document.querySelector('#input-item1') as HTMLInputElement;
         const inputItem2 = document.querySelector('#input-item2') as HTMLInputElement;
@@ -177,7 +177,7 @@ class Filters {
         }
     }
 
-    filterByYear() {
+    filterByYear():void {
         const sliderYears = document.querySelector('#slider-years') as noUiSlider.target;
         const inputYear1 = document.querySelector('#input-year1') as HTMLInputElement;
         const inputYear2 = document.querySelector('#input-year2') as HTMLInputElement;
@@ -209,7 +209,7 @@ class Filters {
         }
     }
 
-    getAllFilters() {
+    getAllFilters():void {
         this.sortByFavorite();
         this.sortByShape();
         this.sortByColor();
@@ -225,11 +225,7 @@ class Filters {
         this.getAllFilters();
         this.generatorCards.generateCard(this.sortData);
 
-        // new ResetFilters().getEmptyFilters()
-        // new LocalMemory().cleanLocalStorage(this.sortData)
-
-        // new SelectionToys().toggleSelectionCards()
-        // new LikeCards().openLikeCards()
+       
     }
 }
 

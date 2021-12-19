@@ -1,6 +1,7 @@
 import FiltersControls from './controlsContainer';
 import { SortType } from './filters';
 import Popup from './popupHandler';
+import {isRu} from './toggleLang'
 
 interface ICard {
     num: string;
@@ -30,7 +31,13 @@ class ToysCard {
     }
 
     async getData(): Promise<IData> {
-        const url = '../data.json';
+        let url:string|null=null
+        if(isRu){
+              url = '../data.json';
+        }else{
+            url='../dataEn.json'
+        }
+       
         const res = await fetch(url);
         const data = await res.json();
         return data;
@@ -42,14 +49,21 @@ class ToysCard {
             numLikeCards = JSON.parse(localStorage.getItem('numLikeCards')!);
         }
 
-        this.descriptionArray = {
+        this.descriptionArray = isRu?{
             'Количество:': `${card.count}`,
             'Год покупки:': `${card.year}`,
             'Форма:': `${card.shape}`,
             'Цвет:': `${card.color}`,
             'Размер:': `${card.size}`,
             'Любимая:': `${card.favorite === false ? 'нет' : 'да'}`,
-        };
+        }:{
+            'Number:': `${card.count}`,
+            'Year:': `${card.year}`,
+            'Shape:': `${card.shape}`,
+            'Color:': `${card.color}`,
+            'Size:': `${card.size}`,
+            'Favorite:': `${card.favorite === false ? 'no' : 'yes'}`,
+        }
 
         const toyCard = document.createElement('div');
         this.setAttributes.setAttributes(toyCard, {
@@ -97,9 +111,9 @@ class ToysCard {
                 data.sort((a, b) => +b.count - +a.count);
             }
         }
-        //    console.log('data',data)
+      
         data.forEach((card) => {
-            // console.log(filterData)
+           
             if (
                 !filterData.favorite &&
                 !filterData.shape &&
@@ -110,7 +124,7 @@ class ToysCard {
                 toyCard = this.createCards(card);
                 selector.appendChild(toyCard);
             } else {
-                // console.log(filterData);
+               
                 if (
                     (filterData.favorite!.length === 0 || filterData.favorite!.includes(card.favorite)) &&
                     (filterData.shape!.length === 0 || filterData.shape!.includes(card.shape)) &&
@@ -126,10 +140,10 @@ class ToysCard {
                     selector.appendChild(toyCard);
                 }
             }
-            // selector.appendChild( toyCard)
+           
         });
         if (selector.innerHTML === '') {
-            // console.log('empty')
+           
            
             this.openPopup.openPopup('Извините, совпадений не обнаружено');
             this.closeBtn.closeBtn();
