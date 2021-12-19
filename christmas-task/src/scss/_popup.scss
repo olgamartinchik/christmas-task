@@ -34,7 +34,7 @@
     font-size: 18px;
     font-weight: normal;
     text-shadow: black 0.1em 0.1em 0.2em;
-
+    text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -43,6 +43,7 @@
     max-height: 500px;
     overflow: auto;
     flex-wrap: wrap;
+    padding: 10px;
     div {
         pointer-events: none;
     }

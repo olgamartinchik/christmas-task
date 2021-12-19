@@ -459,6 +459,8 @@ h2 {
   height: calc(100vh - 150px);
   width: 100%;
   margin: 5px 10px 5px 0;
+  padding: 20px 15px;
+  transition: 0.4s ease-in-out;
 }
 
 .toys-wrapper::after {
@@ -466,23 +468,44 @@ h2 {
   position: absolute;
   bottom: 0;
   background-image: url("https://open.spbstu.ru/wp-content/uploads/2019/01/arrow_down_white.png");
-  background-color: rgba(31, 112, 127, 0.3);
   width: 100%;
-  height: 35px;
+  height: 45px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  box-shadow: 0 0 8px 8px #ffffffab inset;
+  filter: invert(14%) sepia(7%) saturate(2768%) hue-rotate(125deg) brightness(93%) contrast(91%);
+  animation: arrow 1s infinite;
+  animation-delay: -0.5s;
 }
 
+.no-arrow::after {
+  content: "";
+  position: absolute;
+  background: none;
+}
+
+@keyframes arrow {
+  0% {
+    opacity: 0;
+    transform: translateY(0px);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
 .toys-container {
+  position: relative;
   margin-right: 10px;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-around;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 20px;
   height: 100%;
   overflow: auto;
   padding: 10px 0 46px;
@@ -497,7 +520,7 @@ h2 {
   position: relative;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   width: 290px;
   height: 280px;
   padding-left: 10px;
@@ -516,10 +539,13 @@ h2 {
 .toy-card__title {
   font-size: 22px;
   width: 100%;
+  text-align: center;
+  margin-bottom: 0;
 }
 
 .toy-card__description {
   padding-right: 10px;
+  font-size: 17px;
 }
 
 .toy-card__image {
@@ -759,6 +785,7 @@ input[type=number] {
   font-size: 18px;
   font-weight: normal;
   text-shadow: black 0.1em 0.1em 0.2em;
+  text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -767,6 +794,7 @@ input[type=number] {
   max-height: 500px;
   overflow: auto;
   flex-wrap: wrap;
+  padding: 10px;
 }
 .popup-title div {
   pointer-events: none;

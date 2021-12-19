@@ -3,7 +3,9 @@ import SelectionToys from '../toys/selectionToy';
 import ResetFilters from '../toys/resetFilters';
 import LocalMemory from '../toys/resetLocalStorage';
 import Lang from '../toys/toggleLang';
+import ToyWrapper from '../toys/toysWrapper';
 
+let rememberPage:string|null=null
 class App {
     public start(): void {
         new Lang().translateApplication()
@@ -13,16 +15,16 @@ class App {
 
         new ResetFilters().getEmptyFilters();
 
-        new LocalMemory().cleanMemory();
+        // new LocalMemory().cleanMemory();
         new SelectionToys().toggleSelectionCards();
-        //    if((document.querySelector('.popup-wrapper')as HTMLElement).classList.contains('active')){
-        //         (document.querySelector('.popup-wrapper')as HTMLElement).classList.remove('active')
-        //     }
+        new ToyWrapper().getScrollTopToyContainer()
+        
     }
 
     toggleMainPage():void{
         (document.querySelector('.main-page__button') as HTMLElement).addEventListener('click', (): void => {
             (document.querySelector('.main-page') as HTMLElement).classList.add('hidden');
+            rememberPage='.main-page';
             (document.querySelector('.nav__container') as HTMLElement).classList.remove('hidden');
             (document.querySelector('.toys-page') as HTMLElement).classList.remove('hidden');
             (document.querySelector('.nav__search') as HTMLInputElement).focus();
@@ -31,6 +33,7 @@ class App {
         (document.querySelector('.nav__logo') as HTMLElement).addEventListener('click', (): void => {
             (document.querySelector('.main-page') as HTMLElement).classList.remove('hidden');
             (document.querySelector('.nav__container') as HTMLElement).classList.add('hidden');
+            rememberPage='.nav__container';
             (document.querySelector('.toys-page') as HTMLElement).classList.add('hidden');
          
         });

@@ -2,6 +2,12 @@ import FiltersControls from './controlsContainer';
 import { SortType } from './filters';
 import Popup from './popupHandler';
 import {isRu} from './toggleLang'
+import ToyWrapper from './toysWrapper';
+
+export let isArrowDown=true
+if(localStorage.getItem('isArrowDown')){
+    isArrowDown=Boolean(localStorage.getItem('isArrowDown'))
+}
 
 interface ICard {
     num: string;
@@ -16,11 +22,8 @@ interface ICard {
 type IData = [card: ICard];
 class ToysCard {
     setAttributes: FiltersControls;
-
     descriptionArray: object;
-
     closeBtn: Popup;
-
     openPopup: Popup;
 
     constructor() {
@@ -143,13 +146,19 @@ class ToysCard {
            
         });
         if (selector.innerHTML === '') {
-           
-           
-            this.openPopup.openPopup('Извините, совпадений не обнаружено');
-            this.closeBtn.closeBtn();
+           selector.innerHTML=`<div class="animate__animated animate__fadeInDown popup-title cards-container">${isRu?'Извините, совпадений не обнаружено':'Sorry, no matches found'}</div>`
+           isArrowDown=false
+           localStorage.setItem('isArrowDown',JSON.stringify(isArrowDown))
+           new ToyWrapper().hiddenArrowDown()
              if(document.hasFocus() as boolean){
                 (document.querySelector('.nav__search') as HTMLInputElement).blur();
             }
+        }else{
+            isArrowDown=true
+            localStorage.setItem('isArrowDown',JSON.stringify(isArrowDown))
+            new ToyWrapper().hiddenArrowDown() 
+            
+            new ToyWrapper().hiddenArrowDownWithSort()
         }
         return selector;
     }

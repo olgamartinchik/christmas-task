@@ -1,7 +1,8 @@
 import ToysCard from './toysCards';
 import Popup from './popupHandler';
 import LikeCards from './likeCardsHandler';
-//  let containerLikeCards:HTMLElement[]=[]
+import {isRu} from './toggleLang'
+
 
 export let containerLikeCards: string[] = [];
 if (localStorage.getItem('containerLikeCards')) {
@@ -67,8 +68,8 @@ class SelectionToys {
                     if (countToy >= 20) {
                         countToy = 19;
                         card!.classList.value = 'toy-card';
-
-                        this.openPopup.openPopup('Извините, все слоты заполнены');
+                        let message=isRu?'Извините, все слоты заполнены':'Sorry, all slots are full'
+                        this.openPopup.openPopup(message);
                         this.closeBtn.closeBtn();
                     }
                 } else if (card!.classList.contains('active')) {
