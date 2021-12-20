@@ -1,5 +1,5 @@
 .main-page {
-    // position: relative;
+    position: relative;
     opacity: 1;
     display: flex;
     flex-direction: column;
@@ -74,4 +74,17 @@
 }
 .reset-button {
     padding: 5px 30px;
+}
+
+.lang {
+    padding: 9px;
+    cursor: pointer;
+
+    text-transform: uppercase;
+    outline: none;
+    user-select: none;
+    transition: 0.4s ease-in-out;
+    position: absolute;
+    right: 35px;
+    top: 35px;
 }

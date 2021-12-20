@@ -101,16 +101,3 @@
         }
     }
 }
-.lang {
-    margin-left: 15px;
-    padding: 7px;
-    cursor: pointer;
-    width: 36px;
-    text-transform: uppercase;
-    outline: none;
-    user-select: none;
-    transition: 0.4s ease-in-out;
-    &:hover {
-        color: #278d9f;
-    }
-}

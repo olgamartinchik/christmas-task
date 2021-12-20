@@ -44,7 +44,8 @@ button {
 .reset-button,
 .popup-btn,
 .count-select,
-.memory-button {
+.memory-button,
+.lang {
   border: 3px solid #278d9f;
   border-radius: 25px;
   background-color: rgba(31, 112, 127, 0.3);
@@ -70,7 +71,9 @@ button {
 .count-select:hover,
 .count-select .count-select:hover,
 .memory-button:hover,
-.memory-button .count-select:hover {
+.memory-button .count-select:hover,
+.lang:hover,
+.lang .count-select:hover {
   outline-color: rgba(255, 255, 255, 0);
   outline-offset: 15px;
   color: #278d9f;
@@ -149,6 +152,7 @@ h2 {
 }
 
 .main-page {
+  position: relative;
   opacity: 1;
   display: flex;
   flex-direction: column;
@@ -227,6 +231,18 @@ h2 {
 
 .reset-button {
   padding: 5px 30px;
+}
+
+.lang {
+  padding: 9px;
+  cursor: pointer;
+  text-transform: uppercase;
+  outline: none;
+  user-select: none;
+  transition: 0.4s ease-in-out;
+  position: absolute;
+  right: 35px;
+  top: 35px;
 }
 
 .nav,
@@ -337,20 +353,6 @@ h2 {
 .nav__select span:hover {
   cursor: pointer;
   color: #fff;
-}
-
-.lang {
-  margin-left: 15px;
-  padding: 7px;
-  cursor: pointer;
-  width: 36px;
-  text-transform: uppercase;
-  outline: none;
-  user-select: none;
-  transition: 0.4s ease-in-out;
-}
-.lang:hover {
-  color: #278d9f;
 }
 
 .toys-page {
