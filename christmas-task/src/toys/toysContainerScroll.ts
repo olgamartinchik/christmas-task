@@ -1,7 +1,7 @@
 import { isArrowDown } from './toysCards';
 
 class ToyWrapper {
-    hiddenArrowDown(): void {
+ public   hiddenArrowDown(): void {
         const toysWrapper = document.querySelector('.toys-wrapper') as HTMLElement;
 
         if (!isArrowDown) {
@@ -13,7 +13,7 @@ class ToyWrapper {
         this.hiddenArrowDownWithSort();
     }
 
-    hiddenArrowDownWithScroll(): void {
+  private  hiddenArrowDownWithScroll(): void {
         const toysWrapper = document.querySelector('.toys-wrapper') as HTMLElement;
         const toysContainer = document.querySelector('.toys-container') as HTMLElement;
         toysContainer.addEventListener('scroll', () => {
@@ -25,7 +25,7 @@ class ToyWrapper {
         });
     }
 
-    hiddenArrowDownWithSort(): void {
+    private  hiddenArrowDownWithSort(): void {
         const toysWrapper = document.querySelector('.toys-wrapper') as HTMLElement;
         const toysContainer = document.querySelector('.toys-container') as HTMLElement;
         if (toysContainer) {

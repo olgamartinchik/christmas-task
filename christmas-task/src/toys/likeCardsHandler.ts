@@ -3,16 +3,15 @@ import { containerLikeCards } from './selectionToy';
 import { isRu } from './toggleLang';
 
 class LikeCards {
-    closePopup: Popup;
-
-    openCards: Popup;
+  public  closePopup: Popup;
+  public  openCards: Popup;
 
     constructor() {
         this.closePopup = new Popup();
         this.openCards = new Popup();
     }
 
-    openLikeCards(): void {
+  public openLikeCards(): void {
         const countSelect = document.querySelector('.count-select');
         countSelect!.addEventListener('click', (): void => {
             const message = isRu ? 'Нет избранных игрушек' : 'No favorite toys';

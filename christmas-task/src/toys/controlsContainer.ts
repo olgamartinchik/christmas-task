@@ -32,17 +32,12 @@ import { isRu } from './toggleLang';
 // let sizeArray: string[] = isRu? ['большой', 'средний', 'малый']:['large', 'medium', 'small'];
 
 class FiltersControls {
-    containerControls: HTMLDivElement[] = [];
-
-    localSortData: SortType;
-
-    optionsValue: object;
-
-    formToys: object;
-
-    colorsArray: string[];
-
-    sizeArray: string[];
+ private   containerControls: HTMLDivElement[] = [];
+ private   localSortData: SortType;
+ private  optionsValue: object;
+ private   formToys: object;
+ private   colorsArray: string[];
+ private  sizeArray: string[];
 
     constructor() {
         this.containerControls = [];
@@ -98,13 +93,13 @@ class FiltersControls {
         this.sizeArray = isRu ? ['большой', 'средний', 'малый'] : ['large', 'medium', 'small'];
     }
 
-    setAttributes(el: HTMLElement, attribute: object): void {
+ public   setAttributes(el: HTMLElement, attribute: object): void {
         for (const key in attribute) {
             el.setAttribute(key, attribute[key]);
         }
     }
 
-    buildControlsSort(): HTMLDivElement {
+  private  buildControlsSort(): HTMLDivElement {
         const controlsSort = document.createElement('div');
         controlsSort.classList.add('controls', 'controls__sort');
         const titleSort = document.createElement('h2');
@@ -129,7 +124,7 @@ class FiltersControls {
         return controlsSort;
     }
 
-    buildControlsForm(): HTMLDivElement {
+    private  buildControlsForm(): HTMLDivElement {
         const controlsForm = document.createElement('div');
         controlsForm.classList.add('controls', 'controls__form');
         const titleForm = document.createElement('h2');
@@ -158,7 +153,7 @@ class FiltersControls {
         return controlsForm;
     }
 
-    buildControlsItems(): HTMLDivElement {
+    private  buildControlsItems(): HTMLDivElement {
         const controlsItems = document.createElement('div');
         controlsItems.classList.add('controls', 'controls__items');
         const titleItem = document.createElement('h2');
@@ -204,7 +199,7 @@ class FiltersControls {
         return controlsItems;
     }
 
-    buildControlsYears(): HTMLDivElement {
+    private  buildControlsYears(): HTMLDivElement {
         const controlsYears = document.createElement('div');
         controlsYears.classList.add('controls', 'controls__years');
         const titleYear = document.createElement('h2');
@@ -250,7 +245,7 @@ class FiltersControls {
         return controlsYears;
     }
 
-    buildControlsColor(): HTMLDivElement {
+    private  buildControlsColor(): HTMLDivElement {
         const controlsColors = document.createElement('div');
         controlsColors.classList.add('controls', 'controls__colors');
         const titleColor = document.createElement('h2');
@@ -276,7 +271,7 @@ class FiltersControls {
         return controlsColors;
     }
 
-    buildControlsSize(): HTMLDivElement {
+    private   buildControlsSize(): HTMLDivElement {
         const controlsColors = document.createElement('div');
         controlsColors.classList.add('controls', 'controls__size');
         const titleSize = document.createElement('h2');
@@ -307,7 +302,7 @@ class FiltersControls {
         return controlsColors;
     }
 
-    buildControlsFavorite(): HTMLDivElement {
+    private  buildControlsFavorite(): HTMLDivElement {
         const controlsFavorite = document.createElement('div');
         controlsFavorite.classList.add('controls', 'controls__favorite');
         const titleFavorite = document.createElement('h2');
@@ -329,7 +324,7 @@ class FiltersControls {
         return controlsFavorite;
     }
 
-    buildButtons(): HTMLDivElement {
+    private  buildButtons(): HTMLDivElement {
         const buttonContainer = document.createElement('div');
         buttonContainer.classList.add('controls');
         const buttonResetFilters = document.createElement('button');
@@ -344,7 +339,7 @@ class FiltersControls {
         return buttonContainer;
     }
 
-    buildControlsContainer(selector: HTMLElement): HTMLElement {
+  public  buildControlsContainer(selector: HTMLElement): HTMLElement {
         this.buildControlsSort();
         this.buildControlsForm();
         this.buildControlsItems();

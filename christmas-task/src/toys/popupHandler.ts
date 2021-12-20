@@ -1,5 +1,5 @@
 class Popup {
-    closePopup(): void {
+   public closePopup(): void {
         const popup = document.querySelector('.popup-wrapper') as HTMLElement;
         const popupBtn = document.querySelector('.popup-btn') as HTMLElement;
         popupBtn!.addEventListener('click', () => {
@@ -12,7 +12,7 @@ class Popup {
         });
     }
 
-    openPopup(message: string): void {
+    public openPopup(message: string): void {
         const popup = document.querySelector('.popup-wrapper') as HTMLElement;
         popup!.classList.add('active');
         const popupTitle = document.querySelector('.popup-title') as HTMLElement;
@@ -20,7 +20,7 @@ class Popup {
         popupTitle!.textContent = message;
     }
 
-    openCards(arrayCards: string[], message: string): void {
+    public  openCards(arrayCards: string[], message: string): void {
         const popup = document.querySelector('.popup-wrapper') as HTMLElement;
         const cardsContainer = document.querySelector('.cards-container') as HTMLElement;
         popup!.classList.add('active');

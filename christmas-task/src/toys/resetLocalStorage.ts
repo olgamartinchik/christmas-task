@@ -2,13 +2,13 @@ import Filters from './filters';
 import SelectionToys, { containerLikeCards, numLikeCards } from './selectionToy';
 
 class LocalMemory {
-    resetCount: SelectionToys;
+ public   resetCount: SelectionToys;
 
     constructor() {
         this.resetCount = new SelectionToys();
     }
 
-    cleanMemory(): void {
+  public  cleanMemory(): void {
         const controlsPanel = document.querySelector('.toys-page__controls') as HTMLElement;
         controlsPanel!.addEventListener('click', (e) => {
             if ((e.target as HTMLElement).closest<Element>('.memory-button')) {
@@ -19,7 +19,7 @@ class LocalMemory {
         });
     }
 
-    cleanLocalStorage(): void {
+   public cleanLocalStorage(): void {
         if (localStorage.getItem('sortData')) {
             localStorage.removeItem('sortData');
         }
@@ -34,7 +34,7 @@ class LocalMemory {
         }
     }
 
-    resetCountToys(): void {
+  public  resetCountToys(): void {
         this.resetCount.resetCount();
         containerLikeCards.length = 0;
         numLikeCards.length = 0;

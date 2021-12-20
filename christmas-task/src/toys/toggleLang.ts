@@ -6,7 +6,7 @@ import LocalMemory from './resetLocalStorage';
 const lang = document.querySelector('.lang') as HTMLElement;
 const popupBtn = document.querySelector('.popup-btn') as HTMLElement;
 const switchToy = document.querySelector('.switch-toy') as HTMLElement;
-// const switchTree = document.querySelector('.switch-tree') as HTMLElement;
+const switchTree = document.querySelector('.switch-tree') as HTMLElement;
 const navSearch = document.querySelector('.nav__search') as HTMLInputElement;
 const mainPageTitle = document.querySelector('.main-page__title') as HTMLElement;
 const mainPageButton = document.querySelector('.main-page__button') as HTMLElement;
@@ -17,18 +17,18 @@ if (localStorage.getItem('isRu')) {
 }
 
 class Lang {
-    sortData: Filters;
+    public sortData: Filters;
 
     constructor() {
         this.sortData = new Filters();
     }
 
-    translateApplication(): void {
+    public   translateApplication(): void {
         this.getDataLangFromLocalStorage();
         this.toggleLang();
     }
 
-    toggleLang(): void {
+    public  toggleLang(): void {
         lang!.addEventListener('click', () => {
             new LocalMemory().cleanLocalStorage();
             if (isRu === true) {
@@ -44,28 +44,28 @@ class Lang {
         });
     }
 
-    translateToEng(): void {
+    public translateToEng(): void {
         lang.textContent = 'en';
         popupBtn.textContent = 'close';
         switchToy.textContent = 'Toys';
-        // switchTree.textContent='Christmas tree'
+        switchTree.textContent='Christmas tree';
         navSearch.placeholder = 'Search toy';
         mainPageTitle!.innerHTML = `New Year's game <span>"Dress up the tree"</span>`;
         mainPageButton.textContent = 'Start';
     }
 
-    translateToRu(): void {
+    public  translateToRu(): void {
         lang.textContent = 'ru';
         popupBtn.textContent = 'закрыть';
         switchToy.textContent = 'Игрушки';
-        // switchTree.textContent='Елка';
+        switchTree.textContent='Елка';
         navSearch.placeholder = 'Найти игрушку';
         mainPageTitle!.innerHTML = ` Новогодняя игра
         <span>«Наряди ёлку»</span>`;
         mainPageButton.textContent = 'Начать';
     }
 
-    buildWithLang(): void {
+    public  buildWithLang(): void {
         new ControlsPanel().buildControls();
         new Filters().getAllFilters();
         new GeneratorCards().generateCard(this.sortData.sortData);
@@ -73,7 +73,7 @@ class Lang {
         new LocalMemory().resetCountToys();
     }
 
-    getDataLangFromLocalStorage(): void {
+   private getDataLangFromLocalStorage(): void {
         if (isRu) {
             this.translateToRu();
         } else {

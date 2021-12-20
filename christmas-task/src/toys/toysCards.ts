@@ -25,13 +25,10 @@ type DescriptionToy = {
 };
 
 class ToysCard {
-    setAttributes: FiltersControls;
-
-    descriptionArray: DescriptionToy | null;
-
-    closeBtn: Popup;
-
-    openPopup: Popup;
+ public   setAttributes: FiltersControls;
+ public  descriptionArray: DescriptionToy | null;
+ public  closeBtn: Popup;
+ public  openPopup: Popup;
 
     constructor() {
         this.descriptionArray = null;
@@ -40,7 +37,7 @@ class ToysCard {
         this.openPopup = new Popup();
     }
 
-    async getData(): Promise<IData> {
+  private  async getData(): Promise<IData> {
         let url: string | null = null;
         if (isRu) {
             url = '../data.json';
@@ -53,7 +50,7 @@ class ToysCard {
         return data;
     }
 
-    createCards(card: ICard): HTMLDivElement {
+    private  createCards(card: ICard): HTMLDivElement {
         let numLikeCards: string[] | null = null;
         if (localStorage.getItem('numLikeCards')) {
             numLikeCards = JSON.parse(localStorage.getItem('numLikeCards')!);
@@ -107,7 +104,7 @@ class ToysCard {
         return toyCard;
     }
 
-    async buildCards(selector: HTMLElement, filterData: SortType): Promise<HTMLElement> {
+    public  async buildCards(selector: HTMLElement, filterData: SortType): Promise<HTMLElement> {
         const data = await this.getData();
         let toyCard: HTMLDivElement;
         if (filterData.minMaxSort) {

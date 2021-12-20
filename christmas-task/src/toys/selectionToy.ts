@@ -17,11 +17,9 @@ if (localStorage.getItem('countToy')) {
     countToy = JSON.parse(localStorage.getItem('countToy')!);
 }
 class SelectionToys {
-    data: ToysCard;
-
-    closePopup: Popup;
-
-    openPopup: Popup;
+ public   data: ToysCard;
+ public  closePopup: Popup;
+ public  openPopup: Popup;
 
     constructor() {
         this.data = new ToysCard();
@@ -29,7 +27,7 @@ class SelectionToys {
         this.openPopup = new Popup();
     }
 
-    toggleSelectionCards(): void {
+    public  toggleSelectionCards(): void {
         new LikeCards().openLikeCards();
         const toysContainer = document.querySelector('.toys-container') as HTMLElement;
         const countSelectionCards = document.querySelector('.count-select') as HTMLElement;
@@ -92,7 +90,7 @@ class SelectionToys {
         });
     }
 
-    resetCount(): void {
+    public  resetCount(): void {
         countToy = 0;
         const countSelectionCards = document.querySelector('.count-select') as HTMLElement;
         countSelectionCards.textContent = countToy.toString();
