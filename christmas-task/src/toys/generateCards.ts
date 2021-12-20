@@ -1,5 +1,6 @@
 import ToysCard from './toysCards';
 import { SortType } from './filters';
+import ToyWrapper from './toysContainerScroll';
 
 
 class GeneratorCards {
@@ -8,6 +9,7 @@ class GeneratorCards {
         const toysContainer = document.querySelector('.toys-container') as HTMLElement;
         toysContainer.innerHTML = '';
         new ToysCard().buildCards(toysContainer, sortData);
+        // new ToyWrapper().hiddenArrowDownWithSort()
     }
 }
 export default GeneratorCards;

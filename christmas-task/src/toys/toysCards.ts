@@ -2,7 +2,7 @@ import FiltersControls from './controlsContainer';
 import { SortType } from './filters';
 import Popup from './popupHandler';
 import {isRu} from './toggleLang'
-import ToyWrapper from './toysWrapper';
+import ToyWrapper from './toysContainerScroll';
 
 export let isArrowDown=true
 if(localStorage.getItem('isArrowDown')){
@@ -158,8 +158,12 @@ class ToysCard {
             localStorage.setItem('isArrowDown',JSON.stringify(isArrowDown))
             new ToyWrapper().hiddenArrowDown() 
             
+            
+            console.log('11111111111',document.querySelector('.toys-container'))
             new ToyWrapper().hiddenArrowDownWithSort()
         }
+        console.log('11111111111',document.querySelector('.toys-container'))
+        // new ToyWrapper().hiddenArrowDownWithSort()
         return selector;
     }
 }

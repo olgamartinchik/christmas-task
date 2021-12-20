@@ -30,6 +30,9 @@ class LocalMemory {
         if (localStorage.getItem('containerLikeCards')) {
             localStorage.removeItem('containerLikeCards');
         }
+        if(localStorage.getItem('countToy')){
+            localStorage.removeItem('countToy')
+        }
     }
 
     resetCountToys():void {

@@ -3,12 +3,12 @@ import { containerLikeCards } from './selectionToy';
 import {isRu} from './toggleLang'
 
 class LikeCards {
-    closeBtn: Popup;
+    closePopup: Popup;
 
     openCards: Popup;
 
     constructor() {
-        this.closeBtn = new Popup();
+        this.closePopup = new Popup();
         this.openCards = new Popup();
     }
 
@@ -18,7 +18,7 @@ class LikeCards {
             // console.log('this.likeToys',containerLikeCards)
             let message=isRu?'Нет избранных игрушек':'No favorite toys'
             this.openCards.openCards(containerLikeCards, message);
-            this.closeBtn.closeBtn();
+            this.closePopup.closePopup();
         });
     }
 }

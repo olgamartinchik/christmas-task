@@ -2,7 +2,7 @@ import GeneratorCards from './generateCards';
 import * as noUiSlider from 'nouislider';
 import 'nouislider/dist/nouislider.css';
 import ControlsPanel from './buildControlsPanel';
-import ToyWrapper from './toysWrapper';
+import ToyWrapper from './toysContainerScroll';
 
 type ObjectData = (string | null | undefined)[] | undefined;
 export type SortType = {
@@ -224,11 +224,11 @@ class Filters {
     filterCards(): void {
         new ControlsPanel().buildControls();
         this.getAllFilters();
+        
         this.generatorCards.generateCard(this.sortData);
-
-        // new ToyWrapper().hiddenArrowDownWithSort()
-
-       
+        // console.log('333333',document.querySelector('.toys-container'))
+    //   new ToyWrapper().hiddenArrowDownWithScroll()
+    //   new ToyWrapper().hiddenArrowDownWithSort()
     }
 }
 

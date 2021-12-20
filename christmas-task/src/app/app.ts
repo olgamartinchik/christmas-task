@@ -3,7 +3,7 @@ import SelectionToys from '../toys/selectionToy';
 import ResetFilters from '../toys/resetFilters';
 import LocalMemory from '../toys/resetLocalStorage';
 import Lang from '../toys/toggleLang';
-import ToyWrapper from '../toys/toysWrapper';
+import ToyWrapper from '../toys/toysContainerScroll';
 
 let rememberPage:string|null=null
 class App {
@@ -14,10 +14,13 @@ class App {
         new Filters().filterCards();
 
         new ResetFilters().getEmptyFilters();
+        //btn reset memory
+        new LocalMemory().cleanMemory()
 
-        // new LocalMemory().cleanMemory();
         new SelectionToys().toggleSelectionCards();
-        new ToyWrapper().getScrollTopToyContainer()
+        // console.log('222222222',document.querySelector('.toys-container'))
+        new ToyWrapper().hiddenArrowDownWithScroll()
+        // new ToyWrapper().hiddenArrowDownWithSort()
         
     }
 

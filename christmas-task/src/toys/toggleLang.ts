@@ -70,6 +70,7 @@ class Lang{
         new Filters().getAllFilters();
         new GeneratorCards().generateCard(this.sortData.sortData)
         new LocalMemory().cleanLocalStorage()
+        new LocalMemory().resetCountToys()
     }
     getDataLangFromLocalStorage(){
         isRu?this.translateToRu():this.translateToEng()
