@@ -15,7 +15,7 @@
     background-size: contain;
     background-repeat: no-repeat;
     cursor: pointer;
-    padding: 5px;
+    padding: 10px;
     transition: 0.5s ease-in-out;
     &:hover {
         cursor: pointer;
@@ -29,6 +29,7 @@
     margin-left: 20px;
     .nav__switch {
         position: relative;
+        padding: 5px;
         cursor: pointer;
         transition: 0.3s;
         &:hover {
@@ -102,7 +103,7 @@
 }
 .lang {
     margin-left: 15px;
-    padding: 3px;
+    padding: 7px;
     cursor: pointer;
     width: 36px;
     text-transform: uppercase;

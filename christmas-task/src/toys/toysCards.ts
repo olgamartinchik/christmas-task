@@ -1,12 +1,12 @@
 import FiltersControls from './controlsContainer';
 import { SortType } from './filters';
 import Popup from './popupHandler';
-import {isRu} from './toggleLang'
+import { isRu } from './toggleLang';
 import ToyWrapper from './toysContainerScroll';
 
-export let isArrowDown=true
-if(localStorage.getItem('isArrowDown')){
-    isArrowDown=Boolean(localStorage.getItem('isArrowDown'))
+export let isArrowDown = true;
+if (localStorage.getItem('isArrowDown')) {
+    isArrowDown = Boolean(localStorage.getItem('isArrowDown'));
 }
 
 interface ICard {
@@ -22,8 +22,11 @@ interface ICard {
 type IData = [card: ICard];
 class ToysCard {
     setAttributes: FiltersControls;
+
     descriptionArray: object;
+
     closeBtn: Popup;
+
     openPopup: Popup;
 
     constructor() {
@@ -34,13 +37,13 @@ class ToysCard {
     }
 
     async getData(): Promise<IData> {
-        let url:string|null=null
-        if(isRu){
-              url = '../data.json';
-        }else{
-            url='../dataEn.json'
+        let url: string | null = null;
+        if (isRu) {
+            url = '../data.json';
+        } else {
+            url = '../dataEn.json';
         }
-       
+
         const res = await fetch(url);
         const data = await res.json();
         return data;
@@ -52,21 +55,23 @@ class ToysCard {
             numLikeCards = JSON.parse(localStorage.getItem('numLikeCards')!);
         }
 
-        this.descriptionArray = isRu?{
-            'Количество:': `${card.count}`,
-            'Год покупки:': `${card.year}`,
-            'Форма:': `${card.shape}`,
-            'Цвет:': `${card.color}`,
-            'Размер:': `${card.size}`,
-            'Любимая:': `${card.favorite === false ? 'нет' : 'да'}`,
-        }:{
-            'Number:': `${card.count}`,
-            'Year:': `${card.year}`,
-            'Shape:': `${card.shape}`,
-            'Color:': `${card.color}`,
-            'Size:': `${card.size}`,
-            'Favorite:': `${card.favorite === false ? 'no' : 'yes'}`,
-        }
+        this.descriptionArray = isRu
+            ? {
+                  'Количество:': `${card.count}`,
+                  'Год покупки:': `${card.year}`,
+                  'Форма:': `${card.shape}`,
+                  'Цвет:': `${card.color}`,
+                  'Размер:': `${card.size}`,
+                  'Любимая:': `${card.favorite === false ? 'нет' : 'да'}`,
+              }
+            : {
+                  'Number:': `${card.count}`,
+                  'Year:': `${card.year}`,
+                  'Shape:': `${card.shape}`,
+                  'Color:': `${card.color}`,
+                  'Size:': `${card.size}`,
+                  'Favorite:': `${card.favorite === false ? 'no' : 'yes'}`,
+              };
 
         const toyCard = document.createElement('div');
         this.setAttributes.setAttributes(toyCard, {
@@ -94,6 +99,7 @@ class ToysCard {
         const toyCardLike = document.createElement('div');
         toyCardLike.classList.add('toy-card__like');
         toyCard.append(h2, img, ul, toyCardLike);
+
         return toyCard;
     }
 
@@ -114,9 +120,8 @@ class ToysCard {
                 data.sort((a, b) => +b.count - +a.count);
             }
         }
-      
+
         data.forEach((card) => {
-           
             if (
                 !filterData.favorite &&
                 !filterData.shape &&
@@ -127,7 +132,6 @@ class ToysCard {
                 toyCard = this.createCards(card);
                 selector.appendChild(toyCard);
             } else {
-               
                 if (
                     (filterData.favorite!.length === 0 || filterData.favorite!.includes(card.favorite)) &&
                     (filterData.shape!.length === 0 || filterData.shape!.includes(card.shape)) &&
@@ -143,27 +147,22 @@ class ToysCard {
                     selector.appendChild(toyCard);
                 }
             }
-           
         });
         if (selector.innerHTML === '') {
-           selector.innerHTML=`<div class="animate__animated animate__fadeInDown popup-title cards-container">${isRu?'Извините, совпадений не обнаружено':'Sorry, no matches found'}</div>`
-           isArrowDown=false
-           localStorage.setItem('isArrowDown',JSON.stringify(isArrowDown))
-           new ToyWrapper().hiddenArrowDown()
-             if(document.hasFocus() as boolean){
+            selector.innerHTML = `<div class="animate__animated animate__fadeInDown popup-title cards-container">${
+                isRu ? 'Извините, совпадений не обнаружено' : 'Sorry, no matches found'
+            }</div>`;
+            isArrowDown = false;
+            localStorage.setItem('isArrowDown', JSON.stringify(isArrowDown));
+            new ToyWrapper().hiddenArrowDown();
+            if (document.hasFocus() as boolean) {
                 (document.querySelector('.nav__search') as HTMLInputElement).blur();
             }
-        }else{
-            isArrowDown=true
-            localStorage.setItem('isArrowDown',JSON.stringify(isArrowDown))
-            new ToyWrapper().hiddenArrowDown() 
-            
-            
-            console.log('11111111111',document.querySelector('.toys-container'))
-            new ToyWrapper().hiddenArrowDownWithSort()
+        } else {
+            isArrowDown = true;
+            localStorage.setItem('isArrowDown', JSON.stringify(isArrowDown));
+            new ToyWrapper().hiddenArrowDown();
         }
-        console.log('11111111111',document.querySelector('.toys-container'))
-        // new ToyWrapper().hiddenArrowDownWithSort()
         return selector;
     }
 }

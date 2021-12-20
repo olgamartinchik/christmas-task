@@ -8,10 +8,10 @@ class ResetFilters {
         this.sortData = new Filters();
     }
 
-    getEmptyFilters():void {
+    getEmptyFilters(): void {
         const controlsPanel = document.querySelector('.toys-page__controls') as HTMLElement;
 
-        controlsPanel!.addEventListener('click', (e):void => {
+        controlsPanel!.addEventListener('click', (e): void => {
             if ((e.target as HTMLElement).closest<Element>('.reset-button')) {
                 console.log('click');
                 if (localStorage.getItem('sortData')) {
@@ -24,7 +24,7 @@ class ResetFilters {
         });
     }
 
-    resetSortData(object: SortType):void {
+    resetSortData(object: SortType): void {
         object.minMaxSort = null;
         object.minNum = '1';
         object.maxNum = '12';

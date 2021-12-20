@@ -27,6 +27,7 @@
     background-color: #bca5d2;
     top: 50%;
     left: 50%;
+    width: max-content;
     padding: 20px 10px 60px;
     transform: translate(-50%, -50%);
 }
@@ -44,8 +45,10 @@
     overflow: auto;
     flex-wrap: wrap;
     padding: 10px;
+
     div {
         pointer-events: none;
+        margin-top: 15px;
     }
 }
 .popup-btn {

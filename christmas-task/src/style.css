@@ -55,6 +55,7 @@ button {
   outline: 1px solid;
   outline-color: rgba(255, 255, 255, 0.5);
   outline-offset: 0px;
+  user-select: none;
   letter-spacing: 2.5px;
   font-weight: 600;
   font-size: 18px;
@@ -246,7 +247,7 @@ h2 {
   background-size: contain;
   background-repeat: no-repeat;
   cursor: pointer;
-  padding: 5px;
+  padding: 10px;
   transition: 0.5s ease-in-out;
 }
 .nav__logo:hover {
@@ -261,6 +262,7 @@ h2 {
 }
 .nav__menu .nav__switch {
   position: relative;
+  padding: 5px;
   cursor: pointer;
   transition: 0.3s;
 }
@@ -339,7 +341,7 @@ h2 {
 
 .lang {
   margin-left: 15px;
-  padding: 3px;
+  padding: 7px;
   cursor: pointer;
   width: 36px;
   text-transform: uppercase;
@@ -366,7 +368,7 @@ h2 {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 0 10px 10px;
+  padding: 10px;
   max-width: 300px;
   width: 100%;
   margin: 0px 10px;
@@ -380,6 +382,10 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+.controls h2 {
+  margin: 0;
+  padding: 7px 0;
 }
 
 .controls__items,
@@ -422,10 +428,10 @@ h2 {
 
 .form-toy,
 .toy-size {
-  width: 40px;
-  height: 40px;
+  width: 43px;
+  height: 43px;
   cursor: pointer;
-  padding: 3px;
+  padding: 4px;
   transition: 0.3s ease-in-out;
 }
 .form-toy:hover,
@@ -523,7 +529,7 @@ h2 {
   justify-content: space-around;
   width: 290px;
   height: 280px;
-  padding-left: 10px;
+  padding: 10px;
   border-radius: 10px;
   border: 1px solid #278d9f;
   background-color: rgba(31, 112, 127, 0.3);
@@ -544,15 +550,14 @@ h2 {
 }
 
 .toy-card__description {
-  padding-right: 10px;
   font-size: 17px;
 }
-
 .toy-card__image {
-  width: 86px;
-  height: 112px;
+  width: 91px;
+  height: 137px;
   object-fit: contain;
   pointer-events: none;
+  padding: 5px;
 }
 
 .toy-card__like {
@@ -613,9 +618,9 @@ label {
 
 .reset-button,
 .memory-button {
-  padding: 0px 5px;
-  margin: 0 3px 6px;
-  font-size: 16px;
+  padding: 4px 5px;
+  margin: 0 5px 6px;
+  font-size: 15px;
 }
 
 .input-container {
@@ -623,6 +628,7 @@ label {
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  margin-top: 12px;
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -662,10 +668,6 @@ input[type=number] {
   height: 8.5px !important;
 }
 
-.input-container {
-  margin-top: 10px;
-}
-
 .noUi-horizontal .noUi-handle {
   width: 19px !important;
   height: 19px !important;
@@ -693,7 +695,7 @@ input[type=number] {
   border-radius: 5px;
   outline: none;
   cursor: pointer;
-  margin: 2px;
+  margin: 5px;
   transition: 0.3s ease-in-out;
 }
 .color-btn:hover {
@@ -777,6 +779,7 @@ input[type=number] {
   background-color: #bca5d2;
   top: 50%;
   left: 50%;
+  width: max-content;
   padding: 20px 10px 60px;
   transform: translate(-50%, -50%);
 }
@@ -798,6 +801,7 @@ input[type=number] {
 }
 .popup-title div {
   pointer-events: none;
+  margin-top: 15px;
 }
 
 .popup-btn {

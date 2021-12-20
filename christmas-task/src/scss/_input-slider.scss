@@ -3,6 +3,7 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    margin-top: 12px;
 }
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
@@ -39,9 +40,6 @@ input[type='number'] {
     height: 8.5px !important;
 }
 
-.input-container {
-    margin-top: 10px;
-}
 .noUi-horizontal .noUi-handle {
     width: 19px !important;
     height: 19px !important;

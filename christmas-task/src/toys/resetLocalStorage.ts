@@ -20,7 +20,7 @@ class LocalMemory {
         });
     }
 
-    cleanLocalStorage():void {
+    cleanLocalStorage(): void {
         if (localStorage.getItem('sortData')) {
             localStorage.removeItem('sortData');
         }
@@ -30,12 +30,12 @@ class LocalMemory {
         if (localStorage.getItem('containerLikeCards')) {
             localStorage.removeItem('containerLikeCards');
         }
-        if(localStorage.getItem('countToy')){
-            localStorage.removeItem('countToy')
+        if (localStorage.getItem('countToy')) {
+            localStorage.removeItem('countToy');
         }
     }
 
-    resetCountToys():void {
+    resetCountToys(): void {
         console.log('this.countToy', countToy);
         this.resetCount.resetCount();
         containerLikeCards.length = 0;

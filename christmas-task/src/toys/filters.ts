@@ -2,7 +2,6 @@ import GeneratorCards from './generateCards';
 import * as noUiSlider from 'nouislider';
 import 'nouislider/dist/nouislider.css';
 import ControlsPanel from './buildControlsPanel';
-import ToyWrapper from './toysContainerScroll';
 
 type ObjectData = (string | null | undefined)[] | undefined;
 export type SortType = {
@@ -57,9 +56,9 @@ class Filters {
         this.generatorCards = new GeneratorCards();
     }
 
-    private sort(selector: NodeListOf<Element>, object: ObjectData, dataAttribute: string | null):void {
+    private sort(selector: NodeListOf<Element>, object: ObjectData, dataAttribute: string | null): void {
         selector.forEach((filter) => {
-            filter.addEventListener('click', ():void => {
+            filter.addEventListener('click', (): void => {
                 filter.classList.toggle('active');
                 if (filter.classList.contains('active')) {
                     object!.push(filter.getAttribute(`${dataAttribute}`));
@@ -81,28 +80,28 @@ class Filters {
         });
     }
 
-    sortByShape():void {
+    sortByShape(): void {
         const shapeFilter = document.querySelectorAll('[data-shape]');
 
         this.dataAttribute = 'data-shape';
         this.sort(shapeFilter, this.sortData.shape, this.dataAttribute);
     }
 
-    sortByColor():void {
+    sortByColor(): void {
         const colorFilter = document.querySelectorAll('[data-color]');
 
         this.dataAttribute = 'data-color';
         this.sort(colorFilter, this.sortData.color, this.dataAttribute);
     }
 
-    sortBySize():void {
+    sortBySize(): void {
         const colorFilter = document.querySelectorAll('[data-size]');
 
         this.dataAttribute = 'data-size';
         this.sort(colorFilter, this.sortData.size, this.dataAttribute);
     }
 
-    sortByFavorite():void {
+    sortByFavorite(): void {
         const favoriteToy = document.querySelector('#favorite') as HTMLInputElement;
         favoriteToy!.addEventListener('change', (): void => {
             if (favoriteToy.checked === true) {
@@ -122,9 +121,9 @@ class Filters {
         });
     }
 
-    searchToy():void {
+    searchToy(): void {
         const navSearch = document.querySelector('.nav__search') as HTMLInputElement;
-        navSearch!.addEventListener('input', ():void => {
+        navSearch!.addEventListener('input', (): void => {
             console.log('search', navSearch!.value);
             this.sortData.name = navSearch!.value.toLowerCase().trim();
             console.log('search111', this.sortData.name);
@@ -134,10 +133,10 @@ class Filters {
         });
     }
 
-    filterMaxMin():void {
+    filterMaxMin(): void {
         const sort = document.querySelector('.sort') as HTMLInputElement;
         // console.log('sort', sort)
-        (sort! as HTMLInputElement).addEventListener('change', (e):void => {
+        (sort! as HTMLInputElement).addEventListener('change', (e): void => {
             console.log('target', (e.currentTarget! as HTMLInputElement).value);
             const valueSelect = (e.currentTarget! as HTMLInputElement).value;
             this.sortData.minMaxSort = valueSelect;
@@ -148,7 +147,7 @@ class Filters {
         });
     }
 
-    filterByNum():void {
+    filterByNum(): void {
         const sliderItems = document.querySelector('#slider-items') as noUiSlider.target;
         const inputItem1 = document.querySelector('#input-item1') as HTMLInputElement;
         const inputItem2 = document.querySelector('#input-item2') as HTMLInputElement;
@@ -178,7 +177,7 @@ class Filters {
         }
     }
 
-    filterByYear():void {
+    filterByYear(): void {
         const sliderYears = document.querySelector('#slider-years') as noUiSlider.target;
         const inputYear1 = document.querySelector('#input-year1') as HTMLInputElement;
         const inputYear2 = document.querySelector('#input-year2') as HTMLInputElement;
@@ -210,7 +209,7 @@ class Filters {
         }
     }
 
-    getAllFilters():void {
+    getAllFilters(): void {
         this.sortByFavorite();
         this.sortByShape();
         this.sortByColor();
@@ -224,11 +223,11 @@ class Filters {
     filterCards(): void {
         new ControlsPanel().buildControls();
         this.getAllFilters();
-        
+
         this.generatorCards.generateCard(this.sortData);
         // console.log('333333',document.querySelector('.toys-container'))
-    //   new ToyWrapper().hiddenArrowDownWithScroll()
-    //   new ToyWrapper().hiddenArrowDownWithSort()
+        //   new ToyWrapper().hiddenArrowDownWithScroll()
+        //   new ToyWrapper().hiddenArrowDownWithSort()
     }
 }
 
