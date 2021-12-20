@@ -60,7 +60,6 @@ class SelectionToys {
                         numLikeCards!.push(card.getAttribute('data-num-toy')!);
                         containerLikeCards.push((card!.cloneNode(true) as HTMLElement).outerHTML);
 
-                        console.log('numLikeCards', numLikeCards);
                         localStorage.setItem('numLikeCards', JSON.stringify(numLikeCards));
                         localStorage.setItem('containerLikeCards', JSON.stringify(containerLikeCards));
                     }

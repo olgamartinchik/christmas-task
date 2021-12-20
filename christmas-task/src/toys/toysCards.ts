@@ -20,28 +20,14 @@ interface ICard {
     favorite: boolean;
 }
 type IData = [card: ICard];
-type DescriptionToy={
-    [key:string]:boolean|string|undefined
-}
-// type DescriptionToy={[key:string]: boolean | undefined}|{
-//     'Количество:'?:string,
-//     'Год покупки:'?: string,
-//     'Форма:'?: string,
-//     'Цвет:'?: string,
-//     'Размер:'?: string,
-//     'Любимая:'?: boolean|string|undefined,
-// }|{
-//     'Number:'?: string,
-//     'Year:'?: string,
-//     'Shape:'?: string,
-//     'Color:'?: string,
-//     'Size:'?: string,
-//     'Favorite:'?: boolean|string|undefined,
-// }
+type DescriptionToy = {
+    [key: string]: boolean | string | undefined;
+};
+
 class ToysCard {
     setAttributes: FiltersControls;
 
-    descriptionArray:DescriptionToy|null ;
+    descriptionArray: DescriptionToy | null;
 
     closeBtn: Popup;
 
@@ -72,7 +58,7 @@ class ToysCard {
         if (localStorage.getItem('numLikeCards')) {
             numLikeCards = JSON.parse(localStorage.getItem('numLikeCards')!);
         }
-     
+
         this.descriptionArray = isRu
             ? {
                   'Количество:': `${card.count}`,

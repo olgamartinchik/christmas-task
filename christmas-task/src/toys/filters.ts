@@ -62,16 +62,12 @@ class Filters {
                 filter.classList.toggle('active');
                 if (filter.classList.contains('active')) {
                     object!.push(filter.getAttribute(`${dataAttribute}`));
-                    console.log('object', object);
-                    console.log('this.sortData', this.sortData);
                     this.generatorCards.generateCard(this.sortData);
 
                     localStorage.setItem('sortData', JSON.stringify(this.sortData));
                 } else {
                     const ind = object!.indexOf(filter.getAttribute(`${dataAttribute}`));
                     object!.splice(ind, 1);
-                    console.log('object', object);
-                    console.log('this.sortData', this.sortData);
                     this.generatorCards.generateCard(this.sortData);
 
                     localStorage.setItem('sortData', JSON.stringify(this.sortData));
@@ -107,14 +103,12 @@ class Filters {
             if (favoriteToy.checked === true) {
                 this.sortData.favorite!.push(true);
                 this.generatorCards.generateCard(this.sortData);
-                console.log('this.sortData.favorite', this.sortData.favorite);
 
                 localStorage.setItem('sortData', JSON.stringify(this.sortData));
             } else {
                 const ind = this.sortData.favorite!.indexOf(true);
                 this.sortData.favorite!.splice(ind, 1);
                 this.generatorCards.generateCard(this.sortData);
-                console.log('this.sortData.favorite', this.sortData.favorite);
 
                 localStorage.setItem('sortData', JSON.stringify(this.sortData));
             }
@@ -124,9 +118,7 @@ class Filters {
     searchToy(): void {
         const navSearch = document.querySelector('.nav__search') as HTMLInputElement;
         navSearch!.addEventListener('input', (): void => {
-            console.log('search', navSearch!.value);
             this.sortData.name = navSearch!.value.toLowerCase().trim();
-            console.log('search111', this.sortData.name);
             this.generatorCards.generateCard(this.sortData);
 
             localStorage.setItem('sortData', JSON.stringify(this.sortData));
@@ -135,12 +127,9 @@ class Filters {
 
     filterMaxMin(): void {
         const sort = document.querySelector('.sort') as HTMLInputElement;
-        // console.log('sort', sort)
         (sort! as HTMLInputElement).addEventListener('change', (e): void => {
-            console.log('target', (e.currentTarget! as HTMLInputElement).value);
             const valueSelect = (e.currentTarget! as HTMLInputElement).value;
             this.sortData.minMaxSort = valueSelect;
-            // console.log('this.sortData.minMaxSort',this.sortData.minMaxSort)
             this.generatorCards.generateCard(this.sortData);
 
             localStorage.setItem('sortData', JSON.stringify(this.sortData));
@@ -165,8 +154,6 @@ class Filters {
             const inputItems = [inputItem1, inputItem2];
             sliderItems.noUiSlider!.on('change', (values: (number | string)[], handle): void => {
                 inputItems[handle.toString()].value = Math.round(values[handle.toString()]);
-
-                console.log('inputItems', inputItems[0].value, inputItems[1].value, Math.round(+values[0]).toString());
 
                 this.sortData.minNum = Math.round(+values[0]).toString();
                 this.sortData.maxNum = Math.round(+values[1]).toString();
@@ -197,8 +184,6 @@ class Filters {
             sliderYears!.noUiSlider!.on('change', (values: (number | string)[], handle): void => {
                 inputYears[handle.toString()].value = Math.round(values[handle.toString()]);
 
-                console.log('inputYears', inputYears[0].value, inputYears[1].value, values);
-
                 this.sortData.minYear = Math.round(+values[0]).toString();
                 this.sortData.maxYear = Math.round(+values[1]).toString();
 
@@ -225,9 +210,6 @@ class Filters {
         this.getAllFilters();
 
         this.generatorCards.generateCard(this.sortData);
-        // console.log('333333',document.querySelector('.toys-container'))
-        //   new ToyWrapper().hiddenArrowDownWithScroll()
-        //   new ToyWrapper().hiddenArrowDownWithSort()
     }
 }
 

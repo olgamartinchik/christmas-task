@@ -33,13 +33,6 @@ class Popup {
                 cardsContainer!.innerHTML += `${el}`;
             });
         }
-        (document.querySelector('.popup-title') as HTMLElement)!.addEventListener('click', (e) => {
-            if ((e.target as HTMLElement).closest<Element>('.toy-card')) {
-                console.log('e.target  true', e.target);
-            } else {
-                console.log('e.target  false', e.target);
-            }
-        });
     }
 }
 export default Popup;

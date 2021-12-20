@@ -24,14 +24,12 @@ class Lang {
     }
 
     translateApplication(): void {
-        console.log('isRu', isRu);
         this.getDataLangFromLocalStorage();
         this.toggleLang();
     }
 
     toggleLang(): void {
         lang!.addEventListener('click', () => {
-            console.log('isRu', isRu);
             new LocalMemory().cleanLocalStorage();
             if (isRu === true) {
                 isRu = false;

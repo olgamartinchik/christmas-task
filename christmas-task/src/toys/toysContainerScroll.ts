@@ -22,8 +22,6 @@ class ToyWrapper {
             } else {
                 toysWrapper.classList.remove('no-arrow');
             }
-
-            // this.hiddenArrowDownWithSort()
         });
     }
 

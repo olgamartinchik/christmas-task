@@ -13,7 +13,6 @@ class ResetFilters {
 
         controlsPanel!.addEventListener('click', (e): void => {
             if ((e.target as HTMLElement).closest<Element>('.reset-button')) {
-                console.log('click');
                 if (localStorage.getItem('sortData')) {
                     localStorage.removeItem('sortData');
                 }
