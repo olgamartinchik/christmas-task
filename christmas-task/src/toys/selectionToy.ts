@@ -34,9 +34,6 @@ class SelectionToys {
     toggleSelectionCards():void {
         
 
-        // if (localStorage.getItem('containerLikeCards')) {
-        //     containerLikeCards = JSON.parse(localStorage.getItem('containerLikeCards')!);
-        // }
 
         new LikeCards().openLikeCards();
 
@@ -46,7 +43,7 @@ class SelectionToys {
         if (localStorage.getItem('countToy')) {
             countSelectionCards.textContent = JSON.parse(localStorage.getItem('countToy')!);
         }
-        console.log('containerLikeCards!!!!!',containerLikeCards)
+        // console.log('containerLikeCards!!!!!',containerLikeCards)
 
         toysContainer!.addEventListener('click', (e):void => {
             // console.log('numLikeCards', numLikeCards);
@@ -75,28 +72,28 @@ class SelectionToys {
                     }else{
                         countSelectionCards!.textContent = countToy.toString();
                         numLikeCards!.push(card.getAttribute('data-num-toy')!);
-                        console.log('card', card,(card!.cloneNode(true) as HTMLElement).outerHTML);
+                        // console.log('card', card,(card!.cloneNode(true) as HTMLElement).outerHTML);
                          containerLikeCards.push((card!.cloneNode(true) as HTMLElement).outerHTML);
-                        console.log('containerLikeCards push',containerLikeCards)
+                        // console.log('containerLikeCards push',containerLikeCards)
 
                         console.log('numLikeCards',numLikeCards)
                         localStorage.setItem('numLikeCards', JSON.stringify(numLikeCards));
                         localStorage.setItem('containerLikeCards', JSON.stringify(containerLikeCards));
                     }
                     
-                    console.log('countToy',countToy)                   
+                    // console.log('countToy',countToy)                   
                    
                    
                   
                 } else if (card!.classList.contains('active')) {
                     let cloneCard=(card!.cloneNode(true) as HTMLElement).outerHTML
-                    console.log('yes')
+                    // console.log('yes')
                     countToy--;
                     localStorage.setItem('countToy', JSON.stringify(countToy));
                     // console.log('countToy',countToy)
                     countSelectionCards!.textContent = countToy.toString();
                     // console.log('numLikeCards', numLikeCards);
-                    console.log('containerLikeCards', containerLikeCards);
+                    // console.log('containerLikeCards', containerLikeCards);
 
                     if (numLikeCards.includes(card.getAttribute('data-num-toy')!)) {
                         const ind = numLikeCards.indexOf(card.getAttribute('data-num-toy')!);
@@ -105,20 +102,20 @@ class SelectionToys {
                     }
                     
                     if (containerLikeCards.includes(cloneCard)) {
-                        console.log('true',card,cloneCard)
+                        // console.log('true',card,cloneCard)
                         
                         const ind = containerLikeCards.indexOf(cloneCard);
-                        console.log('containerLikeCards ind',ind)
+                        // console.log('containerLikeCards ind',ind)
                         containerLikeCards.splice(ind, 1);
-                        console.log('containerLikeCards splice',containerLikeCards)
+                        // console.log('containerLikeCards splice',containerLikeCards)
                         localStorage.setItem('containerLikeCards', JSON.stringify(containerLikeCards));
                         
                     }else{
-                        console.log('false',card,cloneCard)
+                        // console.log('false',card,cloneCard)
                         const ind = containerLikeCards.indexOf(cloneCard);
-                        console.log('containerLikeCards ind',ind)
+                        // console.log('containerLikeCards ind',ind)
                         containerLikeCards.splice(ind, 1);
-                        console.log('containerLikeCards splice',containerLikeCards)
+                        // console.log('containerLikeCards splice',containerLikeCards)
                         localStorage.setItem('containerLikeCards', JSON.stringify(containerLikeCards));
                     }
                    

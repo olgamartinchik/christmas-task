@@ -17,17 +17,23 @@ class ToyWrapper{
             }else{
                 toysWrapper.classList.remove('no-arrow') 
             }
-
+           
             // this.hiddenArrowDownWithSort()
         })
     }
     hiddenArrowDownWithSort(){
         let toysWrapper=document.querySelector('.toys-wrapper') as HTMLElement
         let toysContainer=document.querySelector('.toys-container') as HTMLElement
-        console.log('222222222',document.querySelector('.toys-container'))
-        if(toysContainer){
-                 console.log("scrollHeight==='clientHeight'",toysContainer.scrollHeight ===Math.round(toysContainer.scrollTop +toysContainer.clientHeight) )
-        console.log("scrollHeight==='clientHeight'",toysContainer.scrollHeight,toysContainer.offsetHeight )
+        console.log('222222222',toysContainer.childNodes.length)
+        if(toysContainer){                
+
+         if(toysContainer.childNodes.length===1||toysContainer.childNodes.length===0){
+            toysWrapper.classList.add('no-arrow')
+        }else{
+            
+            toysWrapper.classList.remove('no-arrow') 
+        }
+
         }
           
        

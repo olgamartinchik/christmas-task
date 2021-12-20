@@ -15,7 +15,7 @@ class LikeCards {
     openLikeCards():void {
         const countSelect = document.querySelector('.count-select');
         countSelect!.addEventListener('click', ():void => {
-            // console.log('this.likeToys',containerLikeCards)
+          
             let message=isRu?'Нет избранных игрушек':'No favorite toys'
             this.openCards.openCards(containerLikeCards, message);
             this.closePopup.closePopup();
