@@ -29,11 +29,14 @@ class ToyWrapper {
         const toysWrapper = document.querySelector('.toys-wrapper') as HTMLElement;
         const toysContainer = document.querySelector('.toys-container') as HTMLElement;
         if (toysContainer) {
-            if (toysContainer.childNodes.length === 1 || toysContainer.childNodes.length === 0) {
+            console.log('.currentStyle.height',toysContainer.scrollHeight > toysContainer.offsetHeight || toysContainer.scrollWidth > toysContainer.offsetWidth)
+            if(toysContainer.scrollHeight > toysContainer.offsetHeight || toysContainer.scrollWidth > toysContainer.offsetWidth){
+                 toysWrapper.classList.remove('no-arrow');
+            }else{
+               
                 toysWrapper.classList.add('no-arrow');
-            } else {
-                toysWrapper.classList.remove('no-arrow');
             }
+          
         }
     }
 }
