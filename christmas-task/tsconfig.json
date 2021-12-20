@@ -13,6 +13,8 @@
     "resolveJsonModule": true,
     "experimentalDecorators": true,
     "skipLibCheck": true,
+    "suppressImplicitAnyIndexErrors": true,
+
     "forceConsistentCasingInFileNames": true,
     "outDir": "./dist",
     "lib": [

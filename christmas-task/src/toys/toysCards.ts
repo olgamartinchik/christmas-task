@@ -20,17 +20,35 @@ interface ICard {
     favorite: boolean;
 }
 type IData = [card: ICard];
+type DescriptionToy={
+    [key:string]:boolean|string|undefined
+}
+// type DescriptionToy={[key:string]: boolean | undefined}|{
+//     'Количество:'?:string,
+//     'Год покупки:'?: string,
+//     'Форма:'?: string,
+//     'Цвет:'?: string,
+//     'Размер:'?: string,
+//     'Любимая:'?: boolean|string|undefined,
+// }|{
+//     'Number:'?: string,
+//     'Year:'?: string,
+//     'Shape:'?: string,
+//     'Color:'?: string,
+//     'Size:'?: string,
+//     'Favorite:'?: boolean|string|undefined,
+// }
 class ToysCard {
     setAttributes: FiltersControls;
 
-    descriptionArray: object;
+    descriptionArray:DescriptionToy|null ;
 
     closeBtn: Popup;
 
     openPopup: Popup;
 
     constructor() {
-        this.descriptionArray = {};
+        this.descriptionArray = null;
         this.setAttributes = new FiltersControls();
         this.closeBtn = new Popup();
         this.openPopup = new Popup();
@@ -54,7 +72,7 @@ class ToysCard {
         if (localStorage.getItem('numLikeCards')) {
             numLikeCards = JSON.parse(localStorage.getItem('numLikeCards')!);
         }
-
+     
         this.descriptionArray = isRu
             ? {
                   'Количество:': `${card.count}`,
@@ -93,7 +111,7 @@ class ToysCard {
         ul.classList.add('toy-card__description');
         for (const description in this.descriptionArray) {
             const li = document.createElement('li');
-            li.textContent = `${description} ${this.descriptionArray[description]}`;
+            li.textContent = `${description} ${this.descriptionArray[description]!}`;
             ul.appendChild(li);
         }
         const toyCardLike = document.createElement('div');
