@@ -16,6 +16,8 @@ export let countToy = 0;
 if (localStorage.getItem('countToy')) {
     countToy = JSON.parse(localStorage.getItem('countToy')!);
 }
+// let userToys=[]
+// let userCountToys=[]
 class SelectionToys {
  public   data: ToysCard;
  public  closePopup: Popup;

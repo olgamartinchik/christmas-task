@@ -1,0 +1,82 @@
+.controls-tree {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+}
+.audio,
+.snowflake {
+    width: 35px;
+    height: 35px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    transition: 0.4s ease-in-out;
+    &:hover {
+        filter: invert(43%) sepia(74%) saturate(426%) hue-rotate(141deg) brightness(93%) contrast(89%);
+    }
+}
+.audio.active,
+.snowflake.active {
+    filter: invert(43%) sepia(74%) saturate(426%) hue-rotate(141deg) brightness(93%) contrast(89%);
+}
+.audio {
+    background-image: url('../assets/svg/mute.svg');
+}
+.snowflake {
+    background-image: url('../assets/svg/snow.svg');
+}
+.tree-form-container,
+.background-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+}
+.form {
+    background-image: url('../assets/tree/2.png');
+    &:hover {
+        background-color: #278d9fb8;
+    }
+}
+.form,
+.background {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    cursor: pointer;
+    transition: 0.4s;
+}
+.form.active {
+    background-color: #278d9fb8;
+}
+.background {
+    background-image: url('../assets/bg/3.jpg');
+    background-size: cover;
+    &:hover {
+        opacity: 0.5;
+    }
+}
+.background.active {
+    opacity: 0.5;
+}
+.setting-title {
+    margin: 0;
+    padding: 8px 0;
+    text-align: center;
+}
+.save-btn,
+.reset-treeBtn {
+    font-size: 14px;
+    padding: 0px;
+    width: 100px;
+    margin: 2px;
+    height: 44px;
+}

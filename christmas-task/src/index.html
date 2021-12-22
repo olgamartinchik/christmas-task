@@ -37,7 +37,7 @@
                     <div class="nav__container hidden">
                         <ul class="nav__menu">
                             <li class="nav__switch switch-toy switch-toy_active">Игрушки</li>
-                            <!-- <li class="nav__switch switch-tree">Елка</li> -->
+                            <li class="nav__switch switch-tree">Елка</li>
                         </ul>
                         <div class="nav__search-container">
                             <input type="search" class="nav__search" placeholder="Найти игрушку" autofocus />
@@ -51,7 +51,7 @@
             </div>
         </header>
         <main class="main">
-            <section class="main-page">
+            <section class="main-page hidden">
                 <div class="lang">ru</div>
                 <div class="main-page__ball main-page__ball-small"></div>
                 <div class="main-page__ball main-page__ball-big"></div>
@@ -177,7 +177,62 @@
                     </div>
                 </div>
             </section>
-            <section class="tree-page"></section>
+            <section class="tree-page">
+                <div class="tree-page__container">
+                    <div class="tree-settings">
+                        <div class="controls-tree tree-settings__effects">
+                            <div class="audio"></div>
+                            <div class="snowflake"></div>
+                        </div>
+                        <div class="tree-settings__form">
+                            <h2 class="setting-title">Выберите елку:</h2>
+                            <div class="tree-form-container">
+                                <div class="form active"></div>
+                                <div class="form"></div>
+                                <div class="form"></div>
+                                <div class="form"></div>
+                                <div class="form"></div>
+                                <div class="form"></div>
+                            </div>
+                        </div>
+                        <div class="tree-settings__backgrund">
+                            <h2 class="setting-title">Выберите фон:</h2>
+                            <div class="background-container">
+                                <div class="background active"></div>
+                                <div class="background"></div>
+                                <div class="background"></div>
+                                <div class="background"></div>
+                                <div class="background"></div>
+                                <div class="background"></div>
+                                <div class="background"></div>
+                                <div class="background"></div>
+                            </div>
+                        </div>
+                        <div class="tree-settings__garland">
+                            <h2 class="setting-title">Гирляда:</h2>
+                        </div>
+                        <div class="controls">
+                            <button class="save-btn">Сохранить</button>
+                            <button class="reset-treeBtn">Сброс настроек</button>
+                        </div>
+                    </div>
+                    <div class="tree-container"></div>
+                    <div class="user-tree-container">
+                        <div>
+                            <h2 class="setting-title">Игрушки:</h2>
+                            <div class="like-toys">
+                                <div class="user-toys">
+                                    <span class="user-toy__count">2</span>
+                                    <div class="like-toys__containst">
+                                        <img class="" src="./assets/toys/1.png" alt="toy" />
+                                        <img src="./assets/toys/1.png" alt="toy" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
 
         <footer class="footer">

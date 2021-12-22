@@ -19,21 +19,58 @@ class App {
     }
 
     toggleMainPage(): void {
-        (document.querySelector('.main-page__button') as HTMLElement).addEventListener('click', (): void => {
-            (document.querySelector('.main-page') as HTMLElement).classList.add('hidden');
-
-            (document.querySelector('.nav__container') as HTMLElement).classList.remove('hidden');
-            (document.querySelector('.toys-page') as HTMLElement).classList.remove('hidden');
-            (document.querySelector('.nav__search') as HTMLInputElement).focus();
-        });
-
-        (document.querySelector('.nav__logo') as HTMLElement).addEventListener('click', (): void => {
-            (document.querySelector('.main-page') as HTMLElement).classList.remove('hidden');
-            (document.querySelector('.nav__container') as HTMLElement).classList.add('hidden');
-
-            (document.querySelector('.toys-page') as HTMLElement).classList.add('hidden');
-        });
+        const headerContainer = document.querySelector('.header__container') as HTMLElement
         const navSearch = document.querySelector('.nav__search') as HTMLInputElement;
+        const sections=(document.querySelectorAll('section')as NodeListOf<HTMLElement>)
+        const switchTree= document.querySelector('.switch-tree' )as HTMLElement
+        const switchToy=document.querySelector('.switch-toy')as HTMLElement
+        const treePage=(document.querySelector('.tree-page')as HTMLElement )
+        const toysPage= document.querySelector('.toys-page')as HTMLElement
+        const mainPage=document.querySelector('.main-page') as HTMLElement
+        const navContainer=document.querySelector('.nav__container') as HTMLElement
+
+        headerContainer.addEventListener('click',(e):void=>{          
+            if((e.target as HTMLElement).closest('.nav__logo')){
+                sections.forEach(section=>{
+                    section.classList.add('hidden');
+                });
+                navContainer.classList.add('hidden');
+                mainPage.classList.remove('hidden');
+                
+            }
+            if((e.target as HTMLElement).closest('.switch-tree')){
+                sections.forEach(section=>{
+                    section.classList.add('hidden');
+                });
+                (e.target as HTMLElement).closest('.switch-tree')!.classList.add('switch-tree_active');
+                if( switchToy.classList.contains('switch-toy_active')){
+                    switchToy.classList.remove('switch-toy_active');
+                }                
+                treePage.classList.remove('hidden')
+                navSearch.focus();
+            }
+            if((e.target as HTMLElement).closest('.switch-toy')){
+                sections.forEach(section=>{
+                    section.classList.add('hidden');
+                });
+                (e.target as HTMLElement).closest('.switch-toy')!.classList.add('switch-toy_active');
+                if(switchTree.classList.contains('switch-tree_active')){
+                    switchTree.classList.remove('switch-tree_active');
+                }
+                
+                toysPage.classList.remove('hidden');
+                navSearch.focus();
+            }
+
+        });
+        (document.querySelector('.main-page__button') as HTMLElement).addEventListener('click', (): void => {
+            mainPage.classList.add('hidden');
+            navContainer.classList.remove('hidden');
+            toysPage.classList.remove('hidden');
+            navSearch.focus();
+        });
+
+       
         navSearch.addEventListener('focus', (): void => {
             navSearch.classList.add('nav__search_active');
         });

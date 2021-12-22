@@ -1,0 +1,37 @@
+.tree-page,
+.tree-page__container {
+    height: 100%;
+}
+.tree-page__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    // gap: 15px;
+}
+.tree-settings,
+.tree-container,
+.user-tree-container {
+    height: 99%;
+}
+.tree-settings,
+.user-tree-container {
+    width: 30%;
+    margin: 4px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // justify-content: space-evenly;
+    border-radius: 10px;
+    background-color: rgba(31, 112, 127, 0.3);
+    backdrop-filter: blur(6px);
+}
+.tree-settings {
+    .controls {
+        width: 100%;
+        justify-content: space-evenly;
+    }
+}
+.tree-container {
+    width: 40%;
+}
