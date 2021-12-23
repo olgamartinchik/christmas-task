@@ -1,10 +1,14 @@
 .tree-container {
     position: relative;
+    // display: flex;
+    // align-items: flex-end;
+    // justify-content: center;
     overflow: hidden;
-    background-image: url('../assets/bg/3.jpg');
+    background-image: url('../assets/bg/1.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    transition: 0.4s ease-in-out;
 }
 .snow {
     width: 100%;
@@ -27,4 +31,18 @@
     to {
         transform: translateY(105vh);
     }
+}
+.user-tree {
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    position: absolute;
+    z-index: -1;
+    max-width: 370px;
+    width: 100%;
+    margin-bottom: 12px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.4s ease-in-out;
 }

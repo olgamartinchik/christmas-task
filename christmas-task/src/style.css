@@ -936,6 +936,7 @@ input[type=number] {
 
 .form.active {
   background-color: #278d9fb8;
+  opacity: 0.6;
 }
 
 .background {
@@ -967,10 +968,11 @@ input[type=number] {
 .tree-container {
   position: relative;
   overflow: hidden;
-  background-image: url("../assets/bg/3.jpg");
+  background-image: url("../assets/bg/1.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  transition: 0.4s ease-in-out;
 }
 
 .snow {
@@ -998,6 +1000,18 @@ input[type=number] {
     transform: translateY(105vh);
   }
 }
+.user-tree {
+  position: absolute;
+  z-index: -1;
+  max-width: 370px;
+  width: 100%;
+  margin-bottom: 12px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.4s ease-in-out;
+}
+
 .like-toys__wrapper {
   height: 50%;
   overflow-y: auto;

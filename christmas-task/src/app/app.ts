@@ -13,13 +13,10 @@ class App {
         //toys
         new Lang().translateApplication();
         this.toggleMainPage();
-
         new Filters().filterCards();
-
         new ResetFilters().getEmptyFilters();
         //btn reset memory
         new LocalMemory().cleanMemory();
-
         new SelectionToys().toggleSelectionCards();
 
         //tree
@@ -27,7 +24,7 @@ class App {
         new UserToys().createToysContainer()
         new SettingsTree().buildSettingsTree()
         new UserSettings().getUserSettings()
-        new Snow().getSnow()
+        
 
     }
 
