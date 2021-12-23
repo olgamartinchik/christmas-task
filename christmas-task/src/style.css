@@ -965,12 +965,39 @@ input[type=number] {
 }
 
 .tree-container {
+  position: relative;
+  overflow: hidden;
   background-image: url("../assets/bg/3.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
 
+.snow {
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 100;
+  overflow: hidden;
+  font-size: 20px;
+  color: #fff;
+}
+
+.fa-snowflake {
+  position: absolute;
+  top: -50px;
+  animation: fall 10s linear forwards;
+}
+
+.hide {
+  display: none;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(105vh);
+  }
+}
 .like-toys__wrapper {
   height: 50%;
   overflow-y: auto;
