@@ -2,6 +2,7 @@ import ToysCard from './toysCards';
 import Popup from './popupHandler';
 import LikeCards from './likeCardsHandler';
 import { isRu } from './toggleLang';
+import UserToys from '../tree/userToys';
 
 export let containerLikeCards: string[] = [];
 if (localStorage.getItem('containerLikeCards')) {
@@ -89,7 +90,9 @@ class SelectionToys {
                     card!.classList.remove('active');
                 }
             }
+            new UserToys().createToysContainer()
         });
+     
     }
 
     public  resetCount(): void {

@@ -3,9 +3,13 @@ import SelectionToys from '../toys/selectionToy';
 import ResetFilters from '../toys/resetFilters';
 import LocalMemory from '../toys/resetLocalStorage';
 import Lang from '../toys/toggleLang';
+import UserToys from '../tree/userToys';
+import SettingsTree from '../tree/createSettingsTree';
+import UserSettings from '../tree/getUserSettings';
 
 class App {
     public start(): void {
+        //toys
         new Lang().translateApplication();
         this.toggleMainPage();
 
@@ -16,6 +20,13 @@ class App {
         new LocalMemory().cleanMemory();
 
         new SelectionToys().toggleSelectionCards();
+
+        //tree
+        
+        new UserToys().createToysContainer()
+        new SettingsTree().buildSettingsTree()
+        new UserSettings().getUserSettings()
+
     }
 
     toggleMainPage(): void {

@@ -16,12 +16,15 @@
         filter: invert(43%) sepia(74%) saturate(426%) hue-rotate(141deg) brightness(93%) contrast(89%);
     }
 }
-.audio.active,
+
 .snowflake.active {
     filter: invert(43%) sepia(74%) saturate(426%) hue-rotate(141deg) brightness(93%) contrast(89%);
 }
 .audio {
     background-image: url('../assets/svg/mute.svg');
+}
+.audio.play {
+    background-image: url('../assets/svg/audio.svg');
 }
 .snowflake {
     background-image: url('../assets/svg/snow.svg');
@@ -30,14 +33,14 @@
 .background-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 5px;
+    gap: 6px;
     width: 100%;
-    justify-content: flex-start;
+    justify-content: space-around;
     align-items: flex-start;
     align-content: flex-start;
 }
 .form {
-    background-image: url('../assets/tree/2.png');
+    // background-image: url('../assets/tree/2.png');
     &:hover {
         background-color: #278d9fb8;
     }
@@ -58,7 +61,7 @@
     background-color: #278d9fb8;
 }
 .background {
-    background-image: url('../assets/bg/3.jpg');
+    // background-image: url('../assets/bg/3.jpg');
     background-size: cover;
     &:hover {
         opacity: 0.5;

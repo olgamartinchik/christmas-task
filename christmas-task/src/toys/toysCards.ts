@@ -9,7 +9,7 @@ if (localStorage.getItem('isArrowDown')) {
     isArrowDown = Boolean(localStorage.getItem('isArrowDown'));
 }
 
-interface ICard {
+export interface ICard {
     num: string;
     name: string;
     count: string;
@@ -19,7 +19,7 @@ interface ICard {
     size: string;
     favorite: boolean;
 }
-type IData = [card: ICard];
+export type IData = [card: ICard];
 type DescriptionToy = {
     [key: string]: boolean | string | undefined;
 };
@@ -37,7 +37,7 @@ class ToysCard {
         this.openPopup = new Popup();
     }
 
-  private  async getData(): Promise<IData> {
+  public  async getData(): Promise<IData> {
         let url: string | null = null;
         if (isRu) {
             url = '../data.json';
