@@ -25,7 +25,6 @@ class App {
         new UserToys().createToysContainer()
         new SettingsTree().buildSettingsTree()
         new UserSettings().getUserSettings()
-        new Garland().createGarland()
         
 
     }

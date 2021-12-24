@@ -1130,6 +1130,15 @@ input[type=number] {
   transition: 0.4s ease-in-out;
 }
 
+.garland-tree-container {
+  opacity: 1;
+  transition: 0.4s ease-in-out;
+}
+
+.garland-tree-container.hide {
+  opacity: 0;
+}
+
 .like-toys__wrapper {
   height: 103%;
   overflow-y: auto;

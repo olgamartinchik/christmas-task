@@ -1,3 +1,4 @@
+import Garland from "./createGarland"
 import SettingsTree from "./createSettingsTree"
 import Snow from "./getSnow"
 
@@ -9,6 +10,9 @@ interface ISettings{
     isSnow:boolean,
     dataBg:string|null;
     dataTree:string|null;
+    dataGarland:string|null;
+    idGarland:string|null;
+    isGarland:boolean
 }
 
 
@@ -17,6 +21,9 @@ let settings:ISettings={
     isSnow:false,
     dataBg:'1',
     dataTree:'1',
+    dataGarland:'multicolor',
+    idGarland:'0',
+    isGarland:false,
 }
 //  let isMute=true
 //  let isSnow=false
@@ -25,6 +32,9 @@ if(localStorage.getItem('settings')){
     settings.isMute=Boolean(JSON.parse(localStorage.getItem('settings')!).isMute)
     settings.dataBg=JSON.parse(localStorage.getItem('settings')!).dataBg
     settings.dataTree=JSON.parse(localStorage.getItem('settings')!).dataTree
+    settings.dataGarland=JSON.parse(localStorage.getItem('settings')!).dataGarland
+    settings.idGarland=JSON.parse(localStorage.getItem('settings')!).idGarland
+    settings.isGarland=Boolean(JSON.parse(localStorage.getItem('settings')!).isGarland)
 }
 
 
@@ -93,6 +103,7 @@ class UserSettings{
                 settings.dataBg=numBg!
                 this.setBgTree(settings.dataBg)
                 new SettingsTree().buildTreeBg(+settings.dataBg)
+                
                 localStorage.setItem('settings',JSON.stringify(settings))
             }
         })
@@ -120,12 +131,48 @@ class UserSettings{
         })
         
     }
+    switchGarland(){
+      const garlandContainer=document.querySelector('.garland-container')as HTMLElement
+      new SettingsTree().createGarlandBtn(+settings.idGarland!)
+      new Garland().createGarland(settings.dataGarland!)
+      garlandContainer!.addEventListener('click',(e)=>{
+          if((e.target as HTMLElement).closest('.color-garland')){
+            settings.dataGarland=(e.target as HTMLElement).closest('.color-garland')!.getAttribute('data-color-lite')
+            settings.idGarland=(e.target as HTMLElement).closest('.color-garland')!.id
+            new SettingsTree().createGarlandBtn(+settings.idGarland)
+            new Garland().createGarland(settings.dataGarland!)
+            localStorage.setItem('settings',JSON.stringify(settings))
+          }
+      })
+    }
+    onOfGarland(){
+        const checkbox=document.querySelector('.checkbox') as HTMLInputElement
+        checkbox.checked=settings.isGarland
+        const garlandTreeContainer=document.querySelector('.garland-tree-container') as HTMLElement
+        if(checkbox.checked){
+            garlandTreeContainer.classList.remove('hide')
+        }else{
+            garlandTreeContainer.classList.add('hide')
+        }
+        checkbox.addEventListener('click',()=>{
+            settings.isGarland=checkbox.checked
+            if(checkbox.checked){
+                garlandTreeContainer.classList.remove('hide')
+            }else{
+                garlandTreeContainer.classList.add('hide')
+            }
+            localStorage.setItem('settings',JSON.stringify(settings))
+        })
+
+    }
 
     getUserSettings(){
         this.toggleAudio()
         this.toggleSnow()
         this.toggleBackground()
         this.toggleTree()
+        this.switchGarland()
+        this.onOfGarland()
         console.log('settings',settings)
     }
 }

@@ -47,6 +47,14 @@
 
     transition: 0.4s ease-in-out;
 }
+.garland-tree-container {
+    opacity: 1;
+    transition: 0.4s ease-in-out;
+}
+.garland-tree-container.hide {
+    opacity: 0;
+}
+
 @media (max-width: 888px) {
     // .user-tree{
     //     top: 59%;

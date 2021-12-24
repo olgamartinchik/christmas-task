@@ -1,6 +1,7 @@
-const dataTree=['1','2','3','4','5','6']
-const dataBg=['1','2','3','4','5','6','7','8']
-const colorGarland=['multicolor','blue','red','yellow','green']
+const dataTree:string[]=['1','2','3','4','5','6']
+const dataBg:string[]=['1','2','3','4','5','6','7','8']
+
+const colorGarland:string[]=['multicolor','blue','red','yellow','green']
 class SettingsTree{
 
     createContainer(selector:HTMLElement,divClass:string, dataAttribute:string, array:string[],extension:string, index:number=1){
@@ -34,16 +35,18 @@ class SettingsTree{
         this.createContainer(backgroundContainer,'background', 'bg', dataBg,'.jpg',index)
     }
     createGarlandBtn(index=0){
+        console.log('colorGarland[`${dataAttribute}`]',colorGarland)
         const garlandContainer=document.querySelector('.garland-container') as HTMLElement
         garlandContainer!.innerHTML=''
-        colorGarland.forEach((color,ind)=>{
+        colorGarland.forEach((color: string,ind: number)=>{
             const button=document.createElement('button')
             button.classList.add('color-garland',`btn-${color}`)
             if(ind===index){
                 button.classList.add('active')
             }
             button.setAttribute('data-color-lite', color)
-            garlandContainer?.append(button)
+            button.id=ind.toString();
+            garlandContainer!.append(button)
         })
     }
   
