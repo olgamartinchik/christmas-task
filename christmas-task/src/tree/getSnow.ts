@@ -7,8 +7,6 @@ class Snow{
         snowFlake.style.animationDuration=Math.random()*3+2+'s';
         snowFlake.style.opacity=Math.random().toString();
         snowFlake.style.fontSize=Math.random()*10+10+'px';
-
-
         snow!.append(snowFlake)
         setTimeout(()=>{
             snowFlake.remove()

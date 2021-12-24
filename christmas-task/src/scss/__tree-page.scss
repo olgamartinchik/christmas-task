@@ -21,7 +21,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    // justify-content: space-evenly;
+    justify-content: space-between;
     border-radius: 10px;
     background-color: rgba(31, 112, 127, 0.3);
     backdrop-filter: blur(6px);
@@ -34,4 +34,7 @@
 }
 .tree-container {
     width: 40%;
+}
+.save-tree-container {
+    height: 100%;
 }

@@ -7,6 +7,7 @@ import UserToys from '../tree/userToys';
 import SettingsTree from '../tree/createSettingsTree';
 import UserSettings from '../tree/getUserSettings';
 import Snow from '../tree/getSnow';
+import Garland from '../tree/createGarland';
 
 class App {
     public start(): void {
@@ -24,6 +25,7 @@ class App {
         new UserToys().createToysContainer()
         new SettingsTree().buildSettingsTree()
         new UserSettings().getUserSettings()
+        new Garland().createGarland()
         
 
     }
