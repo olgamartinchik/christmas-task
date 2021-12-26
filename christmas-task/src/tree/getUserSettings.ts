@@ -114,18 +114,22 @@ class UserSettings{
     }
     setUserTree(dataTree:string){
         const userTree=document.querySelector('.user-tree') as HTMLImageElement
-        userTree.src=`./assets/tree/${dataTree}.png`
+             userTree.src=`./assets/tree/${dataTree}.png`
+       
     }
     toggleTree(){
         const treeFormContainer=document.querySelector('.tree-form-container') as HTMLElement
         new SettingsTree().buildTreeForm(+settings.dataTree!)
-        this.setUserTree(settings.dataTree!)
+        
+            this.setUserTree(settings.dataTree!)
+      
+        
         treeFormContainer.addEventListener('click',(e)=>{
             if((e.target as HTMLElement).closest('.form')){
                 let numTree=(e.target as HTMLElement).closest('.form')?.getAttribute('data-tree');
                 settings.dataTree=numTree!
-                new SettingsTree().buildTreeForm(+settings.dataTree!)
-                this.setUserTree(settings.dataTree!)
+                new SettingsTree().buildTreeForm(+settings.dataTree!)               
+                    this.setUserTree(settings.dataTree!)              
                 localStorage.setItem('settings',JSON.stringify(settings))
             }
         })

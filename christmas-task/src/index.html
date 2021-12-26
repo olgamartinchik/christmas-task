@@ -33,7 +33,7 @@
             </div>
             <div class="header__container">
                 <nav class="nav">
-                    <a class="nav__logo" href="#"></a>
+                    <a class="nav__logo" href="#" draggable="='true"></a>
                     <div class="nav__container hidden">
                         <ul class="nav__menu">
                             <li class="nav__switch switch-toy switch-toy_active">Игрушки</li>
@@ -235,7 +235,16 @@
                     <div class="animate__animated animate__fadeIn tree-container">
                         <div class="snow hide"><i class="far fa-snowflake"></i></div>
                         <div class="garland-tree-container hide"></div>
-                        <img class="animate__animated animate__fadeIn user-tree" src="./assets/tree/1.png" alt="tree" />
+                        <!-- <div class="dddd"> -->
+                        <map name="tree-map">
+                            <area
+                                class="map-tree"
+                                coords="319,45,338,70,351,85,372,116,361,143,371,157,387,184,414,175,414,218,459,253,428,293,459,314,437,347,484,372,449,411,473,442,510,469,483,513,506,537,540,543,544,571,521,586,519,623,503,665,477,680,454,668,438,689,411,698,384,697,349,695,300,703,256,711,234,665,199,683,176,661,148,638,120,618,89,566,103,541,172,526,107,469,178,416,150,378,197,341,196,305,199,254,182,251,239,237,244,202,226,174,269,182,260,133,266,95,291,59"
+                                shape="poly"
+                            />
+                        </map>
+                        <img usemap="#tree-map" class="user-tree" src="./assets/tree/1.png" alt="tree" />
+                        <!-- </div> -->
                     </div>
                     <div class="user-tree-container">
                         <h2 class="setting-title">Игрушки:</h2>

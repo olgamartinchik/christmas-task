@@ -926,10 +926,6 @@ input[type=number] {
   align-content: flex-start;
 }
 
-.form:hover {
-  background-color: #278d9fb8;
-}
-
 .form,
 .background {
   width: 60px;
@@ -943,9 +939,13 @@ input[type=number] {
   transition: 0.4s ease-in-out;
 }
 
+.form:hover {
+  opacity: 0.4;
+}
+
 .form.active {
-  background-color: #278d9fb8;
   opacity: 0.6;
+  box-shadow: 0px 0px 0px 3px #00ff14;
 }
 
 .background {
@@ -956,7 +956,8 @@ input[type=number] {
 }
 
 .background.active {
-  opacity: 0.2;
+  opacity: 0.6;
+  box-shadow: 0px 0px 0px 3px #00ff14;
 }
 
 .setting-title {
@@ -1097,7 +1098,6 @@ input[type=number] {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: 100;
   overflow: hidden;
   font-size: 20px;
   color: #fff;
@@ -1106,6 +1106,7 @@ input[type=number] {
 .fa-snowflake {
   position: absolute;
   top: -50px;
+  z-index: 3;
   animation: fall 10s linear forwards;
 }
 
@@ -1120,7 +1121,7 @@ input[type=number] {
 }
 .user-tree {
   position: absolute;
-  z-index: -1;
+  z-index: 1;
   max-width: 370px;
   width: 100%;
   bottom: 0;
@@ -1136,9 +1137,13 @@ input[type=number] {
 }
 
 .garland-tree-container.hide {
-  opacity: 0;
+  display: none;
 }
 
+.map-tree {
+  position: relative;
+  z-index: 4;
+}
 .like-toys__wrapper {
   height: 103%;
   overflow-y: auto;
@@ -1190,11 +1195,14 @@ input[type=number] {
   height: 100%;
 }
 .like-toys__contain .like-toys__img {
-  display: block;
-  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.like-toys__img {
+  display: block;
+  position: absolute;
   height: 50px;
   width: 50px;
   object-fit: contain;
@@ -1204,8 +1212,8 @@ input[type=number] {
 .garland-tree-container {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  height: 100%;
+  justify-content: space-around;
+  height: 90%;
   flex-direction: column;
   position: absolute;
   left: 0;
@@ -1216,7 +1224,6 @@ input[type=number] {
 
 .lightrope {
   display: flex;
-  margin-bottom: 37px;
 }
 .lightrope li {
   background-color: #49e819;
@@ -1224,6 +1231,7 @@ input[type=number] {
   height: 10px;
   border-radius: 50%;
   margin: 7px;
+  z-index: 2;
 }
 
 .lightrope li:nth-child(odd) {
@@ -1266,6 +1274,22 @@ li:nth-child(7) {
 .lightrope li:nth-child(5),
 li:nth-child(6) {
   transform: translateY(18px);
+}
+
+@media (max-width: 930px) {
+  .garland-tree-container {
+    height: 80%;
+  }
+}
+@media (max-width: 840px) {
+  .garland-tree-container {
+    height: 70%;
+  }
+}
+@media (max-width: 780px) {
+  .garland-tree-container {
+    height: 75%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

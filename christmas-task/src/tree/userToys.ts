@@ -16,11 +16,14 @@ class UserToys{
         span.textContent=toy.count
         const likeToysContain=document.createElement('div')
         likeToysContain.classList.add('like-toys__contain');
-        [...Array(+toy.count)].map(()=>{
+        likeToysContain.id=`${toy.num.padStart(2, "0")}`;
+        [...Array(+toy.count)].map((item, ind)=>{
             let img=document.createElement('img')
             img.classList.add('like-toys__img')
+            img.setAttribute('draggable','true')
             img.src=`./assets/toys/${toy.num}.png`
             img.alt='toy'
+            img.id=`${toy.num.padStart(2, "0")}-${ind+1}`
             likeToysContain.append(img)
         });
         userToys.append(span,likeToysContain)
