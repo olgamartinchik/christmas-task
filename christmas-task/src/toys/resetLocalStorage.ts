@@ -1,3 +1,4 @@
+import UserToys from '../tree/userToys';
 import Filters from './filters';
 import SelectionToys, { containerLikeCards, numLikeCards } from './selectionToy';
 
@@ -15,6 +16,7 @@ class LocalMemory {
                 this.cleanLocalStorage();
                 new Filters().filterCards();
                 this.resetCountToys();
+                new UserToys().createToysContainer()
             }
         });
     }

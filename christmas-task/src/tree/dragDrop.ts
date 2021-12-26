@@ -1,5 +1,12 @@
 
-
+let toysOnTree:string[]=[]
+let localToy=[]
+// if(localStorage.getItem('toysOnTree')){
+//     let array=JSON.parse(localStorage.getItem('toysOnTree')!)
+//     array.forEach(toy=>{
+//         localToy.push(toy)
+//     })
+// }
 class DragDrop{
     toy:HTMLElement|null
     coordX:number|null
@@ -47,21 +54,7 @@ class DragDrop{
             }
         })
     }
-    end(){     
-        const tree=document.querySelector('.tree-container') as HTMLElement
-        tree.addEventListener('dragend', (e)=>{
-            
-            if((e.target as HTMLElement).closest('.like-toys__img')){
-               this.toy=(e.target as HTMLElement).closest('.like-toys__img') as HTMLElement
-               this.toy!.style.position='absolute'
-     
-               this.toy!.style.top=(e.pageY - this.coordY!)+'px'
-               this.toy!.style.left=(e.pageX - this.coordX!)+'px'
-            //  console.log('dragend',this.toy!.style.top, this.toy!.style.left, this.toy)
-            }
-        }) 
 
-    }
     dragOver(){
         const tree=document.querySelector('area') as HTMLElement
         tree.addEventListener('dragover',(e)=>{              
@@ -120,15 +113,18 @@ class DragDrop{
     drop(){
         const tree=document.querySelector('area') as HTMLElement
         tree.addEventListener('drop',(e)=>{        
-            let toy=document.getElementById(e.dataTransfer!.getData('id')) as HTMLElement
+            let toy=document.getElementById(e.dataTransfer!.getData('id')) as HTMLImageElement
             toy.setAttribute('draggable','true')
-            toy!.style.zIndex='1000';
+            toy!.style.zIndex='3';
             // let rect =(e.target as HTMLElement).getBoundingClientRect();
             toy!.style.top=(e.offsetY - this.coordY!)+'px'
             toy!.style.left=(e.offsetX - this.coordX!)+'px'
-            tree.append(toy)
             
-            // console.log('drop',toy,rect)
+            tree.append(toy)
+            // let stringToy=this.getBase64Image(toy!) 
+            // toysOnTree.push(stringToy)
+            // localStorage.setItem('toysOnTree',JSON.stringify(toysOnTree))
+            // console.log('toysOnTree',toysOnTree)
             
             const likeToys=document.querySelector('.like-toys')as HTMLElement
             likeToys.childNodes.forEach(elem=>{
@@ -158,12 +154,24 @@ class DragDrop{
                 toy!.style.top='50%'
                 toy!.style.left='50%'
                 toy!.style.transform='(-50%, -50%)'
-                container.append(toy)
+                container.append(toy )
                 countToy.textContent=(container.children.length).toString()
                 // console.log('!!!!!!!!!!', countToy)
 
             }
         })
+    }
+     getBase64Image(img:HTMLImageElement):string {
+        let canvas = document.createElement("canvas");
+        canvas.width = img.width;
+        canvas.height = img.height;
+    
+        let ctx = canvas.getContext("2d");
+        ctx!.drawImage(img!, 0, 0);
+    
+        var dataURL = canvas.toDataURL("image/png");
+    
+        return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
     }
 
 }

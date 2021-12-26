@@ -22,7 +22,7 @@
 .fa-snowflake {
     position: absolute;
     top: -50px;
-    z-index: 3;
+    z-index: 4;
     animation: fall 10s linear forwards;
 }
 .hide {
@@ -36,31 +36,19 @@
 .user-tree {
     position: absolute;
     z-index: 1;
-    // width: 300px;
     height: auto;
     max-width: 370px;
     width: 100%;
     bottom: 0;
     left: 0;
-    // top: 0;
-    // top: 50%;
-    // left: 50%;
     right: 0;
     margin: 0 auto;
-    // transform: translate(-50%, -33%);
     transition: 0.4s ease-in-out;
 }
 .garland-tree-container {
-    // z-index: 2;
     opacity: 1;
     transition: 0.4s ease-in-out;
 }
 .garland-tree-container.hide {
     display: none;
-}
-
-@media (max-width: 888px) {
-    // .user-tree{
-    //     top: 59%;
-    // }
 }

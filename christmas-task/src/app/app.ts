@@ -9,6 +9,8 @@ import UserSettings from '../tree/getUserSettings';
 import Snow from '../tree/getSnow';
 import Garland from '../tree/createGarland';
 import DragDrop from '../tree/dragDrop';
+import ScreenTree from '../tree/saveUserTree';
+import resetMemoryTree from '../tree/cleanLocalStorage';
 
 
 class App {
@@ -28,7 +30,9 @@ class App {
         new SettingsTree().buildSettingsTree()
         new UserSettings().getUserSettings()
         new DragDrop().getDragDrop()
-        
+        new ScreenTree().saveTree()
+
+        new resetMemoryTree().cleanLocalMemory()
 
     }
 
@@ -42,12 +46,14 @@ class App {
         const toysPage= document.querySelector('.toys-page')as HTMLElement
         const mainPage=document.querySelector('.main-page') as HTMLElement
         const navContainer=document.querySelector('.nav__container') as HTMLElement
+        
 
         headerContainer.addEventListener('click',(e):void=>{          
             if((e.target as HTMLElement).closest('.nav__logo')){
                 sections.forEach(section=>{
                     section.classList.add('hidden');
                 });
+                navSearch.classList.remove('hidden')
                 navContainer.classList.add('hidden');
                 mainPage.classList.remove('hidden');
                 
@@ -61,7 +67,9 @@ class App {
                     switchToy.classList.remove('switch-toy_active');
                 }                
                 treePage.classList.remove('hidden')
-                navSearch.focus();
+                // navSearch.focus();
+                navSearch.classList.add('hidden')
+                
             }
             if((e.target as HTMLElement).closest('.switch-toy')){
                 sections.forEach(section=>{
@@ -73,6 +81,7 @@ class App {
                 }
                 
                 toysPage.classList.remove('hidden');
+                navSearch.classList.remove('hidden')
                 navSearch.focus();
             }
 

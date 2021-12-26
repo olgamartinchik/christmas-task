@@ -12,9 +12,9 @@
     align-content: flex-start;
     gap: 6px;
     width: 100%;
+    padding: 10px 0;
 }
-.like-toys {
-}
+
 .user-toys {
     position: relative;
     display: flex;
@@ -62,4 +62,26 @@
     width: 50px;
     object-fit: contain;
     cursor: move;
+}
+.screen-wrapper {
+    height: 80%;
+    overflow: auto;
+    padding: 15px 0;
+}
+.screen-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 10px;
+    .screen {
+        width: 100px !important;
+        height: 100px !important;
+        border-radius: 10px !important;
+        cursor: pointer;
+        transition: 0.4s ease-in-out;
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
 }

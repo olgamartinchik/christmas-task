@@ -355,11 +355,16 @@ h2 {
   font-size: 20px;
   background-color: #278d9f;
   text-shadow: black 0.1em 0.1em 0.2em;
+  opacity: 1;
   transition: 0.3s ease-in-out;
 }
 .nav__select span:hover {
   cursor: pointer;
   color: #fff;
+}
+
+.nav__search.hidden {
+  opacity: 0;
 }
 
 .toys-page {
@@ -871,7 +876,7 @@ input[type=number] {
 }
 
 .save-tree-container {
-  height: 100%;
+  height: 50%;
 }
 
 .controls-tree {
@@ -920,6 +925,7 @@ input[type=number] {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
+  max-width: 300px;
   width: 100%;
   justify-content: space-around;
   align-items: flex-start;
@@ -962,17 +968,17 @@ input[type=number] {
 
 .setting-title {
   margin: 0;
-  padding: 8px 0;
+  padding: 6px 0;
   text-align: center;
 }
 
 .save-btn,
 .reset-treeBtn {
-  font-size: 14px;
-  padding: 0px;
+  font-size: 12px;
+  padding: 0 5px;
   width: 100px;
-  margin: 2px;
-  height: 44px;
+  margin: 8px 5px;
+  height: 40px;
 }
 
 .garland-wrapper {
@@ -1107,7 +1113,7 @@ input[type=number] {
 .fa-snowflake {
   position: absolute;
   top: -50px;
-  z-index: 3;
+  z-index: 4;
   animation: fall 10s linear forwards;
 }
 
@@ -1156,6 +1162,7 @@ input[type=number] {
   align-content: flex-start;
   gap: 6px;
   width: 100%;
+  padding: 10px 0;
 }
 
 .user-toys {
@@ -1205,6 +1212,30 @@ input[type=number] {
   width: 50px;
   object-fit: contain;
   cursor: move;
+}
+
+.screen-wrapper {
+  height: 80%;
+  overflow: auto;
+  padding: 15px 0;
+}
+
+.screen-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 10px;
+}
+.screen-container .screen {
+  width: 100px !important;
+  height: 100px !important;
+  border-radius: 10px !important;
+  cursor: pointer;
+  transition: 0.4s ease-in-out;
+}
+.screen-container .screen:hover {
+  transform: scale(1.1);
 }
 
 .garland-tree-container {
@@ -1257,22 +1288,22 @@ input[type=number] {
   }
 }
 .lightrope li:nth-child(9),
-li:nth-child(2) {
+.lightrope li:nth-child(2) {
   transform: translateY(6px);
 }
 
 .lightrope li:nth-child(8),
-li:nth-child(3) {
+.lightrope li:nth-child(3) {
   transform: translateY(9px);
 }
 
 .lightrope li:nth-child(4),
-li:nth-child(7) {
+.lightrope li:nth-child(7) {
   transform: translateY(14px);
 }
 
 .lightrope li:nth-child(5),
-li:nth-child(6) {
+.lightrope li:nth-child(6) {
   transform: translateY(18px);
 }
 

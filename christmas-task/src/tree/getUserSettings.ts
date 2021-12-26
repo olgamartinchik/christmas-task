@@ -5,7 +5,7 @@ import Snow from "./getSnow"
 const audio=document.querySelector('.audio') as HTMLElement
 const music=new Audio()
 music.src='../assets/audio/audio.mp3'
-interface ISettings{
+export interface ISettings{
     isMute:boolean,
     isSnow:boolean,
     dataBg:string|null;
@@ -16,7 +16,7 @@ interface ISettings{
 }
 
 
-let settings:ISettings={
+export let settings:ISettings={
     isMute:true,
     isSnow:false,
     dataBg:'1',
@@ -178,6 +178,15 @@ class UserSettings{
         this.switchGarland()
         this.onOfGarland()
         console.log('settings',settings)
+    }
+    resetUserSettings(){
+        settings.isMute=true;
+        settings.isSnow=false;
+        settings.dataBg='1';
+        settings.dataTree='1';
+        settings.dataGarland='multicolor';
+        settings.idGarland='0';
+        settings.isGarland=false;
     }
 }
 export default UserSettings
