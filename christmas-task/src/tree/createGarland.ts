@@ -20,7 +20,8 @@ class Garland{
         
         const garlandTreeContainer=document.querySelector('.garland-tree-container') as HTMLElement
         garlandTreeContainer!.innerHTML=''
-        for (let i=0; i<5;i++){
+        
+        for (let i=0; i<7;i++){
             const ul=document.createElement('ul')
             ul.classList.add('lightrope')
             
@@ -32,9 +33,23 @@ class Garland{
                 ul.append(li)
             }
             garlandTreeContainer!.append(ul)
-        }
-  
+        }        
+        window.addEventListener('load',()=>{     
+            this.getHeightTree()
+        })
+        
+        window.addEventListener(`resize`, event => {
+            this.getHeightTree()        
+          });
 
+    }
+    getHeightTree(){
+        const imgHeight=document.querySelector('.user-tree') as HTMLElement
+        const garlandTreeContainer=document.querySelector('.garland-tree-container') as HTMLElement
+            let heightImg=imgHeight.getBoundingClientRect().height
+            if(heightImg!==0){
+                garlandTreeContainer.style.height=Math.floor(imgHeight.getBoundingClientRect().height )+'px'
+            }
     }
     getRandomInt(min: number,max: number):number{
         return Math.floor(Math.random() * (max - min + 1)) + min;

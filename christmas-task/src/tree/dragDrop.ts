@@ -1,9 +1,5 @@
 
 
-interface IDragEvent{
-    target: HTMLElement
-    dataTransfer:DataTransfer
-}
 class DragDrop{
     toy:HTMLElement|null
     coordX:number|null
@@ -15,20 +11,15 @@ class DragDrop{
     }
 
     getDragDrop(){
-        const tree=document.querySelector('area') as HTMLElement
-        // const likeToys=document.querySelector('.like-toys')as HTMLElement       
-
-        // likeToys.addEventListener('dragstart', this.dragStart)
-        // likeToys.addEventListener('dragend', this.dragEnd) 
         this.start()
         // this.end()
         this.dragOver()
         this. drop()
-        
+        this.dragLeave()
     }
     
     start(){
-        const likeToys=document.querySelector('.like-toys')as HTMLElement       
+        const likeToys=document.querySelector('.like-toys')as HTMLElement      
 
         likeToys.addEventListener('dragstart', (e)=>{
             if((e.target as HTMLElement).closest('.like-toys__img')){           
@@ -38,8 +29,8 @@ class DragDrop{
                 e.dataTransfer!.setData('id',this.toy!.id)
                 this.coordX=e.offsetX
                 this.coordY=e.offsetY
-                console.log('dragStart', this.toy,likeToys.querySelector('.user-toy__count') , this.toy?.parentNode?.children.length)
-                console.log('dataTransfer',this.toy!.id,countToy)
+                // console.log('dragStart', this.toy,likeToys.querySelector('.user-toy__count') , this.toy?.parentNode?.children.length)
+                // console.log('dataTransfer',this.toy!.id,countToy)
 
             }
         })
@@ -51,8 +42,8 @@ class DragDrop{
                 e.dataTransfer!.setData('id',this.toy!.id)
                 this.coordX=e.offsetX
                 this.coordY=e.offsetY
-                console.log('dragStart', this.toy)
-                console.log('dataTransfer',this.toy!.id)
+                // console.log('dragStart', this.toy)
+                // console.log('dataTransfer',this.toy!.id)
             }
         })
     }
@@ -66,45 +57,93 @@ class DragDrop{
      
                this.toy!.style.top=(e.pageY - this.coordY!)+'px'
                this.toy!.style.left=(e.pageX - this.coordX!)+'px'
-             console.log('dragend',this.toy!.style.top, this.toy!.style.left, this.toy)
+            //  console.log('dragend',this.toy!.style.top, this.toy!.style.left, this.toy)
             }
         }) 
 
     }
     dragOver(){
         const tree=document.querySelector('area') as HTMLElement
-        tree.addEventListener('dragover',(e)=>{    
-            e.preventDefault()
+        tree.addEventListener('dragover',(e)=>{              
+                e.preventDefault()           
         })
         const likeToys=document.querySelector('.like-toys')as HTMLElement
         likeToys.addEventListener('dragover',(e)=>{
             if((e.target as HTMLElement).closest('.like-toys__contain')&&(e.target as HTMLElement).closest('.like-toys__contain')!.id===this.toy!.id.substring(0,2)){
                 e.preventDefault()
-                console.log('true',this.toy!.id.substring(0,2))
+                // console.log('true')
             }else{
-                console.log('false')
+                // console.log('false')
+                const likeToys=document.querySelector('.like-toys')as HTMLElement
+                likeToys.childNodes.forEach(elem=>{
+                        // console.log('elem',(elem.childNodes[1] as HTMLElement).id)
+                    if((elem.childNodes[1] as HTMLElement).id===this.toy!.id.substring(0,2)){
+                        if((elem.childNodes[1] as HTMLElement).lastChild===this.toy!){
+                            (elem.childNodes[0] as HTMLElement).textContent=((elem.childNodes[1] as HTMLElement).children.length).toString()
+                        }else{
+                            (elem.childNodes[0] as HTMLElement).textContent=((elem.childNodes[1] as HTMLElement).children.length).toString()
+                        }
+                    
+                    }
+                })
+      
             }
         })
     }
+    dragLeave(){
+        const tree=document.querySelector('area') as HTMLElement
+        tree.addEventListener('dragleave',(e)=>{
+            const likeToys=document.querySelector('.like-toys')as HTMLElement
+            // console.log('tru', likeToys.childNodes)
+            likeToys.childNodes.forEach(elem=>{
+            // console.log('elem',(elem.childNodes[1] as HTMLElement).id)
+                let containerToy=(elem.childNodes[1] as HTMLElement)
+                let countToy=(elem.childNodes[0] as HTMLElement)
+                    if(containerToy.id===this.toy!.id.substring(0,2)){
+                        // console.log('tru!!!!!!!!!!!!',(elem.childNodes[1] as HTMLElement));
+                        this.toy!.style.zIndex='1';        
+                        this.toy!.style.top='50%'
+                        this.toy!.style.left='50%';
+                        this.toy!.style.transform='(-50%, -50%)';
+                        containerToy.append(this.toy!);
+                        if(containerToy.lastChild===this.toy!){
+                            countToy.textContent=(containerToy.children.length).toString()
+                        }else{
+                            countToy.textContent=(containerToy.children.length).toString()
+                        }           
+                    }
+            })
+           
+        })
+        
+    }
     drop(){
         const tree=document.querySelector('area') as HTMLElement
-        tree.addEventListener('drop',(e)=>{
-        
+        tree.addEventListener('drop',(e)=>{        
             let toy=document.getElementById(e.dataTransfer!.getData('id')) as HTMLElement
             toy.setAttribute('draggable','true')
-            toy!.style.position='absolute'
             toy!.style.zIndex='1000';
-            let rect =(e.target as HTMLElement).getBoundingClientRect();
-            // toy!.style.top=(e.offsetY)+'px';
-            // toy!.style.left=(e.offsetX )+'px';
-            // (e.target as HTMLElement).style.position='relative'
-            // (e.target as HTMLElement).append(toy)
-           toy!.style.top=(e.offsetY - this.coordY!)+'px'
+            // let rect =(e.target as HTMLElement).getBoundingClientRect();
+            toy!.style.top=(e.offsetY - this.coordY!)+'px'
             toy!.style.left=(e.offsetX - this.coordX!)+'px'
             tree.append(toy)
             
-            console.log('drop',toy,rect)
-        
+            // console.log('drop',toy,rect)
+            
+            const likeToys=document.querySelector('.like-toys')as HTMLElement
+            likeToys.childNodes.forEach(elem=>{
+                let containerToy=(elem.childNodes[1] as HTMLElement)
+                let countToy=(elem.childNodes[0] as HTMLElement)
+                        // console.log('elem',(elem.childNodes[1] as HTMLElement).id)
+                    if(containerToy.id===this.toy!.id.substring(0,2)){
+                    
+                        if(containerToy.lastChild===this.toy!){
+                            countToy.textContent=(containerToy.children.length).toString()
+                        }else{
+                            countToy.textContent=(containerToy.children.length).toString()
+                        }
+                    }
+            })
         })
         const likeToys=document.querySelector('.like-toys')as HTMLElement
         likeToys.addEventListener('drop',(e)=>{
@@ -121,10 +160,11 @@ class DragDrop{
                 toy!.style.transform='(-50%, -50%)'
                 container.append(toy)
                 countToy.textContent=(container.children.length).toString()
-                console.log('!!!!!!!!!!', countToy)
+                // console.log('!!!!!!!!!!', countToy)
+
             }
         })
     }
- 
+
 }
 export default DragDrop

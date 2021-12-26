@@ -2,23 +2,25 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    height: 90%;
+    // height: 70%;
+    height: 410px;
     flex-direction: column;
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: 23px;
     margin: 0 auto;
+    padding-top: 25px;
 }
 .lightrope {
     display: flex;
-    // margin-bottom: 37px;
+    margin: 0;
     li {
         background-color: #49e819;
         width: 10px;
         height: 10px;
         border-radius: 50%;
-        margin: 7px;
+        margin: 5px;
         z-index: 2;
     }
 }
@@ -58,18 +60,18 @@ li:nth-child(7) {
 li:nth-child(6) {
     transform: translateY(18px);
 }
-@media (max-width: 930px) {
-    .garland-tree-container {
-        height: 80%;
-    }
-}
-@media (max-width: 840px) {
-    .garland-tree-container {
-        height: 70%;
-    }
-}
-@media (max-width: 780px) {
-    .garland-tree-container {
-        height: 75%;
-    }
-}
+// @media (max-width: 930px) {
+//     .garland-tree-container {
+//         height: 80%;
+//     }
+// }
+// @media (max-width: 840px) {
+//     .garland-tree-container {
+//         height: 75%;
+//     }
+// }
+// @media (max-width: 780px) {
+//     .garland-tree-container {
+//         height: 65%;
+//     }
+// }
