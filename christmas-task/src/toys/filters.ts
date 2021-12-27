@@ -19,9 +19,11 @@ export type SortType = {
     favorite?: boolean[];
 };
 class Filters {
-  public  generatorCards: GeneratorCards;
-  public  sortData: SortType;
-  private  dataAttribute: string | null;
+    public generatorCards: GeneratorCards;
+
+    public sortData: SortType;
+
+    private dataAttribute: string | null;
 
     constructor() {
         this.sortData = {
@@ -74,7 +76,7 @@ class Filters {
         });
     }
 
-    private  sortByShape(): void {
+    private sortByShape(): void {
         const shapeFilter = document.querySelectorAll('[data-shape]');
 
         this.dataAttribute = 'data-shape';
@@ -88,7 +90,7 @@ class Filters {
         this.sort(colorFilter, this.sortData.color, this.dataAttribute);
     }
 
-    private  sortBySize(): void {
+    private sortBySize(): void {
         const colorFilter = document.querySelectorAll('[data-size]');
 
         this.dataAttribute = 'data-size';
@@ -123,7 +125,7 @@ class Filters {
         });
     }
 
-    private  filterMaxMin(): void {
+    private filterMaxMin(): void {
         const sort = document.querySelector('.sort') as HTMLInputElement;
         (sort! as HTMLInputElement).addEventListener('change', (e): void => {
             const valueSelect = (e.currentTarget! as HTMLInputElement).value;
@@ -162,7 +164,7 @@ class Filters {
         }
     }
 
-    private  filterByYear(): void {
+    private filterByYear(): void {
         const sliderYears = document.querySelector('#slider-years') as noUiSlider.target;
         const inputYear1 = document.querySelector('#input-year1') as HTMLInputElement;
         const inputYear2 = document.querySelector('#input-year2') as HTMLInputElement;
@@ -192,7 +194,7 @@ class Filters {
         }
     }
 
-   public getAllFilters(): void {
+    public getAllFilters(): void {
         this.sortByFavorite();
         this.sortByShape();
         this.sortByColor();

@@ -20,9 +20,11 @@ if (localStorage.getItem('countToy')) {
 // let userToys=[]
 // let userCountToys=[]
 class SelectionToys {
- public   data: ToysCard;
- public  closePopup: Popup;
- public  openPopup: Popup;
+    public data: ToysCard;
+
+    public closePopup: Popup;
+
+    public openPopup: Popup;
 
     constructor() {
         this.data = new ToysCard();
@@ -30,7 +32,7 @@ class SelectionToys {
         this.openPopup = new Popup();
     }
 
-    public  toggleSelectionCards(): void {
+    public toggleSelectionCards(): void {
         new LikeCards().openLikeCards();
         const toysContainer = document.querySelector('.toys-container') as HTMLElement;
         const countSelectionCards = document.querySelector('.count-select') as HTMLElement;
@@ -90,12 +92,11 @@ class SelectionToys {
                     card!.classList.remove('active');
                 }
             }
-            new UserToys().createToysContainer()
+            new UserToys().createToysContainer();
         });
-     
     }
 
-    public  resetCount(): void {
+    public resetCount(): void {
         countToy = 0;
         const countSelectionCards = document.querySelector('.count-select') as HTMLElement;
         countSelectionCards.textContent = countToy.toString();

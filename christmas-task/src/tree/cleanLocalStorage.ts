@@ -1,21 +1,24 @@
-import UserSettings, { settings } from "./getUserSettings";
+import UserSettings from './getUserSettings';
+import ScreenTree from './saveUserTree';
+import UserToys from './userToys';
 
-class resetMemoryTree{
-    cleanLocalMemory(){
-        const resetTreeBtn=document.querySelector('.reset-treeBtn') as HTMLElement
-        resetTreeBtn!.addEventListener('click', this.handlerResetMemory)
+class ResetMemoryTree {
+    public cleanLocalMemory() {
+        const resetTreeBtn = document.querySelector('.reset-treeBtn') as HTMLElement;
+        resetTreeBtn!.addEventListener('click', this.handlerResetMemory);
     }
-    handlerResetMemory(){
-        
-        if(localStorage.getItem('settings')){
-            localStorage.removeItem('settings');        
-          
+
+    public handlerResetMemory() {
+        if (localStorage.getItem('settings')) {
+            localStorage.removeItem('settings');
         }
-        
-        new UserSettings().resetUserSettings()
-        new UserSettings().getUserSettings()
+
+        new UserSettings().resetUserSettings();
+        new UserSettings().getUserSettings();
+
+        new ScreenTree().cleanObjectToy();
+
+        new UserToys().createToysContainer();
     }
-
-
 }
-export default resetMemoryTree
+export default ResetMemoryTree;

@@ -1,7 +1,7 @@
 import { isArrowDown } from './toysCards';
 
 class ToyWrapper {
- public   hiddenArrowDown(): void {
+    public hiddenArrowDown(): void {
         const toysWrapper = document.querySelector('.toys-wrapper') as HTMLElement;
 
         if (!isArrowDown) {
@@ -13,7 +13,7 @@ class ToyWrapper {
         this.hiddenArrowDownWithSort();
     }
 
-  private  hiddenArrowDownWithScroll(): void {
+    private hiddenArrowDownWithScroll(): void {
         const toysWrapper = document.querySelector('.toys-wrapper') as HTMLElement;
         const toysContainer = document.querySelector('.toys-container') as HTMLElement;
         toysContainer.addEventListener('scroll', () => {
@@ -25,18 +25,23 @@ class ToyWrapper {
         });
     }
 
-    private  hiddenArrowDownWithSort(): void {
+    private hiddenArrowDownWithSort(): void {
         const toysWrapper = document.querySelector('.toys-wrapper') as HTMLElement;
         const toysContainer = document.querySelector('.toys-container') as HTMLElement;
         if (toysContainer) {
-            console.log('.currentStyle.height',toysContainer.scrollHeight > toysContainer.offsetHeight || toysContainer.scrollWidth > toysContainer.offsetWidth)
-            if(toysContainer.scrollHeight > toysContainer.offsetHeight || toysContainer.scrollWidth > toysContainer.offsetWidth){
-                 toysWrapper.classList.remove('no-arrow');
-            }else{
-               
+            console.log(
+                '.currentStyle.height',
+                toysContainer.scrollHeight > toysContainer.offsetHeight ||
+                    toysContainer.scrollWidth > toysContainer.offsetWidth
+            );
+            if (
+                toysContainer.scrollHeight > toysContainer.offsetHeight ||
+                toysContainer.scrollWidth > toysContainer.offsetWidth
+            ) {
+                toysWrapper.classList.remove('no-arrow');
+            } else {
                 toysWrapper.classList.add('no-arrow');
             }
-          
         }
     }
 }

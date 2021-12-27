@@ -2,13 +2,13 @@ import ControlsPanel from './buildControlsPanel';
 import Filters, { SortType } from './filters';
 
 class ResetFilters {
-  public  sortData: Filters;
+    public sortData: Filters;
 
     constructor() {
         this.sortData = new Filters();
     }
 
-  public  getEmptyFilters(): void {
+    public getEmptyFilters(): void {
         const controlsPanel = document.querySelector('.toys-page__controls') as HTMLElement;
 
         controlsPanel!.addEventListener('click', (e): void => {
@@ -23,7 +23,7 @@ class ResetFilters {
         });
     }
 
-   private resetSortData(object: SortType): void {
+    private resetSortData(object: SortType): void {
         object.minMaxSort = null;
         object.minNum = '1';
         object.maxNum = '12';

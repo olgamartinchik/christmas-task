@@ -6,15 +6,15 @@ import Lang from '../toys/toggleLang';
 import UserToys from '../tree/userToys';
 import SettingsTree from '../tree/createSettingsTree';
 import UserSettings from '../tree/getUserSettings';
-import Snow from '../tree/getSnow';
-import Garland from '../tree/createGarland';
 import DragDrop from '../tree/dragDrop';
 import ScreenTree from '../tree/saveUserTree';
-import resetMemoryTree from '../tree/cleanLocalStorage';
-
+import ResetMemoryTree from '../tree/cleanLocalStorage';
+import imageMapResize from '../mapImage.min';
 
 class App {
     public start(): void {
+        imageMapResize();
+
         //toys
         new Lang().translateApplication();
         this.toggleMainPage();
@@ -25,67 +25,63 @@ class App {
         new SelectionToys().toggleSelectionCards();
 
         //tree
-        
-        new UserToys().createToysContainer()
-        new SettingsTree().buildSettingsTree()
-        new UserSettings().getUserSettings()
-        new DragDrop().getDragDrop()
-        new ScreenTree().saveTree()
 
-        new resetMemoryTree().cleanLocalMemory()
-        
+        new UserToys().createToysContainer();
+        new SettingsTree().buildSettingsTree();
+        new UserSettings().getUserSettings();
+        new DragDrop().getDragDrop();
+        new ScreenTree().saveTree();
 
+        // new ScreenTree().saveToysBeforeUnReload()
+
+        new ResetMemoryTree().cleanLocalMemory();
     }
 
     toggleMainPage(): void {
-        const headerContainer = document.querySelector('.header__container') as HTMLElement
+        const headerContainer = document.querySelector('.header__container') as HTMLElement;
         const navSearch = document.querySelector('.nav__search') as HTMLInputElement;
-        const sections=(document.querySelectorAll('section')as NodeListOf<HTMLElement>)
-        const switchTree= document.querySelector('.switch-tree' )as HTMLElement
-        const switchToy=document.querySelector('.switch-toy')as HTMLElement
-        const treePage=(document.querySelector('.tree-page')as HTMLElement )
-        const toysPage= document.querySelector('.toys-page')as HTMLElement
-        const mainPage=document.querySelector('.main-page') as HTMLElement
-        const navContainer=document.querySelector('.nav__container') as HTMLElement
-        
+        const sections = document.querySelectorAll('section') as NodeListOf<HTMLElement>;
+        const switchTree = document.querySelector('.switch-tree') as HTMLElement;
+        const switchToy = document.querySelector('.switch-toy') as HTMLElement;
+        const treePage = document.querySelector('.tree-page') as HTMLElement;
+        const toysPage = document.querySelector('.toys-page') as HTMLElement;
+        const mainPage = document.querySelector('.main-page') as HTMLElement;
+        const navContainer = document.querySelector('.nav__container') as HTMLElement;
 
-        headerContainer.addEventListener('click',(e):void=>{          
-            if((e.target as HTMLElement).closest('.nav__logo')){
-                sections.forEach(section=>{
+        headerContainer.addEventListener('click', (e): void => {
+            if ((e.target as HTMLElement).closest('.nav__logo')) {
+                sections.forEach((section) => {
                     section.classList.add('hidden');
                 });
-                navSearch.classList.remove('hidden')
+                navSearch.classList.remove('hidden');
                 navContainer.classList.add('hidden');
                 mainPage.classList.remove('hidden');
-                
             }
-            if((e.target as HTMLElement).closest('.switch-tree')){
-                sections.forEach(section=>{
+            if ((e.target as HTMLElement).closest('.switch-tree')) {
+                sections.forEach((section) => {
                     section.classList.add('hidden');
                 });
                 (e.target as HTMLElement).closest('.switch-tree')!.classList.add('switch-tree_active');
-                if( switchToy.classList.contains('switch-toy_active')){
+                if (switchToy.classList.contains('switch-toy_active')) {
                     switchToy.classList.remove('switch-toy_active');
-                }                
-                treePage.classList.remove('hidden')
+                }
+                treePage.classList.remove('hidden');
                 // navSearch.focus();
-                navSearch.classList.add('hidden')
-                
+                navSearch.classList.add('hidden');
             }
-            if((e.target as HTMLElement).closest('.switch-toy')){
-                sections.forEach(section=>{
+            if ((e.target as HTMLElement).closest('.switch-toy')) {
+                sections.forEach((section) => {
                     section.classList.add('hidden');
                 });
                 (e.target as HTMLElement).closest('.switch-toy')!.classList.add('switch-toy_active');
-                if(switchTree.classList.contains('switch-tree_active')){
+                if (switchTree.classList.contains('switch-tree_active')) {
                     switchTree.classList.remove('switch-tree_active');
                 }
-                
+
                 toysPage.classList.remove('hidden');
-                navSearch.classList.remove('hidden')
+                navSearch.classList.remove('hidden');
                 navSearch.focus();
             }
-
         });
         (document.querySelector('.main-page__button') as HTMLElement).addEventListener('click', (): void => {
             mainPage.classList.add('hidden');
@@ -94,7 +90,6 @@ class App {
             navSearch.focus();
         });
 
-       
         navSearch.addEventListener('focus', (): void => {
             navSearch.classList.add('nav__search_active');
         });
@@ -103,4 +98,5 @@ class App {
         });
     }
 }
+
 export default App;
