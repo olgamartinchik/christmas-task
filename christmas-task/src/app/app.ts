@@ -33,6 +33,7 @@ class App {
         new ScreenTree().saveTree()
 
         new resetMemoryTree().cleanLocalMemory()
+        
 
     }
 

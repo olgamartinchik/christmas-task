@@ -1,4 +1,5 @@
 import html2canvas from "html2canvas"
+import { borderRightStyle } from "html2canvas/dist/types/css/property-descriptors/border-style"
 import UserSettings, {ISettings, settings} from './getUserSettings'
 import UserToys from "./userToys"
 interface SettingsTree{
@@ -18,6 +19,7 @@ let treesSettings:SettingsTree={
     6:{}
 }
 let arrayToys={}
+
 let toys:SettingsTree={
     1:{},
     2:{},
@@ -35,7 +37,8 @@ if(localStorage.getItem('toys')){
 
 
 class ScreenTree{
-    saveTree(){      
+    saveTree(){
+        this.saveToysBeforeUnReload()      
         this.restoreSettings()
         
         const screenContainer=document.querySelector('.screen-container')as HTMLElement
@@ -74,6 +77,7 @@ class ScreenTree{
                     }
                 })
                 arrayToys={}
+                localStorage.setItem('arrayToys',JSON.stringify(arrayToys))
             });
          
         })
@@ -85,6 +89,7 @@ class ScreenTree{
                 let screenId=(e.target as HTMLElement).closest('.screen')!.id
                 console.log('screen', screenId)
                 new UserSettings().restoreSaveSettings(treesSettings[`${screenId}`])
+                console.log('resore settings');
                 new UserSettings().getUserSettings()
                 this.restoreToys(e)
             }
@@ -93,11 +98,8 @@ class ScreenTree{
     }
    async restoreToys(e:Event){
     await   new UserToys().createToysContainer()
-
        const area=document.querySelector('area') as HTMLElement
-       const likToys=document.querySelector('.like-toys')!.querySelectorAll('.like-toys__img')  as NodeListOf<HTMLElement>
-       const span=document.querySelector('.like-toys')!.querySelectorAll('.user-toy__count') as NodeListOf<HTMLElement>
-       const likeToysContain=document.querySelector('.like-toys')!.querySelectorAll('.like-toys__contain') as NodeListOf<HTMLElement>
+       const likToys=document.querySelector('.like-toys')!.querySelectorAll('.like-toys__img')  as NodeListOf<HTMLElement>       
        area!.innerHTML=''
        let screenId=(e.target as HTMLElement).closest('.screen')!.id              
        
@@ -116,9 +118,8 @@ class ScreenTree{
             likToys.forEach(toy=>{
                 if(toy.id===treeToy){
                     let containerToys=toy.parentNode as HTMLDivElement|null
-                    let countToys=toy.parentNode!.parentNode?.querySelector('.user-toy__count') as HTMLElement
-                    
-                    console.log('!!!!!!!!', containerToys,countToys)
+                    let countToys=toy.parentNode!.parentNode?.querySelector('.user-toy__count') as HTMLElement                     
+                    // console.log('!!!!!!!!', containerToys,countToys)
                     toy.remove()
                     countToys.textContent=(containerToys!.children.length).toString()
                 }
@@ -126,6 +127,18 @@ class ScreenTree{
         }
         
        
+    }
+    saveToysBeforeUnReload(){
+        window.addEventListener('beforeunload',()=>{
+            const treeToys=document.querySelector('area')!.querySelectorAll('.like-toys__img') as NodeListOf<HTMLElement>
+            treeToys.forEach(toy=>{
+                arrayToys[toy.id]=[toy.style.top, toy.style.left,toy.getAttribute('data-num')]
+            })
+            localStorage.setItem('arrayToys',JSON.stringify(arrayToys))
+        })
+        window.addEventListener('load',()=>{
+
+        })
     }
  
 }

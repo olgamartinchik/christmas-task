@@ -1,4 +1,10 @@
+// import let intervalId
 class Snow{
+    intervalId:any
+    constructor(){
+        this.intervalId=null
+    }
+    
     createSnowFlake(){
         const snow=document.querySelector('.snow') as HTMLElement        
         const snowFlake=document.createElement('i')
@@ -13,8 +19,11 @@ class Snow{
         }, 5000)
     }
     getSnow(){
-        setInterval(this.createSnowFlake, 50)
-    
+         this.intervalId =setInterval(this.createSnowFlake, 50);
+       
+    }
+    clearInterval(){
+        clearInterval(this.intervalId)
     }
 }
 export default Snow

@@ -39,14 +39,13 @@ if(localStorage.getItem('settings')){
 
 
 class UserSettings{
-  private  playMusic(){
-   
+    private  playMusic(){   
         music.play();
         music.volume = 0.03;
     }
     toggleAudio(){      
         const audio=document.querySelector('.audio') as HTMLElement
-        
+        // document.removeEventListener('click',this.playMusic)
         if(settings.isMute){           
             music.pause()
             audio!.classList.remove('play')                
@@ -55,16 +54,26 @@ class UserSettings{
             audio!.classList.add('play')
         }
         console.log('isMute',settings.isMute)
+        audio.removeEventListener('click',this.handleAudioToggle)
+        audio.addEventListener('click',this.handleAudioToggle)
         audio.addEventListener('click',()=>{
-            console.log('settings',settings)
             document.removeEventListener('click',this.playMusic)
-           
-                 audio!.classList.toggle('play')
-           
+        })
+
+    }
+   
+    handleAudioToggle(){
+        const audio=document.querySelector('.audio') as HTMLElement
+        console.log('settings',settings)
+        // document.removeEventListener('click',this.playMusic)
+          
+                 audio!.classList.toggle('play')          
            
             if(audio.classList.contains('play')){
                 settings.isMute=false
-                this.playMusic()
+                // this.playMusic()
+                music.play();
+                music.volume = 0.03;
                 localStorage.setItem('settings',JSON.stringify(settings))
             }else{
                 settings.isMute=true
@@ -72,8 +81,6 @@ class UserSettings{
                 localStorage.setItem('settings',JSON.stringify(settings))
             }
             console.log('isMute',settings.isMute)
-          
-        })
     }
     toggleSnow(){
         const snowflake=document.querySelector('.snowflake') as HTMLElement
@@ -86,42 +93,32 @@ class UserSettings{
         }else{
             snowflake.classList.remove('active')
             snow!.classList.add('hide')
-        }
-        snowflake!.addEventListener('click', ()=>{
-       
-            snowflake.classList.toggle('active')
-
-            settings.isSnow=snowflake.classList.contains('active')
-            console.log('settings',settings)
-            if(settings.isSnow){
-                snowflake.classList.add('active')
-                snow!.classList.remove('hide')
-                new Snow().getSnow()
-                
-            }else{
-                snowflake.classList.remove('active')
-                snow!.classList.add('hide')
-
-            }
-            localStorage.setItem('settings',JSON.stringify(settings))
-            // if(snowflake.classList.contains('active')){
-           
-            //          settings.isSnow=true
-            //     snow!.classList.remove('hide')
-            //     new Snow().getSnow()
-            //     localStorage.setItem('settings',JSON.stringify(settings))
-            
-               
-            // }else{
-              
-            //         snow!.classList.add('hide')
-            //     settings.isSnow=false
-            //      localStorage.setItem('settings',JSON.stringify(settings))
-              
-                
-            // }
-        })
+            new Snow().clearInterval()
+        }        
+        snowflake!.removeEventListener('click', this.handleSnowflakeClick);
+        snowflake!.addEventListener('click', this.handleSnowflakeClick);
     }
+
+    handleSnowflakeClick(): void {
+        const snowflake=document.querySelector('.snowflake') as HTMLElement
+        const snow =document.querySelector('.snow')as HTMLElement
+
+        snowflake.classList.toggle('active')
+        settings.isSnow=snowflake.classList.contains('active')
+        console.log('settings',settings)
+        if(settings.isSnow){
+            snowflake.classList.add('active')
+            snow!.classList.remove('hide')
+            new Snow().getSnow()            
+        }else{
+            snowflake.classList.remove('active')
+            snow!.classList.add('hide')
+            new Snow().clearInterval()   
+        }
+        localStorage.setItem('settings',JSON.stringify(settings))
+   
+    }
+
     toggleBackground(){
         const backgroundContainer=document.querySelector('.background-container')as HTMLElement
         this.setBgTree(settings.dataBg!)
