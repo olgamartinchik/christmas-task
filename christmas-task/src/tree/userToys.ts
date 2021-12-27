@@ -21,6 +21,7 @@ class UserToys{
             let img=document.createElement('img')
             img.classList.add('like-toys__img')
             img.setAttribute('draggable','true')
+            img.setAttribute('data-num',`${toy.num}`)
             img.src=`./assets/toys/${toy.num}.png`
             img.alt='toy'
             img.id=`${toy.num.padStart(2, "0")}-${ind+1}`

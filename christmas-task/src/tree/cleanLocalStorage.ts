@@ -1,4 +1,4 @@
-import UserSettings, { ISettings } from "./getUserSettings";
+import UserSettings, { settings } from "./getUserSettings";
 
 class resetMemoryTree{
     cleanLocalMemory(){
@@ -8,11 +8,12 @@ class resetMemoryTree{
     handlerResetMemory(){
         
         if(localStorage.getItem('settings')){
-            localStorage.removeItem('settings');
-         
-            new UserSettings().resetUserSettings()
-            new UserSettings().getUserSettings()
+            localStorage.removeItem('settings');        
+          
         }
+        
+        new UserSettings().resetUserSettings()
+        new UserSettings().getUserSettings()
     }
 
 

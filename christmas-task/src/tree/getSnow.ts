@@ -1,6 +1,6 @@
 class Snow{
     createSnowFlake(){
-        const snow=document.querySelector('.snow') as HTMLElement
+        const snow=document.querySelector('.snow') as HTMLElement        
         const snowFlake=document.createElement('i')
         snowFlake.classList.add('far','fa-snowflake')
         snowFlake.style.left=Math.random()*snow.offsetWidth+'px';
@@ -13,7 +13,7 @@ class Snow{
         }, 5000)
     }
     getSnow(){
-        setInterval(this.createSnowFlake, 100)
+        setInterval(this.createSnowFlake, 50)
     
     }
 }

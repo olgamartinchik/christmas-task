@@ -2,7 +2,7 @@ import Garland from "./createGarland"
 import SettingsTree from "./createSettingsTree"
 import Snow from "./getSnow"
 
-const audio=document.querySelector('.audio') as HTMLElement
+// const audio=document.querySelector('.audio') as HTMLElement
 const music=new Audio()
 music.src='../assets/audio/audio.mp3'
 export interface ISettings{
@@ -40,10 +40,13 @@ if(localStorage.getItem('settings')){
 
 class UserSettings{
   private  playMusic(){
+   
         music.play();
         music.volume = 0.03;
     }
     toggleAudio(){      
+        const audio=document.querySelector('.audio') as HTMLElement
+        
         if(settings.isMute){           
             music.pause()
             audio!.classList.remove('play')                
@@ -53,8 +56,12 @@ class UserSettings{
         }
         console.log('isMute',settings.isMute)
         audio.addEventListener('click',()=>{
+            console.log('settings',settings)
             document.removeEventListener('click',this.playMusic)
-            audio!.classList.toggle('play')
+           
+                 audio!.classList.toggle('play')
+           
+           
             if(audio.classList.contains('play')){
                 settings.isMute=false
                 this.playMusic()
@@ -71,6 +78,7 @@ class UserSettings{
     toggleSnow(){
         const snowflake=document.querySelector('.snowflake') as HTMLElement
         const snow =document.querySelector('.snow')as HTMLElement
+        // new Snow().getSnow()
         if(settings.isSnow){
             snowflake.classList.add('active')
             snow!.classList.remove('hide')
@@ -80,17 +88,38 @@ class UserSettings{
             snow!.classList.add('hide')
         }
         snowflake!.addEventListener('click', ()=>{
+       
             snowflake.classList.toggle('active')
-            if(snowflake.classList.contains('active')){
-                settings.isSnow=true
+
+            settings.isSnow=snowflake.classList.contains('active')
+            console.log('settings',settings)
+            if(settings.isSnow){
+                snowflake.classList.add('active')
                 snow!.classList.remove('hide')
                 new Snow().getSnow()
-                localStorage.setItem('settings',JSON.stringify(settings))
+                
             }else{
+                snowflake.classList.remove('active')
                 snow!.classList.add('hide')
-                settings.isSnow=false
-                 localStorage.setItem('settings',JSON.stringify(settings))
+
             }
+            localStorage.setItem('settings',JSON.stringify(settings))
+            // if(snowflake.classList.contains('active')){
+           
+            //          settings.isSnow=true
+            //     snow!.classList.remove('hide')
+            //     new Snow().getSnow()
+            //     localStorage.setItem('settings',JSON.stringify(settings))
+            
+               
+            // }else{
+              
+            //         snow!.classList.add('hide')
+            //     settings.isSnow=false
+            //      localStorage.setItem('settings',JSON.stringify(settings))
+              
+                
+            // }
         })
     }
     toggleBackground(){
@@ -187,6 +216,9 @@ class UserSettings{
         settings.dataGarland='multicolor';
         settings.idGarland='0';
         settings.isGarland=false;
+    }
+    restoreSaveSettings(newSettings:ISettings){
+        settings=newSettings
     }
 }
 export default UserSettings
