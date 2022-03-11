@@ -32,8 +32,6 @@ class App {
         new DragDrop().getDragDrop();
         new ScreenTree().saveTree();
 
-        // new ScreenTree().saveToysBeforeUnReload()
-
         new ResetMemoryTree().cleanLocalMemory();
     }
 
@@ -66,7 +64,7 @@ class App {
                     switchToy.classList.remove('switch-toy_active');
                 }
                 treePage.classList.remove('hidden');
-                // navSearch.focus();
+               
                 navSearch.classList.add('hidden');
             }
             if ((e.target as HTMLElement).closest('.switch-toy')) {

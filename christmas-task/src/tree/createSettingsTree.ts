@@ -42,7 +42,6 @@ class SettingsTree {
     }
 
     public createGarlandBtn(index = 0): void {
-        // console.log('colorGarland[`${dataAttribute}`]', colorGarland);
         const garlandContainer = document.querySelector('.garland-container') as HTMLElement;
         garlandContainer!.innerHTML = '';
         colorGarland.forEach((color: string, ind: number) => {

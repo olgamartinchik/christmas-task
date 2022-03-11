@@ -2,7 +2,7 @@ import Garland from './createGarland';
 import SettingsTree from './createSettingsTree';
 import Snow from './getSnow';
 
-// const audio=document.querySelector('.audio') as HTMLElement
+
 const music = new Audio();
 music.src = '../assets/audio/audio.mp3';
 export interface ISettings {
@@ -24,8 +24,7 @@ export let settings: ISettings = {
     idGarland: '0',
     isGarland: false,
 };
-//  let isMute=true
-//  let isSnow=false
+
 if (localStorage.getItem('settings')) {
     settings.isSnow = Boolean(JSON.parse(localStorage.getItem('settings')!).isSnow);
     settings.isMute = Boolean(JSON.parse(localStorage.getItem('settings')!).isMute);
@@ -65,7 +64,7 @@ class UserSettings {
         audio!.classList.toggle('play');
         if (audio.classList.contains('play')) {
             settings.isMute = false;
-            // this.playMusic()
+           
             music.play();
             music.volume = 0.03;
             localStorage.setItem('settings', JSON.stringify(settings));
@@ -80,7 +79,7 @@ class UserSettings {
     private toggleSnow(): void {
         const snowflake = document.querySelector('.snowflake') as HTMLElement;
         const snow = document.querySelector('.snow') as HTMLElement;
-        // new Snow().getSnow()
+        
         if (settings.isSnow) {
             snowflake.classList.add('active');
             snow!.classList.remove('hide');

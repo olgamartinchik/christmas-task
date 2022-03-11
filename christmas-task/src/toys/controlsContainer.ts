@@ -1,35 +1,6 @@
 import { SortType } from './filters';
 import { isRu } from './toggleLang';
 
-// let optionsValue: object = isRu?{
-//     'name': 'Сортировать по',
-//     'name-max': 'По названию от «А» до «Я»',
-//     'name-mim': 'По названию от «Я» до «А»',
-//     'count-max': 'По количеству по возрастанию',
-//     'count-min': 'По количеству по убыванию',
-// }:{
-//     'name': 'Sort by',
-//     'name-max': 'By name from «A» to «Z»',
-//     'name-mim': 'By name from «Z» до «А»',
-//     'count-max': 'By quantity ascending',
-//     'count-min': 'By quantity descending',
-// };
-// let formToys: object = isRu?{
-//      'шар': 'ball',
-//      'колокольчик': 'bell',
-//      'шишка': 'cone',
-//      'снежинка': 'snowflake',
-//      'фигурка': 'toy'
-//     }:{
-//         'ball': 'ball',
-//         'bell': 'bell',
-//         'bump': 'cone',
-//         'snowflake': 'snowflake',
-//         'figure': 'toy'
-//        };
-// let colorsArray: string[] =isRu? ['белый', 'желтый', 'красный', 'синий', 'зелёный']:
-// ['white', 'yellow', 'red', 'blue', 'green'];
-// let sizeArray: string[] = isRu? ['большой', 'средний', 'малый']:['large', 'medium', 'small'];
 
 class FiltersControls {
     private containerControls: HTMLDivElement[] = [];
